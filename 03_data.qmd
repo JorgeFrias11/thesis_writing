@@ -1,0 +1,64 @@
+# Data
+
+I collect daily cryptocurrency data on open, high, close, and low (OHCL) prices, 24-hour volume, and market capitalization (calculated as the cryptocurrency's USD price multiplied by its circulating supply) from CoinCodex, a website-data provider that gathers data from more than 400 exchanges. I extract the data using the CoinCodex API
+
+
+The sample period ranges from January 1st, 2014, to May 31st, 2025.   
+
+
+From Mercik (2025) 
+Exclude:
+- Stable coins such as USDT, USDC, DAI, etc. regardless of whether they are centrally managed or algorithmically stabilized. 
+- Exclude coins pegged to or reflecting the value of precious metals
+- Coins used as guarantees for derivatives platforms. 
+
+Organize week in the following way: the first seven days of the year forms the first week, and the first 51 weeks of the year consists of 7 days each. The 52th week of the year consists of the last eight days and, in case of a leap year (as 2016, 2020, and 2024), of nine days. 
+
+Similar to **Liu et al**, I construct a daily cryptocurrency market return as the value-weighted average return of all the cryptocurrencies in the sample. For cryptocurrencies $i = 1, ..., N$, the daily market return at time $t$ is computed as: 
+
+$$
+r_t^M = \frac{\sum_{i=1}^N r_{it} \cdot marketcap_{it}}
+             {\sum_{i=1}^N marketcap_{it} }
+$$
+
+The cryptocurrency market excess return (`CMKT`) is constructed as the difference between the cryptocurrency market return and the risk-free rate. To proxy the risk-free rate, I used the (daily) 1-month Treasury bill rate from the FRED. 
+
+
+## Variable description
+
+### Volume shock
+
+Following Bianchi et al. (2022), the volume shock is defined as the log-deviation of trading volume from its rolling average (over 30 or 60 days) for cryptocurrency $i$ at time $t$. For $m \in \{30, 60\}$ periods, the volume shock is estimated as:
+
+$$
+v_{i,t} = \log(\text{Volume}_{i,t}) - \log\left( \frac{1}{m} \sum_{s=1}^{m} \text{Volume}_{i,t-s} \right)
+$$
+
+## Risk
+
+### Realized volatility (rvol)
+
+Using the volatility estimator of Yang and Zhang (2000), I compute the daily realized volatility based on OHCL prices over a rolling 30-day window. For $n > 1$ number of periods, the volatility estimate at time $t$ is:  
+
+$$
+\sigma_t = \sqrt{\sigma^2_O + k\sigma^2_C + (1 - k)\sigma^2_{RS}}
+$$
+where $\sigma^2_{RS}$ is the variance estimator of Rogers et al. (1994), and $\sigma^2_O$, $\sigma^2_C$, $k$ are defined as follows: 
+
+$$
+\sigma^2_O = \frac{1}{n-1}\sum\limits_{i=1}^n(o_i - \bar o)^2,
+$$
+
+$$
+\sigma^2_C = \frac{1}{n-1}\sum\limits_{i=1}^n(c_i - \bar c)^2,
+$$
+
+$$
+k = \frac{\alpha -1}{\alpha + \frac{n+1}{n-1}}
+$$
+
+with $o = ln\,O_t - ln\,C_{t-1}$, and $c = ln\,C_t - ln\,O_t$. Here, $C_{t-1}$ denotes the last days' closing price and $O_t$ the current day's opening price. I set the constant $\alpha = 1.34$ as suggested by Yang and Zhang (2000) to be the best value in practice.  
+
+
+
+@moskowitzTimeSeriesMomentum2012

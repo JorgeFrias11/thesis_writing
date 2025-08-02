@@ -1,0 +1,66 @@
+project:
+  type: book
+
+book:
+  title: "Master Thesis Title"
+  author: 
+    - name: "Jorge Eduardo Frías Navarrete"
+      affiliations: 
+        - name: "Vienna University of Economics and Business"
+  date: "01 August 2025"
+  date-format: "MMMM YYYY"
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - summary.qmd
+    - 03_data.qmd
+    - references.qmd
+  output-file: "JorgeFrias_thesis"
+
+bibliography: references.bib
+csl: apa.csl
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+  pdf:
+    documentclass: scrreprt
+    toc: true
+    toc-depth: 3
+    toc-title: "Table of contents"
+    lof: true
+    lot: true
+    papersize: a4
+    classoption: [openany]
+    number-sections: true
+    number-depth: 2
+    linkcolor: blue
+    fig-pos: "h"
+    geometry:
+      - left=3cm
+      - right=2.5cm
+      - top=3cm
+      - bottom=3cm
+      - showframe
+
+    include-in-header:
+      text: |
+        \usepackage{geometry}
+        \usepackage[ngerman,english]{babel}
+        \usepackage{setspace}
+        \usepackage{titling}
+        \usepackage{parskip}
+        \usepackage{helvet}
+        \renewcommand{\familydefault}{\sfdefault} % Use sans-serif
+        \usepackage{graphicx}
+        \usepackage{xcolor}
+        
+        \setlength{\droptitle}{-5em}
+        \onehalfspacing
+    template-partials: 
+      - before-body.tex
+
+
+

@@ -1,0 +1,57 @@
+$if(has-frontmatter)$
+\frontmatter
+$endif$
+
+%------------------------------------------------
+% Declaring new geometry for the title page only.
+\newgeometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+%------------------------------------------------
+
+\thispagestyle{empty}
+\begin{figure}[h!]
+    \raggedleft
+    \includegraphics[scale=0.9]{pictures/WULogo.png}
+\end{figure}
+
+\vspace{1em}
+
+\begin{center}
+    \textbf{\huge MASTERARBEIT / MASTER’S THESIS} \\
+    \vspace{1.5cm}
+
+    \LARGE $title$ \\
+    \vspace{2.5cm}
+    
+    \normalsize verfasst von / submitted by \\
+    \vspace{0.5cm}
+    
+    \textit{\Large $for(author)$$author.name.literal$ $endfor$ \\}
+    \vspace{2cm}
+    
+    Submitted in total fulfillment of the requirement of the degree of: \\
+    \Large Master of Science (WU)
+        \\
+\vspace{1cm}
+\normalsize
+
+    \begin{tabular}{ll}
+        Matrikelnummer / student ID number: & 012329686 \\
+        Studium / degree programme: & Quantitative Finance \\
+        University & $for(author.affiliations)$$it.name$ $endfor$ \\
+        Betreut von / Supervisor: & Univ.Prof. David Preinerstorfer, Ph.D. \\
+    \end{tabular}
+    \vspace{2cm}
+    
+    \textbf{Wien, $date$ / Vienna, $date$}
+\end{center}
+
+%-----------------------------------------------
+\restoregeometry
+%-----------------------------------------------
+
+
+$if(abstract)$
+\begin{abstract}
+$abstract$
+\end{abstract}
+$endif$

@@ -1,0 +1,43 @@
+---
+references:
+- id: moskowitzTimeSeriesMomentum2012
+  abstract: >-
+    We document significant “time series momentum” in equity index, currency,
+    commodity, and bond futures for each of the 58 liquid instruments we
+    consider. We find persistence in returns for one to 12 months that partially
+    reverses over longer horizons, consistent with sentiment theories of initial
+    under-reaction and delayed over-reaction. A diversified portfolio of time
+    series momentum strategies across all asset classes delivers substantial
+    abnormal returns with little exposure to standard asset pricing factors and
+    performs best during extreme markets. Examining the trading activities of
+    speculators and hedgers, we find that speculators profit from time series
+    momentum at the expense of hedgers.
+  accessed:
+    - year: 2025
+      month: 7
+      day: 27
+  author:
+    - family: Moskowitz
+      given: Tobias J.
+    - family: Ooi
+      given: Yao Hua
+    - family: Pedersen
+      given: Lasse Heje
+  citation-key: moskowitzTimeSeriesMomentum2012
+  collection-title: Special Issue on Investor Sentiment
+  container-title: Journal of Financial Economics
+  container-title-short: Journal of Financial Economics
+  DOI: 10.1016/j.jfineco.2011.11.003
+  ISSN: 0304-405X
+  issue: '2'
+  issued:
+    - year: 2012
+      month: 5
+      day: 1
+  page: 228-250
+  source: ScienceDirect
+  title: Time series momentum
+  type: article-journal
+  URL: https://www.sciencedirect.com/science/article/pii/S0304405X11002613
+  volume: '104'
+...
