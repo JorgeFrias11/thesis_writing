@@ -24,8 +24,9 @@ $endif$
     
     \normalsize verfasst von / submitted by \\
     \vspace{0.5cm}
-    
-    \textit{\Large $for(author)$$author.name.literal$ $endfor$ \\}
+    $for(by-author)$
+    \textit{\Large $by-author.name.literal$ \\}
+    $endfor$
     \vspace{2cm}
     
     Submitted in total fulfillment of the requirement of the degree of: \\
@@ -37,7 +38,7 @@ $endif$
     \begin{tabular}{ll}
         Matrikelnummer / student ID number: & 012329686 \\
         Studium / degree programme: & Quantitative Finance \\
-        University & $for(author.affiliations)$$it.name$ $endfor$ \\
+        University: & $for(by-author)$$for(by-author.affiliations)$$it.name$$endfor$$endfor$ \\
         Betreut von / Supervisor: & Univ.Prof. David Preinerstorfer, Ph.D. \\
     \end{tabular}
     \vspace{2cm}

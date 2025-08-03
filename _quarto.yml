@@ -17,7 +17,7 @@ book:
     - references.qmd
   output-file: "JorgeFrias_thesis"
 
-bibliography: references.bib
+bibliography: references.yaml
 csl: apa.csl
 
 format:
@@ -28,11 +28,12 @@ format:
   pdf:
     documentclass: scrreprt
     toc: true
-    toc-depth: 3
+    toc-depth: 2
     toc-title: "Table of contents"
     lof: true
     lot: true
     papersize: a4
+    fontsize: 11pt
     classoption: [openany]
     number-sections: true
     number-depth: 2
