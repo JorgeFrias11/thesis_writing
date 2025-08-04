@@ -1,0 +1,17 @@
+# Introduction
+
+Mirar Liu et al (y el otro paper similar) donde habla de las criptomonedas, e inspirarnos de ahi. Quiza la otra tesis en esto tambien. 
+
+Empezar con una introduccion de criptomonedas, del mercado, de la gran volatilidad, grandes retornos. Mencionar coin Market cap, la capitalizacion del mercado total de criptomonedas. 
+
+Mencionar articulos o reportes donde mencionen la importancia de este mercado, cuantas personas en promedio tienen criptos en su portafolio. Mencionar sucesos recientes importantes, como la introduccion de criptomonedas en algunos exchanges, de futuros en CME, de indices en XXX, del boom en la crisis de COVID (ver Mercik, donde menciona sucesos importantes). 
+
+mencionar a Ross, que comprobo la estructura lineal de los factores: -- Esto quiza en introduccion
+
+
+
+** Ejemplo de frase See @knuth84 for additional discussion of literate programming.**
+
+```{r}
+1 + 1
+```

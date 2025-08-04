@@ -1,0 +1,16 @@
+# Literature review
+
+
+
+Hacerla similar a la descripciond e la hipoteca inversa. Mencionar las dos corrientes de litertura: por una parte, los modelos de factores construidos como managed-strategies. Mencionar los modelos de factores mas conocidos, y alguna de la literatura importante en este tema: fama french modelo de tres factores @famaCommonRisk1993, FF modelo de cinco factores @famaFivefactorAsset2015
+Citar la coleccion de Chen and ZImmerman @chenOpenSource2021 con la gran cantidad de factores en su dataset. 
+
+Por otra, una corriente basada en la estadistica que construye los factores mediante modelos puramente estadisticos, y que asume que los factores son latentes. Mencionar los dos autores pioneros de PCA: @chamberlainArbitrageFactor1983 and @connorPerformanceMeasurement1986. 
+
+Mencionar modelos recientes con factores dinamicos. Describir brevemente estos modelos de PCA, y despues propuestas de modelacion de factores latentes dinamicos. Entre estos, hablar de @kellyCharacteristicsAre2019, que propuso el modelo dinamico de factores, y mas recientemente, RPCA @chenSemiparametricConditional2022 @chenCommonRisk2024, inspirado en regressiones de fama macbeth, que hace una combinacion de este modelo mas una implementacion de PCA. 
+
+@bianchiMispricingRiskCompensation2021 aplicaron el modelo de Kelly en el mercado de criptos, mencionar otros papers que utilizaron el IPCA (hay otros de Kelly que lo uso para bonos y opciones, investigar)
+
+@chenCommonRisk2024 aplico el RPCA para el cross-section de diferentes asset-classes. 
+
+Mencionar literatura extensa tratando de entender los factores de riesgo de las criptomonedas, por ejemplo, @mercikCrosssectionalInteractionsCryptocurrency2025, y otros papers que tengo en mis archivos y en notas. 

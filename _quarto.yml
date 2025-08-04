@@ -11,9 +11,10 @@ book:
   date-format: "MMMM YYYY"
   chapters:
     - index.qmd
-    - intro.qmd
-    - summary.qmd
-    - 03_data.qmd
+    - 01_intro.qmd
+    - 02_literature_review.qmd
+    - 03_methodology.qmd
+    - 04_data.qmd
     - references.qmd
   output-file: "JorgeFrias_thesis"
 

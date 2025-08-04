@@ -39,6 +39,326 @@ references:
   type: article
   URL: https://papers.ssrn.com/abstract=3935934
 
+- id: chamberlainArbitrageFactor1983
+  abstract: >-
+    We examine the implications of arbitrage in a market with many assets. The
+    absence of arbitrage opportunities implies that the linear functionals that
+    give the mean and cost of a portfolio are continuous; hence there exist
+    unique portfolios that represent these functionals. These portfolios span
+    the mean-variance efficient set. We resolve the question of when a market
+    with many assets permits so much diversification that risk-free investment
+    opportunities are available. Ross [12, 14] showed that if there is a factor
+    structure, then the mean returns are approximately linear functions of
+    factor loadings. We define an approximate factor structure and show that
+    this weaker restriction is sufficient for Ross' result. If the covariance
+    matrix of the asset returns has only K unbounded eigenvalues, then there is
+    an approximate factor structure and it is unique. The corresponding K
+    eigenvectors converge and play the role of factor loadings. Hence only a
+    principal component analysis is needed in empirical work.
+  accessed:
+    - year: 2025
+      month: 8
+      day: 4
+  author:
+    - family: Chamberlain
+      given: Gary
+    - family: Rothschild
+      given: Michael
+  citation-key: chamberlainArbitrageFactor1983
+  container-title: Econometrica
+  DOI: 10.2307/1912275
+  ISSN: 0012-9682
+  issue: '5'
+  issued:
+    - year: 1983
+  page: 1281-1304
+  publisher: '[Wiley, Econometric Society]'
+  source: JSTOR
+  title: >-
+    Arbitrage, Factor Structure, and Mean-Variance Analysis on Large Asset
+    Markets
+  type: article-journal
+  URL: https://www.jstor.org/stable/1912275
+  volume: '51'
+
+- id: chenCommonRisk2024
+  abstract: >-
+    Are there risk factors that are pervasive across major classes of corporate
+    securities: stocks, bonds, and options? We employ a novel econometric
+    procedure that relies on asset characteristics to estimate a conditional
+    latent factor model. A common risk factor structure prominently emerges
+    across asset classes. Several common factors explain a substantial amount of
+    time-series variation of individual asset returns across all three asset
+    classes, and have sizable Sharpe ratios. Several of our factors are highly
+    correlated with some of asset-class-specific factors as well as
+    macroeconomic and financial variables. While a small set of common factors
+    does not fully capture the cross-section of average returns, imposing the
+    factor structure is useful in practice, especially in out-of-sample
+    analysis. A mean-variance efficient portfolio that utilizes asset
+    characteristics achieves a high Sharpe ratio as different asset classes
+    hedge each other's exposures to the common factors.
+  accessed:
+    - year: 2025
+      month: 8
+      day: 4
+  author:
+    - family: Chen
+      given: Zhongtian
+    - family: Roussanov
+      given: Nikolai L.
+    - family: Wang
+      given: Xiaoliang
+    - family: Zou
+      given: Dongchen
+  citation-key: chenCommonRisk2024
+  DOI: 10.2139/ssrn.4703281
+  event-place: Rochester, NY
+  genre: SSRN Scholarly Paper
+  issued:
+    - year: 2024
+      month: 1
+      day: 21
+  language: en
+  number: '4703281'
+  publisher: Social Science Research Network
+  publisher-place: Rochester, NY
+  source: papers.ssrn.com
+  title: Common Risk Factors in the Returns on Stocks, Bonds (and Options), Redux
+  type: article
+  URL: https://papers.ssrn.com/abstract=4703281
+
+- id: chenOpenSource2021
+  abstract: >-
+    We provide data and code that successfully reproduces nearly all
+    cross-sectional stock return predictors.  Our 319 characteristics draw from
+    previous meta-studies, but we differ by comparing our t-stats to the
+    original papers' results.  For the 161 characteristics that were clearly
+    significant in the original papers, 98% of our long-short portfolios find
+    t-stats above 1.96.   For the 44 characteristics that had mixed evidence,
+    our reproductions find t-stats of 2 on average. A regression of reproduced
+    t-stats on original long-short t-stats finds a slope of 0.88 and an R^2 of
+    82%.  Mean returns are monotonic in predictive signals at the characteristic
+    level.  The remaining 114 characteristics were  insignificant in the
+    original papers or are modifications of the originals created by Hou, Xue,
+    and Zhang (2020).  These remaining characteristics are almost always
+    significant if the original characteristic was also significant.
+  accessed:
+    - year: 2025
+      month: 8
+      day: 4
+  author:
+    - family: Chen
+      given: Andrew Y.
+    - family: Zimmermann
+      given: Tom
+  citation-key: chenOpenSource2021
+  DOI: 10.2139/ssrn.3604626
+  event-place: Rochester, NY
+  genre: SSRN Scholarly Paper
+  issued:
+    - year: 2021
+      month: 5
+      day: 21
+  language: en
+  number: '3604626'
+  publisher: Social Science Research Network
+  publisher-place: Rochester, NY
+  source: papers.ssrn.com
+  title: Open Source Cross-Sectional Asset Pricing
+  type: article
+  URL: https://papers.ssrn.com/abstract=3604626
+
+- id: chenSemiparametricConditional2022
+  abstract: "We introduce a simple and tractable methodology for estimating semiparametric conditional latent factor models. Our approach disentangles the roles of characteristics in capturing factor betas of asset returns from ``alpha.''\_ We construct factors by extracting principal components from Fama-MacBeth managed portfolios. Applying this methodology to the cross-section of U.S. individual stock returns, we find compelling evidence of substantial nonzero pricing errors, even though our factors demonstrate superior performance in standard asset pricing tests. Unexplained ``arbitrage'' portfolios earn high Sharpe ratios, which decline over time. Combining factors with these orthogonal portfolios produces out-of-sample Sharpe ratios exceeding 4."
+  accessed:
+    - year: 2025
+      month: 8
+      day: 4
+  author:
+    - family: Chen
+      given: Qihui
+    - family: Roussanov
+      given: Nikolai L.
+    - family: Wang
+      given: Xiaoliang
+  citation-key: chenSemiparametricConditional2022
+  DOI: 10.2139/ssrn.3984633
+  event-place: Rochester, NY
+  genre: SSRN Scholarly Paper
+  issued:
+    - year: 2022
+      month: 7
+      day: 13
+  language: en
+  number: '3984633'
+  publisher: Social Science Research Network
+  publisher-place: Rochester, NY
+  source: papers.ssrn.com
+  title: Semiparametric Conditional Factor Models in Asset Pricing
+  type: article
+  URL: https://papers.ssrn.com/abstract=3984633
+
+- id: connorPerformanceMeasurement1986
+  abstract: >-
+    This paper develops a theory and econometric method of portfolio performance
+    measurement using a competitive equilibrium version of the Arbitrage Pricing
+    Theory. We show that the Jensen coefficient and the appraisal ratio of
+    Treynor and Black are theoretically compatible with the Arbitrage Pricing
+    Theory. We construct estimators for the two performance measures using a new
+    principal components technique, and describe their asymptotic distributions.
+    The estimators are computationally feasible using a large number of
+    securities. We also suggest a new approach to testing for the correct number
+    of factors.
+  accessed:
+    - year: 2025
+      month: 8
+      day: 4
+  author:
+    - family: Connor
+      given: Gregory
+    - family: Korajczyk
+      given: Robert A.
+  citation-key: connorPerformanceMeasurement1986
+  container-title: Journal of Financial Economics
+  container-title-short: Journal of Financial Economics
+  DOI: 10.1016/0304-405X(86)90027-9
+  ISSN: 0304-405X
+  issue: '3'
+  issued:
+    - year: 1986
+      month: 3
+      day: 1
+  page: 373-394
+  source: ScienceDirect
+  title: >-
+    Performance measurement with the arbitrage pricing theory: A new framework
+    for analysis
+  title-short: Performance measurement with the arbitrage pricing theory
+  type: article-journal
+  URL: https://www.sciencedirect.com/science/article/pii/0304405X86900279
+  volume: '15'
+
+- id: famaCommonRisk1993
+  abstract: >-
+    This paper identifies five common risk factors in the returns on stocks and
+    bonds. There are three stock-market factors: an overall market factor and
+    factors related to firm size and book-to-market equity. There are two
+    bond-market factors, related to maturity and default risks. Stock returns
+    have shared variation due to the stock-market factors, and they are linked
+    to bond returns through shared variation in the bond-market factors. Except
+    for low-grade corporates, the bond-market factors capture the common
+    variation in bond returns. Most important, the five factors seem to explain
+    average returns on stocks and bonds.
+  accessed:
+    - year: 2025
+      month: 8
+      day: 4
+  author:
+    - family: Fama
+      given: Eugene F.
+    - family: French
+      given: Kenneth R.
+  citation-key: famaCommonRisk1993
+  container-title: Journal of Financial Economics
+  container-title-short: Journal of Financial Economics
+  DOI: 10.1016/0304-405X(93)90023-5
+  ISSN: 0304-405X
+  issue: '1'
+  issued:
+    - year: 1993
+      month: 2
+      day: 1
+  page: 3-56
+  source: ScienceDirect
+  title: Common risk factors in the returns on stocks and bonds
+  type: article-journal
+  URL: https://www.sciencedirect.com/science/article/pii/0304405X93900235
+  volume: '33'
+
+- id: famaFivefactorAsset2015
+  abstract: >-
+    A five-factor model directed at capturing the size, value, profitability,
+    and investment patterns in average stock returns performs better than the
+    three-factor model of Fama and French (FF, 1993). The five-factor model׳s
+    main problem is its failure to capture the low average returns on small
+    stocks whose returns behave like those of firms that invest a lot despite
+    low profitability. The model׳s performance is not sensitive to the way its
+    factors are defined. With the addition of profitability and investment
+    factors, the value factor of the FF three-factor model becomes redundant for
+    describing average returns in the sample we examine.
+  accessed:
+    - year: 2025
+      month: 8
+      day: 4
+  author:
+    - family: Fama
+      given: Eugene F.
+    - family: French
+      given: Kenneth R.
+  citation-key: famaFivefactorAsset2015
+  container-title: Journal of Financial Economics
+  container-title-short: Journal of Financial Economics
+  DOI: 10.1016/j.jfineco.2014.10.010
+  ISSN: 0304-405X
+  issue: '1'
+  issued:
+    - year: 2015
+      month: 4
+      day: 1
+  page: 1-22
+  source: ScienceDirect
+  title: A five-factor asset pricing model
+  type: article-journal
+  URL: https://www.sciencedirect.com/science/article/pii/S0304405X14002323
+  volume: '116'
+
+- id: kellyCharacteristicsAre2019
+  abstract: >-
+    We propose a new modeling approach for the cross section of returns. Our
+    method, Instrumented Principal Component Analysis (IPCA), allows for latent
+    factors and time-varying loadings by introducing observable characteristics
+    that instrument for the unobservable dynamic loadings. If the
+    characteristics/expected return relationship is driven by compensation for
+    exposure to latent risk factors, IPCA will identify the corresponding latent
+    factors. If no such factors exist, IPCA infers that the characteristic
+    effect is compensation without risk and allocates it to an “anomaly”
+    intercept. Studying returns and characteristics at the stock-level, we find
+    that five IPCA factors explain the cross section of average returns
+    significantly more accurately than existing factor models and produce
+    characteristic-associated anomaly intercepts that are small and
+    statistically insignificant. Furthermore, among a large collection of
+    characteristics explored in the literature, only ten are statistically
+    significant at the 1% level in the IPCA specification and are responsible
+    for nearly 100% of the model’s accuracy.
+  accessed:
+    - year: 2025
+      month: 8
+      day: 4
+  author:
+    - family: Kelly
+      given: Bryan T.
+    - family: Pruitt
+      given: Seth
+    - family: Su
+      given: Yinan
+  citation-key: kellyCharacteristicsAre2019
+  container-title: Journal of Financial Economics
+  container-title-short: Journal of Financial Economics
+  DOI: 10.1016/j.jfineco.2019.05.001
+  ISSN: 0304-405X
+  issue: '3'
+  issued:
+    - year: 2019
+      month: 12
+      day: 1
+  page: 501-524
+  source: ScienceDirect
+  title: 'Characteristics are covariances: A unified model of risk and return'
+  title-short: Characteristics are covariances
+  type: article-journal
+  URL: https://www.sciencedirect.com/science/article/pii/S0304405X19301151
+  volume: '134'
+
 - id: liuCommonRisk2022
   abstract: >-
     We find that three factors—cryptocurrency market, size, and momentum—capture
