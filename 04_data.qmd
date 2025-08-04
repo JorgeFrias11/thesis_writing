@@ -10,9 +10,9 @@ I collect daily cryptocurrency data on open, high, close, and low (OHCL) prices,
 
 Out of the 14,775 cryptocurrencies listed, only **XXX (COMPLETE +++++++++++++++)** contained available data. Following the methodology of @bianchiMispricingRiskCompensation2021 and @mercikCrosssectionalInteractionsCryptocurrency2025, I apply a series of filters to clean the dataset and remove possible innacuracies: 
 
-1. Non-zero and missing values. As mentioned earlier, I exclude observations with non-zero or missing prices, volume, or market capitalization. 
-2. Small market-capitalization. Similar to @liuCommonRisk2022, I consider only cryptocurrencies with a market capitalization greater than one million USD. Therefore, I remove observations for coins whose market capitalization falls below this minimum threshold, which allows for the possibility that a coin may become "small" after a certain period or event. 
-3. 
+1. Non-positive and missing values. As mentioned earlier, I remove observations with where prices, volume, or market capitalization were non-positive or missing. 
+2. Small market-capitalization. Similar to @liuCommonRisk2022, I consider only cryptocurrencies with a market capitalization greater than one million USD. Therefore, I exclude observations for coins whose market capitalization falls below this minimum threshold, which allows for the possibility that a coin may become "small" after a certain period or event. 
+3. Cryptocurrency type: I exclude (i) stablecoins 
 
 The sample period ranges from January 1st, 2014, to May 31st, 2025.   
 
