@@ -1,5 +1,137 @@
 ---
 references:
+- id: arnerStablecoinsRisks2020
+  abstract: >-
+    The technologies underlying money and payment systems are evolving rapidly.
+    Both the emergence of distributed ledger technology (DLT) and rapid advances
+    in traditional centralised systems are moving the technological horizon of
+    money and payments. These trends are embodied in private “stablecoins”:
+    cryptocurrencies with values tied to fiat currencies or other assets.
+    Stablecoins – in particular potential “global stablecoins” such as
+    Facebook’s Libra proposal – pose a range of challenges from the standpoint
+    of financial authorities around the world. At the same time, regulatory
+    responses to global stablecoins should take into account the potential of
+    other stablecoin uses, such as embedding a robust monetary instrument into
+    digital environments, especially in the context of decentralised systems.
+    Looking forward, in such cases, one possible option from a regulatory
+    standpoint is to embed supervisory requirements into stablecoin systems
+    themselves, allowing for “embedded supervision”. Yet it is an open question
+    whether central bank digital currencies (CBDCs) and other initiatives could
+    in fact provide more effective solutions to fulfill the functions that
+    stablecoins are meant to address.
+  accessed:
+    - year: 2025
+      month: 8
+      day: 5
+  author:
+    - family: Arner
+      given: Douglas W.
+    - family: Auer
+      given: Raphael
+    - family: Frost
+      given: Jon
+  citation-key: arnerStablecoinsRisks2020
+  DOI: 10.2139/ssrn.3979495
+  event-place: Rochester, NY
+  genre: SSRN Scholarly Paper
+  issued:
+    - year: 2020
+      month: 11
+      day: 1
+  language: en
+  number: '3979495'
+  publisher: Social Science Research Network
+  publisher-place: Rochester, NY
+  source: papers.ssrn.com
+  title: 'Stablecoins: Risks, Potential and Regulation'
+  title-short: Stablecoins
+  type: article
+  URL: https://papers.ssrn.com/abstract=3979495
+
+- id: asadovGreaterStability2023
+  abstract: >-
+    Cryptocurrencies surged in popularity as an alternative medium of payment
+    and security among both users and investors. However, the recent collapse of
+    Bitcoin, Ether, and other traditional cryptocurrencies has raised concern
+    about their capacity to function as a good store of value, investment, or
+    hedge. Stablecoins, a kind of cryptocurrency that backed by physical or
+    financial assets, have emerged as a potential solution. However, the latest
+    failures of some algorithmic stablecoins and depegging of fiat-backed
+    stablecoins have demonstrated that not all stablecoins can guarantee their
+    stability. This study examines precious metal–backed stablecoins as a more
+    stable alternative and attempts to identify the most suitable metal. We
+    employed MGARCH-DCC, wavelet coherence, and simulation-based optimization
+    techniques to explore the optimal precious metal for this purpose. Our
+    findings indicate that a combination of gold and silver at a ratio of 88:12
+    is optimal. We offer critical policy implications and recommendations for
+    various stakeholders.
+  accessed:
+    - year: 2025
+      month: 8
+      day: 5
+  author:
+    - family: Asadov
+      given: Alam
+    - family: Yildirim
+      given: Ramazan
+    - family: Masih
+      given: Mansur
+  citation-key: asadovGreaterStability2023
+  container-title: Borsa Istanbul Review
+  container-title-short: Borsa Istanbul Review
+  DOI: 10.1016/j.bir.2023.07.004
+  ISSN: 2214-8450
+  issue: '5'
+  issued:
+    - year: 2023
+      month: 9
+      day: 1
+  page: 1152-1172
+  source: ScienceDirect
+  title: >-
+    Toward greater stability in stablecoins: Empirical evidence from an analysis
+    of precious metals
+  title-short: Toward greater stability in stablecoins
+  type: article-journal
+  URL: https://www.sciencedirect.com/science/article/pii/S2214845023000819
+  volume: '23'
+
+- id: baurCryptoSafe2021
+  abstract: >-
+    The design of Bitcoin is closely related to gold which has led to the idea
+    that Bitcoin has gold-like features such as being a store of value and a
+    safe haven. However, given Bitcoin’s extreme volatility investors may rather
+    need a safe haven against Bitcoin. We hypothesize that stablecoins provide
+    such a safe haven and analyze high-frequency price changes of the largest
+    stablecoins. We find that they act as safe havens, and Tether showing the
+    strongest effect. The results demonstrate that Bitcoin investors seek out
+    stablecoins when Bitcoin experiences extreme negative prices changes. Since
+    stablecoins react to such price changes they are not stable at all times.
+  accessed:
+    - year: 2025
+      month: 8
+      day: 5
+  author:
+    - family: Baur
+      given: Dirk G.
+    - family: Hoang
+      given: Lai T.
+  citation-key: baurCryptoSafe2021
+  container-title: Finance Research Letters
+  container-title-short: Finance Research Letters
+  DOI: 10.1016/j.frl.2020.101431
+  ISSN: 1544-6123
+  issued:
+    - year: 2021
+      month: 1
+      day: 1
+  page: '101431'
+  source: ScienceDirect
+  title: A crypto safe haven against Bitcoin
+  type: article-journal
+  URL: https://www.sciencedirect.com/science/article/pii/S1544612319312632
+  volume: '38'
+
 - id: bianchiMispricingRiskCompensation2021
   abstract: >-
     We examine the role of systematic mispricing and risk compensation for the
@@ -312,6 +444,43 @@ references:
   URL: https://www.sciencedirect.com/science/article/pii/S0304405X14002323
   volume: '116'
 
+- id: hoangHowStable2024
+  abstract: >-
+    This paper analyzes the stability of stablecoins and proposes a framework to
+    test for absolute and relative stability of stablecoins. Based on
+    high-frequency data, we find strong evidence of excess price variations.
+    While Bitcoin is a likely source of this excess volatility because
+    stablecoin returns, volatility and volumes are highly correlated with
+    corresponding Bitcoin time-series, we also demonstrate through a
+    quasi-natural experiment that stablecoins increase the trading volume of
+    Bitcoin. The findings suggest stablecoins play a key role in cryptocurrency
+    markets.
+  accessed:
+    - year: 2025
+      month: 8
+      day: 5
+  author:
+    - family: Hoang
+      given: Lai T.
+    - family: Baur
+      given: Dirk G.
+  citation-key: hoangHowStable2024
+  container-title: The European Journal of Finance
+  DOI: 10.1080/1351847X.2021.1949369
+  ISSN: 1351-847X
+  issue: '16'
+  issued:
+    - year: 2024
+      month: 11
+      day: 1
+  page: 1984-2000
+  publisher: Routledge
+  source: Taylor and Francis+NEJM
+  title: How stable are stablecoins?
+  type: article-journal
+  URL: https://doi.org/10.1080/1351847X.2021.1949369
+  volume: '30'
+
 - id: kellyCharacteristicsAre2019
   abstract: >-
     We propose a new modeling approach for the cross section of returns. Our
@@ -478,4 +647,72 @@ references:
   type: article-journal
   URL: https://www.sciencedirect.com/science/article/pii/S0304405X11002613
   volume: '104'
+
+- id: RegulationSupervision2020
+  abstract: >-
+    High-level recommendations that promote coordinated and effective
+    regulation, supervision and oversight of global stablecoin arrangements.
+  accessed:
+    - year: 2025
+      month: 8
+      day: 5
+  citation-key: RegulationSupervision2020
+  container-title: Financial Stability Board
+  issued:
+    - year: 2020
+      month: 10
+      day: 12
+  language: en-US
+  title: Regulation, Supervision and Oversight of “Global Stablecoin” Arrangements
+  type: post-weblog
+  URL: >-
+    https://www.fsb.org/2020/10/regulation-supervision-and-oversight-of-global-stablecoin-arrangements/
+
+- id: wangAreStablecoins2020
+  abstract: >-
+    We study the diversifier, hedge, and safe haven properties of stablecoins
+    against traditional cryptocurrencies. Using the DCC-GARCH model and dummy
+    variable regression, we examine the risk-dispersion abilities of USD-pegged
+    and gold-pegged stablecoins against traditional cryptocurrencies, and also
+    compare their risk-dispersion abilities with their underlying assets. The
+    empirical results show that (i) stablecoins can serve as safe havens in
+    specific situations, although most act merely as an effective diversifier in
+    normal market conditions; (ii) gold-pegged stablecoins perform worse as safe
+    havens than USD-pegged ones, but both of them perform better than their
+    corresponding underlying assets, and (iii) the safe haven property of
+    stablecoins changes across market conditions. The above results are robust
+    when using time-varying copula models. We further evaluate the risk
+    management applications of stablecoins by analyzing mixed
+    cryptocurrency-stablecoin portfolios, finding evidence of USD-pegged
+    stablecoins performing better than gold-pegged stablecoins in extreme risk
+    reductions. Our work provides important insights into diversification for
+    cryptocurrency investors.
+  accessed:
+    - year: 2025
+      month: 8
+      day: 5
+  author:
+    - family: Wang
+      given: Gang-Jin
+    - family: Ma
+      given: Xin-yu
+    - family: Wu
+      given: Hao-yu
+  citation-key: wangAreStablecoins2020
+  container-title: Research in International Business and Finance
+  container-title-short: Research in International Business and Finance
+  DOI: 10.1016/j.ribaf.2020.101225
+  ISSN: 0275-5319
+  issued:
+    - year: 2020
+      month: 12
+      day: 1
+  page: '101225'
+  source: ScienceDirect
+  title: >-
+    Are stablecoins truly diversifiers, hedges, or safe havens against
+    traditional cryptocurrencies as their name suggests?
+  type: article-journal
+  URL: https://www.sciencedirect.com/science/article/pii/S0275531919311146
+  volume: '54'
 ...

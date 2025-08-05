@@ -2,24 +2,30 @@
 
 ## Data extraction and sample construction
 
-I collect daily cryptocurrency data on open, high, close, and low (OHCL) prices, 24-hour volume, and market capitalization (calculated as the cryptocurrency's USD price multiplied by its circulating supply) from CoinCodex, a website-data provider that gathers and aggregates data from more than 400 exchanges. I extract the data using the CoinCodex API as follows: 
+I collect daily cryptocurrency data on open, high, close, and low (OHCL) prices, 24-hour volume, and market capitalization (calculated as the cryptocurrency's USD price multiplied by its circulating supply) from [CoinCodex](https://coincodex.com/), a website-data provider that gathers and aggregates data from more than 400 exchanges. I extract the data using the CoinCodex API as follows: 
 
-1. I access the list of all available cryptocurrencies and extract each cryptocurrency shortname, also called "slug". At the time of writing this, there are 14,775 cryptocurrencies listed, excluding stablecoins. 
+1. I retrieve the list of all available cryptocurrencies and extract each cryptocurrency shortname, also referred to as the "slug". At the time of writing, there are 14,907 unique cryptocurrency shortnames listed in the API. 
 
-2. I construct an URL for each cryptocurrency and use it to retrieve the metadata from the API. I parsed the JSON API response into a dataframe and extract the OHCL prices, volume, and market capitalization daily data. I exclude those observations with non-zero or missing values in any of these fields.  
+2. Using the slug, I construct an URL for each cryptocurrency to obtain the metadata from the API. I parse the JSON API response into a dataframe and extract the OHCL prices, volume, and market capitalization daily data. I exclude those observations with non-zero or missing values in any of these fields.  
 
-Out of the 14,775 cryptocurrencies listed, only **XXX (COMPLETE +++++++++++++++)** contained available data. Following the methodology of @bianchiMispricingRiskCompensation2021 and @mercikCrosssectionalInteractionsCryptocurrency2025, I apply a series of filters to clean the dataset and remove possible innacuracies: 
+Out of the 14,907 cryptocurrencies listed, only 7,272 entries contained available data. Next, following the methodology of @bianchiMispricingRiskCompensation2021 and @mercikCrosssectionalInteractionsCryptocurrency2025, I apply a series of filters to clean the dataset and remove possible innacuracies: 
 
 1. Non-positive and missing values. As mentioned earlier, I remove observations with where prices, volume, or market capitalization were non-positive or missing. 
 2. Small market-capitalization. Similar to @liuCommonRisk2022, I consider only cryptocurrencies with a market capitalization greater than one million USD. Therefore, I exclude observations for coins whose market capitalization falls below this minimum threshold, which allows for the possibility that a coin may become "small" after a certain period or event. 
-3. Cryptocurrency type: I exclude (i) stablecoins 
+3. Cryptocurrency type. Based on the cryptocurrency categories from [CoinMarketCap](https://coinmarketcap.com/cryptocurrency-category/) and CoinCodex, I exclude: 
+
+- Stablecoins,  I include those that are (i) centralized, and (ii) algorithmically stabilized. @RegulationSupervision2020
+
+- Wrapped coins
+- Gold or pre
+
 
 The sample period ranges from January 1st, 2014, to May 31st, 2025.   
 
 
 From Mercik (2025) 
 Exclude:
-- Stable coins such as USDT, USDC, DAI, etc. regardless of whether they are centrally managed or algorithmically stabilized. 
+- Stablecoins such as USDT, USDC, DAI, etc. regardless of whether they are centrally managed or algorithmically stabilized. 
 - Exclude coins pegged to or reflecting the value of precious metals
 - Coins used as guarantees for derivatives platforms. 
 

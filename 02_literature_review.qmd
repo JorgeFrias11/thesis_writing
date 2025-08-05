@@ -13,4 +13,9 @@ Mencionar modelos recientes con factores dinamicos. Describir brevemente estos m
 
 @chenCommonRisk2024 aplico el RPCA para el cross-section de diferentes asset-classes. 
 
-Mencionar literatura extensa tratando de entender los factores de riesgo de las criptomonedas, por ejemplo, @mercikCrosssectionalInteractionsCryptocurrency2025, y otros papers que tengo en mis archivos y en notas. 
+Mencionar literatura extensa tratando de entender los factores de riesgo de las criptomonedas, por ejemplo, @mercikCrosssectionalInteractionsCryptocurrency2025, y otros papers que tengo en mis archivos y en notas.
+
+@baurCryptoSafe2021 Studies stablecoins as a safe heaven for Bitcoin volatility - safe heavens, but finds theyre not stable. 
+@wangAreStablecoins2020 also investigates if stablecoins are real diversifiers, hedgers or safe heavens. 
+@hoangHowStable2024 Analyses the stability of the so called stablecoins
+@asadovGreaterStability2023 Analyses precious-metal-backed coins as a better alternative for stablecoins.  
