@@ -19,3 +19,38 @@ Mencionar literatura extensa tratando de entender los factores de riesgo de las 
 @wangAreStablecoins2020 also investigates if stablecoins are real diversifiers, hedgers or safe heavens. 
 @hoangHowStable2024 Analyses the stability of the so called stablecoins
 @asadovGreaterStability2023 Analyses precious-metal-backed coins as a better alternative for stablecoins.  
+
+
+<!-- ```{r} -->
+<!-- #| label: fig-plots -->
+<!-- #| echo: false -->
+<!-- #| fig-cap: "Plots" -->
+<!-- #| fig-scap: "Short Caption plots"  -->
+<!-- #| fig-subcap: -->
+<!-- #|   - "Plot 1" -->
+<!-- #|   - "Plot 2" -->
+<!-- #| layout-nrow: 1 -->
+<!-- knitr::include_graphics(c( -->
+<!--   here::here("pictures", "Rplot03.png"), -->
+<!--   here::here("pictures", "Rplot02.png") -->
+<!-- )) -->
+
+<!-- ``` -->
+
+<!-- Test without layout -->
+
+<!-- ```{r} -->
+<!-- #| label: fig-plots2 -->
+<!-- #| echo: false -->
+<!-- #| fig-cap: "Plots 2" -->
+<!-- #| fig-scap: "Short Caption plots"  -->
+<!-- #| fig-subcap: -->
+<!-- #|   - "Plot 1" -->
+<!-- #|   - "Plot 2" -->
+<!-- knitr::include_graphics(c( -->
+<!--   here::here("pictures", "Rplot03.png"), -->
+<!--   here::here("pictures", "Rplot02.png") -->
+<!-- )) -->
+
+<!-- ``` -->
+

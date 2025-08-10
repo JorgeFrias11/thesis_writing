@@ -330,6 +330,27 @@ references:
   type: article
   URL: https://papers.ssrn.com/abstract=3984633
 
+- id: coinbaseWhatWrapped
+  abstract: >-
+    Wrapped crypto tokens are digital assets that mirror the value of another
+    cryptocurrency from a different blockchain. They are created to enhance
+    interoperability between different blockchains, allowing assets from one
+    blockchain to be used on another. Wrapped tokens play a crucial role in the
+    decentralized finance (DeFi) space, enabling smoother and more efficient
+    movement of funds.
+  accessed:
+    - year: 2025
+      month: 8
+      day: 6
+  author:
+    - family: Coinbase
+      given: ''
+  citation-key: coinbaseWhatWrapped
+  language: en
+  title: What is wrapped crypto?
+  type: webpage
+  URL: https://www.coinbase.com/learn/your-crypto/what-is-wrapped-crypto
+
 - id: connorPerformanceMeasurement1986
   abstract: >-
     This paper develops a theory and econometric method of portfolio performance
@@ -443,6 +464,54 @@ references:
   type: article-journal
   URL: https://www.sciencedirect.com/science/article/pii/S0304405X14002323
   volume: '116'
+
+- id: financialstabilityboardAddressingRegulatory2020
+  abstract: >-
+    Consultation on recommendations to address the challenges of “global
+    stablecoin” arrangements.
+  accessed:
+    - year: 2025
+      month: 8
+      day: 6
+  author:
+    - family: Financial Stability Board
+      given: ''
+  citation-key: financialstabilityboardAddressingRegulatory2020
+  issued:
+    - year: 2020
+  language: en-US
+  title: >-
+    Addressing the regulatory, supervisory and oversight challenges raised by
+    “global stablecoin” arrangements: Consultative document
+  title-short: >-
+    Addressing the regulatory, supervisory and oversight challenges raised by
+    “global stablecoin” arrangements
+  type: report
+  URL: >-
+    https://www.fsb.org/2020/04/addressing-the-regulatory-supervisory-and-oversight-challenges-raised-by-global-stablecoin-arrangements-consultative-document/
+
+- id: financialstabilityboardRegulationSupervision2020
+  abstract: >-
+    High-level recommendations that promote coordinated and effective
+    regulation, supervision and oversight of global stablecoin arrangements.
+  accessed:
+    - year: 2025
+      month: 8
+      day: 5
+  author:
+    - family: Financial Stability Board
+      given: ''
+  citation-key: financialstabilityboardRegulationSupervision2020
+  container-title: Financial Stability Board
+  issued:
+    - year: 2020
+      month: 10
+      day: 12
+  language: en-US
+  title: Regulation, Supervision and Oversight of “Global Stablecoin” Arrangements
+  type: post-weblog
+  URL: >-
+    https://www.fsb.org/2020/10/regulation-supervision-and-oversight-of-global-stablecoin-arrangements/
 
 - id: hoangHowStable2024
   abstract: >-
@@ -647,26 +716,6 @@ references:
   type: article-journal
   URL: https://www.sciencedirect.com/science/article/pii/S0304405X11002613
   volume: '104'
-
-- id: RegulationSupervision2020
-  abstract: >-
-    High-level recommendations that promote coordinated and effective
-    regulation, supervision and oversight of global stablecoin arrangements.
-  accessed:
-    - year: 2025
-      month: 8
-      day: 5
-  citation-key: RegulationSupervision2020
-  container-title: Financial Stability Board
-  issued:
-    - year: 2020
-      month: 10
-      day: 12
-  language: en-US
-  title: Regulation, Supervision and Oversight of “Global Stablecoin” Arrangements
-  type: post-weblog
-  URL: >-
-    https://www.fsb.org/2020/10/regulation-supervision-and-oversight-of-global-stablecoin-arrangements/
 
 - id: wangAreStablecoins2020
   abstract: >-

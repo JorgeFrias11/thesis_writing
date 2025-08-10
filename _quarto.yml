@@ -20,7 +20,8 @@ book:
 
 bibliography: references.yaml
 csl: apa.csl
-
+filters: 
+  - parse-latex
 format:
   html:
     theme:
@@ -45,19 +46,38 @@ format:
       - right=2.5cm
       - top=3cm
       - bottom=3cm
-      - showframe
+      #- showframe
 
     include-in-header:
       text: |
+        \usepackage{booktabs}
+        
+        \PassOptionsToPackage{list=true}{subcaption}    % fix fig-scap in list of figs. 
+        
+        %% To prevent hyphenation
+        \tolerance=1
+        \emergencystretch=\maxdimen
+        \hyphenpenalty=10000
+        \hbadness=10000
+        %% END hyphenation
+        
         \usepackage{geometry}
+        \usepackage[T1]{fontenc} 
+        \usepackage[utf8]{inputenc}
         \usepackage[ngerman,english]{babel}
         \usepackage{setspace}
         \usepackage{titling}
         \usepackage{parskip}
         \usepackage{helvet}
         \renewcommand{\familydefault}{\sfdefault} % Use sans-serif
+        \renewcommand{\bfdefault}{b}      % <-- key: make \textbf use 'b'
         \usepackage{graphicx}
         \usepackage{xcolor}
+        \usepackage[font=footnotesize,labelfont={bf, footnotesize}]{caption}
+        \captionsetup{
+          format=plain,                % no hanging indent
+          justification=justified     % full-width text
+        }
         
         \setlength{\droptitle}{-5em}
         \onehalfspacing

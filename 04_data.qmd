@@ -2,46 +2,116 @@
 
 ## Data extraction and sample construction
 
-I collect daily cryptocurrency data on open, high, close, and low (OHCL) prices, 24-hour volume, and market capitalization (calculated as the cryptocurrency's USD price multiplied by its circulating supply) from [CoinCodex](https://coincodex.com/), a website-data provider that gathers and aggregates data from more than 400 exchanges. I extract the data using the CoinCodex API as follows: 
+I collect daily cryptocurrency data on open, high, close, and low (OHCL) prices, 24-hour volume, and market capitalization (calculated as the cryptocurrency's USD price multiplied by its circulating supply) from [CoinCodex](https://coincodex.com/), a website-data provider that gathers and aggregates data from more than 400 exchanges. I extract the data, all expressed in US dollars, using the CoinCodex API as follows: 
 
 1. I retrieve the list of all available cryptocurrencies and extract each cryptocurrency shortname, also referred to as the "slug". At the time of writing, there are 14,907 unique cryptocurrency shortnames listed in the API. 
 
 2. Using the slug, I construct an URL for each cryptocurrency to obtain the metadata from the API. I parse the JSON API response into a dataframe and extract the OHCL prices, volume, and market capitalization daily data. I exclude those observations with non-zero or missing values in any of these fields.  
 
-Out of the 14,907 cryptocurrencies listed, only 7,272 entries contained available data. Next, following the methodology of @bianchiMispricingRiskCompensation2021 and @mercikCrosssectionalInteractionsCryptocurrency2025, I apply a series of filters to clean the dataset and remove possible innacuracies: 
+Out of the 14,907 cryptocurrencies listed, only 7,272 entries contained available data. Next, following the methodology of @bianchiMispricingRiskCompensation2021 and @mercikCrosssectionalInteractionsCryptocurrency2025, I apply a series of cleaning and filtering steps in order to remove possible innacuracies in the dataset: 
 
 1. Non-positive and missing values. As mentioned earlier, I remove observations with where prices, volume, or market capitalization were non-positive or missing. 
-2. Small market-capitalization. Similar to @liuCommonRisk2022, I consider only cryptocurrencies with a market capitalization greater than one million USD. Therefore, I exclude observations for coins whose market capitalization falls below this minimum threshold, which allows for the possibility that a coin may become "small" after a certain period or event. 
-3. Cryptocurrency type. Based on the cryptocurrency categories from [CoinMarketCap](https://coinmarketcap.com/cryptocurrency-category/) and CoinCodex, I exclude: 
+2. Small cryptocurrencies. Similar to @liuCommonRisk2022, I screen out small cryptocurrencies and consider only those with a market capitalization greater than one million USD. Therefore, I exclude observations for coins whose market capitalization falls below this minimum threshold, which allows for the possibility that a coin may become "small" after a certain period or event. 
+3. Cryptocurrency type. Based on the cryptocurrency classification from [CoinMarketCap](https://coinmarketcap.com/cryptocurrency-category/) and CoinCodex, I exclude: 
 
-- Stablecoins,  I include those that are (i) centralized, and (ii) algorithmically stabilized. @RegulationSupervision2020
+    - stablecoins.  I include (i) centralized stablecoins, which are backed and pegged to fiat currency or physical assets by a third party, such as Tether (USDT), USD Coin (USDC), and Euro Coin (EURC), and (ii) algorithmically stabilized stablecoins, which use algorithms to adjust the circulating supply in response to changes in demand to maintain a stable value with the underlying asset, such as DAI and AMPL [FSB, -@financialstabilityboardAddressingRegulatory2020].
 
-- Wrapped coins
-- Gold or pre
-
-
-The sample period ranges from January 1st, 2014, to May 31st, 2025.   
-
-
-From Mercik (2025) 
-Exclude:
-- Stablecoins such as USDT, USDC, DAI, etc. regardless of whether they are centrally managed or algorithmically stabilized. 
-- Exclude coins pegged to or reflecting the value of precious metals
-- Coins used as guarantees for derivatives platforms. 
-
-Organize week in the following way: the first seven days of the year forms the first week, and the first 51 weeks of the year consists of 7 days each. The 52th week of the year consists of the last eight days and, in case of a leap year (as 2016, 2020, and 2024), of nine days. 
-
-Similar to **Liu et al**, I construct a daily cryptocurrency market return as the value-weighted average return of all the cryptocurrencies in the sample. For cryptocurrencies $i = 1, ..., N$, the daily market return at time $t$ is computed as: 
-
-$$
-r_t^M = \frac{\sum_{i=1}^N r_{it} \cdot marketcap_{it}}
-             {\sum_{i=1}^N marketcap_{it} }
-$$
-
-The cryptocurrency market excess return (`CMKT`) is constructed as the difference between the cryptocurrency market return and the risk-free rate. To proxy the risk-free rate, I used the (daily) 1-month Treasury bill rate from the FRED. 
+    - wrapped cryptocurrency tokens, which mirror the value of another cryptocurrency from a different blockchain, e.g., Wrapped Bitcoin (wBTC) or Wrapped Ethereum (wETH) [@coinbaseWhatWrapped]. 
+    - cryptocurrencies backed by or pegged to gold or precious metals, including Pax Gold (PAXG) or XAGx Silver Token (XAGX).
+    
+4. Volume-to-market-capitalization ratio. To filter out cryptocurrencies with "fake" or "erroneous" trading volume, I calculate the daily volume-to-market-capitalization ratio for each token and exclude observations where the ratio exceeds 1.
+5. Extreme returns. To minimize the influence of extreme values in my results, I winsorize daily cryptocurrency returns to lie within the range of -90% to 500%.
+6. Minimum observations. In order to maintain practical relevance, I keep cryptocurrencies that have at least 365 consecutive daily observations, and those with at least 730 observations in the complete panel of coin characteristics (see @sec-characteristics), which is equivalent to 2 years of historical data. Therefore, I exclude very short-lived coins, but retain failed coins with this relatively large number of observations, which help to lessen the so called "survivorship biais". 
+7. Time period. Even though cryptocurrency data are available since 2014, I use data from June 1, 2018 for the empirical analysis due to the low amount of coins available before this date (see @fig-numcoins). 
 
 
-## Variable description
+::: {#fig-numcoins fig-scap="Number of cryptocurrencies over time"}
+<!-- fig-scap="short subcaption 1"  Use this to add a title in LOF for each subplot-->
+![](pictures/timeseries_daily_coins.png){#fig-sub1 width=80%}
+
+![](pictures/coins_per_year.png){#fig-sub2 width=80%} 
+
+**Number of cryptocurrencies over time.** Panel A shows the daily time series of the number of unique cryptocurrencies. Panel B displays the number of unique cryptocurrencies recorded each year. Both panels correspond to the filtered dataset, covering the period from January 1, 2014, to July 31, 2025, and including 1,416 unique cryptocurrencies.  Note that coins may enter or exit the market over time.
+:::
+
+## Sample overview
+
+After applying all the filters, the resulting sample consists of 973 unique cryptocurrencies and 1,478,936 observations from June 1, 2018, to July 31, 2025, where a day starts at 00:00:00 UTC. It is important to mention that the number of cryptocurrencies fluctuates over the entire period, which results in an unbalanced panel of data. 
+
+
+
+<!-- ```{python} -->
+<!-- #| label: tbl-summary -->
+<!-- #| echo: false -->
+<!-- #| results: asis -->
+<!-- #| tbl-cap: "Summary statistics of daily excess returns on cryptocurrencies$^{\dagger}$" -->
+
+<!-- import pandas as pd -->
+
+<!-- tbl_fmt = pd.read_csv("tables/sample_overview_table.csv", index_col=0) -->
+
+<!-- latex = tbl_fmt.to_latex( -->
+<!--     escape=False, -->
+<!--     index=True, -->
+<!--     column_format="l" + "r"*len(tbl_fmt.columns), -->
+<!--     booktabs=True -->
+<!-- ) -->
+<!-- ``` -->
+
+# ```{r}
+# #| label: tbl-summary
+# #| echo: false
+# #| results: asis
+# #| tbl-cap: "Summary statistics of daily excess returns on cryptocurrencies$^{\\dagger}$"
+# 
+# library(readr)
+# library(xtable)
+# 
+# # Read your pre-formatted CSV
+# tbl_fmt <- read_csv("tables/sample_overview_table.csv")
+# 
+# # Convert to data frame (xtable needs a data.frame, not tibble)
+# tbl_fmt <- as.data.frame(tbl_fmt)
+# 
+# # Create LaTeX table
+# latex_tbl <- xtable(
+#   tbl_fmt,
+#   align = c("l", rep("r", ncol(tbl_fmt))),  # left for first col, right for the rest
+#   booktabs = TRUE
+# )
+# 
+# # Print LaTeX with footnote, no escaping
+# print(
+#   latex_tbl,
+#   include.rownames = TRUE,
+#   sanitize.text.function = identity,  # keep % signs
+#   comment = FALSE
+# )
+# 
+# # Footnote
+# # cat("\\caption*{\\footnotesize \\textsuperscript{\\dag} This table reports summary statistics for daily excess returns. The columns are: total observations, number of unique coins, the minimum cross-sectional count per day, the mean and standard deviation, and the 10th/25th/50th/75th/90th percentiles.}")
+# ```
+
+```{r}
+#| label: tbl-summary
+#| echo: false
+#| results: asis
+#| tbl-cap: "Summary statistics of daily excess returns on cryptocurrencies"
+library(knitr)
+library(kableExtra)
+library(readr)
+
+# Read your pre-formatted CSV
+tbl_fmt <- read_csv("tables/sample_overview_table.csv")
+
+# Convert to data frame (xtable needs a data.frame, not tibble)
+tbl_fmt <- as.data.frame(tbl_fmt)
+
+kable(tbl_fmt, format = "latex", booktabs = TRUE, escape = FALSE) %>%
+  kable_styling(latex_options = c("hold_position"))
+```
+
+## Characteristic construction and description {#sec-characteristics}
 
 ### Volume shock
 
@@ -79,3 +149,28 @@ with $o = ln\,O_t - ln\,C_{t-1}$, and $c = ln\,C_t - ln\,O_t$. Here, $C_{t-1}$ d
 
 
 @moskowitzTimeSeriesMomentum2012
+
+
+
+
+This is more related to factor construction. 
+
+Organize week in the following way: the first seven days of the year forms the first week, and the first 51 weeks of the year consists of 7 days each. The 52th week of the year consists of the last eight days and, in case of a leap year (as 2016, 2020, and 2024), of nine days. 
+
+Similar to **Liu et al**, I construct a daily cryptocurrency market return as the value-weighted average return of all the cryptocurrencies in the sample. For cryptocurrencies $i = 1, ..., N$, the daily market return at time $t$ is computed as: 
+
+$$
+r_t^M = \frac{\sum_{i=1}^N r_{it} \cdot marketcap_{it}}
+             {\sum_{i=1}^N marketcap_{it} }
+$$
+
+The cryptocurrency market excess return (`CMKT`) is constructed as the difference between the cryptocurrency market return and the risk-free rate. To proxy the risk-free rate, I used the (daily) 1-month Treasury bill rate from the FRED. 
+
+
+
+Write this in the following section of "Empirical application" or 
+This is for the model:
+7. (Still undecisive) Minimum cross-section. Following the criterion by Kelly, I 
+Convert variables in the -0.5 - 0.5 range
+    
+The sample period ranges from January 1st, 2014, to May 31st, 2025.  
