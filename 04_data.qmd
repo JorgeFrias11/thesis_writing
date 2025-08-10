@@ -21,8 +21,8 @@ Out of the 14,907 cryptocurrencies listed, only 7,272 entries contained availabl
     
 4. Volume-to-market-capitalization ratio. To filter out cryptocurrencies with "fake" or "erroneous" trading volume, I calculate the daily volume-to-market-capitalization ratio for each token and exclude observations where the ratio exceeds 1.
 5. Extreme returns. To minimize the influence of extreme values in my results, I winsorize daily cryptocurrency returns to lie within the range of -90% to 500%.
-6. Minimum observations. In order to maintain practical relevance, I keep cryptocurrencies that have at least 365 consecutive daily observations, and those with at least 730 observations in the complete panel of coin characteristics (see @sec-characteristics), which is equivalent to 2 years of historical data. Therefore, I exclude very short-lived coins, but retain failed coins with this relatively large number of observations, which help to lessen the so called "survivorship biais". 
-7. Time period. Even though cryptocurrency data are available since 2014, I use data from June 1, 2018 for the empirical analysis due to the low amount of coins available before this date (see @fig-numcoins). 
+6. Time period. Even though cryptocurrency data are available since 2014, I use data from June 1, 2018 for the empirical analysis due to the low amount of coins available before this date (see @fig-numcoins). 
+7. 6. Minimum observations. In order to maintain practical relevance, I keep cryptocurrencies that have at least 365 consecutive daily observations and those with at least 730 observations in the complete panel of coin characteristics (see @sec-characteristics), which is equivalent to 2 years of historical data. Therefore, I exclude very short-lived coins, but retain failed coins with this relatively large number of observations, which help to lessen the so called "survivorship biais".
 
 
 ::: {#fig-numcoins fig-scap="Number of cryptocurrencies over time"}
@@ -31,84 +31,174 @@ Out of the 14,907 cryptocurrencies listed, only 7,272 entries contained availabl
 
 ![](pictures/coins_per_year.png){#fig-sub2 width=80%} 
 
-**Number of cryptocurrencies over time.** Panel A shows the daily time series of the number of unique cryptocurrencies. Panel B displays the number of unique cryptocurrencies recorded each year. Both panels correspond to the filtered dataset, covering the period from January 1, 2014, to July 31, 2025, and including 1,416 unique cryptocurrencies.  Note that coins may enter or exit the market over time.
+**Number of cryptocurrencies over time.** Panel A shows the daily time series of the number of unique cryptocurrencies. Panel B displays the number of unique cryptocurrencies recorded each year. Both panels correspond to the dataset after applying the filtering steps (1) to (5), covering the period from January 1, 2014, to July 31, 2025, and including 1,416 unique cryptocurrencies.  Note that coins may enter or exit the market over time. 
 :::
 
 ## Sample overview
 
-After applying all the filters, the resulting sample consists of 973 unique cryptocurrencies and 1,478,936 observations from June 1, 2018, to July 31, 2025, where a day starts at 00:00:00 UTC. It is important to mention that the number of cryptocurrencies fluctuates over the entire period, which results in an unbalanced panel of data. 
+After applying all the filters, the resulting sample consists of 973 unique cryptocurrencies and 1,478,936 observations from June 1, 2018, to July 31, 2025, where a day starts at 00:00:00 UTC. It is important to mention that the number of cryptocurrencies fluctuates over the entire period, which results in an unbalanced panel of data. @tbl-sampleoverview provides an overview of the descriptive statistics for the cryptocurrency excess returns. Additionally,  
 
 
-
-<!-- ```{python} -->
-<!-- #| label: tbl-summary -->
-<!-- #| echo: false -->
-<!-- #| results: asis -->
-<!-- #| tbl-cap: "Summary statistics of daily excess returns on cryptocurrencies$^{\dagger}$" -->
-
-<!-- import pandas as pd -->
-
-<!-- tbl_fmt = pd.read_csv("tables/sample_overview_table.csv", index_col=0) -->
-
-<!-- latex = tbl_fmt.to_latex( -->
-<!--     escape=False, -->
-<!--     index=True, -->
-<!--     column_format="l" + "r"*len(tbl_fmt.columns), -->
-<!--     booktabs=True -->
-<!-- ) -->
-<!-- ``` -->
-
-# ```{r}
-# #| label: tbl-summary
-# #| echo: false
-# #| results: asis
-# #| tbl-cap: "Summary statistics of daily excess returns on cryptocurrencies$^{\\dagger}$"
-# 
-# library(readr)
-# library(xtable)
-# 
-# # Read your pre-formatted CSV
-# tbl_fmt <- read_csv("tables/sample_overview_table.csv")
-# 
-# # Convert to data frame (xtable needs a data.frame, not tibble)
-# tbl_fmt <- as.data.frame(tbl_fmt)
-# 
-# # Create LaTeX table
-# latex_tbl <- xtable(
-#   tbl_fmt,
-#   align = c("l", rep("r", ncol(tbl_fmt))),  # left for first col, right for the rest
-#   booktabs = TRUE
-# )
-# 
-# # Print LaTeX with footnote, no escaping
-# print(
-#   latex_tbl,
-#   include.rownames = TRUE,
-#   sanitize.text.function = identity,  # keep % signs
-#   comment = FALSE
-# )
-# 
-# # Footnote
-# # cat("\\caption*{\\footnotesize \\textsuperscript{\\dag} This table reports summary statistics for daily excess returns. The columns are: total observations, number of unique coins, the minimum cross-sectional count per day, the mean and standard deviation, and the 10th/25th/50th/75th/90th percentiles.}")
-# ```
+:::{#tbl-sampleoverview tbl-scap="Summary statistics of daily excess returns"}
 
 ```{r}
-#| label: tbl-summary
 #| echo: false
-#| results: asis
-#| tbl-cap: "Summary statistics of daily excess returns on cryptocurrencies"
+#| warning: false
+##| label: tbl-sampleoverview
+##| tbl-subcap: "**Summary statistics of daily excess returns.** The table reports the summary statistics of daily returns on the dataset used in the empirical analysis. The columns represent the number of daily observations, the quantity of unique coins over the whole sample period, the minimum size of the cross-section, the mean of the excess returns, the standard deviation, and the 10th percentile, lower quartile, median, upper quartile, and 90th percentile of the distribution of the returns. The sample period is from June 1, 2018, to July 31, 2025."
+##| tbl-scap: "Summary statistics of daily excess returns"
+library(readr)
+library(dplyr)
+library(gt)
+
+tbl <- read_csv("tables/sample_overview_table.csv", 
+                show_col_types = FALSE) |>
+  select(-...1)
+
+gt_tbl <- tbl |>
+  gt(rowname_col = NULL) |>
+  fmt_percent(columns = c(Mean, Std, P10, P25, P50, P75, P90), decimals = 2) |>
+  cols_align(
+    align = "center",
+    columns = everything()
+  ) |>
+  tab_options(table.font.size = px(12)) 
+
+gt_tbl
+```
+**Summary statistics of daily excess returns.** 
+:::
+
+
+**SECOND TRY** 
+
+```{r}
+library(tibble)
+library(gt)
+library(dplyr)
+
+# Original table
+results_table <- tribble(
+  ~Metric,                         ~Intercept,                      ~`K = 3`, ~`K = 5`, ~`K = 8`,
+  "$R^2_{\\text{Total}}$",         "$\\Gamma_\\alpha = 0$",          0.2301,   0.2509,   0.2681,
+  "",                              "$\\Gamma_\\alpha \\neq 0$",      0.2322,   0.2524,   0.2690,
+  "$R^2_{\\text{Predictive}}$",    "$\\Gamma_\\alpha = 0$",         -0.3904,  -0.4082,  -0.4169,
+  "",                              "$\\Gamma_\\alpha \\neq 0$",     -0.3857,  -0.4055,  -0.4156,
+
+  "$R^2_{\\text{Total}}$",         "$\\Gamma_\\alpha = 0$",          0.2625,   0.2817,   0.2934,
+  "",                              "$\\Gamma_\\alpha \\neq 0$",      0.2661,   0.2826,   0.2937,
+  "$R^2_{\\text{Predictive}}$",    "$\\Gamma_\\alpha = 0$",          0.1725,   0.1551,   0.1511,
+  "",                              "$\\Gamma_\\alpha \\neq 0$",      0.1719,   0.1584,   0.1554,
+
+  "$R^2_{\\text{Total}}$",         "--",                              1.455576e-05, 2.478456e-05, 2.934438e-05,
+  "$R^2_{\\text{Predictive}}$",    "",                                1.448428e-05, 2.469351e-05, 2.923816e-05
+)
+
+
+# Make gt table
+gt_tbl <- results_table |>
+  gt() |>
+  fmt_number(
+    columns = c(`K = 3`, `K = 5`, `K = 8`),
+    decimals = 4
+  ) |>
+  cols_label(
+    Metric = "",
+    Intercept = "",
+    `K = 3` = html("\\(K = 3\\)"),
+    `K = 5` = html("\\(K = 5\\)"),
+    `K = 8` = html("\\(K = 8\\)")
+  ) |>
+  tab_spanner_delim(delim = "=") |> # optional for grouping
+  tab_row_group(
+    group = "Panel A: IPCA on daily data",
+    rows = 1:4
+  ) |>
+  tab_row_group(
+    group = "Panel B: IPCA on weekly data",
+    rows = 5:8
+  ) |>
+  tab_row_group(
+    group = "Panel C: PCA on weekly data",
+    rows = 9:10
+  ) |>
+  cols_align(align = "center", columns = everything()) |>
+  tab_options(
+    table.font.size = px(12)
+  )
+
+gt_tbl
+
+
+```
+
+
+
+**TEST**
+
+```{r}
+tab_latex <-
+  gtcars |>
+  dplyr::select(mfr, model, msrp) |>
+  dplyr::slice(1:5) |>
+  gt() |>
+  tab_header(
+    title = md("Data listing from **gtcars**"),
+    subtitle = md("`gtcars` is an R dataset")
+  ) |>
+  as_latex()
+
+tab_latex
+
+```
+
+**ANOTHER TEST**
+
+```{r}
+#| echo: false
+#| warning: false
+library(tibble)
 library(knitr)
 library(kableExtra)
-library(readr)
+library(latex2exp)
 
-# Read your pre-formatted CSV
-tbl_fmt <- read_csv("tables/sample_overview_table.csv")
+df <- read_csv("tables/sample_overview_table.csv", show_col_types = FALSE) |>
+  as.data.frame()
 
-# Convert to data frame (xtable needs a data.frame, not tibble)
-tbl_fmt <- as.data.frame(tbl_fmt)
+kable(df, "latex", align="c", booktabs=TRUE, escape = , caption = '$\\Gamma$') %>%
+footnote(general=c("$a^2+b^2=c^2,$",     
+                   "$\\\\sigma^2=\\\\frac{1}{n-1}\\\\sum_{i=1}^n(x_i-\\\\bar{x})^2;$", 
+                   "1,000 \\\\$;", "100\\\\%."),
+         number=c("Hello\ there! \\\\textit{Hello\ there!}"),
+         footnote_as_chunk=TRUE, 
+         escape=FALSE)
 
-kable(tbl_fmt, format = "latex", booktabs = TRUE, escape = FALSE) %>%
-  kable_styling(latex_options = c("hold_position"))
+# kable(df, "latex", align = "c", booktabs = TRUE, escape = F) %>%  # <- TRUE here
+#   footnote(
+#     general = c("The table reports the summary statistics of daily returns ... July 31, 2025."),
+#     number  = c("Hello\ there! \\\\textit{Hello\ there!}"),
+#     footnote_as_chunk = TRUE,
+#     escape = FALSE   # <- still allow LaTeX in the footnote
+#   )
+
+```
+
+**THIS WORKS**
+
+```{r tab}
+library(knitr)
+library(kableExtra)
+df <- data.frame(v1=rnorm(6), v2=runif(6), v3=rbinom(6, 1, .33), 
+             row.names=LETTERS[1:6])
+
+df$v4 <- c('My formula $\\sum_{i=1}^9$')
+kable(df, "latex", align="c", booktabs=TRUE, escape = F, caption = '$\\Gamma$') %>%
+footnote(general=c("$a^2+b^2=c^2,$",     
+                   "$\\\\sigma^2=\\\\frac{1}{n-1}\\\\sum_{i=1}^n(x_i-\\\\bar{x})^2;$", 
+                   "1,000 \\\\$;", "100\\\\%."),
+         number=c("Hello\ there! \\\\textit{Hello\ there!}"),
+         footnote_as_chunk=TRUE, 
+         escape=FALSE)
 ```
 
 ## Characteristic construction and description {#sec-characteristics}
