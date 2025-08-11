@@ -62,7 +62,12 @@ gt_tbl <- tbl |>
     align = "center",
     columns = everything()
   ) |>
-  tab_options(table.font.size = px(12)) 
+  tab_options(table.font.size = px(12),
+              footnotes.padding = px(20)) |>
+  tab_footnote(
+    footnote = "Some text for the footnote"
+  ) |>
+  as_latex()
 
 gt_tbl
 ```
@@ -73,27 +78,29 @@ gt_tbl
 **SECOND TRY** 
 
 ```{r}
+#| echo: false
+#| warning: false
 library(tibble)
 library(gt)
 library(dplyr)
 
 # Original table
 results_table <- tribble(
-  ~Metric,                         ~Intercept,                      ~`K = 3`, ~`K = 5`, ~`K = 8`,
-  "$R^2_{\\text{Total}}$",         "$\\Gamma_\\alpha = 0$",          0.2301,   0.2509,   0.2681,
-  "",                              "$\\Gamma_\\alpha \\neq 0$",      0.2322,   0.2524,   0.2690,
-  "$R^2_{\\text{Predictive}}$",    "$\\Gamma_\\alpha = 0$",         -0.3904,  -0.4082,  -0.4169,
-  "",                              "$\\Gamma_\\alpha \\neq 0$",     -0.3857,  -0.4055,  -0.4156,
+  ~Metric, ~Intercept, ~`K = 3`, ~`K = 5`, ~`K = 8`,
 
-  "$R^2_{\\text{Total}}$",         "$\\Gamma_\\alpha = 0$",          0.2625,   0.2817,   0.2934,
-  "",                              "$\\Gamma_\\alpha \\neq 0$",      0.2661,   0.2826,   0.2937,
-  "$R^2_{\\text{Predictive}}$",    "$\\Gamma_\\alpha = 0$",          0.1725,   0.1551,   0.1511,
-  "",                              "$\\Gamma_\\alpha \\neq 0$",      0.1719,   0.1584,   0.1554,
+  "\\(R^2_{\\text{Total}}\\)", "\\(\\Gamma_\\alpha = 0\\)", 0.2301, 0.2509, 0.2681,
+  "",                          "\\(\\Gamma_\\alpha \\neq 0\\)", 0.2322, 0.2524, 0.2690,
+  "\\(R^2_{\\text{Predictive}}\\)", "\\(\\Gamma_\\alpha = 0\\)", -0.3904, -0.4082, -0.4169,
+  "",                              "\\(\\Gamma_\\alpha \\neq 0\\)", -0.3857, -0.4055, -0.4156,
 
-  "$R^2_{\\text{Total}}$",         "--",                              1.455576e-05, 2.478456e-05, 2.934438e-05,
-  "$R^2_{\\text{Predictive}}$",    "",                                1.448428e-05, 2.469351e-05, 2.923816e-05
+  "\\(R^2_{\\text{Total}}\\)", "\\(\\Gamma_\\alpha = 0\\)", 0.2625, 0.2817, 0.2934,
+  "",                          "\\(\\Gamma_\\alpha \\neq 0\\)", 0.2661, 0.2826, 0.2937,
+  "\\(R^2_{\\text{Predictive}}\\)", "\\(\\Gamma_\\alpha = 0\\)", 0.1725, 0.1551, 0.1511,
+  "",                              "\\(\\Gamma_\\alpha \\neq 0\\)", 0.1719, 0.1584, 0.1554,
+
+  "\\(R^2_{\\text{Total}}\\)", "--", 1.455576e-05, 2.478456e-05, 2.934438e-05,
+  "\\(R^2_{\\text{Predictive }}\\)", "", 1.448428e-05, 2.469351e-05, 2.923816e-05
 )
-
 
 # Make gt table
 gt_tbl <- results_table |>
@@ -125,13 +132,64 @@ gt_tbl <- results_table |>
   cols_align(align = "center", columns = everything()) |>
   tab_options(
     table.font.size = px(12)
-  )
-
-gt_tbl
-
+  ) 
 
 ```
 
+<!-- Passing raw_latex -->
+<!-- ```{r,  echo=FALSE} -->
+<!-- #| output: asis -->
+<!-- library(gt) -->
+<!-- ltx <- as.character(gt::as_latex(gt_tbl)) -->
+
+<!-- # Wrap the LaTeX code in Pandoc's raw latex block -->
+<!-- ltx_block <- paste0("```{=latex}\n", ltx, "\n```") -->
+
+<!-- knitr::asis_output(ltx_block) -->
+<!-- ``` -->
+
+
+```{=latex}
+\begin{table}[t]
+\fontsize{9.0pt}{10.8pt}\selectfont
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}ccccc}
+\toprule
+ &  & \multicolumn{3}{c}{K } \\
+\cmidrule(lr){3-5}
+ &  & \(K = 3\) & \(K = 5\) & \(K = 8\) \\
+\midrule\addlinespace[2.5pt]
+\multicolumn{5}{l}{Panel C: PCA on weekly data} \\[2.5pt]
+\midrule\addlinespace[2.5pt]
+\(R^{2}_{\text{Total}}\) &  & 0.0000 & 0.0000 & 0.0000 \\
+\(R^{2}_{\text{Predictive}}\) &  & 0.0000 & 0.0000 & 0.0000 \\
+\midrule\addlinespace[2.5pt]
+\multicolumn{5}{l}{Panel B: IPCA on weekly data} \\[2.5pt]
+\midrule\addlinespace[2.5pt]
+\(R^{2}_{\text{Total}}\) & \(\Gamma_{\alpha} = 0\) & 0.2625 & 0.2817 & 0.2934 \\
+ & \(\Gamma_{\alpha} \neq 0\) & 0.2661 & 0.2826 & 0.2937 \\
+\(R^{2}_{\text{Predictive}}\) & \(\Gamma_{\alpha} = 0\) & 0.1725 & 0.1551 & 0.1511 \\
+ & \(\Gamma_{\alpha} \neq 0\) & 0.1719 & 0.1584 & 0.1554 \\
+\midrule\addlinespace[2.5pt]
+\multicolumn{5}{l}{Panel A: IPCA on daily data} \\[2.5pt]
+\midrule\addlinespace[2.5pt]
+\(R^{2}_{\text{Total}}\) & \(\Gamma_{\alpha} = 0\) & 0.2301 & 0.2509 & 0.2681 \\
+ & \(\Gamma_{\alpha} \neq 0\) & 0.2322 & 0.2524 & 0.2690 \\
+\(R^{2}_{\text{Predictive}}\) & \(\Gamma_{\alpha} = 0\) & -0.3904 & -0.4082 & -0.4169 \\
+ & \(\Gamma_{\alpha} \neq 0\) & -0.3857 & -0.4055 & -0.4156 \\
+\bottomrule
+\end{tabular*}
+\end{table}
+```
+
+```{=latex}
+\begin{tabular}{lrrrrrrrrrr}
+\toprule
+No. Obs & Unique coins & Min No. Obs & Mean & Std & P10 & P25 & P50 & P75 & P90 \\
+\midrule
+1478936 & 973 & 121 & -0.027021 & 0.124855 & -0.101770 & -0.066473 & -0.037020 & 0.000195 & 0.046910 \\
+\bottomrule
+\end{tabular}
+```
 
 
 **TEST**

@@ -50,7 +50,12 @@ format:
 
     include-in-header:
       text: |
+        \usepackage{amsmath,amssymb}
+        \usepackage{unicode-math}
+        \setmathfont{Latin Modern Math}
         \usepackage{booktabs, caption, longtable, colortbl, array}
+        \usepackage{enumitem}
+        \setlist[description]{nosep,style=multiline,leftmargin=3.5cm,font=\normalfont\textsf}
         
         \PassOptionsToPackage{list=true}{subcaption}    % fix fig-scap in list of figs. 
         
