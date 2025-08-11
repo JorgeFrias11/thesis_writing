@@ -36,10 +36,11 @@ Out of the 14,907 cryptocurrencies listed, only 7,272 entries contained availabl
 
 ## Sample overview
 
-After applying all the filters, the resulting sample consists of 973 unique cryptocurrencies and 1,478,936 observations from June 1, 2018, to July 31, 2025, where a day starts at 00:00:00 UTC. It is important to mention that the number of cryptocurrencies fluctuates over the entire period, which results in an unbalanced panel of data. @tbl-sampleoverview provides an overview of the descriptive statistics for the cryptocurrency excess returns. Additionally,  
+After applying all the filters, the resulting sample consists of 973 unique cryptocurrencies and 1,478,936 observations from June 1, 2018, to July 31, 2025, where a day starts at 00:00:00 UTC. It is important to mention that the number of cryptocurrencies fluctuates over the entire period, which results in an unbalanced panel of data. @tbl-sampleoverview2  \ref{tbl-sampleoverview} provides an overview of the descriptive statistics for the cryptocurrency excess returns. Additionally,  
 
 
-:::{#tbl-sampleoverview tbl-scap="Summary statistics of daily excess returns"}
+
+:::{#tbl-sampleoverview2 tbl-scap="Summary statistics of daily excess returns"  }
 
 ```{r}
 #| echo: false
@@ -74,190 +75,28 @@ gt_tbl
 **Summary statistics of daily excess returns.** 
 :::
 
-
-**SECOND TRY** 
-
-```{r}
-#| echo: false
-#| warning: false
-library(tibble)
-library(gt)
-library(dplyr)
-
-# Original table
-results_table <- tribble(
-  ~Metric, ~Intercept, ~`K = 3`, ~`K = 5`, ~`K = 8`,
-
-  "\\(R^2_{\\text{Total}}\\)", "\\(\\Gamma_\\alpha = 0\\)", 0.2301, 0.2509, 0.2681,
-  "",                          "\\(\\Gamma_\\alpha \\neq 0\\)", 0.2322, 0.2524, 0.2690,
-  "\\(R^2_{\\text{Predictive}}\\)", "\\(\\Gamma_\\alpha = 0\\)", -0.3904, -0.4082, -0.4169,
-  "",                              "\\(\\Gamma_\\alpha \\neq 0\\)", -0.3857, -0.4055, -0.4156,
-
-  "\\(R^2_{\\text{Total}}\\)", "\\(\\Gamma_\\alpha = 0\\)", 0.2625, 0.2817, 0.2934,
-  "",                          "\\(\\Gamma_\\alpha \\neq 0\\)", 0.2661, 0.2826, 0.2937,
-  "\\(R^2_{\\text{Predictive}}\\)", "\\(\\Gamma_\\alpha = 0\\)", 0.1725, 0.1551, 0.1511,
-  "",                              "\\(\\Gamma_\\alpha \\neq 0\\)", 0.1719, 0.1584, 0.1554,
-
-  "\\(R^2_{\\text{Total}}\\)", "--", 1.455576e-05, 2.478456e-05, 2.934438e-05,
-  "\\(R^2_{\\text{Predictive }}\\)", "", 1.448428e-05, 2.469351e-05, 2.923816e-05
-)
-
-# Make gt table
-gt_tbl <- results_table |>
-  gt() |>
-  fmt_number(
-    columns = c(`K = 3`, `K = 5`, `K = 8`),
-    decimals = 4
-  ) |>
-  cols_label(
-    Metric = "",
-    Intercept = "",
-    `K = 3` = html("\\(K = 3\\)"),
-    `K = 5` = html("\\(K = 5\\)"),
-    `K = 8` = html("\\(K = 8\\)")
-  ) |>
-  tab_spanner_delim(delim = "=") |> # optional for grouping
-  tab_row_group(
-    group = "Panel A: IPCA on daily data",
-    rows = 1:4
-  ) |>
-  tab_row_group(
-    group = "Panel B: IPCA on weekly data",
-    rows = 5:8
-  ) |>
-  tab_row_group(
-    group = "Panel C: PCA on weekly data",
-    rows = 9:10
-  ) |>
-  cols_align(align = "center", columns = everything()) |>
-  tab_options(
-    table.font.size = px(12)
-  ) 
-
-```
-
-<!-- Passing raw_latex -->
-<!-- ```{r,  echo=FALSE} -->
-<!-- #| output: asis -->
-<!-- library(gt) -->
-<!-- ltx <- as.character(gt::as_latex(gt_tbl)) -->
-
-<!-- # Wrap the LaTeX code in Pandoc's raw latex block -->
-<!-- ltx_block <- paste0("```{=latex}\n", ltx, "\n```") -->
-
-<!-- knitr::asis_output(ltx_block) -->
-<!-- ``` -->
-
-
 ```{=latex}
 \begin{table}[t]
-\fontsize{9.0pt}{10.8pt}\selectfont
-\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}ccccc}
-\toprule
- &  & \multicolumn{3}{c}{K } \\
-\cmidrule(lr){3-5}
- &  & \(K = 3\) & \(K = 5\) & \(K = 8\) \\
-\midrule\addlinespace[2.5pt]
-\multicolumn{5}{l}{Panel C: PCA on weekly data} \\[2.5pt]
-\midrule\addlinespace[2.5pt]
-\(R^{2}_{\text{Total}}\) &  & 0.0000 & 0.0000 & 0.0000 \\
-\(R^{2}_{\text{Predictive}}\) &  & 0.0000 & 0.0000 & 0.0000 \\
-\midrule\addlinespace[2.5pt]
-\multicolumn{5}{l}{Panel B: IPCA on weekly data} \\[2.5pt]
-\midrule\addlinespace[2.5pt]
-\(R^{2}_{\text{Total}}\) & \(\Gamma_{\alpha} = 0\) & 0.2625 & 0.2817 & 0.2934 \\
- & \(\Gamma_{\alpha} \neq 0\) & 0.2661 & 0.2826 & 0.2937 \\
-\(R^{2}_{\text{Predictive}}\) & \(\Gamma_{\alpha} = 0\) & 0.1725 & 0.1551 & 0.1511 \\
- & \(\Gamma_{\alpha} \neq 0\) & 0.1719 & 0.1584 & 0.1554 \\
-\midrule\addlinespace[2.5pt]
-\multicolumn{5}{l}{Panel A: IPCA on daily data} \\[2.5pt]
-\midrule\addlinespace[2.5pt]
-\(R^{2}_{\text{Total}}\) & \(\Gamma_{\alpha} = 0\) & 0.2301 & 0.2509 & 0.2681 \\
- & \(\Gamma_{\alpha} \neq 0\) & 0.2322 & 0.2524 & 0.2690 \\
-\(R^{2}_{\text{Predictive}}\) & \(\Gamma_{\alpha} = 0\) & -0.3904 & -0.4082 & -0.4169 \\
- & \(\Gamma_{\alpha} \neq 0\) & -0.3857 & -0.4055 & -0.4156 \\
-\bottomrule
-\end{tabular*}
-\end{table}
-```
-
-```{=latex}
-\begin{tabular}{lrrrrrrrrrr}
+\centering
+\scriptsize
+\caption[Summary statistics of daily excess returns]%
+{\textbf{Summary statistics of daily excess returns.} 
+The table reports the summary statistics of daily returns on the dataset used in the empirical analysis. The columns represent the number of daily observations, the quantity of unique coins over the whole sample period, the minimum size of the cross-section, the mean of the excess returns, the standard deviation, and the 10th percentile, lower quartile, median, upper quartile, and 90th percentile of the distribution of the returns. The sample period is from June 1, 2018, to July 31, 2025.}
+\label{tbl-sampleoverview}
+\begin{tabular}{lccccccccc}
 \toprule
 No. Obs & Unique coins & Min No. Obs & Mean & Std & P10 & P25 & P50 & P75 & P90 \\
 \midrule
-1478936 & 973 & 121 & -0.027021 & 0.124855 & -0.101770 & -0.066473 & -0.037020 & 0.000195 & 0.046910 \\
+1,478,936 & 973 & 121 & -2.70\% & 12.49\% & -10.18\% & -6.65\% & -3.70\% & 0.02\% & 4.69\% \\
 \bottomrule
 \end{tabular}
-```
-
-
-**TEST**
-
-```{r}
-tab_latex <-
-  gtcars |>
-  dplyr::select(mfr, model, msrp) |>
-  dplyr::slice(1:5) |>
-  gt() |>
-  tab_header(
-    title = md("Data listing from **gtcars**"),
-    subtitle = md("`gtcars` is an R dataset")
-  ) |>
-  as_latex()
-
-tab_latex
+\end{table}
 
 ```
 
-**ANOTHER TEST**
 
-```{r}
-#| echo: false
-#| warning: false
-library(tibble)
-library(knitr)
-library(kableExtra)
-library(latex2exp)
 
-df <- read_csv("tables/sample_overview_table.csv", show_col_types = FALSE) |>
-  as.data.frame()
 
-kable(df, "latex", align="c", booktabs=TRUE, escape = , caption = '$\\Gamma$') %>%
-footnote(general=c("$a^2+b^2=c^2,$",     
-                   "$\\\\sigma^2=\\\\frac{1}{n-1}\\\\sum_{i=1}^n(x_i-\\\\bar{x})^2;$", 
-                   "1,000 \\\\$;", "100\\\\%."),
-         number=c("Hello\ there! \\\\textit{Hello\ there!}"),
-         footnote_as_chunk=TRUE, 
-         escape=FALSE)
-
-# kable(df, "latex", align = "c", booktabs = TRUE, escape = F) %>%  # <- TRUE here
-#   footnote(
-#     general = c("The table reports the summary statistics of daily returns ... July 31, 2025."),
-#     number  = c("Hello\ there! \\\\textit{Hello\ there!}"),
-#     footnote_as_chunk = TRUE,
-#     escape = FALSE   # <- still allow LaTeX in the footnote
-#   )
-
-```
-
-**THIS WORKS**
-
-```{r tab}
-library(knitr)
-library(kableExtra)
-df <- data.frame(v1=rnorm(6), v2=runif(6), v3=rbinom(6, 1, .33), 
-             row.names=LETTERS[1:6])
-
-df$v4 <- c('My formula $\\sum_{i=1}^9$')
-kable(df, "latex", align="c", booktabs=TRUE, escape = F, caption = '$\\Gamma$') %>%
-footnote(general=c("$a^2+b^2=c^2,$",     
-                   "$\\\\sigma^2=\\\\frac{1}{n-1}\\\\sum_{i=1}^n(x_i-\\\\bar{x})^2;$", 
-                   "1,000 \\\\$;", "100\\\\%."),
-         number=c("Hello\ there! \\\\textit{Hello\ there!}"),
-         footnote_as_chunk=TRUE, 
-         escape=FALSE)
-```
 
 ## Characteristic construction and description {#sec-characteristics}
 

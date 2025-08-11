@@ -1,0 +1,130 @@
+---
+title: "table templates"
+format: pdf
+---
+
+## Quarto
+
+Some templates for creating tables in latex and using other packages. 
+
+**TEST**
+
+```{r}
+tab_latex <-
+  gtcars |>
+  dplyr::select(mfr, model, msrp) |>
+  dplyr::slice(1:5) |>
+  gt() |>
+  tab_header(
+    title = md("Data listing from **gtcars**"),
+    subtitle = md("`gtcars` is an R dataset")
+  ) |>
+  as_latex()
+
+tab_latex
+
+```
+
+**ANOTHER TEST**
+
+```{r}
+#| echo: false
+#| warning: false
+library(tibble)
+library(knitr)
+library(kableExtra)
+library(latex2exp)
+
+df <- read_csv("tables/sample_overview_table.csv", show_col_types = FALSE) |>
+  as.data.frame()
+
+kable(df, "latex", align="c", booktabs=TRUE, escape = , caption = '$\\Gamma$') %>%
+footnote(general=c("$a^2+b^2=c^2,$",     
+                   "$\\\\sigma^2=\\\\frac{1}{n-1}\\\\sum_{i=1}^n(x_i-\\\\bar{x})^2;$", 
+                   "1,000 \\\\$;", "100\\\\%."),
+         number=c("Hello\ there! \\\\textit{Hello\ there!}"),
+         footnote_as_chunk=TRUE, 
+         escape=FALSE)
+
+```
+
+**THIS WORKS**
+
+```{r tab}
+library(knitr)
+library(kableExtra)
+df <- data.frame(v1=rnorm(6), v2=runif(6), v3=rbinom(6, 1, .33), 
+             row.names=LETTERS[1:6])
+
+df$v4 <- c('My formula $\\sum_{i=1}^9$')
+kable(df, "latex", align="c", booktabs=TRUE, escape = F, caption = '$\\Gamma$') %>%
+footnote(general=c("$a^2+b^2=c^2,$",     
+                   "$\\\\sigma^2=\\\\frac{1}{n-1}\\\\sum_{i=1}^n(x_i-\\\\bar{x})^2;$", 
+                   "1,000 \\\\$;", "100\\\\%."),
+         number=c("Hello\ there! \\\\textit{Hello\ there!}"),
+         footnote_as_chunk=TRUE, 
+         escape=FALSE)
+```
+
+
+A more complex table. Unfortunately, I face problems when rendering to latex, but it works perfectly for HTML. 
+
+```{r}
+#| echo: false
+#| warning: false
+#| 
+library(tibble)
+library(gt)
+library(dplyr)
+
+# Original table
+results_table <- tribble(
+  ~Metric, ~Intercept, ~`K = 3`, ~`K = 5`, ~`K = 8`,
+
+  "\\(R^2_{\\text{Total}}\\)", "\\(\\Gamma_\\alpha = 0\\)", 0.2301, 0.2509, 0.2681,
+  "",                          "\\(\\Gamma_\\alpha \\neq 0\\)", 0.2322, 0.2524, 0.2690,
+  "\\(R^2_{\\text{Predictive}}\\)", "\\(\\Gamma_\\alpha = 0\\)", -0.3904, -0.4082, -0.4169,
+  "",                              "\\(\\Gamma_\\alpha \\neq 0\\)", -0.3857, -0.4055, -0.4156,
+
+  "\\(R^2_{\\text{Total}}\\)", "\\(\\Gamma_\\alpha = 0\\)", 0.2625, 0.2817, 0.2934,
+  "",                          "\\(\\Gamma_\\alpha \\neq 0\\)", 0.2661, 0.2826, 0.2937,
+  "\\(R^2_{\\text{Predictive}}\\)", "\\(\\Gamma_\\alpha = 0\\)", 0.1725, 0.1551, 0.1511,
+  "",                              "\\(\\Gamma_\\alpha \\neq 0\\)", 0.1719, 0.1584, 0.1554,
+
+  "\\(R^2_{\\text{Total}}\\)", "--", 1.455576e-05, 2.478456e-05, 2.934438e-05,
+  "\\(R^2_{\\text{Predictive }}\\)", "", 1.448428e-05, 2.469351e-05, 2.923816e-05
+)
+
+# Make gt table
+gt_tbl <- results_table |>
+  gt() |>
+  fmt_number(
+    columns = c(`K = 3`, `K = 5`, `K = 8`),
+    decimals = 4
+  ) |>
+  cols_label(
+    Metric = "",
+    Intercept = "",
+    `K = 3` = html("\\(K = 3\\)"),
+    `K = 5` = html("\\(K = 5\\)"),
+    `K = 8` = html("\\(K = 8\\)")
+  ) |>
+  tab_spanner_delim(delim = "=") |> # optional for grouping
+  tab_row_group(
+    group = "Panel A: IPCA on daily data",
+    rows = 1:4
+  ) |>
+  tab_row_group(
+    group = "Panel B: IPCA on weekly data",
+    rows = 5:8
+  ) |>
+  tab_row_group(
+    group = "Panel C: PCA on weekly data",
+    rows = 9:10
+  ) |>
+  cols_align(align = "center", columns = everything()) |>
+  tab_options(
+    table.font.size = px(12)
+  ) 
+
+```
