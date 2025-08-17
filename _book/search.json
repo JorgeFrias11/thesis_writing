@@ -1,0 +1,12 @@
+[
+  {
+    "objectID": "05_results.html",
+    "href": "05_results.html",
+    "title": "5  Results",
+    "section": "",
+    "text": "Important: mention the shift of characteristics: the conditional APT of Kelly, Pruitt, Su (JFE 2019) says that the characteristics known at Date=d-1 determine the exposures associated with the returns realized at Date=d; hence, here we should have shifted the characteristics in Z relative to the returns in R\nThis is a template of the table of the results of the IPCA model. I need to add a caption to the table. Here I reference Table [tbl-ipca_results].\n\n\n Results of IPCA regression. Model Performance. Panel A and B report total and predictive \\(R^2\\) in percent for the restricted (\\(\\Gamma_\\alpha = 0\\)) and unrestricted (\\(\\Gamma_\\alpha \\neq 0\\)) IPCA model for \\(K\\) number of factors on daily and weekly data, respectively. Panel C reports the corresponding total and predictive \\(R^2\\) for a simple PCA model on weekly data. \n\n\n\n\nK\n\n\n\n\n3-5\n\n\\(K = 3\\)\n\\(K = 5\\)\n\\(K = 8\\)\n\n\n\n\n\n\n\n\n\n\\(R^{2}_{\\text{Total}}\\)\n\n0.0000\n0.0000\n0.0000\n\n\n\\(R^{2}_{\\text{Predictive}}\\)\n\n0.0000\n0.0000\n0.0000\n\n\n\n\n\n\n\n\n\n\\(R^{2}_{\\text{Total}}\\)\n\\(\\Gamma_{\\alpha} = 0\\)\n0.2625\n0.2817\n0.2934\n\n\n\n\\(\\Gamma_{\\alpha} \\neq 0\\)\n0.2661\n0.2826\n0.2937\n\n\n\\(R^{2}_{\\text{Predictive}}\\)\n\\(\\Gamma_{\\alpha} = 0\\)\n0.1725\n0.1551\n0.1511\n\n\n\n\\(\\Gamma_{\\alpha} \\neq 0\\)\n0.1719\n0.1584\n0.1554\n\n\n\n\n\n\n\n\n\n\\(R^{2}_{\\text{Total}}\\)\n\\(\\Gamma_{\\alpha} = 0\\)\n0.2301\n0.2509\n0.2681\n\n\n\n\\(\\Gamma_{\\alpha} \\neq 0\\)\n0.2322\n0.2524\n0.2690\n\n\n\\(R^{2}_{\\text{Predictive}}\\)\n\\(\\Gamma_{\\alpha} = 0\\)\n-0.3904\n-0.4082\n-0.4169\n\n\n\n\\(\\Gamma_{\\alpha} \\neq 0\\)\n-0.3857\n-0.4055\n-0.4156\n\n\n\n\nSome test for quarto and latex\nQuarto: 1. Sees the caption line after the table. 2. Wraps the tabular inside a LaTeX table environment. 3. Adds \\caption{Some letters with LaTeX} and \\label{tbl-letters} automatically. 4. Gives it a table number and puts it in the List of Tables.\n\nInline LaTeX way inside Quarto\nHere we see the summary statistics in Table [tbl-letters].\n\n\nSome letters with LaTeX\n\n\nA\nB\nC\n\n\nD\nE\nF",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Results</span>"
+    ]
+  }
+]

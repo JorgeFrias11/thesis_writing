@@ -1,9 +1,29 @@
-# Preface {.unnumbered}
+# Acknowledgements {.unnumbered .unlisted}
 
-This is a Quarto book.
+Here write acknowledgements.
 
-To learn more about Quarto books visit <https://quarto.org/docs/books>.
 
-```{r}
-1 + 1
+# Abstract {.unnumbered .unlisted}
+
+Here goes my abstract text. Here goes my abstract text. Here goes my abstract text.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu dolor luctus, rhoncus leo in, commodo turpis. Aenean sed enim in sem euismod porta. Vivamus tempor lorem nec eros rhoncus, eu hendrerit libero tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque dapibus turpis quis nibh molestie dapibus. Aliquam erat volutpat. Integer et odio nec mauris sollicitudin mattis.
+
+
+
+```{=latex}
+\tableofcontents 
+
+% lof and lot on the same page
+\listoffigures
+\begingroup
+\let\clearpage\relax
+\listoftables
+\endgroup
+
+% Return to arabic numbering after this section
+\let\mainmatter\mainmatterreal
+\mainmatter
+
+% Return to open any (no blank pages)
+\KOMAoptions{open=any}    % restore your global default
 ```

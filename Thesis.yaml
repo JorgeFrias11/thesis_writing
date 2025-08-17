@@ -597,6 +597,48 @@ references:
   URL: https://www.sciencedirect.com/science/article/pii/S0304405X19301151
   volume: '134'
 
+- id: kellyInstrumentedPrincipal2020
+  abstract: >-
+    We propose a new approach of latent factor analysis that, in addition to the
+    main panel of interest, introduces other relevant data that serve as
+    instruments for dynamic factor loadings.The method, called IPCA, provides a
+    parsimonious means of incorporating vast conditioning information into
+    factor model estimates. This improves the efficiency of estimates for the
+    latent factors and their loadings, and helps to ascertain the economic
+    relationships among factors and individuals via the observable instruments.
+    The estimation is fast to calculate and accommodates unbalanced panels. We
+    show consistency and asymptotic normality under general panel data
+    generating processes. We demonstrate the advantages of IPCA in simulated
+    data and in applications to equity asset pricing and international
+    macroeconomics.
+  accessed:
+    - year: 2025
+      month: 8
+      day: 15
+  author:
+    - family: Kelly
+      given: Bryan T.
+    - family: Pruitt
+      given: Seth
+    - family: Su
+      given: Yinan
+  citation-key: kellyInstrumentedPrincipal2020
+  DOI: 10.2139/ssrn.2983919
+  event-place: Rochester, NY
+  genre: SSRN Scholarly Paper
+  issued:
+    - year: 2020
+      month: 12
+      day: 17
+  language: en
+  number: '2983919'
+  publisher: Social Science Research Network
+  publisher-place: Rochester, NY
+  source: papers.ssrn.com
+  title: Instrumented Principal Component Analysis
+  type: article
+  URL: https://papers.ssrn.com/abstract=2983919
+
 - id: liuCommonRisk2022
   abstract: >-
     We find that three factors—cryptocurrency market, size, and momentum—capture

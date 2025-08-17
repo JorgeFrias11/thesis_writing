@@ -128,3 +128,39 @@ gt_tbl <- results_table |>
   ) 
 
 ```
+
+
+:::{#tbl-sampleoverview2 tbl-scap="Summary statistics of daily excess returns"  }
+
+```{r}
+#| echo: false
+#| warning: false
+##| label: tbl-sampleoverview
+##| tbl-subcap: "**Summary statistics of daily excess returns.** The table reports the summary statistics of daily returns on the dataset used in the empirical analysis. The columns represent the number of daily observations, the quantity of unique coins over the whole sample period, the minimum size of the cross-section, the mean of the excess returns, the standard deviation, and the 10th percentile, lower quartile, median, upper quartile, and 90th percentile of the distribution of the returns. The sample period is from June 1, 2018, to July 31, 2025."
+##| tbl-scap: "Summary statistics of daily excess returns"
+library(readr)
+library(dplyr)
+library(gt)
+
+tbl <- read_csv("tables/sample_overview_table.csv", 
+                show_col_types = FALSE) |>
+  select(-...1)
+
+gt_tbl <- tbl |>
+  gt(rowname_col = NULL) |>
+  fmt_percent(columns = c(Mean, Std, P10, P25, P50, P75, P90), decimals = 2) |>
+  cols_align(
+    align = "center",
+    columns = everything()
+  ) |>
+  tab_options(table.font.size = px(12),
+              footnotes.padding = px(20)) |>
+  tab_footnote(
+    footnote = "Some text for the footnote"
+  ) |>
+  as_latex()
+
+gt_tbl
+```
+**Summary statistics of daily excess returns.** 
+:::

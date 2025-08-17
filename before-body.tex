@@ -16,34 +16,41 @@ $endif$
 \vspace{1em}
 
 \begin{center}
-    \textbf{\huge MASTERARBEIT / MASTER’S THESIS} \\
-    \vspace{1.5cm}
+    \large Master Thesis \\
+    \vspace{1cm}
 
-    \LARGE $title$ \\
-    \vspace{2.5cm}
-    
-    \normalsize verfasst von / submitted by \\
+    \textbf{\huge $title$} \\
     \vspace{0.5cm}
+
     $for(by-author)$
-    \textit{\Large $by-author.name.literal$ \\}
+    \LARGE $by-author.name.given$ \textsc{$by-author.name.family$} \\
+    \vspace{0.5cm}
+    %\Large $by-author.name.literal$ \\
     $endfor$
     \vspace{2cm}
     
-    Submitted in total fulfillment of the requirement of the degree of: \\
-    \Large Master of Science (WU)
-        \\
-\vspace{1cm}
-\normalsize
+    \normalsize Submitted in partial fulfillment of the requirement for the degree of: \\
+    \LARGE Master of Science \\
+\vspace{2cm}
 
+\normalsize
     \begin{tabular}{ll}
-        Matrikelnummer / student ID number: & 012329686 \\
-        Studium / degree programme: & Quantitative Finance \\
-        University: & $for(by-author)$$for(by-author.affiliations)$$it.name$$endfor$$endfor$ \\
-        Betreut von / Supervisor: & Univ.Prof. David Preinerstorfer, Ph.D. \\
+        Student ID: & 012329686 \\
+        Degree programme: & Quantitative Finance \\
+        %University: & $for(by-author)$$for(by-author.affiliations)$$it.name$$endfor$$endfor$ \\
+        Supervisor: & Univ.Prof. David \textsc{Preinerstorfer}, Ph.D. \\
+        Date of Submission: & $date$
     \end{tabular}
     \vspace{2cm}
     
-    \textbf{Wien, $date$ / Vienna, $date$}
+    \textit{
+    %\begin{tabular}{l}
+      Department of Finance, Accounting and Statistics. \\
+      Vienna University of Economics and Business. \\
+      Welthandelsplatz 1, 1020 Vienna, Austria.
+    %\end{tabular}
+    }
+
 \end{center}
 
 %-----------------------------------------------
@@ -51,8 +58,33 @@ $endif$
 %-----------------------------------------------
 
 
-$if(abstract)$
-\begin{abstract}
-$abstract$
-\end{abstract}
-$endif$
+% \begin{center}
+%   \normalfont\bfseries Abstract
+% \end{center}
+% 
+% \begin{center}
+%   \begin{minipage}{0.8\textwidth}
+%     \small
+%     Here goes my abstract in Quarto. Random text: 
+%     If you have a book with several pages in a section or subsection, it is often convenient to offer the user the ability to navigate to the next page (or previous page) at the bottom of the page that they’ve just finished reading. You can enable this using.
+%   \end{minipage}
+% \end{center}
+
+
+% $if(abstract)$
+% \begin{abstract}
+%    $abstract$
+% \end{abstract}
+% $endif$
+
+% \addchap*{Abstract}
+% 
+% Here goes my abstract text. Here goes my abstract text. Here goes my abstract text.
+% Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu dolor luctus, rhoncus leo in, commodo turpis. Aenean sed enim in sem euismod porta. Vivamus tempor lorem nec eros rhoncus, eu hendrerit libero tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque dapibus turpis quis nibh molestie dapibus. Aliquam erat volutpat. Integer et odio nec mauris sollicitudin mattis. 
+% 
+
+\let\mainmatterreal\mainmatter
+\let\mainmatter\relax
+% Open right for these sections: blank page to make section start on the right side. 
+\KOMAoptions{open=right}  
+

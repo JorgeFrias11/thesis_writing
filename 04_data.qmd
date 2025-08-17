@@ -1,5 +1,10 @@
 # Data
 
+In this section, I introduce the cryptocurrency data used in this thesis, the series of filters applied to clean and prepare the dataset, and the summary statistics of the cryptocurrency excess returns. In addition, I show the set of asset-specific characteristics constructed from the cryptocurrency market data, which are used as instruments for latent factor exposures in the IPCA model. Appendix -@sec-app_characteristics provides a detailed description of the characteristics used in the empirical analysis
+
+The summary
+The full reproducible code is available in Appendix -@sec-app_material.  
+
 ## Data extraction and sample construction
 
 I collect daily cryptocurrency data on open, high, close, and low (OHCL) prices, 24-hour volume, and market capitalization (calculated as the cryptocurrency's USD price multiplied by its circulating supply) from [CoinCodex](https://coincodex.com/), a website-data provider that gathers and aggregates data from more than 400 exchanges. I extract the data, all expressed in US dollars, using the CoinCodex API as follows: 
@@ -10,7 +15,7 @@ I collect daily cryptocurrency data on open, high, close, and low (OHCL) prices,
 
 Out of the 14,907 cryptocurrencies listed, only 7,272 entries contained available data. Next, following the methodology of @bianchiMispricingRiskCompensation2021 and @mercikCrosssectionalInteractionsCryptocurrency2025, I apply a series of cleaning and filtering steps in order to remove possible innacuracies in the dataset: 
 
-1. Non-positive and missing values. As mentioned earlier, I remove observations with where prices, volume, or market capitalization were non-positive or missing. 
+1. Non-positive and missing values. As mentioned earlier, I remove observations where prices, volume, or market capitalization were non-positive or missing. 
 2. Small cryptocurrencies. Similar to @liuCommonRisk2022, I screen out small cryptocurrencies and consider only those with a market capitalization greater than one million USD. Therefore, I exclude observations for coins whose market capitalization falls below this minimum threshold, which allows for the possibility that a coin may become "small" after a certain period or event. 
 3. Cryptocurrency type. Based on the cryptocurrency classification from [CoinMarketCap](https://coinmarketcap.com/cryptocurrency-category/) and CoinCodex, I exclude: 
 
@@ -19,10 +24,10 @@ Out of the 14,907 cryptocurrencies listed, only 7,272 entries contained availabl
     - wrapped cryptocurrency tokens, which mirror the value of another cryptocurrency from a different blockchain, e.g., Wrapped Bitcoin (wBTC) or Wrapped Ethereum (wETH) [@coinbaseWhatWrapped]. 
     - cryptocurrencies backed by or pegged to gold or precious metals, including Pax Gold (PAXG) or XAGx Silver Token (XAGX).
     
-4. Volume-to-market-capitalization ratio. To filter out cryptocurrencies with "fake" or "erroneous" trading volume, I calculate the daily volume-to-market-capitalization ratio for each token and exclude observations where the ratio exceeds 1.
+4. Erroneous trading volume. To filter out cryptocurrencies with "fake" or "erroneous" trading volume, I calculate the daily volume-to-market-capitalization ratio for each token and exclude observations where the ratio exceeds 1.
 5. Extreme returns. To minimize the influence of extreme values in my results, I winsorize daily cryptocurrency returns to lie within the range of -90% to 500%.
 6. Time period. Even though cryptocurrency data are available since 2014, I use data from June 1, 2018 for the empirical analysis due to the low amount of coins available before this date (see @fig-numcoins). 
-7. 6. Minimum observations. In order to maintain practical relevance, I keep cryptocurrencies that have at least 365 consecutive daily observations and those with at least 730 observations in the complete panel of coin characteristics (see @sec-characteristics), which is equivalent to 2 years of historical data. Therefore, I exclude very short-lived coins, but retain failed coins with this relatively large number of observations, which help to lessen the so called "survivorship biais".
+7. Minimum observations. In order to maintain practical relevance, I keep cryptocurrencies that have at least 365 consecutive daily observations and those with at least 730 observations in the complete panel of coin characteristics (see @sec-characteristics), which is equivalent to 2 years of historical data. Therefore, I exclude very short-lived coins, but retain failed coins with this relatively large number of observations, which help to lessen the so called "survivorship biais".
 
 
 ::: {#fig-numcoins fig-scap="Number of cryptocurrencies over time"}
@@ -36,69 +41,32 @@ Out of the 14,907 cryptocurrencies listed, only 7,272 entries contained availabl
 
 ## Sample overview
 
-After applying all the filters, the resulting sample consists of 973 unique cryptocurrencies and 1,478,936 observations from June 1, 2018, to July 31, 2025, where a day starts at 00:00:00 UTC. It is important to mention that the number of cryptocurrencies fluctuates over the entire period, which results in an unbalanced panel of data. @tbl-sampleoverview2  \ref{tbl-sampleoverview} provides an overview of the descriptive statistics for the cryptocurrency excess returns. Additionally,  
-
-
-
-:::{#tbl-sampleoverview2 tbl-scap="Summary statistics of daily excess returns"  }
-
-```{r}
-#| echo: false
-#| warning: false
-##| label: tbl-sampleoverview
-##| tbl-subcap: "**Summary statistics of daily excess returns.** The table reports the summary statistics of daily returns on the dataset used in the empirical analysis. The columns represent the number of daily observations, the quantity of unique coins over the whole sample period, the minimum size of the cross-section, the mean of the excess returns, the standard deviation, and the 10th percentile, lower quartile, median, upper quartile, and 90th percentile of the distribution of the returns. The sample period is from June 1, 2018, to July 31, 2025."
-##| tbl-scap: "Summary statistics of daily excess returns"
-library(readr)
-library(dplyr)
-library(gt)
-
-tbl <- read_csv("tables/sample_overview_table.csv", 
-                show_col_types = FALSE) |>
-  select(-...1)
-
-gt_tbl <- tbl |>
-  gt(rowname_col = NULL) |>
-  fmt_percent(columns = c(Mean, Std, P10, P25, P50, P75, P90), decimals = 2) |>
-  cols_align(
-    align = "center",
-    columns = everything()
-  ) |>
-  tab_options(table.font.size = px(12),
-              footnotes.padding = px(20)) |>
-  tab_footnote(
-    footnote = "Some text for the footnote"
-  ) |>
-  as_latex()
-
-gt_tbl
-```
-**Summary statistics of daily excess returns.** 
-:::
+After applying all the filters, the resulting sample consists of 973 unique cryptocurrencies and 1,478,936 observations from June 1, 2018, to July 31, 2025, where a day starts at 00:00:00 UTC. It is important to mention that the number of cryptocurrencies fluctuates over the entire period, which results in an unbalanced panel of data.\ref{tbl-sampleoverview} provides an overview of the descriptive statistics for the cryptocurrency excess returns. Additionally,  
 
 ```{=latex}
 \begin{table}[t]
 \centering
-\scriptsize
 \caption[Summary statistics of daily excess returns]%
 {\textbf{Summary statistics of daily excess returns.} 
 The table reports the summary statistics of daily returns on the dataset used in the empirical analysis. The columns represent the number of daily observations, the quantity of unique coins over the whole sample period, the minimum size of the cross-section, the mean of the excess returns, the standard deviation, and the 10th percentile, lower quartile, median, upper quartile, and 90th percentile of the distribution of the returns. The sample period is from June 1, 2018, to July 31, 2025.}
 \label{tbl-sampleoverview}
-\begin{tabular}{lccccccccc}
-\toprule
-No. Obs & Unique coins & Min No. Obs & Mean & Std & P10 & P25 & P50 & P75 & P90 \\
-\midrule
-1,478,936 & 973 & 121 & -2.70\% & 12.49\% & -10.18\% & -6.65\% & -3.70\% & 0.02\% & 4.69\% \\
-\bottomrule
-\end{tabular}
+\adjustbox{max width=\textwidth}{
+  \begin{tabular}{lccccccccc}
+  \toprule
+  No. Obs & Unique coins & Min No. Obs & Mean & Std & P10 & P25 & P50 & P75 & P90 \\
+  \midrule
+  1,478,936 & 973 & 121 & -2.70\% & 12.49\% & -10.18\% & -6.65\% & -3.70\% & 0.02\% & 4.69\% \\
+  \bottomrule
+  \end{tabular}
+}
 \end{table}
-
 ```
 
 
-
-
-
 ## Characteristic construction and description {#sec-characteristics}
+
+
+Following @kellyCharacteristicsAre2019, I cross-sectionally transform the instrument variables period-by-period in the following manner: first,  
 
 ### Volume shock
 

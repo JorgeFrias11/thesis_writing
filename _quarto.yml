@@ -2,46 +2,55 @@ project:
   type: book
 
 book:
-  title: "Master Thesis Title"
-  author: 
-    - name: "Jorge Eduardo Frías Navarrete"
-      affiliations: 
+  title: "Edit: Master Thesis Title"
+  author:
+    - name: 
+        given: "Jorge Eduardo"
+        family: "Frías Navarrete"
+      affiliations:
         - name: "Vienna University of Economics and Business"
-  date: "01 August 2025"
-  date-format: "MMMM YYYY"
+  date: last-modified
+  date-format: "MMMM DD, YYYY"
   chapters:
+    #- abstract.qmd
     - index.qmd
     - 01_intro.qmd
     - 02_literature_review.qmd
     - 03_methodology.qmd
     - 04_data.qmd
     - 05_results.qmd
-    # - 06_appendix.qmd
+    - 06_conclusion.qmd
     - references.qmd
+  appendices:
+    - appendix.qmd
   output-file: "JorgeFrias_thesis"
-
+  
 bibliography: references.yaml
 csl: apa.csl
 filters: 
   - parse-latex
+keep-tex: true
 format:
   html:
     theme:
       - cosmo
       - brand
   pdf:
-    documentclass: scrreprt
+    documentclass: scrbook
+    classoption: [openany]
+    #documentclass: article  # For two-sided. Single-side: scrreprt
+    #top-level-division: section # for scrartcl
     toc: true
     toc-depth: 2
     toc-title: "Table of contents"
     lof: true
     lot: true
     papersize: a4
-    fontsize: 11pt
-    classoption: [openany]
+    fontsize: 12pt
     number-sections: true
     number-depth: 2
     linkcolor: blue
+    link-citations: true
     fig-pos: "h"
     geometry:
       - left=3cm
@@ -52,23 +61,30 @@ format:
 
     include-in-header:
       text: |
+        % \AddToHook{cmd/section/before}{\clearpage}  % new page for each section for articles
+        
+        % make all sectioning heads (chapter/section/subsection/…) serif for srcbook
+        \setkomafont{disposition}{\normalfont\bfseries\rmfamily}
+        
+        \usepackage{hyperref}
+        \usepackage[nameinlink, capitalise, noabbrev]{cleveref} % \cref{_label_} to link the label and section number 
+        
+        \usepackage{adjustbox} 
         \usepackage{amsmath,amssymb}
         \usepackage{unicode-math}
         \setmathfont{Latin Modern Math}
         \usepackage{booktabs, caption, longtable, colortbl, array}
         \usepackage{enumitem}
-        \usepackage{hyperref}
-        \usepackage[capitalise,noabbrev]{cleveref}
         % \usepackage{float}  % for \begin{table}[h] ? check
         % \setlist[description]{nosep,style=multiline,leftmargin=3.5cm,font=\normalfont\textsf}
         
         \PassOptionsToPackage{list=true}{subcaption}    % fix fig-scap in list of figs. 
         
         %% To prevent hyphenation
-        \tolerance=1
-        \emergencystretch=\maxdimen
-        \hyphenpenalty=10000
-        \hbadness=10000
+        %\tolerance=1
+        %\emergencystretch=\maxdimen
+        %\hyphenpenalty=10000
+        %\hbadness=10000
         %% END hyphenation
         
         \usepackage{geometry}
@@ -78,8 +94,8 @@ format:
         \usepackage{setspace}
         \usepackage{titling}
         \usepackage{parskip}
-        \usepackage{helvet}
-        \renewcommand{\familydefault}{\sfdefault} % Use sans-serif
+        % \usepackage{helvet}
+        % \renewcommand{\familydefault}{\sfdefault} % Use sans-serif
         \renewcommand{\bfdefault}{b}      % <-- key: make \textbf use 'b'
         \usepackage{graphicx}
         \usepackage{xcolor}
@@ -93,6 +109,7 @@ format:
         \onehalfspacing
     template-partials: 
       - before-body.tex
+      - toc.tex
 
 
 

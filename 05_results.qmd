@@ -1,6 +1,12 @@
 ## Results
 
 
+**Important**: mention the shift of characteristics:  the conditional APT of
+        Kelly, Pruitt, Su (JFE 2019) says that the characteristics known at Date=d-1 determine the exposures associated
+        with the returns realized at Date=d; hence, here we should have shifted the characteristics in Z relative to
+        the returns in R
+
+
 This is a template of the table of the results of the IPCA model. I need to add a caption to the table. Here I reference Table \ref{tbl-ipca_results}.
 
 
@@ -57,7 +63,7 @@ Quarto:
 ---
 
 **Inline LaTeX way inside Quarto**  
-Here we see the summary statistics in Table \ref{tbl-letters}. 
+Here we see the summary statistics in Table `\ref{tbl-letters}`{=latex}. 
 
 
 
