@@ -11,6 +11,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu dolor lu
 
 
 ```{=latex}
+% make toc black (for some reason, toccolor does not work)
+{\hypersetup{linkcolor=black}
 \tableofcontents 
 
 % lof and lot on the same page
@@ -19,6 +21,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu dolor lu
 \let\clearpage\relax
 \listoftables
 \endgroup
+}
 
 % Return to arabic numbering after this section
 \let\mainmatter\mainmatterreal

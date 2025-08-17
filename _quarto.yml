@@ -15,7 +15,7 @@ book:
     #- abstract.qmd
     - index.qmd
     - 01_intro.qmd
-    - 02_literature_review.qmd
+    #- 02_literature_review.qmd
     - 03_methodology.qmd
     - 04_data.qmd
     - 05_results.qmd
@@ -25,7 +25,9 @@ book:
     - appendix.qmd
   output-file: "JorgeFrias_thesis"
   
-bibliography: references.yaml
+bibliography: 
+  - references.yaml
+  - software_references.bib
 csl: apa.csl
 filters: 
   - parse-latex
@@ -49,6 +51,8 @@ format:
     fontsize: 12pt
     number-sections: true
     number-depth: 2
+    #toccolor: black
+    colorlinks: true
     linkcolor: blue
     link-citations: true
     fig-pos: "h"
@@ -61,6 +65,8 @@ format:
 
     include-in-header:
       text: |
+        \usepackage{subcaption}
+        \captionsetup[subfigure]{list=false}
         % \AddToHook{cmd/section/before}{\clearpage}  % new page for each section for articles
         
         % make all sectioning heads (chapter/section/subsection/…) serif for srcbook

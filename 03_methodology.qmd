@@ -1,7 +1,10 @@
-# Model
+# Methodology
 
 The Instrumented Principal Component Analysis (IPCA) model was introduced in the seminal work of @kellyCharacteristicsAre2019 [; @kellyInstrumentedPrincipal2020]. The main model used in this thesis is the IPCA with different $K$ number of factors
 
 Explicar la metodologia de IPCA. Si hay tiempo, entonces explicar tambien como funciona el RPCA de Chen and Roussanov. Explicar las R2 (en lugra de R2, entonces poner Total score y predictive score), mencionar como pie de pagina que son las medidas definidas por @kellyCharacteristicsAre2019. 
 
 Explicar los bootstrap para medir la significancia cada caracteristica, y quiza mencionar tambi'en brevemente los characteristic managed portfolios, en que consisten y como se emplean (quiza tomar inspiracion de Kelly, Bianchi, o creo que puede ser mejor en Liu et al.)
+
+## Instrumented Principal Component Analysis
+

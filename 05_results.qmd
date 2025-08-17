@@ -1,5 +1,6 @@
 ## Results
 
+Implemented in python, based on the IPCA python code of Seth Pruitt ^[See https://sethpruitt.net/research/.] and the `ipca` python package of @ipca ^[See https://bkelly-lab.github.io/ipca/.].
 
 **Important**: mention the shift of characteristics:  the conditional APT of
         Kelly, Pruitt, Su (JFE 2019) says that the characteristics known at Date=d-1 determine the exposures associated

@@ -1,9 +1,11 @@
 # Data
 
-In this section, I introduce the cryptocurrency data used in this thesis, the series of filters applied to clean and prepare the dataset, and the summary statistics of the cryptocurrency excess returns. In addition, I show the set of asset-specific characteristics constructed from the cryptocurrency market data, which are used as instruments for latent factor exposures in the IPCA model. Appendix -@sec-app_characteristics provides a detailed description of the characteristics used in the empirical analysis
+In this section, I introduce the cryptocurrency data used in this thesis, the series of filters applied to clean and prepare the dataset, and the summary statistics of the cryptocurrency excess returns. In addition, I show the set of asset-specific characteristics constructed from the cryptocurrency market data, which are used as instruments for latent factor exposures in the IPCA model. Appendix -@sec-app_characteristics provides a detailed description of the characteristics used in the empirical analysis. 
 
-The summary
-The full reproducible code is available in Appendix -@sec-app_material.  
+**[++++ ADD SMALL INTRO ABOVE OF RIK FACTORS CREATED ++++]**
+
+
+The data extraction and pre-processing are primarily conducted in R 4.5.1 [@base], using, among other packages^[See [Appendix -@sec-software] for the full list of software used in the empirical study.], the `tidyverse`  [v. 2.0.0\; @tidyverse]. Additional cleaning steps and visualizations are performed in Python 3.13.5 [@python]. The full reproducible code is available in Appendix -@sec-app_material.  
 
 ## Data extraction and sample construction
 
@@ -68,42 +70,7 @@ The table reports the summary statistics of daily returns on the dataset used in
 
 Following @kellyCharacteristicsAre2019, I cross-sectionally transform the instrument variables period-by-period in the following manner: first,  
 
-### Volume shock
 
-Following Bianchi et al. (2022), the volume shock is defined as the log-deviation of trading volume from its rolling average (over 30 or 60 days) for cryptocurrency $i$ at time $t$. For $m \in \{30, 60\}$ periods, the volume shock is estimated as:
-
-$$
-v_{i,t} = \log(\text{Volume}_{i,t}) - \log\left( \frac{1}{m} \sum_{s=1}^{m} \text{Volume}_{i,t-s} \right)
-$$
-
-## Risk
-
-### Realized volatility (rvol)
-
-Using the volatility estimator of Yang and Zhang (2000), I compute the daily realized volatility based on OHCL prices over a rolling 30-day window. For $n > 1$ number of periods, the volatility estimate at time $t$ is:  
-
-$$
-\sigma_t = \sqrt{\sigma^2_O + k\sigma^2_C + (1 - k)\sigma^2_{RS}}
-$$
-where $\sigma^2_{RS}$ is the variance estimator of Rogers et al. (1994), and $\sigma^2_O$, $\sigma^2_C$, $k$ are defined as follows: 
-
-$$
-\sigma^2_O = \frac{1}{n-1}\sum\limits_{i=1}^n(o_i - \bar o)^2,
-$$
-
-$$
-\sigma^2_C = \frac{1}{n-1}\sum\limits_{i=1}^n(c_i - \bar c)^2,
-$$
-
-$$
-k = \frac{\alpha -1}{\alpha + \frac{n+1}{n-1}}
-$$
-
-with $o = ln\,O_t - ln\,C_{t-1}$, and $c = ln\,C_t - ln\,O_t$. Here, $C_{t-1}$ denotes the last days' closing price and $O_t$ the current day's opening price. I set the constant $\alpha = 1.34$ as suggested by Yang and Zhang (2000) to be the best value in practice.  
-
-
-
-@moskowitzTimeSeriesMomentum2012
 
 
 

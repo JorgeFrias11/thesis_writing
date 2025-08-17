@@ -7,5 +7,55 @@
 
 ## Cryptocurrency Characteristics {#sec-app_characteristics}
 
-### Cryptocurrency characteristics
 
+
+### Volume shock
+
+Following Bianchi et al. (2022), the volume shock is defined as the log-deviation of trading volume from its rolling average (over 30 or 60 days) for cryptocurrency $i$ at time $t$. For $m \in \{30, 60\}$ periods, the volume shock is estimated as:
+
+$$
+v_{i,t} = \log(\text{Volume}_{i,t}) - \log\left( \frac{1}{m} \sum_{s=1}^{m} \text{Volume}_{i,t-s} \right)
+$$
+
+## Risk
+
+### Realized volatility (rvol)
+
+Using the volatility estimator of Yang and Zhang (2000), I compute the daily realized volatility based on OHCL prices over a rolling 30-day window. For $n > 1$ number of periods, the volatility estimate at time $t$ is:  
+
+$$
+\sigma_t = \sqrt{\sigma^2_O + k\sigma^2_C + (1 - k)\sigma^2_{RS}}
+$$
+where $\sigma^2_{RS}$ is the variance estimator of Rogers et al. (1994), and $\sigma^2_O$, $\sigma^2_C$, $k$ are defined as follows: 
+
+$$
+\sigma^2_O = \frac{1}{n-1}\sum\limits_{i=1}^n(o_i - \bar o)^2,
+$$
+
+$$
+\sigma^2_C = \frac{1}{n-1}\sum\limits_{i=1}^n(c_i - \bar c)^2,
+$$
+
+$$
+k = \frac{\alpha -1}{\alpha + \frac{n+1}{n-1}}
+$$
+
+with $o = ln\,O_t - ln\,C_{t-1}$, and $c = ln\,C_t - ln\,O_t$. Here, $C_{t-1}$ denotes the last days' closing price and $O_t$ the current day's opening price. I set the constant $\alpha = 1.34$ as suggested by Yang and Zhang (2000) to be the best value in practice.  
+
+
+
+@moskowitzTimeSeriesMomentum2012
+
+
+
+
+
+## Software {#sec-software}
+
+<!-- Use \ to escape semi-colon, or it will confuse Pandoc / Quarto  -->
+
+This thesis was fully written using [Quarto](https://quarto.org/) [@Quarto_2025], running in RStudio [v. 2025.5.1.513\; @rstudio]  on Fedora Linux 42 (Workstation Edition). 
+
+I used R 4.5.1 [@base] and the following R packages: bidask v. 2.1.4 [@bidask], moments v. 0.14.1 [@moments], pcaMethods v. 2.0.0 [@pcaMethods], PerformanceAnalytics v. 2.0.8 [@PerformanceAnalytics], quantmod v. 0.4.28 [@quantmod], slider v. 0.3.2 [@slider], tidyverse v. 2.0.0 [@tidyverse], and zoo v. 1.8.14 [@zoo]. 
+
+Additionally, I used Python 3.15.3 [@python] and the following packages: numpy [@harris2020array], pandas [@reback2020pandas], matplotlib [@Hunter:2007], and scipy [@2020SciPy-NMeth].

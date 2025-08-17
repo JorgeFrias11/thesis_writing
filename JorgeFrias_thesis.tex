@@ -180,6 +180,8 @@
  
 
 
+\usepackage{subcaption}
+\captionsetup[subfigure]{list=false}
 % \AddToHook{cmd/section/before}{\clearpage}  % new page for each section for articles
 
 % make all sectioning heads (chapter/section/subsection/…) serif for srcbook
@@ -370,8 +372,9 @@
 \KOMAoptions{open=right}  
 
 \renewcommand*\contentsname{Table of contents}
-\hypersetup{linkcolor=}
-\setcounter{tocdepth}{1}
+% Set toc black if tcocolor = black
+% % \hypersetup{linkcolor=}
+% \setcounter{tocdepth}{1}
 \renewcommand*\listfigurename{List of figures}
 \renewcommand*\listtablename{List of tables}
 
@@ -403,6 +406,7 @@ egestas. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 Quisque dapibus turpis quis nibh molestie dapibus. Aliquam erat
 volutpat. Integer et odio nec mauris sollicitudin mattis.
 
+{\hypersetup{linkcolor=black}
 \tableofcontents 
 
 % lof and lot on the same page
@@ -411,6 +415,7 @@ volutpat. Integer et odio nec mauris sollicitudin mattis.
 \let\clearpage\relax
 \listoftables
 \endgroup
+}
 
 % Return to arabic numbering after this section
 \let\mainmatter\mainmatterreal
@@ -456,63 +461,7 @@ additional discussion of literate programming.**
 
 \bookmarksetup{startatroot}
 
-\chapter{Literature review}\label{literature-review}
-
-Hacerla similar a la descripciond e la hipoteca inversa. Mencionar las
-dos corrientes de litertura: por una parte, los modelos de factores
-construidos como managed-strategies. Mencionar los modelos de factores
-mas conocidos, y alguna de la literatura importante en este tema: fama
-french modelo de tres factores Fama \& French
-(\citeproc{ref-famaCommonRisk1993}{1993}), FF modelo de cinco factores
-Fama \& French (\citeproc{ref-famaFivefactorAsset2015}{2015}) Citar la
-coleccion de Chen and ZImmerman A. Y. Chen \& Zimmermann
-(\citeproc{ref-chenOpenSource2021}{2021}) con la gran cantidad de
-factores en su dataset.
-
-Por otra, una corriente basada en la estadistica que construye los
-factores mediante modelos puramente estadisticos, y que asume que los
-factores son latentes. Mencionar los dos autores pioneros de PCA:
-Chamberlain \& Rothschild
-(\citeproc{ref-chamberlainArbitrageFactor1983}{1983}) and Connor \&
-Korajczyk (\citeproc{ref-connorPerformanceMeasurement1986}{1986}).
-
-Mencionar modelos recientes con factores dinamicos. Describir brevemente
-estos modelos de PCA, y despues propuestas de modelacion de factores
-latentes dinamicos. Entre estos, hablar de Kelly et al.
-(\citeproc{ref-kellyCharacteristicsAre2019}{2019}), que propuso el
-modelo dinamico de factores, y mas recientemente, RPCA Q. Chen et al.
-(\citeproc{ref-chenSemiparametricConditional2022}{2022}) Z. Chen et al.
-(\citeproc{ref-chenCommonRisk2024}{2024}), inspirado en regressiones de
-fama macbeth, que hace una combinacion de este modelo mas una
-implementacion de PCA.
-
-Bianchi \& Babiak
-(\citeproc{ref-bianchiMispricingRiskCompensation2021}{2021}) aplicaron
-el modelo de Kelly en el mercado de criptos, mencionar otros papers que
-utilizaron el IPCA (hay otros de Kelly que lo uso para bonos y opciones,
-investigar)
-
-Z. Chen et al. (\citeproc{ref-chenCommonRisk2024}{2024}) aplico el RPCA
-para el cross-section de diferentes asset-classes.
-
-Mencionar literatura extensa tratando de entender los factores de riesgo
-de las criptomonedas, por ejemplo, Mercik et al.
-(\citeproc{ref-mercikCrosssectionalInteractionsCryptocurrency2025}{2025}),
-y otros papers que tengo en mis archivos y en notas.
-
-Baur \& Hoang (\citeproc{ref-baurCryptoSafe2021}{2021}) Studies
-stablecoins as a safe heaven for Bitcoin volatility - safe heavens, but
-finds theyre not stable. Wang et al.
-(\citeproc{ref-wangAreStablecoins2020}{2020}) also investigates if
-stablecoins are real diversifiers, hedgers or safe heavens. Hoang \&
-Baur (\citeproc{ref-hoangHowStable2024}{2024}) Analyses the stability of
-the so called stablecoins Asadov et al.
-(\citeproc{ref-asadovGreaterStability2023}{2023}) Analyses
-precious-metal-backed coins as a better alternative for stablecoins.
-
-\bookmarksetup{startatroot}
-
-\chapter{Model}\label{model}
+\chapter{Methodology}\label{methodology}
 
 The Instrumented Principal Component Analysis (IPCA) model was
 introduced in the seminal work of Kelly et al.
@@ -531,6 +480,9 @@ y quiza mencionar tambi'en brevemente los characteristic managed
 portfolios, en que consisten y como se emplean (quiza tomar inspiracion
 de Kelly, Bianchi, o creo que puede ser mejor en Liu et al.)
 
+\section{Instrumented Principal Component
+Analysis}\label{instrumented-principal-component-analysis}
+
 \bookmarksetup{startatroot}
 
 \chapter{Data}\label{data}
@@ -542,10 +494,18 @@ addition, I show the set of asset-specific characteristics constructed
 from the cryptocurrency market data, which are used as instruments for
 latent factor exposures in the IPCA model. Appendix
 \ref{sec-app_characteristics} provides a detailed description of the
-characteristics used in the empirical analysis
+characteristics used in the empirical analysis.
 
-The summary The full reproducible code is available in Appendix
-\ref{sec-app_material}.
+\textbf{{[}++++ ADD SMALL INTRO ABOVE OF RIK FACTORS CREATED ++++{]}}
+
+The data extraction and pre-processing are primarily conducted in R
+4.5.1 (\citeproc{ref-base}{R Core Team, 2025}), using, among other
+packages\footnote{See Appendix~\ref{sec-software} for the full list of
+  software used in the empirical study.}, the \texttt{tidyverse} (v.
+2.0.0; \citeproc{ref-tidyverse}{Wickham et al., 2019}). Additional
+cleaning steps and visualizations are performed in Python 3.13.5
+(\citeproc{ref-python}{Python Software Foundation, 2025}). The full
+reproducible code is available in Appendix \ref{sec-app_material}.
 
 \section{Data extraction and sample
 construction}\label{data-extraction-and-sample-construction}
@@ -711,51 +671,6 @@ Following Kelly et al.
 transform the instrument variables period-by-period in the following
 manner: first,
 
-\subsection{Volume shock}\label{volume-shock}
-
-Following Bianchi et al.~(2022), the volume shock is defined as the
-log-deviation of trading volume from its rolling average (over 30 or 60
-days) for cryptocurrency \(i\) at time \(t\). For \(m \in \{30, 60\}\)
-periods, the volume shock is estimated as:
-
-\[
-v_{i,t} = \log(\text{Volume}_{i,t}) - \log\left( \frac{1}{m} \sum_{s=1}^{m} \text{Volume}_{i,t-s} \right)
-\]
-
-\section{Risk}\label{risk}
-
-\subsection{Realized volatility (rvol)}\label{realized-volatility-rvol}
-
-Using the volatility estimator of Yang and Zhang (2000), I compute the
-daily realized volatility based on OHCL prices over a rolling 30-day
-window. For \(n > 1\) number of periods, the volatility estimate at time
-\(t\) is:
-
-\[
-\sigma_t = \sqrt{\sigma^2_O + k\sigma^2_C + (1 - k)\sigma^2_{RS}}
-\] where \(\sigma^2_{RS}\) is the variance estimator of Rogers et
-al.~(1994), and \(\sigma^2_O\), \(\sigma^2_C\), \(k\) are defined as
-follows:
-
-\[
-\sigma^2_O = \frac{1}{n-1}\sum\limits_{i=1}^n(o_i - \bar o)^2,
-\]
-
-\[
-\sigma^2_C = \frac{1}{n-1}\sum\limits_{i=1}^n(c_i - \bar c)^2,
-\]
-
-\[
-k = \frac{\alpha -1}{\alpha + \frac{n+1}{n-1}}
-\]
-
-with \(o = ln\,O_t - ln\,C_{t-1}\), and \(c = ln\,C_t - ln\,O_t\). Here,
-\(C_{t-1}\) denotes the last days' closing price and \(O_t\) the current
-day's opening price. I set the constant \(\alpha = 1.34\) as suggested
-by Yang and Zhang (2000) to be the best value in practice.
-
-Moskowitz et al. (\citeproc{ref-moskowitzTimeSeriesMomentum2012}{2012})
-
 This is more related to factor construction.
 
 Organize week in the following way: the first seven days of the year
@@ -787,6 +702,11 @@ The sample period ranges from January 1st, 2014, to May 31st, 2025.
 \bookmarksetup{startatroot}
 
 \chapter{Results}\label{results}
+
+Implemented in python, based on the IPCA python code of Seth Pruitt
+\footnote{See https://sethpruitt.net/research/.} and the \texttt{ipca}
+python package of Buechner \& Bybee (\citeproc{ref-ipca}{2019})
+\footnote{See https://bkelly-lab.github.io/ipca/.}.
 
 \textbf{Important}: mention the shift of characteristics: the
 conditional APT of Kelly, Pruitt, Su (JFE 2019) says that the
@@ -879,16 +799,16 @@ D & E & F \\
 
 \phantomsection\label{refs}
 \begin{CSLReferences}{1}{0}
-\bibitem[\citeproctext]{ref-asadovGreaterStability2023}
-Asadov, A., Yildirim, R., \& Masih, M. (2023). Toward greater stability
-in stablecoins: Empirical evidence from an analysis of precious metals.
-\emph{Borsa Istanbul Review}, \emph{23}(5), 1152--1172.
-\url{https://doi.org/10.1016/j.bir.2023.07.004}
+\bibitem[\citeproctext]{ref-Quarto_2025}
+Allaire, J. J., Teague, C., Scheidegger, C., Xie, Y., Dervieux, C., \&
+Woodhull, G. (2025). \emph{{Quarto}} (Version 1.7) {[}Computer
+software{]}. \url{https://doi.org/10.5281/zenodo.5960048}
 
-\bibitem[\citeproctext]{ref-baurCryptoSafe2021}
-Baur, D. G., \& Hoang, L. T. (2021). A crypto safe haven against
-Bitcoin. \emph{Finance Research Letters}, \emph{38}, 101431.
-\url{https://doi.org/10.1016/j.frl.2020.101431}
+\bibitem[\citeproctext]{ref-bidask}
+Ardia, D., Guidotti, E., \& Kroencke, T. A. (2024). Efficient estimation
+of bid--ask spreads from open, high, low, and close prices.
+\emph{Journal of Financial Economics}, \emph{161}, 103916.
+\url{https://doi.org/10.1016/j.jfineco.2024.103916}
 
 \bibitem[\citeproctext]{ref-bianchiMispricingRiskCompensation2021}
 Bianchi, D., \& Babiak, M. (2021). \emph{Mispricing and Risk
@@ -896,48 +816,15 @@ Compensation in Cryptocurrency Returns} (SSRN Scholarly Paper 3935934).
 Social Science Research Network.
 \url{https://doi.org/10.2139/ssrn.3935934}
 
-\bibitem[\citeproctext]{ref-chamberlainArbitrageFactor1983}
-Chamberlain, G., \& Rothschild, M. (1983). Arbitrage, Factor Structure,
-and Mean-Variance Analysis on Large Asset Markets. \emph{Econometrica},
-\emph{51}(5), 1281--1304. \url{https://doi.org/10.2307/1912275}
-
-\bibitem[\citeproctext]{ref-chenOpenSource2021}
-Chen, A. Y., \& Zimmermann, T. (2021). \emph{Open Source Cross-Sectional
-Asset Pricing} (SSRN Scholarly Paper 3604626). Social Science Research
-Network. \url{https://doi.org/10.2139/ssrn.3604626}
-
-\bibitem[\citeproctext]{ref-chenSemiparametricConditional2022}
-Chen, Q., Roussanov, N. L., \& Wang, X. (2022). \emph{Semiparametric
-Conditional Factor Models in Asset Pricing} (SSRN Scholarly Paper
-3984633). Social Science Research Network.
-\url{https://doi.org/10.2139/ssrn.3984633}
-
-\bibitem[\citeproctext]{ref-chenCommonRisk2024}
-Chen, Z., Roussanov, N. L., Wang, X., \& Zou, D. (2024). \emph{Common
-Risk Factors in the Returns on Stocks, Bonds (and Options), Redux} (SSRN
-Scholarly Paper 4703281). Social Science Research Network.
-\url{https://doi.org/10.2139/ssrn.4703281}
+\bibitem[\citeproctext]{ref-ipca}
+Buechner, M., \& Bybee, L. (2019). \emph{{ipca}: Instrumented principal
+components analysis} {[}Computer software{]}.
+\url{https://github.com/bkelly-lab/ipca}
 
 \bibitem[\citeproctext]{ref-coinbaseWhatWrapped}
 Coinbase. (n.d.). \emph{What is wrapped crypto?} Retrieved August 6,
 2025, from
 \url{https://www.coinbase.com/learn/your-crypto/what-is-wrapped-crypto}
-
-\bibitem[\citeproctext]{ref-connorPerformanceMeasurement1986}
-Connor, G., \& Korajczyk, R. A. (1986). Performance measurement with the
-arbitrage pricing theory: A new framework for analysis. \emph{Journal of
-Financial Economics}, \emph{15}(3), 373--394.
-\url{https://doi.org/10.1016/0304-405X(86)90027-9}
-
-\bibitem[\citeproctext]{ref-famaCommonRisk1993}
-Fama, E. F., \& French, K. R. (1993). Common risk factors in the returns
-on stocks and bonds. \emph{Journal of Financial Economics},
-\emph{33}(1), 3--56. \url{https://doi.org/10.1016/0304-405X(93)90023-5}
-
-\bibitem[\citeproctext]{ref-famaFivefactorAsset2015}
-Fama, E. F., \& French, K. R. (2015). A five-factor asset pricing model.
-\emph{Journal of Financial Economics}, \emph{116}(1), 1--22.
-\url{https://doi.org/10.1016/j.jfineco.2014.10.010}
 
 \bibitem[\citeproctext]{ref-financialstabilityboardAddressingRegulatory2020}
 Financial Stability Board. (2020). \emph{Addressing the regulatory,
@@ -945,10 +832,19 @@ supervisory and oversight challenges raised by {``global stablecoin''}
 arrangements: Consultative document}.
 \url{https://www.fsb.org/2020/04/addressing-the-regulatory-supervisory-and-oversight-challenges-raised-by-global-stablecoin-arrangements-consultative-document/}
 
-\bibitem[\citeproctext]{ref-hoangHowStable2024}
-Hoang, L. T., \& Baur, D. G. (2024). How stable are stablecoins?
-\emph{The European Journal of Finance}, \emph{30}(16), 1984--2000.
-\url{https://doi.org/10.1080/1351847X.2021.1949369}
+\bibitem[\citeproctext]{ref-harris2020array}
+Harris, C. R., Millman, K. J., Walt, S. J. van der, Gommers, R.,
+Virtanen, P., Cournapeau, D., Wieser, E., Taylor, J., Berg, S., Smith,
+N. J., Kern, R., Picus, M., Hoyer, S., Kerkwijk, M. H. van, Brett, M.,
+Haldane, A., Río, J. F. del, Wiebe, M., Peterson, P., \ldots{} Oliphant,
+T. E. (2020). Array programming with {NumPy}. \emph{Nature},
+\emph{585}(7825), 357--362.
+\url{https://doi.org/10.1038/s41586-020-2649-2}
+
+\bibitem[\citeproctext]{ref-Hunter:2007}
+Hunter, J. D. (2007). Matplotlib: A 2D graphics environment.
+\emph{Computing in Science \& Engineering}, \emph{9}(3), 90--95.
+\url{https://doi.org/10.1109/MCSE.2007.55}
 
 \bibitem[\citeproctext]{ref-kellyCharacteristicsAre2019}
 Kelly, B. T., Pruitt, S., \& Su, Y. (2019). Characteristics are
@@ -960,6 +856,11 @@ Financial Economics}, \emph{134}(3), 501--524.
 Kelly, B. T., Pruitt, S., \& Su, Y. (2020). \emph{Instrumented Principal
 Component Analysis} (SSRN Scholarly Paper 2983919). Social Science
 Research Network. \url{https://doi.org/10.2139/ssrn.2983919}
+
+\bibitem[\citeproctext]{ref-moments}
+Komsta, L., \& Novomestky, F. (2022). \emph{{moments}: Moments,
+cumulants, skewness, kurtosis and related tests}.
+\url{https://doi.org/10.32614/CRAN.package.moments}
 
 \bibitem[\citeproctext]{ref-liuCommonRisk2022}
 Liu, Y., Tsyvinski, A., \& Wu, X. (2022). Common Risk Factors in
@@ -977,12 +878,65 @@ Moskowitz, T. J., Ooi, Y. H., \& Pedersen, L. H. (2012). Time series
 momentum. \emph{Journal of Financial Economics}, \emph{104}(2),
 228--250. \url{https://doi.org/10.1016/j.jfineco.2011.11.003}
 
-\bibitem[\citeproctext]{ref-wangAreStablecoins2020}
-Wang, G.-J., Ma, X., \& Wu, H. (2020). Are stablecoins truly
-diversifiers, hedges, or safe havens against traditional
-cryptocurrencies as their name suggests? \emph{Research in International
-Business and Finance}, \emph{54}, 101225.
-\url{https://doi.org/10.1016/j.ribaf.2020.101225}
+\bibitem[\citeproctext]{ref-PerformanceAnalytics}
+Peterson, B. G., \& Carl, P. (2024). \emph{{PerformanceAnalytics}:
+Econometric tools for performance and risk analysis}.
+\url{https://doi.org/10.32614/CRAN.package.PerformanceAnalytics}
+
+\bibitem[\citeproctext]{ref-rstudio}
+Posit team. (2025). \emph{{RStudio}: Integrated development environment
+for r}. Posit Software, PBC. \url{http://www.posit.co/}
+
+\bibitem[\citeproctext]{ref-python}
+Python Software Foundation. (2025). \emph{Python programming language}
+(Version 3.13.5) {[}Computer software{]}. \url{https://www.python.org/}
+
+\bibitem[\citeproctext]{ref-base}
+R Core Team. (2025). \emph{R: A language and environment for statistical
+computing}. R Foundation for Statistical Computing.
+\url{https://www.R-project.org/}
+
+\bibitem[\citeproctext]{ref-quantmod}
+Ryan, J. A., \& Ulrich, J. M. (2025). \emph{{quantmod}: Quantitative
+financial modelling framework}.
+\url{https://doi.org/10.32614/CRAN.package.quantmod}
+
+\bibitem[\citeproctext]{ref-pcaMethods}
+Stacklies, W., Redestig, H., Scholz, M., Walther, D., \& Selbig, J.
+(2007). pcaMethods -- a bioconductor package providing PCA methods for
+incomplete data. \emph{Bioinformatics}, \emph{23}, 1164--1167.
+
+\bibitem[\citeproctext]{ref-reback2020pandas}
+The pandas development team. (2020). \emph{Pandas-dev/pandas: pandas}
+{[}Computer software{]}. Zenodo.
+\url{https://doi.org/10.5281/zenodo.3509134}
+
+\bibitem[\citeproctext]{ref-slider}
+Vaughan, D. (2024). \emph{{slider}: Sliding window functions}.
+\url{https://doi.org/10.32614/CRAN.package.slider}
+
+\bibitem[\citeproctext]{ref-2020SciPy-NMeth}
+Virtanen, P., Gommers, R., Oliphant, T. E., Haberland, M., Reddy, T.,
+Cournapeau, D., Burovski, E., Peterson, P., Weckesser, W., Bright, J.,
+van der Walt, S. J., Brett, M., Wilson, J., Millman, K. J., Mayorov, N.,
+Nelson, A. R. J., Jones, E., Kern, R., Larson, E., \ldots{} SciPy 1.0
+Contributors. (2020). {{SciPy} 1.0: Fundamental Algorithms for
+Scientific Computing in Python}. \emph{Nature Methods}, \emph{17},
+261--272. \url{https://doi.org/10.1038/s41592-019-0686-2}
+
+\bibitem[\citeproctext]{ref-tidyverse}
+Wickham, H., Averick, M., Bryan, J., Chang, W., McGowan, L. D.,
+François, R., Grolemund, G., Hayes, A., Henry, L., Hester, J., Kuhn, M.,
+Pedersen, T. L., Miller, E., Bache, S. M., Müller, K., Ooms, J.,
+Robinson, D., Seidel, D. P., Spinu, V., \ldots{} Yutani, H. (2019).
+Welcome to the {tidyverse}. \emph{Journal of Open Source Software},
+\emph{4}(43), 1686. \url{https://doi.org/10.21105/joss.01686}
+
+\bibitem[\citeproctext]{ref-zoo}
+Zeileis, A., \& Grothendieck, G. (2005). {zoo}: S3 infrastructure for
+regular and irregular time series. \emph{Journal of Statistical
+Software}, \emph{14}(6), 1--27.
+\url{https://doi.org/10.18637/jss.v014.i06}
 
 \end{CSLReferences}
 
@@ -997,8 +951,76 @@ Business and Finance}, \emph{54}, 101225.
 
 \section{Cryptocurrency Characteristics}\label{sec-app_characteristics}
 
-\subsection{Cryptocurrency
-characteristics}\label{cryptocurrency-characteristics}
+\subsection{Volume shock}\label{volume-shock}
+
+Following Bianchi et al.~(2022), the volume shock is defined as the
+log-deviation of trading volume from its rolling average (over 30 or 60
+days) for cryptocurrency \(i\) at time \(t\). For \(m \in \{30, 60\}\)
+periods, the volume shock is estimated as:
+
+\[
+v_{i,t} = \log(\text{Volume}_{i,t}) - \log\left( \frac{1}{m} \sum_{s=1}^{m} \text{Volume}_{i,t-s} \right)
+\]
+
+\section{Risk}\label{risk}
+
+\subsection{Realized volatility (rvol)}\label{realized-volatility-rvol}
+
+Using the volatility estimator of Yang and Zhang (2000), I compute the
+daily realized volatility based on OHCL prices over a rolling 30-day
+window. For \(n > 1\) number of periods, the volatility estimate at time
+\(t\) is:
+
+\[
+\sigma_t = \sqrt{\sigma^2_O + k\sigma^2_C + (1 - k)\sigma^2_{RS}}
+\] where \(\sigma^2_{RS}\) is the variance estimator of Rogers et
+al.~(1994), and \(\sigma^2_O\), \(\sigma^2_C\), \(k\) are defined as
+follows:
+
+\[
+\sigma^2_O = \frac{1}{n-1}\sum\limits_{i=1}^n(o_i - \bar o)^2,
+\]
+
+\[
+\sigma^2_C = \frac{1}{n-1}\sum\limits_{i=1}^n(c_i - \bar c)^2,
+\]
+
+\[
+k = \frac{\alpha -1}{\alpha + \frac{n+1}{n-1}}
+\]
+
+with \(o = ln\,O_t - ln\,C_{t-1}\), and \(c = ln\,C_t - ln\,O_t\). Here,
+\(C_{t-1}\) denotes the last days' closing price and \(O_t\) the current
+day's opening price. I set the constant \(\alpha = 1.34\) as suggested
+by Yang and Zhang (2000) to be the best value in practice.
+
+Moskowitz et al. (\citeproc{ref-moskowitzTimeSeriesMomentum2012}{2012})
+
+\section{Software}\label{sec-software}
+
+This thesis was fully written using \href{https://quarto.org/}{Quarto}
+(\citeproc{ref-Quarto_2025}{Allaire et al., 2025}), running in RStudio
+(v. 2025.5.1.513; \citeproc{ref-rstudio}{Posit team, 2025}) on Fedora
+Linux 42 (Workstation Edition).
+
+I used R 4.5.1 (\citeproc{ref-base}{R Core Team, 2025}) and the
+following R packages: bidask v. 2.1.4 (\citeproc{ref-bidask}{Ardia et
+al., 2024}), moments v. 0.14.1 (\citeproc{ref-moments}{Komsta \&
+Novomestky, 2022}), pcaMethods v. 2.0.0
+(\citeproc{ref-pcaMethods}{Stacklies et al., 2007}),
+PerformanceAnalytics v. 2.0.8
+(\citeproc{ref-PerformanceAnalytics}{Peterson \& Carl, 2024}), quantmod
+v. 0.4.28 (\citeproc{ref-quantmod}{Ryan \& Ulrich, 2025}), slider v.
+0.3.2 (\citeproc{ref-slider}{Vaughan, 2024}), tidyverse v. 2.0.0
+(\citeproc{ref-tidyverse}{Wickham et al., 2019}), and zoo v. 1.8.14
+(\citeproc{ref-zoo}{Zeileis \& Grothendieck, 2005}).
+
+Additionally, I used Python 3.15.3 (\citeproc{ref-python}{Python
+Software Foundation, 2025}) and the following packages: numpy
+(\citeproc{ref-harris2020array}{Harris et al., 2020}), pandas
+(\citeproc{ref-reback2020pandas}{The pandas development team, 2020}),
+matplotlib (\citeproc{ref-Hunter:2007}{Hunter, 2007}), and scipy
+(\citeproc{ref-2020SciPy-NMeth}{Virtanen et al., 2020}).
 
 
 \backmatter
