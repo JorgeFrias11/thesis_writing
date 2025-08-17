@@ -288,7 +288,7 @@
 
 \title{Edit: Master Thesis Title}
 \author{Jorge Eduardo Frías Navarrete}
-\date{August 17, 2025}
+\date{August 18, 2025}
 \begin{document}
 \frontmatter
 
@@ -327,7 +327,7 @@
         Degree programme: & Quantitative Finance \\
         %University: & Vienna University of Economics and Business \\
         Supervisor: & Univ.Prof. David \textsc{Preinerstorfer}, Ph.D. \\
-        Date of Submission: & August 17, 2025
+        Date of Submission: & August 18, 2025
     \end{tabular}
     \vspace{2cm}
     
@@ -406,6 +406,7 @@ egestas. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 Quisque dapibus turpis quis nibh molestie dapibus. Aliquam erat
 volutpat. Integer et odio nec mauris sollicitudin mattis.
 
+% make toc black (for some reason, toccolor does not work)
 {\hypersetup{linkcolor=black}
 \tableofcontents 
 
@@ -642,8 +643,8 @@ After applying all the filters, the resulting sample consists of 973
 unique cryptocurrencies and 1,478,936 observations from June 1, 2018, to
 July 31, 2025, where a day starts at 00:00:00 UTC. It is important to
 mention that the number of cryptocurrencies fluctuates over the entire
-period, which results in an unbalanced panel of
-data.\ref{tbl-sampleoverview} provides an overview of the descriptive
+period, which results in an unbalanced panel of data.Table
+\ref{tbl-sampleoverview} provides an overview of the descriptive
 statistics for the cryptocurrency excess returns. Additionally,
 
 \begin{table}[t]
@@ -658,6 +659,28 @@ The table reports the summary statistics of daily returns on the dataset used in
   No. Obs & Unique coins & Min No. Obs & Mean & Std & P10 & P25 & P50 & P75 & P90 \\
   \midrule
   1,478,936 & 973 & 121 & -2.70\% & 12.49\% & -10.18\% & -6.65\% & -3.70\% & 0.02\% & 4.69\% \\
+  \bottomrule
+  \end{tabular}
+}
+\end{table}
+
+\begin{table}[t]
+\centering
+\caption[Stats]%
+{\textbf{Summary statistics of daily excess returns.} 
+The table reports the summary statistics of daily returns on the dataset used in the empirical analysis. The columns represent the number of daily observations, the quantity of unique coins over the whole sample period, the minimum size of the cross-section, the mean of the excess returns, the standard deviation, and the 10th percentile, lower quartile, median, upper quartile, and 90th percentile of the distribution of the returns. The sample period is from June 1, 2018, to July 31, 2025.}
+\label{tbl-overview}
+\adjustbox{max width=\textwidth}{
+  \begin{tabular}{lccccccccc}
+  \toprule
+   & No. Obs & Unique coins & Mean & Std & P10 & P25 & P50 & P75 & P90 \\
+  \midrule
+  Sample & 1,478,936 & 973 & -2.70\% & 12.49\% & -10.18\% & -6.65\% & -3.70\% & 0.02\% & 4.69\% \\
+  Top 100 & 176,400 & 100 & -2.94\% & 7.28\% & -9.20\% & -6.32\% & -3.56\% & -0.16\% & 3.67\% \\
+  Top 10 & 24,747 & 10 & -2.35\% & 6.14\% & -7.80\% & -5.44\% & -2.87\% & 0.22\% & 3.55\% \\
+  Bitcoin & 2,618 &  & -2.40\% & 3.92\% & -6.60\% & -4.96\% & -2.58\% & -0.20\% & 2.26\% \\
+  Ethereum & 2,611 &  & -2.40\% & 4.85\% & -7.46\% & -5.27\% & -2.83\% & 0.27\% & 3.48\% \\
+  Ripple & 2,540 &  & -2.41\% & 5.70\% & -7.65\% & -5.43\% & -2.77\% & -0.00\% & 2.87\% \\
   \bottomrule
   \end{tabular}
 }
