@@ -190,11 +190,13 @@
 \usepackage{hyperref}
 \usepackage[nameinlink, capitalise, noabbrev]{cleveref} % \cref{_label_} to link the label and section number 
 
+\usepackage{threeparttable}
 \usepackage{adjustbox} 
 \usepackage{amsmath,amssymb}
 \usepackage{unicode-math}
 \setmathfont{Latin Modern Math}
 \usepackage{booktabs, caption, longtable, colortbl, array}
+\usepackage{threeparttable}
 \usepackage{enumitem}
 % \usepackage{float}  % for \begin{table}[h] ? check
 % \setlist[description]{nosep,style=multiline,leftmargin=3.5cm,font=\normalfont\textsf}
@@ -643,47 +645,31 @@ After applying all the filters, the resulting sample consists of 973
 unique cryptocurrencies and 1,478,936 observations from June 1, 2018, to
 July 31, 2025, where a day starts at 00:00:00 UTC. It is important to
 mention that the number of cryptocurrencies fluctuates over the entire
-period, which results in an unbalanced panel of data.Table
-\ref{tbl-sampleoverview} provides an overview of the descriptive
-statistics for the cryptocurrency excess returns. Additionally,
+period, which results in an unbalanced panel of data.
 
 \begin{table}[t]
 \centering
-\caption[Summary statistics of daily excess returns]%
-{\textbf{Summary statistics of daily excess returns.} 
-The table reports the summary statistics of daily returns on the dataset used in the empirical analysis. The columns represent the number of daily observations, the quantity of unique coins over the whole sample period, the minimum size of the cross-section, the mean of the excess returns, the standard deviation, and the 10th percentile, lower quartile, median, upper quartile, and 90th percentile of the distribution of the returns. The sample period is from June 1, 2018, to July 31, 2025.}
-\label{tbl-sampleoverview}
-\adjustbox{max width=\textwidth}{
-  \begin{tabular}{lccccccccc}
-  \toprule
-  No. Obs & Unique coins & Min No. Obs & Mean & Std & P10 & P25 & P50 & P75 & P90 \\
-  \midrule
-  1,478,936 & 973 & 121 & -2.70\% & 12.49\% & -10.18\% & -6.65\% & -3.70\% & 0.02\% & 4.69\% \\
-  \bottomrule
-  \end{tabular}
-}
-\end{table}
-
-\begin{table}[t]
-\centering
-\caption[Stats]%
-{\textbf{Summary statistics of daily excess returns.} 
-The table reports the summary statistics of daily returns on the dataset used in the empirical analysis. The columns represent the number of daily observations, the quantity of unique coins over the whole sample period, the minimum size of the cross-section, the mean of the excess returns, the standard deviation, and the 10th percentile, lower quartile, median, upper quartile, and 90th percentile of the distribution of the returns. The sample period is from June 1, 2018, to July 31, 2025.}
+\caption[Summary statistics of daily excess returns]{\textbf{Summary statistics of daily excess returns.} The table reports summary statistics of daily excess returns for the filtered sample, the top 100 cryptocurrencies ranked by market capitalization, and for Bitcoin, Ethereum, and Ripple individually. Reported statistics include the number of daily observations, the number of unique coins over the sample period, the mean and standard deviation of returns, and the 10th percentile, lower quartile, median, upper quartile, and 90th percentile of the distribution of the returns. The sample period is from June 1, 2018, to July 31, 2025.}
 \label{tbl-overview}
-\adjustbox{max width=\textwidth}{
-  \begin{tabular}{lccccccccc}
-  \toprule
-   & No. Obs & Unique coins & Mean & Std & P10 & P25 & P50 & P75 & P90 \\
-  \midrule
-  Sample & 1,478,936 & 973 & -2.70\% & 12.49\% & -10.18\% & -6.65\% & -3.70\% & 0.02\% & 4.69\% \\
-  Top 100 & 176,400 & 100 & -2.94\% & 7.28\% & -9.20\% & -6.32\% & -3.56\% & -0.16\% & 3.67\% \\
-  Top 10 & 24,747 & 10 & -2.35\% & 6.14\% & -7.80\% & -5.44\% & -2.87\% & 0.22\% & 3.55\% \\
-  Bitcoin & 2,618 &  & -2.40\% & 3.92\% & -6.60\% & -4.96\% & -2.58\% & -0.20\% & 2.26\% \\
-  Ethereum & 2,611 &  & -2.40\% & 4.85\% & -7.46\% & -5.27\% & -2.83\% & 0.27\% & 3.48\% \\
-  Ripple & 2,540 &  & -2.41\% & 5.70\% & -7.65\% & -5.43\% & -2.77\% & -0.00\% & 2.87\% \\
-  \bottomrule
-  \end{tabular}
-}
+\begin{adjustbox}{max width=\textwidth}
+\begin{threeparttable}
+\begin{tabular}{lccccccccc}
+\toprule
+ & No. Obs & Unique coins & Mean & Std & P10 & P25 & P50 & P75 & P90 \\
+\midrule
+Sample & 1,478,936 & 973 & -2.70\% & 12.49\% & -10.18\% & -6.65\% & -3.70\% & 0.02\% & 4.69\% \\
+Top 100 & 176,400 & 100 & -2.94\% & 7.28\% & -9.20\% & -6.32\% & -3.56\% & -0.16\% & 3.67\% \\
+Top 10\tnote{1} & 24,747 & 10 & -2.35\% & 6.14\% & -7.80\% & -5.44\% & -2.87\% & 0.22\% & 3.55\% \\
+Bitcoin & 2,618 &  & -2.40\% & 3.92\% & -6.60\% & -4.96\% & -2.58\% & -0.20\% & 2.26\% \\
+Ethereum & 2,611 &  & -2.40\% & 4.85\% & -7.46\% & -5.27\% & -2.83\% & 0.27\% & 3.48\% \\
+Ripple & 2,540 &  & -2.41\% & 5.70\% & -7.65\% & -5.43\% & -2.77\% & -0.00\% & 2.87\% \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}\footnotesize
+\item[1] As of July 31, 2025, the top 10 cryptocurrencies are Bitcoin, Ethereum, Ripple, Binance Coin, Solana, Dogecoin, Tron, Cardano, Stellar, and Chainlink.
+\end{tablenotes}
+\end{threeparttable}
+\end{adjustbox}
 \end{table}
 
 \section{Characteristic construction and
@@ -701,20 +687,21 @@ forms the first week, and the first 51 weeks of the year consists of 7
 days each. The 52th week of the year consists of the last eight days
 and, in case of a leap year (as 2016, 2020, and 2024), of nine days.
 
-Similar to \textbf{Liu et al}, I construct a daily cryptocurrency market
-return as the value-weighted average return of all the cryptocurrencies
-in the sample. For cryptocurrencies \(i = 1, ..., N\), the daily market
-return at time \(t\) is computed as:
+Following Liu et al. (\citeproc{ref-liuCommonRisk2022}{2022}), I
+construct a daily cryptocurrency market return as the value-weighted
+average return of all the cryptocurrencies in the sample. For
+cryptocurrencies \(i = 1, ..., N\), the daily market return at time
+\(t\) is computed as:
 
 \[
 r_t^M = \frac{\sum_{i=1}^N r_{it} \cdot marketcap_{it}}
              {\sum_{i=1}^N marketcap_{it} }
 \]
 
-The cryptocurrency market excess return (\texttt{CMKT}) is constructed
-as the difference between the cryptocurrency market return and the
-risk-free rate. To proxy the risk-free rate, I used the (daily) 1-month
-Treasury bill rate from the FRED.
+The cryptocurrency market excess return is constructed as the difference
+between the cryptocurrency market return and the risk-free rate. To
+proxy the risk-free rate, I used the (daily) 1-month Treasury bill rate
+from the FRED.
 
 Write this in the following section of ``Empirical application'' or This
 is for the model: 7. (Still undecisive) Minimum cross-section. Following
