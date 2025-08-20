@@ -75,6 +75,7 @@ format:
         \usepackage{hyperref}
         \usepackage[nameinlink, capitalise, noabbrev]{cleveref} % \cref{_label_} to link the label and section number 
         
+        \usepackage{makecell}
         \usepackage{threeparttable}
         \usepackage{adjustbox} 
         \usepackage{amsmath,amssymb}

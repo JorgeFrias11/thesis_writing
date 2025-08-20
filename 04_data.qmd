@@ -1,4 +1,4 @@
-# Data
+# Data {#sec-data}
 
 In this section, I introduce the cryptocurrency data used in this thesis, the series of filters applied to clean and prepare the dataset, and the summary statistics of the cryptocurrency excess returns. In addition, I show the set of asset-specific characteristics constructed from the cryptocurrency market data, which are used as instruments for latent factor exposures in the IPCA model. Appendix -@sec-app_characteristics provides a detailed description of the characteristics used in the empirical analysis. 
 
@@ -43,13 +43,38 @@ Out of the 14,907 cryptocurrencies listed, only 7,272 entries contained availabl
 
 ## Sample overview
 
-After applying all the filters, the resulting sample consists of 973 unique cryptocurrencies and 1,478,936 observations from June 1, 2018, to July 31, 2025, where a day starts at 00:00:00 UTC. It is important to mention that the number of cryptocurrencies fluctuates over the entire period, which results in an unbalanced panel of data. Table \ref{tbl-sampleoverview} summarizes the descriptive statistics for the cryptocurrency excess returns. While the interquantile range is relatively similar across samples, the larger samples show higher volatility and more pronounced (negative) returns. Additionally, 
+After applying all the filters, the resulting sample consists of 973 unique cryptocurrencies and 1,478,936 observations from June 1, 2018, to July 31, 2025, where a day starts at 00:00:00 UTC. It is important to mention that the number of cryptocurrencies fluctuates over the entire period, which results in an unbalanced panel of data. Table \ref{tbl-cross_section} provides a description of the yearly cross-sectionional statistics: the sample starts with 254 different cryptocurrencies in 2018 and peaks in 2023 with 939 unique cryptocurrencies, before decreasing to 780 in 2025. The minimum daily cross-section is 121 in 2018, and then increases drastically up to 793 in 2023. For context, at the time of writing, CoinMarketCap tracks around 19 million cryptocurrencies, and CoinGecko around 19 thousands. When compared to these numbers, the size of the sample may seem small; however, it actually covers most of the whole cryptocurrency market capitalization (see @fig-samplemarketcap). The sample period includes important events in the market, such as 
+
+Table \ref{tbl-overview} summarizes the descriptive statistics for the cryptocurrency daily returns across different subsamples and Bitcoin, Ethereum, and Ripple, which are the three largest cryptocurrencies in the sample. Interestingly, the larger samples exhibit a larger volatility and more pronounced extreme returns, both positive and negative. Bitcoin shows the lowest mean return during the sample period (0.16% per day), though this value very close to that of Ethereum (0.17%) and Ripple (0.20%), and only slightly below other  cryptocurrency subsamples. 
+<!-- Overall, expanding the cross-section increases the dispersion of returns: the top 10 subsample already includes the most popular "meme" coin Dogecoin, and adding more cryptocurrencies introduces assets with a higher volatility.   -->
+
+
+![**Cryptocurrency market capitalization**. The figure compares the cryptocurrency market capitalization in the filtered sample (blue line) with the total market capitalization (yellow line) from June 1, 2018 to July 31, 2025. Source: total market capitalization from [CoinGecko](https://www.coingecko.com/).](pictures/sample_marketcap.png){#fig-samplemarketcap fig-scap="Cryptocurrency market capitalization" width=80%}
+
+
+
+```{=latex}
+\begin{table}[t]
+\footnotesize
+\centering
+\caption[Cross-section size of the sample]{\textbf{Cross-section size of the sample.} The table repots the number of unique coins per year, as well as the minimum daily cross-section size in the filtered sample.}
+\label{tbl-cross_section}
+\begin{tabular}{ccccccccc}
+\toprule
+Year & 2018 & 2019 & 2020 & 2021 & 2022 & 2023 & 2024 & 2025 \\
+\midrule
+Unique coins & 254 & 337 & 420 & 714 & 938 & 939 & 906 & 780 \\
+Min. daily cross-section & 121 & 239 & 207 & 381 & 699 & 793 & 710 & 578 \\
+\bottomrule
+\end{tabular}
+\end{table}
+```
 
 
 ```{=latex}
 \begin{table}[t]
 \centering
-\caption[Summary statistics of daily excess returns]{\textbf{Summary statistics of daily excess returns.} The table reports summary statistics of daily excess returns for the filtered sample, the top 100 and top 10 cryptocurrencies ranked by market capitalization, and for Bitcoin, Ethereum, and Ripple individually. Reported statistics include the number of daily observations, the number of unique coins over the sample period, the mean and standard deviation of returns, and the 10th percentile, lower quartile, median, upper quartile, and 90th percentile of the distribution of the returns. The sample period is from June 1, 2018, to July 31, 2025.}
+\caption[Summary statistics of daily returns]{\textbf{Summary statistics of daily returns.} The table reports summary statistics of daily returns for the filtered sample, the top 100 and top 10 cryptocurrencies ranked by market capitalization, and for Bitcoin, Ethereum, and Ripple individually. Reported statistics include the number of daily observations, the number of unique coins over the sample period, the mean and standard deviation of returns, and the 10th percentile, lower quartile, median, upper quartile, and 90th percentile of the distribution of the returns. The sample period is from June 1, 2018, to July 31, 2025.}
 \label{tbl-overview}
 \begin{adjustbox}{max width=\textwidth}
 \begin{threeparttable}
@@ -57,12 +82,12 @@ After applying all the filters, the resulting sample consists of 973 unique cryp
 \toprule
  & No. Obs & Unique coins & Mean & Std & P10 & P25 & P50 & P75 & P90 \\
 \midrule
-Sample & 1,478,936 & 973 & -2.70\% & 12.49\% & -10.18\% & -6.65\% & -3.70\% & 0.02\% & 4.69\% \\
-Top 100 & 176,400 & 100 & -2.94\% & 7.28\% & -9.20\% & -6.32\% & -3.56\% & -0.16\% & 3.67\% \\
-Top 10\tnote{1} & 24,747 & 10 & -2.35\% & 6.14\% & -7.80\% & -5.44\% & -2.87\% & 0.22\% & 3.55\% \\
-Bitcoin & 2,618 &  & -2.40\% & 3.92\% & -6.60\% & -4.96\% & -2.58\% & -0.20\% & 2.26\% \\
-Ethereum & 2,611 &  & -2.40\% & 4.85\% & -7.46\% & -5.27\% & -2.83\% & 0.27\% & 3.48\% \\
-Ripple & 2,540 &  & -2.41\% & 5.70\% & -7.65\% & -5.43\% & -2.77\% & 0.00\% & 2.87\% \\
+Sample & 1,478,936 & 973 & 0.36\% & 12.25\% & -6.83\% & -3.00\% & -0.16\% & 2.57\% & 6.85\% \\
+Top 100 & 176,400 & 100 & 0.21\% & 6.93\% & -5.64\% & -2.52\% & -0.03\% & 2.44\% & 5.86\% \\
+Top 10 & 24,747 & 10 & 0.25\% & 5.74\% & -4.71\% & -2.00\% & 0.07\% & 2.14\% & 5.07\% \\
+Bitcoin & 2,618 & 1 & 0.16\% & 3.33\% & -3.24\% & -1.27\% & 0.09\% & 1.52\% & 3.67\% \\
+Ethereum & 2,611 & 1 & 0.17\% & 4.35\% & -4.33\% & -1.77\% & 0.10\% & 2.14\% & 4.88\% \\
+Ripple & 2,540 & 1 & 0.20\% & 5.31\% & -4.48\% & -1.87\% & 0.08\% & 1.89\% & 4.70\% \\
 \bottomrule
 \end{tabular}
 \begin{tablenotes}\footnotesize
@@ -71,14 +96,143 @@ Ripple & 2,540 &  & -2.41\% & 5.70\% & -7.65\% & -5.43\% & -2.77\% & 0.00\% & 2.
 \end{threeparttable}
 \end{adjustbox}
 \end{table}
-
 ```
+
+
+The sample period spans several major market, economic, and political events, these include: the start of the COVID-19 pandemic and the subsequent crypto bubble in 2020-2021, El Salvador adoption of Bitcoin as legal tender in September 2021, and China's ban on cryptocurrency exchanges and mining in October 2021. The period also experienced multiple cryptocurrency exchange hacks^[For example, Binance, largest crypto exchange in the world, was hacked in 2019, and KuCoin and Crypto.com were hacked in 2020 and 2022, respectively. [@zhouApplicationEvent2025]], and geopolitical shocks such as the Russia-Ukraine war in February 2022, and the Palestine-Israel war in October 2023. More recently, in 2024, the U.S. Secutities and Exchange Commission (SEC) approved the listing and trading of several crypto spot ETFs in January, and Donald Trump's election as U.S. president, with Elon Musk playing and important role in his campaign [@liuSpotCryptocurrency2024; @mercikCrosssectionalInteractionsCryptocurrency2025; @bianchiMispricingRiskCompensation2021; @chenHowEffective2022; @zhouApplicationEvent2025]. 
 
 ## Characteristic construction and description {#sec-characteristics}
 
+For the analysis, I construct 40 asset-specific characteristics from the cross-section of 973 cryptocurrencies using data on prices, volume, and market capitalization. Specifically, I follow the methodology of @bianchiMispricingRiskCompensation2021, @liuCommonRisk2022, and @mercikCrosssectionalInteractionsCryptocurrency2025 to replicate and classify a set of characteristics that serve as return predictors in the empirical analysis. Based on economic intuition, I group the characteristics into six categories: market and size, volatility and risk, trading activity, liquidity, past returns, and distribution. Table \ref{tbl-characteristics} summarizes the set of characteristics, while Appendix XXX provides a detailed description and the construction procedure.   
 
-Following @kellyCharacteristicsAre2019, I cross-sectionally transform the instrument variables period-by-period in the following manner: first,  
 
+```{r}
+#| echo: FALSE
+#| warning: FALSE 
+#| message: FALSE
+##| label: tbl-characteristics
+
+library(dplyr)
+library(stringr)
+library(kableExtra)
+
+# ---- your groups ----
+panels <- list(
+  core          = c("mcap","prc", "dh90"),
+  volrisk       = c("beta","ivol", "rvol_7d", "rvol_30d", "retvol","var","delay"),
+  activity      = c("volume", "volume_7d", "volume_30d", "volscaled","turn","std_vol","cv_vol"),
+  liquidity     = c("bidask","illiq","sat","dto","volsh_30d"),
+  past_returns  = c("r2_1","r7_1", "r14_1","r21_1","r30_1","r30_14", 
+                    "r180_60","dh90","alpha"),
+  distribution  = c("skew","kurt","maxret","minret")
+)
+
+panel_titles <- c(
+  core         = "Price and size",
+  volrisk      = "Volatility & risk",
+  activity     = "Activity",
+  liquidity    = "Liquidity",
+  past_returns = "Past returns",
+  distribution = "Distribution"
+)
+
+definitions <- tribble(
+  ~Symbol,       ~Characteristic,              ~Definition,
+  # ---- Price and Size ----
+  "mcap",        "Market capitalization",      "Market capitalization of the coin.",
+  "prc",         "Price",                      "Cryptocurrency logged closing price.",
+  "dh90",        "Closeness to the 90-day high", "Last day's price over the maximum price in the previous 90 days.",
+
+  # ---- Volatility & Risk ----
+  "beta",        "Market beta",                "CAPM market beta, estimated from 30 days of daily returns.",
+  "ivol",        "Idiosyncratic volatility",   "Volatility of CAPM residuals over 30 days of daily returns.",
+  "rvol_7d",     "7-day realized volatility",  "Realized volatility, calculated from 7 days of OHCL prices.",
+  "rvol_30d",    "30-day realized volatility", "Realized volatility, calculated from 30 days of OHCL prices.",
+  "retvol",      "Return volatility",          "Standard deviation of daily returns over 7 days.",
+  "var",         "Value-at-Risk",              "The historical Value-at-Risk at 5\\% level over 90 days.",
+  "delay",       "Price delay",                "Improvement in \\(R^2\\) after adding lagged one-and two-day market excecss return to the CAPM.",
+
+  # ---- Activity ----
+  "volume",      "Volume",                     "Daily trading volume.",
+  "volume_7d",   "Average 7-day Volume",       "Mean volume over 7 days.",
+  "volume_30d",  "Average 30-day Volume",      "Mean volume over 30 days.",
+  "volscaled",   "Volume scaled by size",      "Trading volume scaled by market capitalization.",
+  "turn",        "Turnover",                   "Turnover ratio (volume relative to market cap).",
+  "std_vol",     "Volume standard deviation",  "Standard deviation of trading volume.",
+  "cv_vol",      "Volume CV",                  "Coefficient of variation of trading volume.",
+
+  # ---- Liquidity ----
+  "bidask",      "Bid-ask spread",             "Bid-ask spread as a liquidity measure.",
+  "illiq",       "Illiquidity",                "Amihud illiquidity ratio.",
+  "sat",         "Supply-adjusted turnover",   "Turnover adjusted for circulating supply.",
+  "dto",         "Dollar trading output",      "Total dollar trading value.",
+  "volsh_30d",   "30-day volume share",        "Share of trading volume in the past 30 days.",
+
+  # ---- Past Returns ----
+  "r2_1",        "Daily reversal",             "Return on the previous trading day.",
+  "r7_1",        "7-day momentum",             "7-day cumulative return ending 1 day before the prediction date.",
+  "r14_1",       "14-day momentum",            "14-day cumulative return ending 1 day before the prediction date.",
+  "r21_1",       "21-day momentum",            "21-day cumulative return ending 1 day before the prediction date.",
+  "r30_1",       "30-day momentum",            "30-day cumulative return ending 1 day before the prediction date.",
+  "r30_14",      "Intermediate momentum",         "Cumulative return from 30 to 14 days before the prediction date.",
+  "r180_60",     "Long-term reversal",        "Cumulative return from 180 to 60 days before the prediction date.",
+  "alpha",       "CAPM alpha",             "Jensen’s alpha estimated from a factor model.",
+
+  # ---- Distribution ----
+  "skew",        "Skewness",            "Skewness of daily returns over a 90-day period.",
+  "kurt",        "Kurtosis",            "Kurtosis of daily returns over a 90-day period.",
+  "maxret",      "Maximum daily return",             "Maximum daily return in the sample.",
+  "minret",      "Minimum daily return",             "Minimum daily return in the sample."
+)
+
+# ---- build table ----
+tbl <- bind_rows(lapply(names(panels), function(p) {
+  tibble(
+    Panel  = p,
+    Symbol = panels[[p]]
+  )
+})) |>
+  left_join(definitions, by = "Symbol") |> 
+  group_by(Panel) |>
+  mutate(No = row_number()) |>
+  ungroup() |>
+  mutate(
+    PanelLabel = paste0(
+      "Panel ", LETTERS[match(Panel, names(panels))], ": ",
+      panel_titles[Panel]
+    )
+  )
+
+tbl <- tbl %>%
+     mutate(Symbol = gsub("_", "\\\\_", Symbol))  # replace _ with \_
+
+# ---- render ----
+k <- kbl(
+  tbl %>% select(No, Characteristic, Symbol, Definition),
+  booktabs = TRUE,
+  #longtable = TRUE,
+  #format = "latex",
+  escape = FALSE,
+  align = "llll",
+  caption = "\\textbf{Cryptocurrency characteristics.} This caption is way too long and doesnt look good when formatted in the Table of Contents.  What you really need here is a much shorter caption so that your eyes dont go crazy trying to figure out what information the author is trying to convey.  Often there is too much information in the caption anyway so why not shorten it?. \\label{tbl-characteristics}",
+  caption.short = "Cryptocurrency characteristics.",
+  col.names = c("No.", "Characteristic", "Symbol", "Definition")
+) |>
+  kable_styling(full_width = F, font_size = 8.5) |>
+  column_spec(2, width = "10em") |>
+  column_spec(4, width = "26em") 
+
+# add grouped rows for panels
+for (p in unique(tbl$PanelLabel)) {
+  nrows <- sum(tbl$PanelLabel == p)
+  start <- which(tbl$PanelLabel == p)[1]
+  end   <- start + nrows - 1
+  k <- k %>% group_rows(p, start, end)
+}
+
+k
+
+```
 
 
 

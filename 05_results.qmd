@@ -2,6 +2,8 @@
 
 Implemented in python, based on the IPCA python code of Seth Pruitt ^[See https://sethpruitt.net/research/.] and the `ipca` python package of @ipca ^[See https://bkelly-lab.github.io/ipca/.].
 
+Following @kellyCharacteristicsAre2019, I cross-sectionally transform the instrument variables period-by-period in the following manner: first,  
+
 **Important**: mention the shift of characteristics:  the conditional APT of
         Kelly, Pruitt, Su (JFE 2019) says that the characteristics known at Date=d-1 determine the exposures associated
         with the returns realized at Date=d; hence, here we should have shifted the characteristics in Z relative to

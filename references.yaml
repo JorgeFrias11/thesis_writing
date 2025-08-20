@@ -1,5 +1,35 @@
 ---
 references:
+- id: alexanderCriticalInvestigation2020
+  abstract: >-
+    Less than half the crytocurrency papers published since January 2017 employ
+    correct data
+  accessed:
+    - year: 2025
+      month: 8
+      day: 18
+  author:
+    - family: Alexander
+      given: C.
+    - family: Dakos
+      given: M.
+  citation-key: alexanderCriticalInvestigation2020
+  container-title: Quantitative Finance
+  DOI: 10.1080/14697688.2019.1641347
+  ISSN: 1469-7688
+  issue: '2'
+  issued:
+    - year: 2020
+      month: 2
+      day: 1
+  page: 173-188
+  publisher: Routledge
+  source: Taylor and Francis+NEJM
+  title: A critical investigation of cryptocurrency data and analysis
+  type: article-journal
+  URL: https://doi.org/10.1080/14697688.2019.1641347
+  volume: '20'
+
 - id: arnerStablecoinsRisks2020
   abstract: >-
     The technologies underlying money and payment systems are evolving rapidly.
@@ -259,6 +289,44 @@ references:
   type: article
   URL: https://papers.ssrn.com/abstract=4703281
 
+- id: chenHowEffective2022
+  abstract: >-
+    Cryptocurrency trading is subject to strict government-imposed restrictions
+    in China since September 2017, when trading platforms were shut down. Using
+    a VAR-GARCH-BEKK model, we investigate the effectiveness of this trading ban
+    by examining its consequences on the relationship between Chinese investors’
+    attention and Bitcoin. Our results demonstrate that Chinese investors played
+    a dominant role in the Bitcoin price formation before the ban, and that
+    their influence has not significantly decreased after the shutdown of
+    Chinese trading platforms. Aiming to explain our findings, we provide strong
+    evidence that the crackdown on Bitcoin trading has not been effective as
+    Chinese investors continue to purchase Bitcoin using the stablecoin Tether
+    instead of Chinese yuan.
+  accessed:
+    - year: 2025
+      month: 8
+      day: 19
+  author:
+    - family: Chen
+      given: Conghui
+    - family: Liu
+      given: Lanlan
+  citation-key: chenHowEffective2022
+  container-title: Finance Research Letters
+  container-title-short: Finance Research Letters
+  DOI: 10.1016/j.frl.2021.102429
+  ISSN: 1544-6123
+  issued:
+    - year: 2022
+      month: 5
+      day: 1
+  page: '102429'
+  source: ScienceDirect
+  title: How effective is China's cryptocurrency trading ban?
+  type: article-journal
+  URL: https://www.sciencedirect.com/science/article/pii/S1544612321004189
+  volume: '46'
+
 - id: chenOpenSource2021
   abstract: >-
     We provide data and code that successfully reproduces nearly all
@@ -464,6 +532,45 @@ references:
   type: article-journal
   URL: https://www.sciencedirect.com/science/article/pii/S0304405X14002323
   volume: '116'
+
+- id: fengTamingFactor2020
+  abstract: >-
+    We propose a model selection method to systematically evaluate the
+    contribution to asset pricing of any new factor, above and beyond what a
+    high-dimensional set of existing factors explains. Our methodology accounts
+    for model selection mistakes that produce a bias due to omitted variables,
+    unlike standard approaches that assume perfect variable selection. We apply
+    our procedure to a set of factors recently discovered in the literature.
+    While most of these new factors are shown to be redundant relative to the
+    existing factors, a few have statistically significant explanatory power
+    beyond the hundreds of factors proposed in the past.
+  accessed:
+    - year: 2025
+      month: 8
+      day: 18
+  author:
+    - family: Feng
+      given: Guanhao
+    - family: Giglio
+      given: Stefano
+    - family: Xiu
+      given: Dacheng
+  citation-key: fengTamingFactor2020
+  container-title: The Journal of Finance
+  DOI: 10.1111/jofi.12883
+  ISSN: 1540-6261
+  issue: '3'
+  issued:
+    - year: 2020
+  language: en
+  license: © 2020 the American Finance Association
+  page: 1327-1370
+  source: Wiley Online Library
+  title: 'Taming the Factor Zoo: A Test of New Factors'
+  title-short: Taming the Factor Zoo
+  type: article-journal
+  URL: https://onlinelibrary.wiley.com/doi/abs/10.1111/jofi.12883
+  volume: '75'
 
 - id: financialstabilityboardAddressingRegulatory2020
   abstract: >-
@@ -677,6 +784,42 @@ references:
   URL: https://onlinelibrary.wiley.com/doi/abs/10.1111/jofi.13119
   volume: '77'
 
+- id: liuSpotCryptocurrency2024
+  abstract: >-
+    This paper studies how the SEC's approval of spot cryptocurrency ETFs
+    affects the cryptocurrency market. We find that the launch of spot
+    cryptocurrency ETFs elevates cryptocurrencies to a more legitimate asset
+    class and increases Bitcoin's price and liquidity. In addition, this study
+    offers no supportive evidence for the view that spot cryptocurrency ETFs
+    serve as stepping stones toward tokenization.
+  accessed:
+    - year: 2025
+      month: 8
+      day: 19
+  author:
+    - family: Liu
+      given: Shiang
+    - family: Yang
+      given: Changyu
+  citation-key: liuSpotCryptocurrency2024
+  container-title: Finance Research Letters
+  container-title-short: Finance Research Letters
+  DOI: 10.1016/j.frl.2024.106150
+  ISSN: 1544-6123
+  issued:
+    - year: 2024
+      month: 11
+      day: 1
+  page: '106150'
+  source: ScienceDirect
+  title: >-
+    Spot cryptocurrency ETFs: Crypto investment products or stepping stones
+    toward tokenization
+  title-short: Spot cryptocurrency ETFs
+  type: article-journal
+  URL: https://www.sciencedirect.com/science/article/pii/S1544612324011796
+  volume: '69'
+
 - id: mercikCrosssectionalInteractionsCryptocurrency2025
   abstract: >-
     We investigate interaction effects in cryptocurrency markets by constructing
@@ -759,6 +902,52 @@ references:
   URL: https://www.sciencedirect.com/science/article/pii/S0304405X11002613
   volume: '104'
 
+- id: vidal-tomasWhichCryptocurrency2022
+  abstract: >-
+    Inspired by Alexander and Dakos (2020), we shed more light on the adequacy
+    of data in the cryptocurrency literature by analysing the scaling properties
+    and underlying processes of the main cryptocurrency databases
+    (Coinmarketcap, Coingecko, BraveNewCoin and Cryptocompare) and exchange
+    platforms (Coinbase, Bitstamp, Bittrex, Cexio and Exmo). Our results show
+    that coin-ranking sites, such as Coinmarketcap, Coingecko and BraveNewCoin
+    (i) include most of the cryptocurrency trading activity and (ii) are
+    essentially characterised by the same underlying processes as the main
+    exchange platforms (Coinbase and Bitstamp) and alternative coin-ranking
+    sites (Cryptocompare), regardless of the possible issues arising from the
+    aggregation of different exchanges to compute a unique cryptocurrency price.
+    Therefore, we state that these databases are appropriate to conduct
+    research. At any rate, we observe that all the databases analysed in this
+    paper show the same underlying process for most liquid cryptocurrencies;
+    consequently, scholars could use any of them for their studies, as long as
+    they consider the different trading activity included by each database. This
+    result is supported by an empirical analysis focused on weak-form market
+    efficiency, since we report the same degree of efficiency regardless of the
+    database and exchange platform. Nevertheless, we recognise the need for
+    further research, given the gap in the literature and the black-box method
+    used by coin-ranking sites to compute a unique cryptocurrency price.
+  accessed:
+    - year: 2025
+      month: 8
+      day: 18
+  author:
+    - family: Vidal-Tomás
+      given: David
+  citation-key: vidal-tomasWhichCryptocurrency2022
+  container-title: International Review of Financial Analysis
+  container-title-short: International Review of Financial Analysis
+  DOI: 10.1016/j.irfa.2022.102061
+  ISSN: 1057-5219
+  issued:
+    - year: 2022
+      month: 5
+      day: 1
+  page: '102061'
+  source: ScienceDirect
+  title: Which cryptocurrency data sources should scholars use?
+  type: article-journal
+  URL: https://www.sciencedirect.com/science/article/pii/S1057521922000369
+  volume: '81'
+
 - id: wangAreStablecoins2020
   abstract: >-
     We study the diversifier, hedge, and safe haven properties of stablecoins
@@ -806,4 +995,50 @@ references:
   type: article-journal
   URL: https://www.sciencedirect.com/science/article/pii/S0275531919311146
   volume: '54'
+
+- id: zhouApplicationEvent2025
+  abstract: >-
+    This study employs event study methodology to investigate the impact of
+    various types of events on cryptocurrency market returns and volatility. The
+    research focuses on six major cryptocurrencies—ETH, BTC, BNB, XRP, DOGE, and
+    TRX—over the period from December 31, 2017, to October 30, 2023. Six types
+    of events are analyzed: cybersecurity events, block reward adjustment
+    events, political conflict events, public health emergency events,
+    cryptocurrency recognition and support events, and social media sentiment
+    events. The findings reveal that cybersecurity and block reward adjustment
+    events have minimal and short-lived impacts on market returns. Political
+    conflict events cause significant short-term return volatility depending on
+    market expectations. Public health emergency events, such as the COVID-19
+    pandemic, have significant and lasting negative impacts on market returns.
+    Cryptocurrency recognition and support events have significant and sustained
+    positive impacts on market returns. Social media sentiment events have
+    significant but short-lived impacts on market returns. The robustness of the
+    results was validated through the analysis of abnormal returns during the
+    event period. This study provides valuable insights for investors and
+    policymakers in managing market volatility.
+  accessed:
+    - year: 2025
+      month: 8
+      day: 19
+  author:
+    - family: Zhou
+      given: Fan
+  citation-key: zhouApplicationEvent2025
+  container-title: Emerging Markets Finance and Trade
+  DOI: 10.1080/1540496X.2024.2404173
+  ISSN: 1540-496X
+  issue: '4'
+  issued:
+    - year: 2025
+      month: 3
+      day: 16
+  page: 989-1009
+  publisher: Routledge
+  source: Taylor and Francis+NEJM
+  title: >-
+    Application of Event Study Methodology in the Analysis of Cryptocurrency
+    Returns
+  type: article-journal
+  URL: https://doi.org/10.1080/1540496X.2024.2404173
+  volume: '61'
 ...

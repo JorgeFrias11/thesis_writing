@@ -66,46 +66,6 @@
 \fi
 \makeatother
 
-\usepackage{color}
-\usepackage{fancyvrb}
-\newcommand{\VerbBar}{|}
-\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
-\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
-% Add ',fontsize=\small' for more characters per line
-\usepackage{framed}
-\definecolor{shadecolor}{RGB}{241,243,245}
-\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
-\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
-\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
-\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
-\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
 
 \usepackage{longtable,booktabs,array}
 \usepackage{calc} % for calculating minipage widths
@@ -180,6 +140,20 @@
  
 
 
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
 \usepackage{subcaption}
 \captionsetup[subfigure]{list=false}
 % \AddToHook{cmd/section/before}{\clearpage}  % new page for each section for articles
@@ -190,6 +164,7 @@
 \usepackage{hyperref}
 \usepackage[nameinlink, capitalise, noabbrev]{cleveref} % \cref{_label_} to link the label and section number 
 
+\usepackage{makecell}
 \usepackage{threeparttable}
 \usepackage{adjustbox} 
 \usepackage{amsmath,amssymb}
@@ -290,7 +265,7 @@
 
 \title{Edit: Master Thesis Title}
 \author{Jorge Eduardo Frías Navarrete}
-\date{August 18, 2025}
+\date{August 20, 2025}
 \begin{document}
 \frontmatter
 
@@ -329,7 +304,7 @@
         Degree programme: & Quantitative Finance \\
         %University: & Vienna University of Economics and Business \\
         Supervisor: & Univ.Prof. David \textsc{Preinerstorfer}, Ph.D. \\
-        Date of Submission: & August 18, 2025
+        Date of Submission: & August 20, 2025
     \end{tabular}
     \vspace{2cm}
     
@@ -431,6 +406,11 @@ volutpat. Integer et odio nec mauris sollicitudin mattis.
 
 \chapter{Introduction}\label{introduction}
 
+En alta volatilidad, quiza incluso mencionar los tweets de Elon Musk,
+por ejemplo, diciendo que Tesla no aceptaria pagos con bitcoin debido al
+alto costo energetico asociado con su mineria, causando una baja de los
+precios
+
 Mirar Liu et al (y el otro paper similar) donde habla de las
 criptomonedas, e inspirarnos de ahi. Quiza la otra tesis en esto
 tambien.
@@ -446,21 +426,131 @@ criptomonedas en algunos exchanges, de futuros en CME, de indices en
 XXX, del boom en la crisis de COVID (ver Mercik, donde menciona sucesos
 importantes).
 
+Exhaustive list of predictors for the cross-section of stock returns
+Feng et al. (\citeproc{ref-fengTamingFactor2020}{2020}) A. Y. Chen \&
+Zimmermann (\citeproc{ref-chenOpenSource2021}{2021})
+
 mencionar a Ross, que comprobo la estructura lineal de los factores: --
 Esto quiza en introduccion
 
-** Ejemplo de frase See (\citeproc{ref-knuth84}{\textbf{knuth84?}}) for
-additional discussion of literate programming.**
+** Ejemplo de frase See for additional discussion of literate
+programming.**
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\DecValTok{1} \SpecialCharTok{+} \DecValTok{1}
-\end{Highlighting}
-\end{Shaded}
+\section{Research objective}\label{research-objective}
 
-\begin{verbatim}
-[1] 2
-\end{verbatim}
+The main questions addressed in this thesis are:
+
+\begin{itemize}
+\tightlist
+\item
+  first research questions
+\item
+  second research questions
+\end{itemize}
+
+Replicate the work of Kelly et al.
+(\citeproc{ref-kellyCharacteristicsAre2019}{2019}) and Bianchi \& Babiak
+(\citeproc{ref-bianchiMispricingRiskCompensation2021}{2021}) on the
+cryptocurrency market.
+
+\section{Literature review}\label{literature-review}
+
+Hacerla similar a la descripciond e la hipoteca inversa. Mencionar las
+dos corrientes de litertura: por una parte, los modelos de factores
+construidos como managed-strategies. Mencionar los modelos de factores
+mas conocidos, y alguna de la literatura importante en este tema: fama
+french modelo de tres factores Fama \& French
+(\citeproc{ref-famaCommonRisk1993}{1993}), FF modelo de cinco factores
+Fama \& French (\citeproc{ref-famaFivefactorAsset2015}{2015}) Citar la
+coleccion de Chen and ZImmerman A. Y. Chen \& Zimmermann
+(\citeproc{ref-chenOpenSource2021}{2021}) con la gran cantidad de
+factores en su dataset.
+
+Por otra, una corriente basada en la estadistica que construye los
+factores mediante modelos puramente estadisticos, y que asume que los
+factores son latentes. Mencionar los dos autores pioneros de PCA:
+Chamberlain \& Rothschild
+(\citeproc{ref-chamberlainArbitrageFactor1983}{1983}) and Connor \&
+Korajczyk (\citeproc{ref-connorPerformanceMeasurement1986}{1986}).
+
+Mencionar modelos recientes con factores dinamicos. Describir brevemente
+estos modelos de PCA, y despues propuestas de modelacion de factores
+latentes dinamicos. Entre estos, hablar de Kelly et al.
+(\citeproc{ref-kellyCharacteristicsAre2019}{2019}), que propuso el
+modelo dinamico de factores, y mas recientemente, RPCA Q. Chen et al.
+(\citeproc{ref-chenSemiparametricConditional2022}{2022}) Z. Chen et al.
+(\citeproc{ref-chenCommonRisk2024}{2024}), inspirado en regressiones de
+fama macbeth, que hace una combinacion de este modelo mas una
+implementacion de PCA.
+
+Bianchi \& Babiak
+(\citeproc{ref-bianchiMispricingRiskCompensation2021}{2021}) aplicaron
+el modelo de Kelly en el mercado de criptos, mencionar otros papers que
+utilizaron el IPCA (hay otros de Kelly que lo uso para bonos y opciones,
+investigar)
+
+Z. Chen et al. (\citeproc{ref-chenCommonRisk2024}{2024}) aplico el RPCA
+para el cross-section de diferentes asset-classes.
+
+Mencionar literatura extensa tratando de entender los factores de riesgo
+de las criptomonedas, por ejemplo, Mercik et al.
+(\citeproc{ref-mercikCrosssectionalInteractionsCryptocurrency2025}{2025}),
+y otros papers que tengo en mis archivos y en notas.
+
+Baur \& Hoang (\citeproc{ref-baurCryptoSafe2021}{2021}) Studies
+stablecoins as a safe heaven for Bitcoin volatility - safe heavens, but
+finds theyre not stable. Wang et al.
+(\citeproc{ref-wangAreStablecoins2020}{2020}) also investigates if
+stablecoins are real diversifiers, hedgers or safe heavens. Hoang \&
+Baur (\citeproc{ref-hoangHowStable2024}{2024}) Analyses the stability of
+the so called stablecoins Asadov et al.
+(\citeproc{ref-asadovGreaterStability2023}{2023}) Analyses
+precious-metal-backed coins as a better alternative for stablecoins.
+
+\section{Data concerns}\label{data-concerns}
+
+One of the main challenges in this thesis was obtaining a large panel of
+cryptocurrency data. I extracted market data from the free
+\href{https://coincodex.com/}{CoinCodex} API,which provides access to
+the full historical data of the cryptocurrencies listed on its platform.
+In contrast, most crypto market data providers --also called
+coin-ranking sites, such as CoinMarketCap, CoinGecko, CryptoCompare
+(CoinDesk)-- offer limited access to historical data (usually one year)
+or none at all without a paid subscription. Some exchange platforms,
+such as Bybit, Binance, Coinbase, and Cex, allow users to extract market
+data for free through their public APIs. However, the number of
+cryptocurrencies (and thus, the cross-section) available from these
+sources was relatively small compared with CoinCoidex, and the time span
+was shorter \footnote{For example, bitcoin data started from late 2013
+  in CoinCodex, compared to November, 2022 in Bybit, January, 2019, in
+  Binance, and June, 2021, in Coinbase. The available cryptocurrencies
+  paired with Tether USD (USD) were 763 in Bybit, 623 in Binance, and
+  116 (USD) in Coinbase.}.
+
+The choice of which data source is appropriate for scientific research
+is subject to debate. For example, Alexander \& Dakos
+(\citeproc{ref-alexanderCriticalInvestigation2020}{2020}) examine
+different cryptocurrency data providers and find inconsistencies in
+regression estimates, suggesting that the source of cryptocurrency data
+can influence empirical results. Moreover, they document distorted coin
+prices on coin-ranking sites, caused by inflated or artificial trading
+volumes\footnote{Coin-ranking sites rank coins and exchanges by trading
+  volume and market capitalization. As highlighted by Alexander \& Dakos
+  (\citeproc{ref-alexanderCriticalInvestigation2020}{2020}), the prices
+  quoted on some of these sites are calculated by aggregating the prices
+  from hundreds of exchanges using a volume-weighted average. Because
+  many exchanges artificially inflate their volume to boost their
+  position in the rankings, the resulting aggregated prices are
+  influenced by fake volumes and therefore inconsistent with traded
+  prices.}, emphasizing the importance of using traded data from crypto
+exchanges. By contrast, Vidal-Tomás
+(\citeproc{ref-vidal-tomasWhichCryptocurrency2022}{2022}) argue that
+coin-ranking sites use the same underlying process as crypto exchanges
+and other platforms to compute a cryptocurrency price, and they report
+no significant differences in empirical results when using alternative
+data sources. To address these concerns, I apply a series of
+pre-processing filters, described in Chapter~\ref{sec-data}, to mitigate
+the impact of potential inaccuracies in my dataset.
 
 \bookmarksetup{startatroot}
 
@@ -488,7 +578,7 @@ Analysis}\label{instrumented-principal-component-analysis}
 
 \bookmarksetup{startatroot}
 
-\chapter{Data}\label{data}
+\chapter{Data}\label{sec-data}
 
 In this section, I introduce the cryptocurrency data used in this
 thesis, the series of filters applied to clean and prepare the dataset,
@@ -550,7 +640,7 @@ possible innacuracies in the dataset:
   observations where prices, volume, or market capitalization were
   non-positive or missing.
 \item
-  Small cryptocurrencies. Similar to Liu et al.
+  Small cryptocurrencies. Similar to Y. Liu et al.
   (\citeproc{ref-liuCommonRisk2022}{2022}), I screen out small
   cryptocurrencies and consider only those with a market capitalization
   greater than one million USD. Therefore, I exclude observations for
@@ -645,11 +735,65 @@ After applying all the filters, the resulting sample consists of 973
 unique cryptocurrencies and 1,478,936 observations from June 1, 2018, to
 July 31, 2025, where a day starts at 00:00:00 UTC. It is important to
 mention that the number of cryptocurrencies fluctuates over the entire
-period, which results in an unbalanced panel of data.
+period, which results in an unbalanced panel of data. Table
+\ref{tbl-cross_section} provides a description of the yearly
+cross-sectionional statistics: the sample starts with 254 different
+cryptocurrencies in 2018 and peaks in 2023 with 939 unique
+cryptocurrencies, before decreasing to 780 in 2025. The minimum daily
+cross-section is 121 in 2018, and then increases drastically up to 793
+in 2023. For context, at the time of writing, CoinMarketCap tracks
+around 19 million cryptocurrencies, and CoinGecko around 19 thousands.
+When compared to these numbers, the size of the sample may seem small;
+however, it actually covers most of the whole cryptocurrency market
+capitalization (see Figure~\ref{fig-samplemarketcap}). The sample period
+includes important events in the market, such as
+
+Table \ref{tbl-overview} summarizes the descriptive statistics for the
+cryptocurrency daily returns across different subsamples and Bitcoin,
+Ethereum, and Ripple, which are the three largest cryptocurrencies in
+the sample. Interestingly, the larger samples exhibit a larger
+volatility and more pronounced extreme returns, both positive and
+negative. Bitcoin shows the lowest mean return during the sample period
+(0.16\% per day), though this value very close to that of Ethereum
+(0.17\%) and Ripple (0.20\%), and only slightly below other
+cryptocurrency subsamples.
+
+\begin{figure}[h]
+
+\centering{
+
+\includegraphics[width=0.8\linewidth,height=\textheight,keepaspectratio]{pictures/sample_marketcap.png}
+
+}
+
+\caption[Cryptocurrency market
+capitalization]{\label{fig-samplemarketcap}\textbf{Cryptocurrency market
+capitalization}. The figure compares the cryptocurrency market
+capitalization in the filtered sample (blue line) with the total market
+capitalization (yellow line) from June 1, 2018 to July 31, 2025. Source:
+total market capitalization from
+\href{https://www.coingecko.com/}{CoinGecko}.}
+
+\end{figure}%
+
+\begin{table}[t]
+\footnotesize
+\centering
+\caption[Cross-section size of the sample]{\textbf{Cross-section size of the sample.} The table repots the number of unique coins per year, as well as the minimum daily cross-section size in the filtered sample.}
+\label{tbl-cross_section}
+\begin{tabular}{ccccccccc}
+\toprule
+Year & 2018 & 2019 & 2020 & 2021 & 2022 & 2023 & 2024 & 2025 \\
+\midrule
+Unique coins & 254 & 337 & 420 & 714 & 938 & 939 & 906 & 780 \\
+Min. daily cross-section & 121 & 239 & 207 & 381 & 699 & 793 & 710 & 578 \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \begin{table}[t]
 \centering
-\caption[Summary statistics of daily excess returns]{\textbf{Summary statistics of daily excess returns.} The table reports summary statistics of daily excess returns for the filtered sample, the top 100 cryptocurrencies ranked by market capitalization, and for Bitcoin, Ethereum, and Ripple individually. Reported statistics include the number of daily observations, the number of unique coins over the sample period, the mean and standard deviation of returns, and the 10th percentile, lower quartile, median, upper quartile, and 90th percentile of the distribution of the returns. The sample period is from June 1, 2018, to July 31, 2025.}
+\caption[Summary statistics of daily returns]{\textbf{Summary statistics of daily returns.} The table reports summary statistics of daily returns for the filtered sample, the top 100 and top 10 cryptocurrencies ranked by market capitalization, and for Bitcoin, Ethereum, and Ripple individually. Reported statistics include the number of daily observations, the number of unique coins over the sample period, the mean and standard deviation of returns, and the 10th percentile, lower quartile, median, upper quartile, and 90th percentile of the distribution of the returns. The sample period is from June 1, 2018, to July 31, 2025.}
 \label{tbl-overview}
 \begin{adjustbox}{max width=\textwidth}
 \begin{threeparttable}
@@ -657,12 +801,12 @@ period, which results in an unbalanced panel of data.
 \toprule
  & No. Obs & Unique coins & Mean & Std & P10 & P25 & P50 & P75 & P90 \\
 \midrule
-Sample & 1,478,936 & 973 & -2.70\% & 12.49\% & -10.18\% & -6.65\% & -3.70\% & 0.02\% & 4.69\% \\
-Top 100 & 176,400 & 100 & -2.94\% & 7.28\% & -9.20\% & -6.32\% & -3.56\% & -0.16\% & 3.67\% \\
-Top 10\tnote{1} & 24,747 & 10 & -2.35\% & 6.14\% & -7.80\% & -5.44\% & -2.87\% & 0.22\% & 3.55\% \\
-Bitcoin & 2,618 &  & -2.40\% & 3.92\% & -6.60\% & -4.96\% & -2.58\% & -0.20\% & 2.26\% \\
-Ethereum & 2,611 &  & -2.40\% & 4.85\% & -7.46\% & -5.27\% & -2.83\% & 0.27\% & 3.48\% \\
-Ripple & 2,540 &  & -2.41\% & 5.70\% & -7.65\% & -5.43\% & -2.77\% & -0.00\% & 2.87\% \\
+Sample & 1,478,936 & 973 & 0.36\% & 12.25\% & -6.83\% & -3.00\% & -0.16\% & 2.57\% & 6.85\% \\
+Top 100 & 176,400 & 100 & 0.21\% & 6.93\% & -5.64\% & -2.52\% & -0.03\% & 2.44\% & 5.86\% \\
+Top 10 & 24,747 & 10 & 0.25\% & 5.74\% & -4.71\% & -2.00\% & 0.07\% & 2.14\% & 5.07\% \\
+Bitcoin & 2,618 & 1 & 0.16\% & 3.33\% & -3.24\% & -1.27\% & 0.09\% & 1.52\% & 3.67\% \\
+Ethereum & 2,611 & 1 & 0.17\% & 4.35\% & -4.33\% & -1.77\% & 0.10\% & 2.14\% & 4.88\% \\
+Ripple & 2,540 & 1 & 0.20\% & 5.31\% & -4.48\% & -1.87\% & 0.08\% & 1.89\% & 4.70\% \\
 \bottomrule
 \end{tabular}
 \begin{tablenotes}\footnotesize
@@ -672,13 +816,104 @@ Ripple & 2,540 &  & -2.41\% & 5.70\% & -7.65\% & -5.43\% & -2.77\% & -0.00\% & 2
 \end{adjustbox}
 \end{table}
 
+The sample period spans several major market, economic, and political
+events, these include: the start of the COVID-19 pandemic and the
+subsequent crypto bubble in 2020-2021, El Salvador adoption of Bitcoin
+as legal tender in September 2021, and China's ban on cryptocurrency
+exchanges and mining in October 2021. The period also experienced
+multiple cryptocurrency exchange hacks\footnote{For example, Binance,
+  largest crypto exchange in the world, was hacked in 2019, and KuCoin
+  and Crypto.com were hacked in 2020 and 2022, respectively.
+  (\citeproc{ref-zhouApplicationEvent2025}{Zhou, 2025})}, and
+geopolitical shocks such as the Russia-Ukraine war in February 2022, and
+the Palestine-Israel war in October 2023. More recently, in 2024, the
+U.S. Secutities and Exchange Commission (SEC) approved the listing and
+trading of several crypto spot ETFs in January, and Donald Trump's
+election as U.S. president, with Elon Musk playing and important role in
+his campaign
+(\citeproc{ref-bianchiMispricingRiskCompensation2021}{Bianchi \& Babiak,
+2021}; \citeproc{ref-chenHowEffective2022}{C. Chen \& Liu, 2022};
+\citeproc{ref-liuSpotCryptocurrency2024}{S. Liu \& Yang, 2024};
+\citeproc{ref-mercikCrosssectionalInteractionsCryptocurrency2025}{Mercik
+et al., 2025}; \citeproc{ref-zhouApplicationEvent2025}{Zhou, 2025}).
+
 \section{Characteristic construction and
 description}\label{sec-characteristics}
 
-Following Kelly et al.
-(\citeproc{ref-kellyCharacteristicsAre2019}{2019}), I cross-sectionally
-transform the instrument variables period-by-period in the following
-manner: first,
+For the analysis, I construct 40 asset-specific characteristics from the
+cross-section of 973 cryptocurrencies using data on prices, volume, and
+market capitalization. Specifically, I follow the methodology of Bianchi
+\& Babiak (\citeproc{ref-bianchiMispricingRiskCompensation2021}{2021}),
+Y. Liu et al. (\citeproc{ref-liuCommonRisk2022}{2022}), and Mercik et
+al.
+(\citeproc{ref-mercikCrosssectionalInteractionsCryptocurrency2025}{2025})
+to replicate and classify a set of characteristics that serve as return
+predictors in the empirical analysis. Based on economic intuition, I
+group the characteristics into six categories: market and size,
+volatility and risk, trading activity, liquidity, past returns, and
+distribution. Table \ref{tbl-characteristics} summarizes the set of
+characteristics, while Appendix XXX provides a detailed description and
+the construction procedure.
+
+\begin{table}
+\centering
+\caption[Cryptocurrency characteristics.]{\label{tab:unnamed-chunk-1}\textbf{Cryptocurrency characteristics.} This caption is way too long and doesnt look good when formatted in the Table of Contents.  What you really need here is a much shorter caption so that your eyes dont go crazy trying to figure out what information the author is trying to convey.  Often there is too much information in the caption anyway so why not shorten it?. \label{tbl-characteristics}}
+\centering
+\fontsize{8.5}{10.5}\selectfont
+\begin{tabular}[t]{l>{\raggedright\arraybackslash}p{10em}l>{\raggedright\arraybackslash}p{26em}}
+\toprule
+No. & Characteristic & Symbol & Definition\\
+\midrule
+\addlinespace[0.3em]
+\multicolumn{4}{l}{\textbf{Panel A: Price and size}}\\
+\hspace{1em}1 & Market capitalization & mcap & Market capitalization of the coin.\\
+\hspace{1em}2 & Price & prc & Cryptocurrency logged closing price.\\
+\hspace{1em}3 & Closeness to the 90-day high & dh90 & Last day's price over the maximum price in the previous 90 days.\\
+\addlinespace[0.3em]
+\multicolumn{4}{l}{\textbf{Panel B: Volatility \& risk}}\\
+\hspace{1em}1 & Market beta & beta & CAPM market beta, estimated from 30 days of daily returns.\\
+\hspace{1em}2 & Idiosyncratic volatility & ivol & Volatility of CAPM residuals over 30 days of daily returns.\\
+\hspace{1em}3 & 7-day realized volatility & rvol\_7d & Realized volatility, calculated from 7 days of OHCL prices.\\
+\hspace{1em}4 & 30-day realized volatility & rvol\_30d & Realized volatility, calculated from 30 days of OHCL prices.\\
+\hspace{1em}5 & Return volatility & retvol & Standard deviation of daily returns over 7 days.\\
+\hspace{1em}6 & Value-at-Risk & var & The historical Value-at-Risk at 5\% level over 90 days.\\
+\hspace{1em}7 & Price delay & delay & Improvement in \(R^2\) after adding lagged one-and two-day market excecss return to the CAPM.\\
+\addlinespace[0.3em]
+\multicolumn{4}{l}{\textbf{Panel C: Activity}}\\
+\hspace{1em}1 & Volume & volume & Daily trading volume.\\
+\hspace{1em}2 & Average 7-day Volume & volume\_7d & Mean volume over 7 days.\\
+\hspace{1em}3 & Average 30-day Volume & volume\_30d & Mean volume over 30 days.\\
+\hspace{1em}4 & Volume scaled by size & volscaled & Trading volume scaled by market capitalization.\\
+\hspace{1em}5 & Turnover & turn & Turnover ratio (volume relative to market cap).\\
+\hspace{1em}6 & Volume standard deviation & std\_vol & Standard deviation of trading volume.\\
+\hspace{1em}7 & Volume CV & cv\_vol & Coefficient of variation of trading volume.\\
+\addlinespace[0.3em]
+\multicolumn{4}{l}{\textbf{Panel D: Liquidity}}\\
+\hspace{1em}1 & Bid-ask spread & bidask & Bid-ask spread as a liquidity measure.\\
+\hspace{1em}2 & Illiquidity & illiq & Amihud illiquidity ratio.\\
+\hspace{1em}3 & Supply-adjusted turnover & sat & Turnover adjusted for circulating supply.\\
+\hspace{1em}4 & Dollar trading output & dto & Total dollar trading value.\\
+\hspace{1em}5 & 30-day volume share & volsh\_30d & Share of trading volume in the past 30 days.\\
+\addlinespace[0.3em]
+\multicolumn{4}{l}{\textbf{Panel E: Past returns}}\\
+\hspace{1em}1 & 1-day momentum & r2\_1 & Return on the previous trading day.\\
+\hspace{1em}2 & 7-day momentum & r7\_1 & 7-day cumulative return ending 1 day before the prediction date.\\
+\hspace{1em}3 & 14-day momentum & r14\_1 & 14-day cumulative return ending 1 day before the prediction date.\\
+\hspace{1em}4 & 21-day momentum & r21\_1 & 21-day cumulative return ending 1 day before the prediction date.\\
+\hspace{1em}5 & 30-day momentum & r30\_1 & 30-day cumulative return ending 1 day before the prediction date.\\
+\hspace{1em}6 & 30–14 day momentum & r30\_14 & Cumulative return from 30 to 14 days before the prediction date.\\
+\hspace{1em}7 & 180–60 day momentum & r180\_60 & Cumulative return from 180 to 60 days before the prediction date.\\
+\hspace{1em}8 & Closeness to the 90-day high & dh90 & Last day's price over the maximum price in the previous 90 days.\\
+\hspace{1em}9 & Jensen’s alpha & alpha & Jensen’s alpha estimated from a factor model.\\
+\addlinespace[0.3em]
+\multicolumn{4}{l}{\textbf{Panel F: Distribution}}\\
+\hspace{1em}1 & Return skewness & skew & Skewness of daily returns.\\
+\hspace{1em}2 & Return kurtosis & kurt & Kurtosis of daily returns.\\
+\hspace{1em}3 & Maximum return & maxret & Maximum daily return in the sample.\\
+\hspace{1em}4 & Minimum return & minret & Minimum daily return in the sample.\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 This is more related to factor construction.
 
@@ -687,7 +922,7 @@ forms the first week, and the first 51 weeks of the year consists of 7
 days each. The 52th week of the year consists of the last eight days
 and, in case of a leap year (as 2016, 2020, and 2024), of nine days.
 
-Following Liu et al. (\citeproc{ref-liuCommonRisk2022}{2022}), I
+Following Y. Liu et al. (\citeproc{ref-liuCommonRisk2022}{2022}), I
 construct a daily cryptocurrency market return as the value-weighted
 average return of all the cryptocurrencies in the sample. For
 cryptocurrencies \(i = 1, ..., N\), the daily market return at time
@@ -717,6 +952,11 @@ Implemented in python, based on the IPCA python code of Seth Pruitt
 \footnote{See https://sethpruitt.net/research/.} and the \texttt{ipca}
 python package of Buechner \& Bybee (\citeproc{ref-ipca}{2019})
 \footnote{See https://bkelly-lab.github.io/ipca/.}.
+
+Following Kelly et al.
+(\citeproc{ref-kellyCharacteristicsAre2019}{2019}), I cross-sectionally
+transform the instrument variables period-by-period in the following
+manner: first,
 
 \textbf{Important}: mention the shift of characteristics: the
 conditional APT of Kelly, Pruitt, Su (JFE 2019) says that the
@@ -809,6 +1049,12 @@ D & E & F \\
 
 \phantomsection\label{refs}
 \begin{CSLReferences}{1}{0}
+\bibitem[\citeproctext]{ref-alexanderCriticalInvestigation2020}
+Alexander, C., \& Dakos, M. (2020). A critical investigation of
+cryptocurrency data and analysis. \emph{Quantitative Finance},
+\emph{20}(2), 173--188.
+\url{https://doi.org/10.1080/14697688.2019.1641347}
+
 \bibitem[\citeproctext]{ref-Quarto_2025}
 Allaire, J. J., Teague, C., Scheidegger, C., Xie, Y., Dervieux, C., \&
 Woodhull, G. (2025). \emph{{Quarto}} (Version 1.7) {[}Computer
@@ -819,6 +1065,17 @@ Ardia, D., Guidotti, E., \& Kroencke, T. A. (2024). Efficient estimation
 of bid--ask spreads from open, high, low, and close prices.
 \emph{Journal of Financial Economics}, \emph{161}, 103916.
 \url{https://doi.org/10.1016/j.jfineco.2024.103916}
+
+\bibitem[\citeproctext]{ref-asadovGreaterStability2023}
+Asadov, A., Yildirim, R., \& Masih, M. (2023). Toward greater stability
+in stablecoins: Empirical evidence from an analysis of precious metals.
+\emph{Borsa Istanbul Review}, \emph{23}(5), 1152--1172.
+\url{https://doi.org/10.1016/j.bir.2023.07.004}
+
+\bibitem[\citeproctext]{ref-baurCryptoSafe2021}
+Baur, D. G., \& Hoang, L. T. (2021). A crypto safe haven against
+Bitcoin. \emph{Finance Research Letters}, \emph{38}, 101431.
+\url{https://doi.org/10.1016/j.frl.2020.101431}
 
 \bibitem[\citeproctext]{ref-bianchiMispricingRiskCompensation2021}
 Bianchi, D., \& Babiak, M. (2021). \emph{Mispricing and Risk
@@ -831,10 +1088,58 @@ Buechner, M., \& Bybee, L. (2019). \emph{{ipca}: Instrumented principal
 components analysis} {[}Computer software{]}.
 \url{https://github.com/bkelly-lab/ipca}
 
+\bibitem[\citeproctext]{ref-chamberlainArbitrageFactor1983}
+Chamberlain, G., \& Rothschild, M. (1983). Arbitrage, Factor Structure,
+and Mean-Variance Analysis on Large Asset Markets. \emph{Econometrica},
+\emph{51}(5), 1281--1304. \url{https://doi.org/10.2307/1912275}
+
+\bibitem[\citeproctext]{ref-chenOpenSource2021}
+Chen, A. Y., \& Zimmermann, T. (2021). \emph{Open Source Cross-Sectional
+Asset Pricing} (SSRN Scholarly Paper 3604626). Social Science Research
+Network. \url{https://doi.org/10.2139/ssrn.3604626}
+
+\bibitem[\citeproctext]{ref-chenHowEffective2022}
+Chen, C., \& Liu, L. (2022). How effective is China's cryptocurrency
+trading ban? \emph{Finance Research Letters}, \emph{46}, 102429.
+\url{https://doi.org/10.1016/j.frl.2021.102429}
+
+\bibitem[\citeproctext]{ref-chenSemiparametricConditional2022}
+Chen, Q., Roussanov, N. L., \& Wang, X. (2022). \emph{Semiparametric
+Conditional Factor Models in Asset Pricing} (SSRN Scholarly Paper
+3984633). Social Science Research Network.
+\url{https://doi.org/10.2139/ssrn.3984633}
+
+\bibitem[\citeproctext]{ref-chenCommonRisk2024}
+Chen, Z., Roussanov, N. L., Wang, X., \& Zou, D. (2024). \emph{Common
+Risk Factors in the Returns on Stocks, Bonds (and Options), Redux} (SSRN
+Scholarly Paper 4703281). Social Science Research Network.
+\url{https://doi.org/10.2139/ssrn.4703281}
+
 \bibitem[\citeproctext]{ref-coinbaseWhatWrapped}
 Coinbase. (n.d.). \emph{What is wrapped crypto?} Retrieved August 6,
 2025, from
 \url{https://www.coinbase.com/learn/your-crypto/what-is-wrapped-crypto}
+
+\bibitem[\citeproctext]{ref-connorPerformanceMeasurement1986}
+Connor, G., \& Korajczyk, R. A. (1986). Performance measurement with the
+arbitrage pricing theory: A new framework for analysis. \emph{Journal of
+Financial Economics}, \emph{15}(3), 373--394.
+\url{https://doi.org/10.1016/0304-405X(86)90027-9}
+
+\bibitem[\citeproctext]{ref-famaCommonRisk1993}
+Fama, E. F., \& French, K. R. (1993). Common risk factors in the returns
+on stocks and bonds. \emph{Journal of Financial Economics},
+\emph{33}(1), 3--56. \url{https://doi.org/10.1016/0304-405X(93)90023-5}
+
+\bibitem[\citeproctext]{ref-famaFivefactorAsset2015}
+Fama, E. F., \& French, K. R. (2015). A five-factor asset pricing model.
+\emph{Journal of Financial Economics}, \emph{116}(1), 1--22.
+\url{https://doi.org/10.1016/j.jfineco.2014.10.010}
+
+\bibitem[\citeproctext]{ref-fengTamingFactor2020}
+Feng, G., Giglio, S., \& Xiu, D. (2020). Taming the Factor Zoo: A Test
+of New Factors. \emph{The Journal of Finance}, \emph{75}(3), 1327--1370.
+\url{https://doi.org/10.1111/jofi.12883}
 
 \bibitem[\citeproctext]{ref-financialstabilityboardAddressingRegulatory2020}
 Financial Stability Board. (2020). \emph{Addressing the regulatory,
@@ -850,6 +1155,11 @@ Haldane, A., Río, J. F. del, Wiebe, M., Peterson, P., \ldots{} Oliphant,
 T. E. (2020). Array programming with {NumPy}. \emph{Nature},
 \emph{585}(7825), 357--362.
 \url{https://doi.org/10.1038/s41586-020-2649-2}
+
+\bibitem[\citeproctext]{ref-hoangHowStable2024}
+Hoang, L. T., \& Baur, D. G. (2024). How stable are stablecoins?
+\emph{The European Journal of Finance}, \emph{30}(16), 1984--2000.
+\url{https://doi.org/10.1080/1351847X.2021.1949369}
 
 \bibitem[\citeproctext]{ref-Hunter:2007}
 Hunter, J. D. (2007). Matplotlib: A 2D graphics environment.
@@ -871,6 +1181,12 @@ Research Network. \url{https://doi.org/10.2139/ssrn.2983919}
 Komsta, L., \& Novomestky, F. (2022). \emph{{moments}: Moments,
 cumulants, skewness, kurtosis and related tests}.
 \url{https://doi.org/10.32614/CRAN.package.moments}
+
+\bibitem[\citeproctext]{ref-liuSpotCryptocurrency2024}
+Liu, S., \& Yang, C. (2024). Spot cryptocurrency ETFs: Crypto investment
+products or stepping stones toward tokenization. \emph{Finance Research
+Letters}, \emph{69}, 106150.
+\url{https://doi.org/10.1016/j.frl.2024.106150}
 
 \bibitem[\citeproctext]{ref-liuCommonRisk2022}
 Liu, Y., Tsyvinski, A., \& Wu, X. (2022). Common Risk Factors in
@@ -925,6 +1241,11 @@ The pandas development team. (2020). \emph{Pandas-dev/pandas: pandas}
 Vaughan, D. (2024). \emph{{slider}: Sliding window functions}.
 \url{https://doi.org/10.32614/CRAN.package.slider}
 
+\bibitem[\citeproctext]{ref-vidal-tomasWhichCryptocurrency2022}
+Vidal-Tomás, D. (2022). Which cryptocurrency data sources should
+scholars use? \emph{International Review of Financial Analysis},
+\emph{81}, 102061. \url{https://doi.org/10.1016/j.irfa.2022.102061}
+
 \bibitem[\citeproctext]{ref-2020SciPy-NMeth}
 Virtanen, P., Gommers, R., Oliphant, T. E., Haberland, M., Reddy, T.,
 Cournapeau, D., Burovski, E., Peterson, P., Weckesser, W., Bright, J.,
@@ -933,6 +1254,13 @@ Nelson, A. R. J., Jones, E., Kern, R., Larson, E., \ldots{} SciPy 1.0
 Contributors. (2020). {{SciPy} 1.0: Fundamental Algorithms for
 Scientific Computing in Python}. \emph{Nature Methods}, \emph{17},
 261--272. \url{https://doi.org/10.1038/s41592-019-0686-2}
+
+\bibitem[\citeproctext]{ref-wangAreStablecoins2020}
+Wang, G.-J., Ma, X., \& Wu, H. (2020). Are stablecoins truly
+diversifiers, hedges, or safe havens against traditional
+cryptocurrencies as their name suggests? \emph{Research in International
+Business and Finance}, \emph{54}, 101225.
+\url{https://doi.org/10.1016/j.ribaf.2020.101225}
 
 \bibitem[\citeproctext]{ref-tidyverse}
 Wickham, H., Averick, M., Bryan, J., Chang, W., McGowan, L. D.,
@@ -947,6 +1275,12 @@ Zeileis, A., \& Grothendieck, G. (2005). {zoo}: S3 infrastructure for
 regular and irregular time series. \emph{Journal of Statistical
 Software}, \emph{14}(6), 1--27.
 \url{https://doi.org/10.18637/jss.v014.i06}
+
+\bibitem[\citeproctext]{ref-zhouApplicationEvent2025}
+Zhou, F. (2025). Application of Event Study Methodology in the Analysis
+of Cryptocurrency Returns. \emph{Emerging Markets Finance and Trade},
+\emph{61}(4), 989--1009.
+\url{https://doi.org/10.1080/1540496X.2024.2404173}
 
 \end{CSLReferences}
 
