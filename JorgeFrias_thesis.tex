@@ -265,7 +265,7 @@
 
 \title{Edit: Master Thesis Title}
 \author{Jorge Eduardo Frías Navarrete}
-\date{August 20, 2025}
+\date{August 21, 2025}
 \begin{document}
 \frontmatter
 
@@ -304,7 +304,7 @@
         Degree programme: & Quantitative Finance \\
         %University: & Vienna University of Economics and Business \\
         Supervisor: & Univ.Prof. David \textsc{Preinerstorfer}, Ph.D. \\
-        Date of Submission: & August 20, 2025
+        Date of Submission: & August 21, 2025
     \end{tabular}
     \vspace{2cm}
     
@@ -840,7 +840,7 @@ et al., 2025}; \citeproc{ref-zhouApplicationEvent2025}{Zhou, 2025}).
 \section{Characteristic construction and
 description}\label{sec-characteristics}
 
-For the analysis, I construct 40 asset-specific characteristics from the
+For the analysis, I construct 41 asset-specific characteristics from the
 cross-section of 973 cryptocurrencies using data on prices, volume, and
 market capitalization. Specifically, I follow the methodology of Bianchi
 \& Babiak (\citeproc{ref-bianchiMispricingRiskCompensation2021}{2021}),
@@ -866,51 +866,51 @@ No. & Characteristic & Symbol & Definition\\
 \midrule
 \addlinespace[0.3em]
 \multicolumn{4}{l}{\textbf{Panel A: Price and size}}\\
-\hspace{1em}1 & Market capitalization & mcap & Market capitalization of the coin.\\
-\hspace{1em}2 & Price & prc & Cryptocurrency logged closing price.\\
-\hspace{1em}3 & Closeness to the 90-day high & dh90 & Last day's price over the maximum price in the previous 90 days.\\
+\hspace{1em}(1) & Market capitalization & mcap & Market capitalization of the coin.\\
+\hspace{1em}(2) & Price & prc & Cryptocurrency logged closing price.\\
+\hspace{1em}(3) & Closeness to the 90-day high & dh90 & Last day's price over the maximum price in the previous 90 \vphantom{1} days.\\
 \addlinespace[0.3em]
 \multicolumn{4}{l}{\textbf{Panel B: Volatility \& risk}}\\
-\hspace{1em}1 & Market beta & beta & CAPM market beta, estimated from 30 days of daily returns.\\
-\hspace{1em}2 & Idiosyncratic volatility & ivol & Volatility of CAPM residuals over 30 days of daily returns.\\
-\hspace{1em}3 & 7-day realized volatility & rvol\_7d & Realized volatility, calculated from 7 days of OHCL prices.\\
-\hspace{1em}4 & 30-day realized volatility & rvol\_30d & Realized volatility, calculated from 30 days of OHCL prices.\\
-\hspace{1em}5 & Return volatility & retvol & Standard deviation of daily returns over 7 days.\\
-\hspace{1em}6 & Value-at-Risk & var & The historical Value-at-Risk at 5\% level over 90 days.\\
-\hspace{1em}7 & Price delay & delay & Improvement in \(R^2\) after adding lagged one-and two-day market excecss return to the CAPM.\\
+\hspace{1em}(4) & Market beta & beta & CAPM market beta, estimated from 30 days of daily returns.\\
+\hspace{1em}(5) & Idiosyncratic volatility & ivol & Volatility of CAPM residuals over 30 days of daily returns.\\
+\hspace{1em}(6) & 7-day realized volatility & rvol\_7d & Realized volatility, calculated from 7 days of OHCL prices.\\
+\hspace{1em}(7 & 30-day realized volatility & rvol\_30d & Realized volatility, calculated from 30 days of OHCL prices.\\
+\hspace{1em}(8) & Return volatility & retvol & Standard deviation of daily returns over 7 days.\\
+\hspace{1em}(9) & Value-at-Risk & var & The historical Value-at-Risk at 5\% level over 90 days.\\
+\hspace{1em}(11) & Price delay & delay & Improvement in \(R^2\) after adding lagged one-and two-day market excecss return to the CAPM.\\
 \addlinespace[0.3em]
 \multicolumn{4}{l}{\textbf{Panel C: Activity}}\\
-\hspace{1em}1 & Volume & volume & Daily trading volume.\\
-\hspace{1em}2 & Average 7-day Volume & volume\_7d & Mean volume over 7 days.\\
-\hspace{1em}3 & Average 30-day Volume & volume\_30d & Mean volume over 30 days.\\
-\hspace{1em}4 & Volume scaled by size & volscaled & Trading volume scaled by market capitalization.\\
-\hspace{1em}5 & Turnover & turn & Turnover ratio (volume relative to market cap).\\
-\hspace{1em}6 & Volume standard deviation & std\_vol & Standard deviation of trading volume.\\
-\hspace{1em}7 & Volume CV & cv\_vol & Coefficient of variation of trading volume.\\
+\hspace{1em}(12) & Trading volume & volume & Last day's daily trading volume.\\
+\hspace{1em}(13) & Average 7-day volume & volume\_7d & Mean volume over the past 7 days.\\
+\hspace{1em}(14) & Average 30-day volume & volume\_30d & Mean volume over the past 30 days.\\
+\hspace{1em}NA & NA & volscaled & NA\\
+\hspace{1em}(15) & Turnover & turn & The last day's trading volume over last day's market capitalization\\
+\hspace{1em}(18) & Trading volume volatility & std\_vol & Volume's logged volatility over the past 30 days\\
+\hspace{1em}(19) & Volume's coefficient of variation & cv\_vol & Volume's volatility over its mean in the previous 30 days\\
 \addlinespace[0.3em]
 \multicolumn{4}{l}{\textbf{Panel D: Liquidity}}\\
-\hspace{1em}1 & Bid-ask spread & bidask & Bid-ask spread as a liquidity measure.\\
-\hspace{1em}2 & Illiquidity & illiq & Amihud illiquidity ratio.\\
-\hspace{1em}3 & Supply-adjusted turnover & sat & Turnover adjusted for circulating supply.\\
-\hspace{1em}4 & Dollar trading output & dto & Total dollar trading value.\\
-\hspace{1em}5 & 30-day volume share & volsh\_30d & Share of trading volume in the past 30 days.\\
+\hspace{1em}(20) & Bid-ask spread & bidask & Mean estimated bid-ask spread calculated over the past 30 days.\\
+\hspace{1em}(21) & Illiquidity & illiq & Mean absolute daily return over trading volume over the past 30 days.\\
+\hspace{1em}(22) & Supply-adjusted turnover & sat & lag turn - average over its volatility\\
+\hspace{1em}(23) & Dollar trading output & dto & Total dollar trading value.\\
+\hspace{1em}(25) & 30-day volume share & volsh\_30d & Share of trading volume in the past 30 days.\\
 \addlinespace[0.3em]
 \multicolumn{4}{l}{\textbf{Panel E: Past returns}}\\
-\hspace{1em}1 & 1-day momentum & r2\_1 & Return on the previous trading day.\\
-\hspace{1em}2 & 7-day momentum & r7\_1 & 7-day cumulative return ending 1 day before the prediction date.\\
-\hspace{1em}3 & 14-day momentum & r14\_1 & 14-day cumulative return ending 1 day before the prediction date.\\
-\hspace{1em}4 & 21-day momentum & r21\_1 & 21-day cumulative return ending 1 day before the prediction date.\\
-\hspace{1em}5 & 30-day momentum & r30\_1 & 30-day cumulative return ending 1 day before the prediction date.\\
-\hspace{1em}6 & 30–14 day momentum & r30\_14 & Cumulative return from 30 to 14 days before the prediction date.\\
-\hspace{1em}7 & 180–60 day momentum & r180\_60 & Cumulative return from 180 to 60 days before the prediction date.\\
-\hspace{1em}8 & Closeness to the 90-day high & dh90 & Last day's price over the maximum price in the previous 90 days.\\
-\hspace{1em}9 & Jensen’s alpha & alpha & Jensen’s alpha estimated from a factor model.\\
+\hspace{1em}(26) & Daily reversal & r2\_1 & Return on the previous trading day.\\
+\hspace{1em}(27-30) & *-day momentum & r7\_1 & 7, 14, 21, and 30-day cumulative return ending 1 day before the prediction date.\\
+\hspace{1em}NA & NA & r14\_1 & NA\\
+\hspace{1em}NA & NA & r21\_1 & NA\\
+\hspace{1em}NA & NA & r30\_1 & NA\\
+\hspace{1em}(31) & Intermediate momentum & r30\_14 & Cumulative return from 30 to 14 days before the prediction date.\\
+\hspace{1em}(32) & Long-term reversal & r180\_60 & Cumulative return from 180 to 60 days before the prediction date.\\
+\hspace{1em}(3) & Closeness to the 90-day high & dh90 & Last day's price over the maximum price in the previous 90 days.\\
+\hspace{1em}(33) & CAPM alpha & alpha & Jensen’s alpha estimated from a factor model.\\
 \addlinespace[0.3em]
 \multicolumn{4}{l}{\textbf{Panel F: Distribution}}\\
-\hspace{1em}1 & Return skewness & skew & Skewness of daily returns.\\
-\hspace{1em}2 & Return kurtosis & kurt & Kurtosis of daily returns.\\
-\hspace{1em}3 & Maximum return & maxret & Maximum daily return in the sample.\\
-\hspace{1em}4 & Minimum return & minret & Minimum daily return in the sample.\\
+\hspace{1em}NA & NA & skew & NA\\
+\hspace{1em}NA & NA & kurt & NA\\
+\hspace{1em}NA & NA & maxret & NA\\
+\hspace{1em}NA & NA & minret & NA\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1295,20 +1295,12 @@ of Cryptocurrency Returns. \emph{Emerging Markets Finance and Trade},
 
 \section{Cryptocurrency Characteristics}\label{sec-app_characteristics}
 
-\subsection{Volume shock}\label{volume-shock}
+\subsection{Price and size}\label{price-and-size}
 
-Following Bianchi et al.~(2022), the volume shock is defined as the
-log-deviation of trading volume from its rolling average (over 30 or 60
-days) for cryptocurrency \(i\) at time \(t\). For \(m \in \{30, 60\}\)
-periods, the volume shock is estimated as:
+\subsection{Volatility and risk}\label{volatility-and-risk}
 
-\[
-v_{i,t} = \log(\text{Volume}_{i,t}) - \log\left( \frac{1}{m} \sum_{s=1}^{m} \text{Volume}_{i,t-s} \right)
-\]
-
-\section{Risk}\label{risk}
-
-\subsection{Realized volatility (rvol)}\label{realized-volatility-rvol}
+\subsubsection{Realized volatility
+(rvol)}\label{realized-volatility-rvol}
 
 Using the volatility estimator of Yang and Zhang (2000), I compute the
 daily realized volatility based on OHCL prices over a rolling 30-day
@@ -1338,7 +1330,34 @@ with \(o = ln\,O_t - ln\,C_{t-1}\), and \(c = ln\,C_t - ln\,O_t\). Here,
 day's opening price. I set the constant \(\alpha = 1.34\) as suggested
 by Yang and Zhang (2000) to be the best value in practice.
 
+\subsection{Trading activity}\label{trading-activity}
+
+\subsubsection{Volume shock}\label{volume-shock}
+
+Following Bianchi et al.~(2022), the volume shock is defined as the
+log-deviation of trading volume from its rolling average (over 30 or 60
+days) for cryptocurrency \(i\) at time \(t\). For \(m \in \{30, 60\}\)
+periods, the volume shock is estimated as:
+
+\[
+v_{i,t} = \log(\text{Volume}_{i,t}) - \log\left( \frac{1}{m} \sum_{s=1}^{m} \text{Volume}_{i,t-s} \right)
+\]
+
+\subsection{Liquidity}\label{liquidity}
+
+\subsubsection{Illiquidity}\label{illiquidity}
+
 Moskowitz et al. (\citeproc{ref-moskowitzTimeSeriesMomentum2012}{2012})
+
+\subsubsection{SAT}\label{sat}
+
+\subsubsection{DTO}\label{dto}
+
+\subsubsection{Volume shock}\label{volume-shock-1}
+
+\subsection{Past returns}\label{past-returns}
+
+\subsection{Distribution}\label{distribution}
 
 \section{Software}\label{sec-software}
 

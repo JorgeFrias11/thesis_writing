@@ -8,18 +8,11 @@
 ## Cryptocurrency Characteristics {#sec-app_characteristics}
 
 
+### Price and size
 
-### Volume shock
+### Volatility and risk
 
-Following Bianchi et al. (2022), the volume shock is defined as the log-deviation of trading volume from its rolling average (over 30 or 60 days) for cryptocurrency $i$ at time $t$. For $m \in \{30, 60\}$ periods, the volume shock is estimated as:
-
-$$
-v_{i,t} = \log(\text{Volume}_{i,t}) - \log\left( \frac{1}{m} \sum_{s=1}^{m} \text{Volume}_{i,t-s} \right)
-$$
-
-## Risk
-
-### Realized volatility (rvol)
+#### Realized volatility (rvol)
 
 Using the volatility estimator of Yang and Zhang (2000), I compute the daily realized volatility based on OHCL prices over a rolling 30-day window. For $n > 1$ number of periods, the volatility estimate at time $t$ is:  
 
@@ -42,11 +35,36 @@ $$
 
 with $o = ln\,O_t - ln\,C_{t-1}$, and $c = ln\,C_t - ln\,O_t$. Here, $C_{t-1}$ denotes the last days' closing price and $O_t$ the current day's opening price. I set the constant $\alpha = 1.34$ as suggested by Yang and Zhang (2000) to be the best value in practice.  
 
+### Trading activity
 
+#### Volume shock
+
+Following Bianchi et al. (2022), the volume shock is defined as the log-deviation of trading volume from its rolling average (over 30 or 60 days) for cryptocurrency $i$ at time $t$. For $m \in \{30, 60\}$ periods, the volume shock is estimated as:
+
+$$
+v_{i,t} = \log(\text{Volume}_{i,t}) - \log\left( \frac{1}{m} \sum_{s=1}^{m} \text{Volume}_{i,t-s} \right)
+$$
+
+### Liquidity
+
+#### Illiquidity 
 
 @moskowitzTimeSeriesMomentum2012
 
+#### SAT
 
+#### DTO
+
+#### Volume shock
+
+
+
+
+
+### Past returns
+
+
+### Distribution
 
 
 
