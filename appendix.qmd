@@ -7,19 +7,29 @@
 
 ## Cryptocurrency Characteristics {#sec-app_characteristics}
 
+Following @bianchiMispricingRiskCompensation2021, @liuCommonRisk2022, and @mercikCrosssectionalInteractionsCryptocurrency2025, I construct 41 asset-specific characteristics from OHCL prices, volume, and market capitalization of each cryptocurrency and group them into six categories: prize and size, volatility and risk, trading activity, liquidity, past returns, and distribution. The following list provides the definition of each characteristic and a description of their construction. 
 
-### Price and size
 
-### Volatility and risk
+#### Price and size
 
-#### Realized volatility (rvol)
+**`mcap`**. Last day's market capitalization. The market capitalization is the current cryptocurrency circulating supply multiplied by its current price in USD. 
 
-Using the volatility estimator of Yang and Zhang (2000), I compute the daily realized volatility based on OHCL prices over a rolling 30-day window. For $n > 1$ number of periods, the volatility estimate at time $t$ is:  
+**`prc`**. Last day's logged closing price. 
+
+**`dh90`**. The closeness to the 90-day high is defined as the ratio of the last day’s price to the maximum price observed over the past 90 days [e.g., @george52WeekHigh2004].
+
+#### Volatility and risk
+
+**`beta`**. The market beta is calculated as the slope coefficient from a 30-day rolling regression of cryptocurrency's excess returns on the market portfolio excess returns [e.g., @lewellenConditionalCAPM2006]. The coin market portfolio is constructed daily as the value-weighted average of cryptocurrency returns in the sample.
+
+**`ivol`**. Idiosyncratic volatility  is computed as the standard deviation of the residuals from the 30-day rolling CAPM regression, following the same approach as for `beta`. 
+
+**`rvol_*d`**. Realized volatility, computed using the estimator of Yang and Zhang (2000) based on OHCL prices. I compute the daily realized volatility over rolling 7-and 30-day windows, denoted `rvol_7d` and `rvol_30d`, respectively. For $n > 1$ number of periods, the volatility estimate at time $t$ is:  
 
 $$
 \sigma_t = \sqrt{\sigma^2_O + k\sigma^2_C + (1 - k)\sigma^2_{RS}}
 $$
-where $\sigma^2_{RS}$ is the variance estimator of Rogers et al. (1994), and $\sigma^2_O$, $\sigma^2_C$, $k$ are defined as follows: 
+where $\sigma^2_{RS}$ is the variance estimator of Rogers et al. (1994), and $\sigma^2_O$, $\sigma^2_C$, $k$ are given by 
 
 $$
 \sigma^2_O = \frac{1}{n-1}\sum\limits_{i=1}^n(o_i - \bar o)^2,
@@ -33,39 +43,76 @@ $$
 k = \frac{\alpha -1}{\alpha + \frac{n+1}{n-1}}
 $$
 
-with $o = ln\,O_t - ln\,C_{t-1}$, and $c = ln\,C_t - ln\,O_t$. Here, $C_{t-1}$ denotes the last days' closing price and $O_t$ the current day's opening price. I set the constant $\alpha = 1.34$ as suggested by Yang and Zhang (2000) to be the best value in practice.  
+with $o = ln\,O_t - ln\,C_{t-1}$, and $c = ln\,C_t - ln\,O_t$. Here, $C_{t-1}$ denotes the previous day's closing price and $O_t$ the current day's opening price. I set the constant $\alpha = 1.34$, following Yang and Zhang (2000), who recommend this as the best value in practice.  
 
-### Trading activity
 
-#### Volume shock
+**`retvol`**. Standard deviation of daily returns over the past 7 days [e.g., @angCrossSectionVolatility2006].
 
-Following Bianchi et al. (2022), the volume shock is defined as the log-deviation of trading volume from its rolling average (over 30 or 60 days) for cryptocurrency $i$ at time $t$. For $m \in \{30, 60\}$ periods, the volume shock is estimated as:
+**`var`**. The historical Value-at-Risk at the 5% level, based on daily returns over the past 90 days. 
+
+**`es_5`**. The expected shortfall at the 5% level, based on daily returns over the past 90 days. 
+
+**`delay`**. From the regression
+$$
+R_i - R_f = \alpha^i + \beta^i_{CMKT}CMKT + \beta^i_{CMKT_{-1}}CMKT_{-1} + \beta^i_{CMKT_{-2}}CMKT_{-2} + \epsilon_i, 
+$$ 
+where $R_i$ is the return on asset $i$, $R_f$ is the risk-free rate, and $CMKT$, $CMKT_{-1}$, and $CMKT_{-2}$ are the current, lagged one-and two-day coin market portfolio excess returns, `delay` is the improvement in $R^2$ relative to the standard CAPM regression using only the current market portfolio excess returns [e.g., @houMarketFrictions2005]. The coin market portfolio is constructed as in `beta`.
+
+
+#### Trading activity
+
+**`volume`**. Last day's daily trading volume. The trading volume is the total amount of a cryptocurrency exchanged in a given day, measured in USD.
+
+**`volume_*d`**. The average trading volume over the past 7 and 30 days, denoted `volume_7d` and `volume_30d`, respectively. 
+
+**`turn`**. Turnover, computed as the last day's trading volume over the current market capitalization [e.g., @datarLiquidityStock1998].
+
+**`turn_7d`**. Average turnover over the past 7 days. 
+
+
+**`std_turn`**. The standard deviation of the turnover over the past 30 days. 
+
+**`std_vol`**. The log standard deviation of trading volume over the past 30 days.
+
+**`cv_vol`**. The coefficient of variation is the standard deviation of the daily trading volume divided by its mean, over the past 30 days [e.g., @babiakVariationsTrading2022]. 
+
+#### Liquidity
+
+**`bidask`**. The cryptocurrency bid-ask spread, computed from OHCL prices using the approximation of @bidask. 
+
+**`illiq`**. The @amihudIlliquidityStock2002  price impact (illiquidity) measure, computed as the 90-day average of the ratio of the absolute daily return to daily trading volume.
+
+**`sat`**. The standardized abnormal turnover, following @garfinkelDisagreementReturns. The measure is calculated as the last day's turnover minus its average over the past 30 days, divided by the turnover's standard deviation over the same 30-day period.
+
+**`dto`**. De-trended turnover [e.g., @garfinkelMeasuringInvestors2009]. It is computed as turnover minus the value-weighted average daily market turnover, de-trended by its 180-day median.
+
+**`volsh_*d`**. Volume shock, defined as the log-deviation of daily trading volume from its $k$-day rolling average [e.g., @llorenteDynamicVolumeReturn2002]. For `volsh_15d` and `volsh_30d`, $k = 15$ and $k = 30$, respectively. For cryptocurrency $i$ at time $t$:
 
 $$
-v_{i,t} = \log(\text{Volume}_{i,t}) - \log\left( \frac{1}{m} \sum_{s=1}^{m} \text{Volume}_{i,t-s} \right)
+v_{i,t} = \log(\text{Volume}_{i,t}) - \log\left( \frac{1}{k} \sum_{s=1}^{k} \text{Volume}_{i,t-s} \right)
 $$
-
-### Liquidity
-
-#### Illiquidity 
-
-@moskowitzTimeSeriesMomentum2012
-
-#### SAT
-
-#### DTO
-
-#### Volume shock
-
-
-
-
 
 ### Past returns
 
+**`r2_1`**. Daily reversal, defined as the previous day's cryptocurrency return. 
+
+**`r*_1`**. The 7, 14, 21, and 30-day momentum, denoted `r7_1`, `r14_1`, `r21_1`, and `r30_1`, respectively. Momentum is defined as the cumulative return from the previous $k \in \{7, 14, 21, 30\}$ days up to one day before the return prediction.  
+
+**`r30_14`**. Cumulative return from the previous 30 days up to 14 days before the return prediction. 
+
+**`r180_60`**. Cumulative return from the previous 180 days up to 60 days before the return prediction.
+
+**`alpha`**. The CAPM alpha, defined as the intercept from a 30-day rolling regression of cryptocurrency's excess returns on the market portfolio excess returns. The market portfolio is constructed as in `beta`.
 
 ### Distribution
 
+**`skew_*d`**. Skewness of daily returns over the previous 7 and 30 days, denoted `skew_7d` and `skew_30d`, respectively. 
+
+**`kurt_*d`**. Kurtosis of daily returns over the previous 7 and 30 days, denoted `kurt_7d` and `kurt_30d`, respectively. 
+
+**`maxret_*d`**. The maximum daily return over the past 7 and 30 days, denoted `maxret_7d` and `maxret_30d`, respectively. 
+
+**`minret_*d`**. The minimum daily return over the past 7 and 30 days, denoted `minret_7d` and `minret_30d`, respectively.
 
 
 ## Software {#sec-software}

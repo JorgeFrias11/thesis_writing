@@ -164,10 +164,10 @@
 \usepackage{hyperref}
 \usepackage[nameinlink, capitalise, noabbrev]{cleveref} % \cref{_label_} to link the label and section number 
 
-%\usepackage{multirow}
-%\usepackage{float}
-%\usepackage{pdflscape}
-%\usepackage{tabu}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{pdflscape}
+\usepackage{tabu}
 \usepackage{makecell}
 \usepackage{threeparttable}
 \usepackage{adjustbox} 
@@ -268,7 +268,7 @@
 
 \title{Edit: Master Thesis Title}
 \author{Jorge Eduardo Frías Navarrete}
-\date{August 22, 2025}
+\date{August 21, 2025}
 \begin{document}
 \frontmatter
 
@@ -307,7 +307,7 @@
         Degree programme: & Quantitative Finance \\
         %University: & Vienna University of Economics and Business \\
         Supervisor: & Univ.Prof. David \textsc{Preinerstorfer}, Ph.D. \\
-        Date of Submission: & August 22, 2025
+        Date of Submission: & August 21, 2025
     \end{tabular}
     \vspace{2cm}
     
@@ -855,20 +855,18 @@ predictors in the empirical analysis. Based on economic intuition, I
 group the characteristics into six categories: market and size,
 volatility and risk, trading activity, liquidity, past returns, and
 distribution. Table \ref{tbl-characteristics} summarizes the set of
-characteristics, while Appendix \ref{sec-app_characteristics} provides a
-detailed description and the construction procedure.
+characteristics, while Appendix XXX provides a detailed description and
+the construction procedure.
 
-\begin{table}
-\centering
-\caption[Cryptocurrency characteristics.]{\label{tab:unnamed-chunk-1}\textbf{Cryptocurrency characteristics.} The table presents the 41 cryptocurrency characteristics used as return predictors in the empirical analysis. The characteristics are grouped in six categories: price and size, volatility and risk, trading activity, liquidity, past returns, and distribution. \label{tbl-characteristics}}
-\centering
-\fontsize{8}{10}\selectfont
-\begin{tabular}[t]{l>{\raggedright\arraybackslash}p{10em}l>{\raggedright\arraybackslash}p{27em}}
+\begingroup\fontsize{8.5}{10.5}\selectfont
+
+\begin{longtable}[t]{l>{\raggedright\arraybackslash}p{10em}l>{\raggedright\arraybackslash}p{26em}}
+\caption{\label{tab:unnamed-chunk-1}\textbf{Cryptocurrency characteristics.} This caption is way too long and doesnt look good when formatted in the Table of Contents.  What you really need here is a much shorter caption so that your eyes dont go crazy trying to figure out what information the author is trying to convey.  Often there is too much information in the caption anyway so why not shorten it?. \label{tbl-characteristics}}\\
 \toprule
 No. & Characteristic & Symbol & Definition\\
 \midrule
 \addlinespace[0.3em]
-\multicolumn{4}{l}{\textbf{Panel A: Price \& size}}\\
+\multicolumn{4}{l}{\textbf{Panel A: Price and size}}\\
 \hspace{1em}(1) & Market capitalization & mcap & Last day's market capitalization.\\
 \hspace{1em}(2) & Price & prc & Last day's logged closing price.\\
 \hspace{1em}(3) & Closeness to the 90-day high & dh90 & Last day's price over the maximum price in the previous 90 days.\\
@@ -876,15 +874,17 @@ No. & Characteristic & Symbol & Definition\\
 \multicolumn{4}{l}{\textbf{Panel B: Volatility \& risk}}\\
 \hspace{1em}(4) & Market beta & beta & CAPM market beta, estimated from 30 days of daily returns.\\
 \hspace{1em}(5) & Idiosyncratic volatility & ivol & Volatility of CAPM residuals over 30 days of daily returns.\\
-\hspace{1em}(6-7) & Realized volatility & rvol\_*d & Realized volatility, calculated from 7 and 30 days of OHCL prices.\\
+\hspace{1em}(6) & 7-day realized volatility & rvol\_7d & Realized volatility, calculated from 7 days of OHCL prices.\\
+\hspace{1em}(7 & 30-day realized volatility & rvol\_30d & Realized volatility, calculated from 30 days of OHCL prices.\\
 \hspace{1em}(8) & Return volatility & retvol & Standard deviation of daily returns over 7 days.\\
 \hspace{1em}(9) & Value-at-Risk & var & The historical Value-at-Risk at 5\% level over 90 days.\\
 \hspace{1em}(10) & Expected Shortfall & es\_5 & The expected shortfall at the 5\% level over 90 days.\\
 \hspace{1em}(11) & Price delay & delay & Improvement in \(R^2\) after adding lagged one-and two-day market excecss return to the CAPM.\\
 \addlinespace[0.3em]
-\multicolumn{4}{l}{\textbf{Panel C: Trading activity}}\\
+\multicolumn{4}{l}{\textbf{Panel C: Activity}}\\
 \hspace{1em}(12) & Trading volume & volume & Last day's daily trading volume.\\
-\hspace{1em}(13) & Average volume & volume\_*d & Mean volume over the past 7 and 30 days.\\
+\hspace{1em}(13) & Average 7-day volume & volume\_7d & Mean volume over the past 7 days.\\
+\hspace{1em}(14) & Average 30-day volume & volume\_30d & Mean volume over the past 30 days.\\
 \hspace{1em}(15) & Turnover & turn & The last day's trading volume over current market capitalization.\\
 \hspace{1em}(16) & Average 7-day turnover & turn\_7d & Mean turnover over the past 7 days.\\
 \hspace{1em}(17) & Turnover volatility & std\_turn & Turnover volatility over the past 30 days.\\
@@ -907,13 +907,13 @@ No. & Characteristic & Symbol & Definition\\
 \hspace{1em}(33) & CAPM alpha & alpha & CAPM intercept, estimated from 30 days of daily returns.\\
 \addlinespace[0.3em]
 \multicolumn{4}{l}{\textbf{Panel F: Distribution}}\\
-\hspace{1em}(34-35) & Skewness & skew\_*d & Skewness of the daily return distribution over a 7-and 30-day period.\\
-\hspace{1em}(36-37) & Kurtosis & kurt\_*d & Kurtosis of the daily return distribution over a 7-and 30-day period.\\
-\hspace{1em}(38-39) & Maximum daily return & maxret\_*d & The maximum daily return in the past 7-and 30 days.\\
-\hspace{1em}(40-41) & Minimum daily return & minret\_*d & The minimum daily return in the past 7-and 30 days.\\
+\hspace{1em}(34-35) & Skewness & skew\_*d & Skewness of the daily return distribution over a 15 and 30-day period.\\
+\hspace{1em}(36-37) & Kurtosis & kurt\_*d & Kurtosis of the daily return distribution over a 15 and 30-day period.\\
+\hspace{1em}(38-39) & Maximum daily return & maxret\_*d & The maximum daily return in the past 7 and 30 days.\\
+\hspace{1em}(40-41) & Minimum daily return & minret\_*d & The minimum daily return in the oast 7 and 30 days.\\
 \bottomrule
-\end{tabular}
-\end{table}
+\end{longtable}
+\endgroup{}
 
 This is more related to factor construction.
 
@@ -1060,17 +1060,6 @@ Allaire, J. J., Teague, C., Scheidegger, C., Xie, Y., Dervieux, C., \&
 Woodhull, G. (2025). \emph{{Quarto}} (Version 1.7) {[}Computer
 software{]}. \url{https://doi.org/10.5281/zenodo.5960048}
 
-\bibitem[\citeproctext]{ref-amihudIlliquidityStock2002}
-Amihud, Y. (2002). Illiquidity and stock returns: cross-section and
-time-series effects. \emph{Journal of Financial Markets}, \emph{5}(1),
-31--56. \url{https://doi.org/10.1016/S1386-4181(01)00024-6}
-
-\bibitem[\citeproctext]{ref-angCrossSectionVolatility2006}
-Ang, A., Hodrick, R. J., Xing, Y., \& Zhang, X. (2006). The
-Cross-Section of Volatility and Expected Returns. \emph{The Journal of
-Finance}, \emph{61}(1), 259--299.
-\url{https://doi.org/10.1111/j.1540-6261.2006.00836.x}
-
 \bibitem[\citeproctext]{ref-bidask}
 Ardia, D., Guidotti, E., \& Kroencke, T. A. (2024). Efficient estimation
 of bid--ask spreads from open, high, low, and close prices.
@@ -1082,12 +1071,6 @@ Asadov, A., Yildirim, R., \& Masih, M. (2023). Toward greater stability
 in stablecoins: Empirical evidence from an analysis of precious metals.
 \emph{Borsa Istanbul Review}, \emph{23}(5), 1152--1172.
 \url{https://doi.org/10.1016/j.bir.2023.07.004}
-
-\bibitem[\citeproctext]{ref-babiakVariationsTrading2022}
-Babiak, M., \& Erdis, M. B. (2022). \emph{Variations in Trading
-Activity, Costly Arbitrage, and Cryptocurrency Returns} (SSRN Scholarly
-Paper 4291073). Social Science Research Network.
-\url{https://doi.org/10.2139/ssrn.4291073}
 
 \bibitem[\citeproctext]{ref-baurCryptoSafe2021}
 Baur, D. G., \& Hoang, L. T. (2021). A crypto safe haven against
@@ -1143,12 +1126,6 @@ arbitrage pricing theory: A new framework for analysis. \emph{Journal of
 Financial Economics}, \emph{15}(3), 373--394.
 \url{https://doi.org/10.1016/0304-405X(86)90027-9}
 
-\bibitem[\citeproctext]{ref-datarLiquidityStock1998}
-Datar, V. T., Y. Naik, N., \& Radcliffe, R. (1998). Liquidity and stock
-returns: An alternative test. \emph{Journal of Financial Markets},
-\emph{1}(2), 203--219.
-\url{https://doi.org/10.1016/S1386-4181(97)00004-9}
-
 \bibitem[\citeproctext]{ref-famaCommonRisk1993}
 Fama, E. F., \& French, K. R. (1993). Common risk factors in the returns
 on stocks and bonds. \emph{Journal of Financial Economics},
@@ -1170,21 +1147,6 @@ supervisory and oversight challenges raised by {``global stablecoin''}
 arrangements: Consultative document}.
 \url{https://www.fsb.org/2020/04/addressing-the-regulatory-supervisory-and-oversight-challenges-raised-by-global-stablecoin-arrangements-consultative-document/}
 
-\bibitem[\citeproctext]{ref-garfinkelMeasuringInvestors2009}
-Garfinkel, J. A. (2009). Measuring Investors' Opinion Divergence.
-\emph{Journal of Accounting Research}, \emph{47}(5), 1317--1348.
-\url{https://doi.org/10.1111/j.1475-679X.2009.00344.x}
-
-\bibitem[\citeproctext]{ref-garfinkelDisagreementReturns}
-Garfinkel, J. A., Hsiao, L., \& Hu, D. (n.d.). Disagreement and returns:
-The case of cryptocurrencies. \emph{Financial Management},
-\emph{n/a}(n/a). \url{https://doi.org/10.1111/fima.12491}
-
-\bibitem[\citeproctext]{ref-george52WeekHigh2004}
-George, T. J., \& Hwang, C.-Y. (2004). The 52-Week High and Momentum
-Investing. \emph{The Journal of Finance}, \emph{59}(5), 2145--2176.
-\url{https://doi.org/10.1111/j.1540-6261.2004.00695.x}
-
 \bibitem[\citeproctext]{ref-harris2020array}
 Harris, C. R., Millman, K. J., Walt, S. J. van der, Gommers, R.,
 Virtanen, P., Cournapeau, D., Wieser, E., Taylor, J., Berg, S., Smith,
@@ -1198,12 +1160,6 @@ T. E. (2020). Array programming with {NumPy}. \emph{Nature},
 Hoang, L. T., \& Baur, D. G. (2024). How stable are stablecoins?
 \emph{The European Journal of Finance}, \emph{30}(16), 1984--2000.
 \url{https://doi.org/10.1080/1351847X.2021.1949369}
-
-\bibitem[\citeproctext]{ref-houMarketFrictions2005}
-Hou, K., \& Moskowitz, T. J. (2005). Market Frictions, Price Delay, and
-the Cross-Section of Expected Returns. \emph{The Review of Financial
-Studies}, \emph{18}(3), 981--1020.
-\url{https://doi.org/10.1093/rfs/hhi023}
 
 \bibitem[\citeproctext]{ref-Hunter:2007}
 Hunter, J. D. (2007). Matplotlib: A 2D graphics environment.
@@ -1226,12 +1182,6 @@ Komsta, L., \& Novomestky, F. (2022). \emph{{moments}: Moments,
 cumulants, skewness, kurtosis and related tests}.
 \url{https://doi.org/10.32614/CRAN.package.moments}
 
-\bibitem[\citeproctext]{ref-lewellenConditionalCAPM2006}
-Lewellen, J., \& Nagel, S. (2006). The conditional CAPM does not explain
-asset-pricing anomalies. \emph{Journal of Financial Economics},
-\emph{82}(2), 289--314.
-\url{https://doi.org/10.1016/j.jfineco.2005.05.012}
-
 \bibitem[\citeproctext]{ref-liuSpotCryptocurrency2024}
 Liu, S., \& Yang, C. (2024). Spot cryptocurrency ETFs: Crypto investment
 products or stepping stones toward tokenization. \emph{Finance Research
@@ -1242,12 +1192,6 @@ Letters}, \emph{69}, 106150.
 Liu, Y., Tsyvinski, A., \& Wu, X. (2022). Common Risk Factors in
 Cryptocurrency. \emph{The Journal of Finance}, \emph{77}(2), 1133--1177.
 \url{https://doi.org/10.1111/jofi.13119}
-
-\bibitem[\citeproctext]{ref-llorenteDynamicVolumeReturn2002}
-Llorente, G., Michaely, R., Saar, G., \& Wang, J. (2002). Dynamic
-Volume-Return Relation of Individual Stocks. \emph{The Review of
-Financial Studies}, \emph{15}(4), 1005--1047.
-\url{https://doi.org/10.1093/rfs/15.4.1005}
 
 \bibitem[\citeproctext]{ref-mercikCrosssectionalInteractionsCryptocurrency2025}
 Mercik, A., Będowska-Sójka, B., Karim, S., \& Zaremba, A. (2025).
@@ -1351,53 +1295,23 @@ of Cryptocurrency Returns. \emph{Emerging Markets Finance and Trade},
 
 \section{Cryptocurrency Characteristics}\label{sec-app_characteristics}
 
-Following Bianchi \& Babiak
-(\citeproc{ref-bianchiMispricingRiskCompensation2021}{2021}), Y. Liu et
-al. (\citeproc{ref-liuCommonRisk2022}{2022}), and Mercik et al.
-(\citeproc{ref-mercikCrosssectionalInteractionsCryptocurrency2025}{2025}),
-I construct 41 asset-specific characteristics from OHCL prices, volume,
-and market capitalization of each cryptocurrency and group them into six
-categories: prize and size, volatility and risk, trading activity,
-liquidity, past returns, and distribution. The following list provides
-the definition of each characteristic and a description of their
-construction.
+\subsection{Price and size}\label{price-and-size}
 
-\subsubsection{Price and size}\label{price-and-size}
+\subsection{Volatility and risk}\label{volatility-and-risk}
 
-\textbf{\texttt{mcap}}. Last day's market capitalization. The market
-capitalization is the current cryptocurrency circulating supply
-multiplied by its current price in USD.
+\subsubsection{Realized volatility
+(rvol)}\label{realized-volatility-rvol}
 
-\textbf{\texttt{prc}}. Last day's logged closing price.
-
-\textbf{\texttt{dh90}}. The closeness to the 90-day high is defined as
-the ratio of the last day's price to the maximum price observed over the
-past 90 days (e.g., \citeproc{ref-george52WeekHigh2004}{George \& Hwang,
-2004}).
-
-\subsubsection{Volatility and risk}\label{volatility-and-risk}
-
-\textbf{\texttt{beta}}. The market beta is calculated as the slope
-coefficient from a 30-day rolling regression of cryptocurrency's excess
-returns on the market portfolio excess returns (e.g.,
-\citeproc{ref-lewellenConditionalCAPM2006}{Lewellen \& Nagel, 2006}).
-The coin market portfolio is constructed daily as the value-weighted
-average of cryptocurrency returns in the sample.
-
-\textbf{\texttt{ivol}}. Idiosyncratic volatility is computed as the
-standard deviation of the residuals from the 30-day rolling CAPM
-regression, following the same approach as for \texttt{beta}.
-
-\textbf{\texttt{rvol\_*d}}. Realized volatility, computed using the
-estimator of Yang and Zhang (2000) based on OHCL prices. I compute the
-daily realized volatility over rolling 7-and 30-day windows, denoted
-\texttt{rvol\_7d} and \texttt{rvol\_30d}, respectively. For \(n > 1\)
-number of periods, the volatility estimate at time \(t\) is:
+Using the volatility estimator of Yang and Zhang (2000), I compute the
+daily realized volatility based on OHCL prices over a rolling 30-day
+window. For \(n > 1\) number of periods, the volatility estimate at time
+\(t\) is:
 
 \[
 \sigma_t = \sqrt{\sigma^2_O + k\sigma^2_C + (1 - k)\sigma^2_{RS}}
 \] where \(\sigma^2_{RS}\) is the variance estimator of Rogers et
-al.~(1994), and \(\sigma^2_O\), \(\sigma^2_C\), \(k\) are given by
+al.~(1994), and \(\sigma^2_O\), \(\sigma^2_C\), \(k\) are defined as
+follows:
 
 \[
 \sigma^2_O = \frac{1}{n-1}\sum\limits_{i=1}^n(o_i - \bar o)^2,
@@ -1412,131 +1326,38 @@ k = \frac{\alpha -1}{\alpha + \frac{n+1}{n-1}}
 \]
 
 with \(o = ln\,O_t - ln\,C_{t-1}\), and \(c = ln\,C_t - ln\,O_t\). Here,
-\(C_{t-1}\) denotes the previous day's closing price and \(O_t\) the
-current day's opening price. I set the constant \(\alpha = 1.34\),
-following Yang and Zhang (2000), who recommend this as the best value in
-practice.
+\(C_{t-1}\) denotes the last days' closing price and \(O_t\) the current
+day's opening price. I set the constant \(\alpha = 1.34\) as suggested
+by Yang and Zhang (2000) to be the best value in practice.
 
-\textbf{\texttt{retvol}}. Standard deviation of daily returns over the
-past 7 days (e.g., \citeproc{ref-angCrossSectionVolatility2006}{Ang et
-al., 2006}).
+\subsection{Trading activity}\label{trading-activity}
 
-\textbf{\texttt{var}}. The historical Value-at-Risk at the 5\% level,
-based on daily returns over the past 90 days.
+\subsubsection{Volume shock}\label{volume-shock}
 
-\textbf{\texttt{es\_5}}. The expected shortfall at the 5\% level, based
-on daily returns over the past 90 days.
-
-\textbf{\texttt{delay}}. From the regression \[
-R_i - R_f = \alpha^i + \beta^i_{CMKT}CMKT + \beta^i_{CMKT_{-1}}CMKT_{-1} + \beta^i_{CMKT_{-2}}CMKT_{-2} + \epsilon_i, 
-\] where \(R_i\) is the return on asset \(i\), \(R_f\) is the risk-free
-rate, and \(CMKT\), \(CMKT_{-1}\), and \(CMKT_{-2}\) are the current,
-lagged one-and two-day coin market portfolio excess returns,
-\texttt{delay} is the improvement in \(R^2\) relative to the standard
-CAPM regression using only the current market portfolio excess returns
-(e.g., \citeproc{ref-houMarketFrictions2005}{Hou \& Moskowitz, 2005}).
-The coin market portfolio is constructed as in \texttt{beta}.
-
-\subsubsection{Trading activity}\label{trading-activity}
-
-\textbf{\texttt{volume}}. Last day's daily trading volume. The trading
-volume is the total amount of a cryptocurrency exchanged in a given day,
-measured in USD.
-
-\textbf{\texttt{volume\_*d}}. The average trading volume over the past 7
-and 30 days, denoted \texttt{volume\_7d} and \texttt{volume\_30d},
-respectively.
-
-\textbf{\texttt{turn}}. Turnover, computed as the last day's trading
-volume over the current market capitalization (e.g.,
-\citeproc{ref-datarLiquidityStock1998}{Datar et al., 1998}).
-
-\textbf{\texttt{turn\_7d}}. Average turnover over the past 7 days.
-
-\textbf{\texttt{std\_turn}}. The standard deviation of the turnover over
-the past 30 days.
-
-\textbf{\texttt{std\_vol}}. The log standard deviation of trading volume
-over the past 30 days.
-
-\textbf{\texttt{cv\_vol}}. The coefficient of variation is the standard
-deviation of the daily trading volume divided by its mean, over the past
-30 days (e.g., \citeproc{ref-babiakVariationsTrading2022}{Babiak \&
-Erdis, 2022}).
-
-\subsubsection{Liquidity}\label{liquidity}
-
-\textbf{\texttt{bidask}}. The cryptocurrency bid-ask spread, computed
-from OHCL prices using the approximation of Ardia et al.
-(\citeproc{ref-bidask}{2024}).
-
-\textbf{\texttt{illiq}}. The Amihud
-(\citeproc{ref-amihudIlliquidityStock2002}{2002}) price impact
-(illiquidity) measure, computed as the 90-day average of the ratio of
-the absolute daily return to daily trading volume.
-
-\textbf{\texttt{sat}}. The standardized abnormal turnover, following
-Garfinkel et al. (\citeproc{ref-garfinkelDisagreementReturns}{n.d.}).
-The measure is calculated as the last day's turnover minus its average
-over the past 30 days, divided by the turnover's standard deviation over
-the same 30-day period.
-
-\textbf{\texttt{dto}}. De-trended turnover (e.g.,
-\citeproc{ref-garfinkelMeasuringInvestors2009}{Garfinkel, 2009}). It is
-computed as turnover minus the value-weighted average daily market
-turnover, de-trended by its 180-day median.
-
-\textbf{\texttt{volsh\_*d}}. Volume shock, defined as the log-deviation
-of daily trading volume from its \(k\)-day rolling average (e.g.,
-\citeproc{ref-llorenteDynamicVolumeReturn2002}{Llorente et al., 2002}).
-For \texttt{volsh\_15d} and \texttt{volsh\_30d}, \(k = 15\) and
-\(k = 30\), respectively. For cryptocurrency \(i\) at time \(t\):
+Following Bianchi et al.~(2022), the volume shock is defined as the
+log-deviation of trading volume from its rolling average (over 30 or 60
+days) for cryptocurrency \(i\) at time \(t\). For \(m \in \{30, 60\}\)
+periods, the volume shock is estimated as:
 
 \[
-v_{i,t} = \log(\text{Volume}_{i,t}) - \log\left( \frac{1}{k} \sum_{s=1}^{k} \text{Volume}_{i,t-s} \right)
+v_{i,t} = \log(\text{Volume}_{i,t}) - \log\left( \frac{1}{m} \sum_{s=1}^{m} \text{Volume}_{i,t-s} \right)
 \]
 
-\subsection{Past returns}\label{past-returns}
+\subsection{Liquidity}\label{liquidity}
 
-\textbf{\texttt{r2\_1}}. Daily reversal, defined as the previous day's
-cryptocurrency return.
-
-\textbf{\texttt{r*\_1}}. The 7, 14, 21, and 30-day momentum, denoted
-\texttt{r7\_1}, \texttt{r14\_1}, \texttt{r21\_1}, and \texttt{r30\_1},
-respectively. Momentum is defined as the cumulative return from the
-previous \(k \in \{7, 14, 21, 30\}\) days up to one day before the
-return prediction.
+\subsubsection{Illiquidity}\label{illiquidity}
 
 Moskowitz et al. (\citeproc{ref-moskowitzTimeSeriesMomentum2012}{2012})
 
-\textbf{\texttt{r30\_14}}. Cumulative return from the previous 30 days
-up to 14 days before the return prediction.
+\subsubsection{SAT}\label{sat}
 
-\textbf{\texttt{r180\_60}}. Cumulative return from the previous 180 days
-up to 60 days before the return prediction.
+\subsubsection{DTO}\label{dto}
 
-\textbf{\texttt{alpha}}. The CAPM alpha, defined as the intercept from a
-30-day rolling regression of cryptocurrency's excess returns on the
-market portfolio excess returns. The market portfolio is constructed as
-in \texttt{beta}.
+\subsubsection{Volume shock}\label{volume-shock-1}
+
+\subsection{Past returns}\label{past-returns}
 
 \subsection{Distribution}\label{distribution}
-
-\textbf{\texttt{skew\_*d}}. Skewness of daily returns over the previous
-7 and 30 days, denoted \texttt{skew\_7d} and \texttt{skew\_30d},
-respectively.
-
-\textbf{\texttt{kurt\_*d}}. Kurtosis of daily returns over the previous
-7 and 30 days, denoted \texttt{kurt\_7d} and \texttt{kurt\_30d},
-respectively.
-
-\textbf{\texttt{maxret\_*d}}. The maximum daily return over the past 7
-and 30 days, denoted \texttt{maxret\_7d} and \texttt{maxret\_30d},
-respectively.
-
-\textbf{\texttt{minret\_*d}}. The minimum daily return over the past 7
-and 30 days, denoted \texttt{minret\_7d} and \texttt{minret\_30d},
-respectively.
 
 \section{Software}\label{sec-software}
 

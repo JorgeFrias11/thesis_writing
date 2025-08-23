@@ -75,6 +75,10 @@ format:
         \usepackage{hyperref}
         \usepackage[nameinlink, capitalise, noabbrev]{cleveref} % \cref{_label_} to link the label and section number 
         
+        %\usepackage{multirow}
+        %\usepackage{float}
+        %\usepackage{pdflscape}
+        %\usepackage{tabu}
         \usepackage{makecell}
         \usepackage{threeparttable}
         \usepackage{adjustbox} 
@@ -82,7 +86,6 @@ format:
         \usepackage{unicode-math}
         \setmathfont{Latin Modern Math}
         \usepackage{booktabs, caption, longtable, colortbl, array}
-        \usepackage{threeparttable}
         \usepackage{enumitem}
         % \usepackage{float}  % for \begin{table}[h] ? check
         % \setlist[description]{nosep,style=multiline,leftmargin=3.5cm,font=\normalfont\textsf}

@@ -103,14 +103,76 @@ The sample period spans several major market, economic, and political events, th
 
 ## Characteristic construction and description {#sec-characteristics}
 
-For the analysis, I construct 41 asset-specific characteristics from the cross-section of 973 cryptocurrencies using data on prices, volume, and market capitalization. Specifically, I follow the methodology of @bianchiMispricingRiskCompensation2021, @liuCommonRisk2022, and @mercikCrosssectionalInteractionsCryptocurrency2025 to replicate and classify a set of characteristics that serve as return predictors in the empirical analysis. Based on economic intuition, I group the characteristics into six categories: market and size, volatility and risk, trading activity, liquidity, past returns, and distribution. Table \ref{tbl-characteristics} summarizes the set of characteristics, while Appendix XXX provides a detailed description and the construction procedure.   
+For the analysis, I construct 41 asset-specific characteristics from the cross-section of 973 cryptocurrencies using data on prices, volume, and market capitalization. Specifically, I follow the methodology of @bianchiMispricingRiskCompensation2021, @liuCommonRisk2022, and @mercikCrosssectionalInteractionsCryptocurrency2025 to replicate and classify a set of characteristics that serve as return predictors in the empirical analysis. Based on economic intuition, I group the characteristics into six categories: market and size, volatility and risk, trading activity, liquidity, past returns, and distribution. Table \ref{tbl-characteristics} summarizes the set of characteristics, while Appendix  [-@sec-app_characteristics] provides a detailed description and the construction procedure.   
+
+
+<!-- ```{=latex} -->
+<!-- \begingroup\fontsize{8.5}{10.5}\selectfont -->
+
+<!-- \begin{longtable}{l>{\raggedright\arraybackslash}p{10em}l>{\raggedright\arraybackslash}p{26em}} -->
+<!-- \caption[Short cap]{\label{tab:unnamed-chunk-1}\textbf{Cryptocurrency characteristics.} This caption is way too long and doesnt look good when formatted in the Table of Contents.  What you really need here is a much shorter caption so that your eyes dont go crazy trying to figure out what information the author is trying to convey.  Often there is too much information in the caption anyway so why not shorten it?. \label{tbl-characteristics}}\\ -->
+<!-- \toprule -->
+<!-- No. & Characteristic & Symbol & Definition\\ -->
+<!-- \midrule -->
+<!-- \addlinespace[0.3em] -->
+<!-- \multicolumn{4}{l}{\textbf{Panel A: Price and size}}\\ -->
+<!-- \hspace{1em}(1) & Market capitalization & mcap & Last day's market capitalization.\\ -->
+<!-- \hspace{1em}(2) & Price & prc & Last day's logged closing price.\\ -->
+<!-- \hspace{1em}(3) & Closeness to the 90-day high & dh90 & Last day's price over the maximum price in the previous 90 days.\\ -->
+<!-- \addlinespace[0.3em] -->
+<!-- \multicolumn{4}{l}{\textbf{Panel B: Volatility \& risk}}\\ -->
+<!-- \hspace{1em}(4) & Market beta & beta & CAPM market beta, estimated from 30 days of daily returns.\\ -->
+<!-- \hspace{1em}(5) & Idiosyncratic volatility & ivol & Volatility of CAPM residuals over 30 days of daily returns.\\ -->
+<!-- \hspace{1em}(6) & 7-day realized volatility & rvol\_7d & Realized volatility, calculated from 7 days of OHCL prices.\\ -->
+<!-- \hspace{1em}(7 & 30-day realized volatility & rvol\_30d & Realized volatility, calculated from 30 days of OHCL prices.\\ -->
+<!-- \hspace{1em}(8) & Return volatility & retvol & Standard deviation of daily returns over 7 days.\\ -->
+<!-- \hspace{1em}(9) & Value-at-Risk & var & The historical Value-at-Risk at 5\% level over 90 days.\\ -->
+<!-- \hspace{1em}(10) & Expected Shortfall & es\_5 & The expected shortfall at the 5\% level over 90 days.\\ -->
+<!-- \hspace{1em}(11) & Price delay & delay & Improvement in \(R^2\) after adding lagged one-and two-day market excecss return to the CAPM.\\ -->
+<!-- \addlinespace[0.3em] -->
+<!-- \multicolumn{4}{l}{\textbf{Panel C: Activity}}\\ -->
+<!-- \hspace{1em}(12) & Trading volume & volume & Last day's daily trading volume.\\ -->
+<!-- \hspace{1em}(13) & Average 7-day volume & volume\_7d & Mean volume over the past 7 days.\\ -->
+<!-- \hspace{1em}(14) & Average 30-day volume & volume\_30d & Mean volume over the past 30 days.\\ -->
+<!-- \hspace{1em}(15) & Turnover & turn & The last day's trading volume over current market capitalization.\\ -->
+<!-- \hspace{1em}(16) & Average 7-day turnover & turn\_7d & Mean turnover over the past 7 days.\\ -->
+<!-- \hspace{1em}(17) & Turnover volatility & std\_turn & Turnover volatility over the past 30 days.\\ -->
+<!-- \hspace{1em}(18) & Trading volume volatility & std\_vol & Volume's logged volatility over the past 30 days.\\ -->
+<!-- \hspace{1em}(19) & Volume's coefficient of variation & cv\_vol & Volume's volatility over its mean in the previous 30 days.\\ -->
+<!-- \addlinespace[0.3em] -->
+<!-- \multicolumn{4}{l}{\textbf{Panel D: Liquidity}}\\ -->
+<!-- \hspace{1em}(20) & Bid-ask spread & bidask & Mean estimated bid-ask spread calculated over the past 30 days.\\ -->
+<!-- \hspace{1em}(21) & Illiquidity & illiq & Mean absolute daily return over trading volume over the past 30 days.\\ -->
+<!-- \hspace{1em}(22) & Standardized abnormal turnover & sat & Last day's turnover minus its 30-day average, divided its volatility over 30 days.\\ -->
+<!-- \hspace{1em}(23) & De-trended turnover & dto & De-trended turnover minus the value-weighted daily market turnover.\\ -->
+<!-- \hspace{1em}(24) & Volume Shock 15-day & volsh\_15d & Log deviation of trading volume from its rolling 15-day average.\\ -->
+<!-- \hspace{1em}(25) & Voume Shock 30-day & volsh\_30d & Log deviation of trading volume from its rolling 30-day average.\\ -->
+<!-- \addlinespace[0.3em] -->
+<!-- \multicolumn{4}{l}{\textbf{Panel E: Past returns}}\\ -->
+<!-- \hspace{1em}(26) & Daily reversal & r2\_1 & Return on the previous trading day.\\ -->
+<!-- \hspace{1em}(27-30) & Momentum & r*\_1 & 7, 14, 21, and 30-day cumulative return ending 1 day before the prediction date.\\ -->
+<!-- \hspace{1em}(31) & Intermediate momentum & r30\_14 & Cumulative return from 30 to 14 days before the prediction date.\\ -->
+<!-- \hspace{1em}(32) & Long-term reversal & r180\_60 & Cumulative return from 180 to 60 days before the prediction date.\\ -->
+<!-- \hspace{1em}(33) & CAPM alpha & alpha & CAPM intercept, estimated from 30 days of daily returns.\\ -->
+<!-- \addlinespace[0.3em] -->
+<!-- \multicolumn{4}{l}{\textbf{Panel F: Distribution}}\\ -->
+<!-- \hspace{1em}(34-35) & Skewness & skew\_*d & Skewness of the daily return distribution over a 15 and 30-day period.\\ -->
+<!-- \hspace{1em}(36-37) & Kurtosis & kurt\_*d & Kurtosis of the daily return distribution over a 15 and 30-day period.\\ -->
+<!-- \hspace{1em}(38-39) & Maximum daily return & maxret\_*d & The maximum daily return in the past 7 and 30 days.\\ -->
+<!-- \hspace{1em}(40-41) & Minimum daily return & minret\_*d & The minimum daily return in the oast 7 and 30 days.\\ -->
+<!-- \bottomrule -->
+<!-- \end{longtable} -->
+<!-- \endgroup{} -->
+
+<!-- ``` -->
 
 
 ```{r}
 #| echo: FALSE
-#| warning: FALSE 
+#| warning: FALSE
 #| message: FALSE
-##| label: tbl-characteristics
+
+# KABLE cannot produce the longtable with caption.short. I copied the output from .tex file
 
 library(dplyr)
 library(stringr)
@@ -119,18 +181,18 @@ library(kableExtra)
 # ---- your groups ----
 panels <- list(
   core          = c("mcap","prc", "dh90"),
-  volrisk       = c("beta","ivol", "rvol_7d", "rvol_30d", "retvol","var","delay"),
-  activity      = c("volume", "volume_7d", "volume_30d", "volscaled","turn","std_vol","cv_vol"),
-  liquidity     = c("bidask","illiq","sat","dto","volsh_30d"),
-  past_returns  = c("r2_1","r7_1", "r14_1","r21_1","r30_1","r30_14", 
-                    "r180_60","dh90","alpha"),
-  distribution  = c("skew","kurt","maxret","minret")
+  volrisk       = c("beta","ivol", "rvol_*d", "retvol","var", "es_5", "delay"),
+  activity      = c("volume", "volume_*d", "turn", "turn_7d",
+                    "std_turn", "std_vol","cv_vol"),
+  liquidity     = c("bidask", "illiq", "sat", "dto", "volsh_15d", "volsh_30d"),
+  past_returns  = c("r2_1","r*_1", "r30_14", "r180_60", "alpha"),
+  distribution  = c("skew_*d", "kurt_*d", "maxret_*d", "minret_*d")
 )
 
 panel_titles <- c(
-  core         = "Price and size",
+  core         = "Price & size",
   volrisk      = "Volatility & risk",
-  activity     = "Activity",
+  activity     = "Trading activity",
   liquidity    = "Liquidity",
   past_returns = "Past returns",
   distribution = "Distribution"
@@ -139,50 +201,50 @@ panel_titles <- c(
 definitions <- tribble(
   ~No,   ~Symbol,       ~Characteristic,              ~Definition,
   # ---- Price and Size ----
-  "(1)",    "mcap",        "Market capitalization",      "Market capitalization of the coin.",
-  "(2)",    "prc",         "Price",                      "Cryptocurrency logged closing price.",
+  "(1)",    "mcap",        "Market capitalization",      "Last day's market capitalization.",
+  "(2)",    "prc",         "Price",                      "Last day's logged closing price.",
   "(3)",    "dh90",        "Closeness to the 90-day high", "Last day's price over the maximum price in the previous 90 days.",
 
   # ---- Volatility & Risk ----
   "(4)",   "beta",        "Market beta",                "CAPM market beta, estimated from 30 days of daily returns.",
   "(5)",   "ivol",        "Idiosyncratic volatility",   "Volatility of CAPM residuals over 30 days of daily returns.",
-  "(6)",   "rvol_7d",     "7-day realized volatility",  "Realized volatility, calculated from 7 days of OHCL prices.",
-  "(7",    "rvol_30d",    "30-day realized volatility", "Realized volatility, calculated from 30 days of OHCL prices.",
+  "(6-7)",   "rvol_*d",     "Realized volatility",  "Realized volatility, calculated from 7 and 30 days of OHCL prices.",
+  #"(7",    "rvol_30d",    "30-day realized volatility", "Realized volatility, calculated from 30 days of OHCL prices.",
   "(8)",   "retvol",      "Return volatility",          "Standard deviation of daily returns over 7 days.",
   "(9)",   "var",         "Value-at-Risk",              "The historical Value-at-Risk at 5\\% level over 90 days.",
   "(10)",  "es_5",        "Expected Shortfall",         "The expected shortfall at the 5\\% level over 90 days.",
   "(11)",   "delay",       "Price delay",                "Improvement in \\(R^2\\) after adding lagged one-and two-day market excecss return to the CAPM.",
 
   # ---- Trading activity ----
-  "(12)",   "volume",      "Trading volume",                     "Last day's daily trading volume.",
-  "(13)",   "volume_7d",   "Average 7-day volume",       "Mean volume over the past 7 days.",
-  "(14)",   "volume_30d",  "Average 30-day volume",      "Mean volume over the past 30 days.",
-  "(15)",   "turn",        "Turnover",                   "The last day's trading volume over last day's market capitalization",
-  "(16)",   "turn_7d",     "Average 7-day turnover",     "Mean turnover over the past 7 days",
-  "(17)",   "std_turn",    "Turnover volatility",        "Turnover volatility over the past 30 days",
-  "(18)",   "std_vol",    "Trading volume volatility",  "Volume's logged volatility over the past 30 days",
-  "(19)",   "cv_vol",      "Volume's coefficient of variation",    "Volume's volatility over its mean in the previous 30 days",
+  "(12)",   "volume",      "Trading volume",             "Last day's daily trading volume.",
+  "(13)",   "volume_*d",   "Average volume",       "Mean volume over the past 7 and 30 days.",
+  #"(14)",   "volume_30d",  "Average 30-day volume",      "Mean volume over the past 30 days.",
+  "(15)",   "turn",        "Turnover",                   "The last day's trading volume over current market capitalization.",
+  "(16)",   "turn_7d",     "Average 7-day turnover",     "Mean turnover over the past 7 days.",
+  "(17)",   "std_turn",    "Turnover volatility",        "Turnover volatility over the past 30 days.",
+  "(18)",   "std_vol",    "Trading volume volatility",   "Volume's logged volatility over the past 30 days.",
+  "(19)",   "cv_vol",      "Volume's coefficient of variation",    "Volume's volatility over its mean in the previous 30 days.",
 
   # ---- Liquidity ----
   "(20)",   "bidask",      "Bid-ask spread",             "Mean estimated bid-ask spread calculated over the past 30 days.",
   "(21)",   "illiq",       "Illiquidity",                "Mean absolute daily return over trading volume over the past 30 days.",
-  "(22)",   "sat",         "Supply-adjusted turnover",   "lag turn - average over its volatility",
-  "(23)",   "dto",         "Dollar trading output",      "Total dollar trading value.",
-  "(24)",   "volsh_15d",   "30-day volume share",        "Share of trading volume in the past 30 days.",
-  "(25)",   "volsh_30d",   "30-day volume share",        "Share of trading volume in the past 30 days.",
+  "(22)",   "sat",         "Standardized abnormal turnover",   "Last day's turnover minus its 30-day average, divided its volatility over 30 days.",
+  "(23)",   "dto",         "De-trended turnover",      "De-trended turnover minus the value-weighted daily market turnover.",
+  "(24)",   "volsh_15d",   "Volume Shock 15-day",        "Log deviation of trading volume from its rolling 15-day average.",
+  "(25)",   "volsh_30d",   "Voume Shock 30-day",        "Log deviation of trading volume from its rolling 30-day average.",
 
   # ---- Past Returns ----
-  "(26)",    "r2_1",        "Daily reversal",             "Return on the previous trading day.",
-  "(27-30)", "r7_1",        "*-day momentum",             "7, 14, 21, and 30-day cumulative return ending 1 day before the prediction date.",
-  "(31)",    "r30_14",      "Intermediate momentum",         "Cumulative return from 30 to 14 days before the prediction date.",
-  "(32)",    "r180_60",     "Long-term reversal",        "Cumulative return from 180 to 60 days before the prediction date.",
-  "(33)",    "alpha",       "CAPM alpha",             "Jensen’s alpha estimated from a factor model.",
+  "(26)",    "r2_1",        "Daily reversal",           "Return on the previous trading day.",
+  "(27-30)", "r*_1",        "Momentum",           "7, 14, 21, and 30-day cumulative return ending 1 day before the prediction date.",
+  "(31)",    "r30_14",      "Intermediate momentum",    "Cumulative return from 30 to 14 days before the prediction date.",
+  "(32)",    "r180_60",     "Long-term reversal",       "Cumulative return from 180 to 60 days before the prediction date.",
+  "(33)",    "alpha",       "CAPM alpha",               "CAPM intercept, estimated from 30 days of daily returns.",
 
   # ---- Distribution ----
-  "(34-35)",    "skew_*d",     "Skewness",            "Skewness of daily returns over a 90-day period.",
-  "(36-37)",    "kurt_*d",     "Kurtosis",            "Kurtosis of daily returns over a 90-day period.",
-  "(38-39)",    "maxret_*d",   "Maximum daily return",             "Maximum daily return in the sample.",
-  "(40-41)",   "minret_*d",   "Minimum daily return",             "Minimum daily return in the sample."
+  "(34-35)",    "skew_*d",     "Skewness",            "Skewness of the daily return distribution over a 7-and 30-day period.",
+  "(36-37)",    "kurt_*d",     "Kurtosis",            "Kurtosis of the daily return distribution over a 7-and 30-day period.",
+  "(38-39)",    "maxret_*d",   "Maximum daily return",    "The maximum daily return in the past 7-and 30 days.",
+  "(40-41)",   "minret_*d",   "Minimum daily return",     "The minimum daily return in the past 7-and 30 days."
 )
 
 # ---- build table ----
@@ -192,7 +254,7 @@ tbl <- bind_rows(lapply(names(panels), function(p) {
     Symbol = panels[[p]]
   )
 })) |>
-  left_join(definitions, by = "Symbol") |> 
+  left_join(definitions, by = "Symbol") |>
   group_by(Panel) |>
   ungroup() |>
   mutate(
@@ -213,13 +275,13 @@ k <- kbl(
   #format = "latex",
   escape = FALSE,
   align = "llll",
-  caption = "\\textbf{Cryptocurrency characteristics.} This caption is way too long and doesnt look good when formatted in the Table of Contents.  What you really need here is a much shorter caption so that your eyes dont go crazy trying to figure out what information the author is trying to convey.  Often there is too much information in the caption anyway so why not shorten it?. \\label{tbl-characteristics}",
+  caption = "\\textbf{Cryptocurrency characteristics.} The table presents the 41 cryptocurrency characteristics used as return predictors in the empirical analysis. The characteristics are grouped in six categories: price and size, volatility and risk, trading activity, liquidity, past returns, and distribution. \\label{tbl-characteristics}",
   caption.short = "Cryptocurrency characteristics.",
   col.names = c("No.", "Characteristic", "Symbol", "Definition")
 ) |>
-  kable_styling(full_width = F, font_size = 8.5) |>
+  kable_styling(full_width = F, font_size = 8) |>
   column_spec(2, width = "10em") |>
-  column_spec(4, width = "26em") 
+  column_spec(4, width = "27em")
 
 # add grouped rows for panels
 for (p in unique(tbl$PanelLabel)) {
