@@ -268,7 +268,7 @@
 
 \title{Edit: Master Thesis Title}
 \author{Jorge Eduardo Frías Navarrete}
-\date{August 22, 2025}
+\date{August 24, 2025}
 \begin{document}
 \frontmatter
 
@@ -307,7 +307,7 @@
         Degree programme: & Quantitative Finance \\
         %University: & Vienna University of Economics and Business \\
         Supervisor: & Univ.Prof. David \textsc{Preinerstorfer}, Ph.D. \\
-        Date of Submission: & August 22, 2025
+        Date of Submission: & August 24, 2025
     \end{tabular}
     \vspace{2cm}
     
@@ -436,9 +436,6 @@ Zimmermann (\citeproc{ref-chenOpenSource2021}{2021})
 mencionar a Ross, que comprobo la estructura lineal de los factores: --
 Esto quiza en introduccion
 
-** Ejemplo de frase See for additional discussion of literate
-programming.**
-
 \section{Research objective}\label{research-objective}
 
 The main questions addressed in this thesis are:
@@ -453,7 +450,7 @@ The main questions addressed in this thesis are:
 
 Replicate the work of Kelly et al.
 (\citeproc{ref-kellyCharacteristicsAre2019}{2019}) and Bianchi \& Babiak
-(\citeproc{ref-bianchiMispricingRiskCompensation2021}{2021}) on the
+(\citeproc{ref-bianchiMispricingRiskCompensation2021}{2021b}) on the
 cryptocurrency market.
 
 \section{Literature review}\label{literature-review}
@@ -467,7 +464,7 @@ french modelo de tres factores Fama \& French
 Fama \& French (\citeproc{ref-famaFivefactorAsset2015}{2015}) Citar la
 coleccion de Chen and ZImmerman A. Y. Chen \& Zimmermann
 (\citeproc{ref-chenOpenSource2021}{2021}) con la gran cantidad de
-factores en su dataset.
+predictores de retornos, no factores en su dataset.
 
 Por otra, una corriente basada en la estadistica que construye los
 factores mediante modelos puramente estadisticos, y que asume que los
@@ -487,7 +484,7 @@ fama macbeth, que hace una combinacion de este modelo mas una
 implementacion de PCA.
 
 Bianchi \& Babiak
-(\citeproc{ref-bianchiMispricingRiskCompensation2021}{2021}) aplicaron
+(\citeproc{ref-bianchiMispricingRiskCompensation2021}{2021b}) aplicaron
 el modelo de Kelly en el mercado de criptos, mencionar otros papers que
 utilizaron el IPCA (hay otros de Kelly que lo uso para bonos y opciones,
 investigar)
@@ -499,6 +496,20 @@ Mencionar literatura extensa tratando de entender los factores de riesgo
 de las criptomonedas, por ejemplo, Mercik et al.
 (\citeproc{ref-mercikCrosssectionalInteractionsCryptocurrency2025}{2025}),
 y otros papers que tengo en mis archivos y en notas.
+
+Another factor model Bouri et al.
+(\citeproc{ref-bouriForecastingReturns2022}{2022}) Y. Liu et al.
+(\citeproc{ref-liuCommonRisk2022}{2022}) and W. Liu et al.
+(\citeproc{ref-liuCommonRisk2020}{2020}), similar find a three factor
+model based on market, size, and momentum factors. Jung \& Park
+(\citeproc{ref-jungCommonFactors2024}{2024}) found that Y. Liu et al.
+(\citeproc{ref-liuCommonRisk2022}{2022}) three factor model only
+captures one-third of the variation of cryptocurrency returns. Y. Liu \&
+Tsyvinski (\citeproc{ref-liuRisksReturns2021}{2021}) find network
+factors for cryptocurrencies. Cong et al.
+(\citeproc{ref-congValuePremium2022}{2022}) Liebi
+(\citeproc{ref-liebiThereValue2020}{2020}) value facotr formed on the
+network-to-market ratio (equivalent to book-to-market ratio from stocks)
 
 Baur \& Hoang (\citeproc{ref-baurCryptoSafe2021}{2021}) Studies
 stablecoins as a safe heaven for Bitcoin volatility - safe heavens, but
@@ -557,7 +568,7 @@ the impact of potential inaccuracies in my dataset.
 
 \bookmarksetup{startatroot}
 
-\chapter{Methodology}\label{methodology}
+\chapter{Methodology}\label{sec-methodology}
 
 The Instrumented Principal Component Analysis (IPCA) model was
 introduced in the seminal work of Kelly et al.
@@ -630,7 +641,7 @@ data, all expressed in US dollars, using the CoinCodex API as follows:
 
 Out of the 14,907 cryptocurrencies listed, only 7,272 entries contained
 available data. Next, following the methodology of Bianchi \& Babiak
-(\citeproc{ref-bianchiMispricingRiskCompensation2021}{2021}) and Mercik
+(\citeproc{ref-bianchiMispricingRiskCompensation2021}{2021b}) and Mercik
 et al.
 (\citeproc{ref-mercikCrosssectionalInteractionsCryptocurrency2025}{2025}),
 I apply a series of cleaning and filtering steps in order to remove
@@ -835,7 +846,7 @@ trading of several crypto spot ETFs in January, and Donald Trump's
 election as U.S. president, with Elon Musk playing and important role in
 his campaign
 (\citeproc{ref-bianchiMispricingRiskCompensation2021}{Bianchi \& Babiak,
-2021}; \citeproc{ref-chenHowEffective2022}{C. Chen \& Liu, 2022};
+2021b}; \citeproc{ref-chenHowEffective2022}{C. Chen \& Liu, 2022};
 \citeproc{ref-liuSpotCryptocurrency2024}{S. Liu \& Yang, 2024};
 \citeproc{ref-mercikCrosssectionalInteractionsCryptocurrency2025}{Mercik
 et al., 2025}; \citeproc{ref-zhouApplicationEvent2025}{Zhou, 2025}).
@@ -846,17 +857,18 @@ description}\label{sec-characteristics}
 For the analysis, I construct 41 asset-specific characteristics from the
 cross-section of 973 cryptocurrencies using data on prices, volume, and
 market capitalization. Specifically, I follow the methodology of Bianchi
-\& Babiak (\citeproc{ref-bianchiMispricingRiskCompensation2021}{2021}),
+\& Babiak (\citeproc{ref-bianchiMispricingRiskCompensation2021}{2021b}),
 Y. Liu et al. (\citeproc{ref-liuCommonRisk2022}{2022}), and Mercik et
 al.
 (\citeproc{ref-mercikCrosssectionalInteractionsCryptocurrency2025}{2025})
-to replicate and classify a set of characteristics that serve as return
-predictors in the empirical analysis. Based on economic intuition, I
-group the characteristics into six categories: market and size,
-volatility and risk, trading activity, liquidity, past returns, and
-distribution. Table \ref{tbl-characteristics} summarizes the set of
-characteristics, while Appendix \ref{sec-app_characteristics} provides a
-detailed description and the construction procedure.
+to construct the set of characteristics widely used in the
+cryptocurrency and financial literature, which serve as return
+predictors in the empirical analysis. These characteristics are grouped
+into six categories: market and size, volatility and risk, trading
+activity, liquidity, past returns, and distribution. Table
+\ref{tbl-characteristics} summarizes the set of characteristics, while
+Appendix \ref{sec-app_characteristics} provides detailed definitions and
+construction procedures.
 
 \begin{table}
 \centering
@@ -883,7 +895,7 @@ No. & Characteristic & Symbol & Definition\\
 \hspace{1em}(11) & Price delay & delay & Improvement in \(R^2\) after adding lagged one-and two-day market excecss return to the CAPM.\\
 \addlinespace[0.3em]
 \multicolumn{4}{l}{\textbf{Panel C: Trading activity}}\\
-\hspace{1em}(12) & Trading volume & volume & Last day's daily trading volume.\\
+\hspace{1em}(12) & Trading volume & volume & Last day's daily trading volume in US dollars.\\
 \hspace{1em}(13) & Average volume & volume\_*d & Mean volume over the past 7 and 30 days.\\
 \hspace{1em}(15) & Turnover & turn & The last day's trading volume over current market capitalization.\\
 \hspace{1em}(16) & Average 7-day turnover & turn\_7d & Mean turnover over the past 7 days.\\
@@ -915,38 +927,45 @@ No. & Characteristic & Symbol & Definition\\
 \end{tabular}
 \end{table}
 
-This is more related to factor construction.
+\section{Observable risk factors}\label{observable-risk-factors}
 
-Organize week in the following way: the first seven days of the year
-forms the first week, and the first 51 weeks of the year consists of 7
-days each. The 52th week of the year consists of the last eight days
-and, in case of a leap year (as 2016, 2020, and 2024), of nine days.
+In addition to the set of characteristics described above, I construct a
+set of observable risk factors. In the asset pricing literature, the
+convention is to analyze the risk compensation of asset returns using
+factor-mimicking portfolio
+(\citeproc{ref-carhartPersistenceMutual1997}{Carhart, 1997}; e.g.
+\citeproc{ref-famaCommonRisk1993}{Fama \& French, 1993},
+\citeproc{ref-famaFivefactorAsset2015}{2015}). This typically involves
+sorting assets cross-sectionally into quintiles based on a specific
+characteristic and forming a factor return, calculated as the difference
+in returns between the top and the bottom quintiles. This approach
+replicates a strategy that buys the portfolio of assets with high values
+of a particular characteristic (long), and sells the portfolio with the
+lowest values (short).
 
-Following Y. Liu et al. (\citeproc{ref-liuCommonRisk2022}{2022}), I
-construct a daily cryptocurrency market return as the value-weighted
-average return of all the cryptocurrencies in the sample. For
-cryptocurrencies \(i = 1, ..., N\), the daily market return at time
-\(t\) is computed as:
+Building on this methodology, I construct a series of observable risk
+factors that prior literature have shown to explain the cross-section of
+cryptocurrency returns. Specifically, I include the market, size,
+momentum, liquidity, and volatility factors, following Y. Liu et al.
+(\citeproc{ref-liuCommonRisk2022}{2022}), Bianchi \& Babiak
+(\citeproc{ref-bianchi2021factor}{2021a}), and Lan \& Frömmel
+(\citeproc{ref-lanRiskFactors2025}{2025}). Details on their construction
+are provided in Appendix~\ref{sec-obs_factors}. As described in
+Section~\ref{sec-methodology}, the IPCA allows for the inclusion of
+pre-specified within the more general model specification. I make use of
+this feature and pre-specify the observable factors in the IPCA model,
+with and without using asset-characteristics to instrument for dynamic
+loadings.
 
-\[
-r_t^M = \frac{\sum_{i=1}^N r_{it} \cdot marketcap_{it}}
-             {\sum_{i=1}^N marketcap_{it} }
-\]
+\bookmarksetup{startatroot}
 
-The cryptocurrency market excess return is constructed as the difference
-between the cryptocurrency market return and the risk-free rate. To
-proxy the risk-free rate, I used the (daily) 1-month Treasury bill rate
-from the FRED.
+\chapter{Results}\label{results}
 
 Write this in the following section of ``Empirical application'' or This
 is for the model: 7. (Still undecisive) Minimum cross-section. Following
 the criterion by Kelly, I Convert variables in the -0.5 - 0.5 range
 
 The sample period ranges from January 1st, 2014, to May 31st, 2025.
-
-\bookmarksetup{startatroot}
-
-\chapter{Results}\label{results}
 
 Implemented in python, based on the IPCA python code of Seth Pruitt
 \footnote{See https://sethpruitt.net/research/.} and the \texttt{ipca}
@@ -1094,16 +1113,31 @@ Baur, D. G., \& Hoang, L. T. (2021). A crypto safe haven against
 Bitcoin. \emph{Finance Research Letters}, \emph{38}, 101431.
 \url{https://doi.org/10.1016/j.frl.2020.101431}
 
+\bibitem[\citeproctext]{ref-bianchi2021factor}
+Bianchi, D., \& Babiak, M. (2021a). A factor model for cryptocurrency
+returns. \emph{CERGE-EI Working Paper Series}, \emph{710}.
+
 \bibitem[\citeproctext]{ref-bianchiMispricingRiskCompensation2021}
-Bianchi, D., \& Babiak, M. (2021). \emph{Mispricing and Risk
+Bianchi, D., \& Babiak, M. (2021b). \emph{Mispricing and Risk
 Compensation in Cryptocurrency Returns} (SSRN Scholarly Paper 3935934).
 Social Science Research Network.
 \url{https://doi.org/10.2139/ssrn.3935934}
+
+\bibitem[\citeproctext]{ref-bouriForecastingReturns2022}
+Bouri, E., Christou, C., \& Gupta, R. (2022). Forecasting returns of
+major cryptocurrencies: Evidence from regime-switching factor models.
+\emph{Finance Research Letters}, \emph{49}, 103193.
+\url{https://doi.org/10.1016/j.frl.2022.103193}
 
 \bibitem[\citeproctext]{ref-ipca}
 Buechner, M., \& Bybee, L. (2019). \emph{{ipca}: Instrumented principal
 components analysis} {[}Computer software{]}.
 \url{https://github.com/bkelly-lab/ipca}
+
+\bibitem[\citeproctext]{ref-carhartPersistenceMutual1997}
+Carhart, M. M. (1997). On Persistence in Mutual Fund Performance.
+\emph{The Journal of Finance}, \emph{52}(1), 57--82.
+\url{https://doi.org/10.1111/j.1540-6261.1997.tb03808.x}
 
 \bibitem[\citeproctext]{ref-chamberlainArbitrageFactor1983}
 Chamberlain, G., \& Rothschild, M. (1983). Arbitrage, Factor Structure,
@@ -1136,6 +1170,12 @@ Scholarly Paper 4703281). Social Science Research Network.
 Coinbase. (n.d.). \emph{What is wrapped crypto?} Retrieved August 6,
 2025, from
 \url{https://www.coinbase.com/learn/your-crypto/what-is-wrapped-crypto}
+
+\bibitem[\citeproctext]{ref-congValuePremium2022}
+Cong, L. W., Karolyi, G. A., Tang, K., \& Zhao, W. (2022). \emph{Value
+Premium, Network Adoption, and Factor Pricing of Crypto Assets} (SSRN
+Scholarly Paper 3985631). Social Science Research Network.
+\url{https://doi.org/10.2139/ssrn.3985631}
 
 \bibitem[\citeproctext]{ref-connorPerformanceMeasurement1986}
 Connor, G., \& Korajczyk, R. A. (1986). Performance measurement with the
@@ -1210,6 +1250,11 @@ Hunter, J. D. (2007). Matplotlib: A 2D graphics environment.
 \emph{Computing in Science \& Engineering}, \emph{9}(3), 90--95.
 \url{https://doi.org/10.1109/MCSE.2007.55}
 
+\bibitem[\citeproctext]{ref-jungCommonFactors2024}
+Jung, W., \& Park, H. (2024). Common factors in the returns on
+cryptocurrencies. \emph{Finance Research Letters}, \emph{65}, 105485.
+\url{https://doi.org/10.1016/j.frl.2024.105485}
+
 \bibitem[\citeproctext]{ref-kellyCharacteristicsAre2019}
 Kelly, B. T., Pruitt, S., \& Su, Y. (2019). Characteristics are
 covariances: A unified model of risk and return. \emph{Journal of
@@ -1226,17 +1271,37 @@ Komsta, L., \& Novomestky, F. (2022). \emph{{moments}: Moments,
 cumulants, skewness, kurtosis and related tests}.
 \url{https://doi.org/10.32614/CRAN.package.moments}
 
+\bibitem[\citeproctext]{ref-lanRiskFactors2025}
+Lan, T., \& Frömmel, M. (2025). Risk factors in cryptocurrency pricing.
+\emph{International Review of Financial Analysis}, \emph{105}, 104389.
+\url{https://doi.org/10.1016/j.irfa.2025.104389}
+
 \bibitem[\citeproctext]{ref-lewellenConditionalCAPM2006}
 Lewellen, J., \& Nagel, S. (2006). The conditional CAPM does not explain
 asset-pricing anomalies. \emph{Journal of Financial Economics},
 \emph{82}(2), 289--314.
 \url{https://doi.org/10.1016/j.jfineco.2005.05.012}
 
+\bibitem[\citeproctext]{ref-liebiThereValue2020}
+Liebi, L. (2020). \emph{Is There a Value Premium in Cryptoasset
+Markets?} (SSRN Scholarly Paper 3718684). Social Science Research
+Network. \url{https://doi.org/10.2139/ssrn.3718684}
+
 \bibitem[\citeproctext]{ref-liuSpotCryptocurrency2024}
 Liu, S., \& Yang, C. (2024). Spot cryptocurrency ETFs: Crypto investment
 products or stepping stones toward tokenization. \emph{Finance Research
 Letters}, \emph{69}, 106150.
 \url{https://doi.org/10.1016/j.frl.2024.106150}
+
+\bibitem[\citeproctext]{ref-liuCommonRisk2020}
+Liu, W., Liang, X., \& Cui, G. (2020). Common risk factors in the
+returns on cryptocurrencies. \emph{Economic Modelling}, \emph{86},
+299--305. \url{https://doi.org/10.1016/j.econmod.2019.09.035}
+
+\bibitem[\citeproctext]{ref-liuRisksReturns2021}
+Liu, Y., \& Tsyvinski, A. (2021). Risks and Returns of Cryptocurrency.
+\emph{The Review of Financial Studies}, \emph{34}(6), 2689--2727.
+\url{https://doi.org/10.1093/rfs/hhaa113}
 
 \bibitem[\citeproctext]{ref-liuCommonRisk2022}
 Liu, Y., Tsyvinski, A., \& Wu, X. (2022). Common Risk Factors in
@@ -1254,11 +1319,6 @@ Mercik, A., Będowska-Sójka, B., Karim, S., \& Zaremba, A. (2025).
 Cross-sectional interactions in cryptocurrency returns.
 \emph{International Review of Financial Analysis}, \emph{97}, 103809.
 \url{https://doi.org/10.1016/j.irfa.2024.103809}
-
-\bibitem[\citeproctext]{ref-moskowitzTimeSeriesMomentum2012}
-Moskowitz, T. J., Ooi, Y. H., \& Pedersen, L. H. (2012). Time series
-momentum. \emph{Journal of Financial Economics}, \emph{104}(2),
-228--250. \url{https://doi.org/10.1016/j.jfineco.2011.11.003}
 
 \bibitem[\citeproctext]{ref-PerformanceAnalytics}
 Peterson, B. G., \& Carl, P. (2024). \emph{{PerformanceAnalytics}:
@@ -1352,7 +1412,7 @@ of Cryptocurrency Returns. \emph{Emerging Markets Finance and Trade},
 \section{Cryptocurrency Characteristics}\label{sec-app_characteristics}
 
 Following Bianchi \& Babiak
-(\citeproc{ref-bianchiMispricingRiskCompensation2021}{2021}), Y. Liu et
+(\citeproc{ref-bianchiMispricingRiskCompensation2021}{2021b}), Y. Liu et
 al. (\citeproc{ref-liuCommonRisk2022}{2022}), and Mercik et al.
 (\citeproc{ref-mercikCrosssectionalInteractionsCryptocurrency2025}{2025}),
 I construct 41 asset-specific characteristics from OHCL prices, volume,
@@ -1439,9 +1499,9 @@ The coin market portfolio is constructed as in \texttt{beta}.
 
 \subsubsection{Trading activity}\label{trading-activity}
 
-\textbf{\texttt{volume}}. Last day's daily trading volume. The trading
-volume is the total amount of a cryptocurrency exchanged in a given day,
-measured in USD.
+\textbf{\texttt{volume}}. Last day's daily trading volume expressed in
+US dollars. The trading volume is the total amount of a cryptocurrency
+exchanged in a given day, measured in USD.
 
 \textbf{\texttt{volume\_*d}}. The average trading volume over the past 7
 and 30 days, denoted \texttt{volume\_7d} and \texttt{volume\_30d},
@@ -1507,8 +1567,6 @@ respectively. Momentum is defined as the cumulative return from the
 previous \(k \in \{7, 14, 21, 30\}\) days up to one day before the
 return prediction.
 
-Moskowitz et al. (\citeproc{ref-moskowitzTimeSeriesMomentum2012}{2012})
-
 \textbf{\texttt{r30\_14}}. Cumulative return from the previous 30 days
 up to 14 days before the return prediction.
 
@@ -1537,6 +1595,24 @@ respectively.
 \textbf{\texttt{minret\_*d}}. The minimum daily return over the past 7
 and 30 days, denoted \texttt{minret\_7d} and \texttt{minret\_30d},
 respectively.
+
+\section{Observable risk factors}\label{sec-obs_factors}
+
+Following Y. Liu et al. (\citeproc{ref-liuCommonRisk2022}{2022}), I
+construct a daily cryptocurrency market return as the value-weighted
+average return of all the cryptocurrencies in the sample. For
+cryptocurrencies \(i = 1, ..., N\), the daily market return at time
+\(t\) is computed as:
+
+\[
+r_t^M = \frac{\sum_{i=1}^N r_{it} \cdot marketcap_{it}}
+             {\sum_{i=1}^N marketcap_{it} }
+\]
+
+The cryptocurrency market excess return is constructed as the difference
+between the cryptocurrency market return and the risk-free rate. To
+proxy the risk-free rate, I used the (daily) 1-month Treasury bill rate
+from the FRED.
 
 \section{Software}\label{sec-software}
 

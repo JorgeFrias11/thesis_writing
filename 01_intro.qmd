@@ -12,7 +12,6 @@ Exhaustive list of predictors for the cross-section of stock returns @fengTaming
 
 mencionar a Ross, que comprobo la estructura lineal de los factores: -- Esto quiza en introduccion
 
-\*\* Ejemplo de frase See for additional discussion of literate programming.\*\*
 
 
 ## Research objective
@@ -28,7 +27,7 @@ Replicate the work of @kellyCharacteristicsAre2019 and @bianchiMispricingRiskCom
 ## Literature review
 
 Hacerla similar a la descripciond e la hipoteca inversa. Mencionar las dos corrientes de litertura: por una parte, los modelos de factores construidos como managed-strategies. Mencionar los modelos de factores mas conocidos, y alguna de la literatura importante en este tema: fama french modelo de tres factores @famaCommonRisk1993, FF modelo de cinco factores @famaFivefactorAsset2015
-Citar la coleccion de Chen and ZImmerman @chenOpenSource2021 con la gran cantidad de factores en su dataset. 
+Citar la coleccion de Chen and ZImmerman @chenOpenSource2021 con la gran cantidad de predictores de retornos, no factores en su dataset. 
 
 Por otra, una corriente basada en la estadistica que construye los factores mediante modelos puramente estadisticos, y que asume que los factores son latentes. Mencionar los dos autores pioneros de PCA: @chamberlainArbitrageFactor1983 and @connorPerformanceMeasurement1986. 
 
@@ -39,6 +38,12 @@ Mencionar modelos recientes con factores dinamicos. Describir brevemente estos m
 @chenCommonRisk2024 aplico el RPCA para el cross-section de diferentes asset-classes. 
 
 Mencionar literatura extensa tratando de entender los factores de riesgo de las criptomonedas, por ejemplo, @mercikCrosssectionalInteractionsCryptocurrency2025, y otros papers que tengo en mis archivos y en notas.
+
+Another factor model @bouriForecastingReturns2022
+@liuCommonRisk2022 and @liuCommonRisk2020, similar find a three factor model based on market, size, and momentum factors. 
+@jungCommonFactors2024 found that @liuCommonRisk2022 three factor model only captures one-third of the variation of cryptocurrency returns. 
+@liuRisksReturns2021 find network factors for cryptocurrencies. 
+@congValuePremium2022 @liebiThereValue2020 value facotr formed on the network-to-market ratio (equivalent to book-to-market ratio from stocks)
 
 @baurCryptoSafe2021 Studies stablecoins as a safe heaven for Bitcoin volatility - safe heavens, but finds theyre not stable. 
 @wangAreStablecoins2020 also investigates if stablecoins are real diversifiers, hedgers or safe heavens. 

@@ -279,6 +279,20 @@ references:
   URL: https://www.sciencedirect.com/science/article/pii/S1544612319312632
   volume: '38'
 
+- id: bianchi2021factor
+  author:
+    - family: Bianchi
+      given: Daniele
+    - family: Babiak
+      given: Mykola
+  citation-key: bianchi2021factor
+  container-title: CERGE-EI Working Paper Series
+  issue: '710'
+  issued:
+    - year: 2021
+  title: A factor model for cryptocurrency returns
+  type: article-journal
+
 - id: bianchiMispricingRiskCompensation2021
   abstract: >-
     We examine the role of systematic mispricing and risk compensation for the
@@ -317,6 +331,82 @@ references:
   title: Mispricing and Risk Compensation in Cryptocurrency Returns
   type: article
   URL: https://papers.ssrn.com/abstract=3935934
+
+- id: bouriForecastingReturns2022
+  abstract: >-
+    The returns of cryptocurrencies tend to co-move, with their degree of
+    co-movement being contingent on the (bullish- or bearish-) states. Given
+    this, we use standard factor models and regime-switching factor loadings to
+    forecast the returns of a specific cryptocurrency based on its lagged
+    information and informational contents of 14 other cryptocurrencies, with
+    these 15 together constituting 65% of the market capitalization. Considering
+    top five cryptocurrencies namely, Bitcoin, Ethereum, Ripple, Dogecoin, and
+    Litecoin, we find significant forecastability and evidence that factor
+    models, in general, outperform the benchmark random-walk model, with the
+    regime-switching versions standing out in the majority of the cases.
+  accessed:
+    - year: 2025
+      month: 8
+      day: 23
+  author:
+    - family: Bouri
+      given: Elie
+    - family: Christou
+      given: Christina
+    - family: Gupta
+      given: Rangan
+  citation-key: bouriForecastingReturns2022
+  container-title: Finance Research Letters
+  container-title-short: Finance Research Letters
+  DOI: 10.1016/j.frl.2022.103193
+  ISSN: 1544-6123
+  issued:
+    - year: 2022
+      month: 10
+      day: 1
+  page: '103193'
+  source: ScienceDirect
+  title: >-
+    Forecasting returns of major cryptocurrencies: Evidence from
+    regime-switching factor models
+  title-short: Forecasting returns of major cryptocurrencies
+  type: article-journal
+  URL: https://www.sciencedirect.com/science/article/pii/S1544612322003993
+  volume: '49'
+
+- id: carhartPersistenceMutual1997
+  abstract: >-
+    Using a sample free of survivor bias, I demonstrate that common factors in
+    stock returns and investment expenses almost completely explain persistence
+    in equity mutual funds' mean and risk-adjusted returns. Hendricks, Patel and
+    Zeckhauser's (1993) “hot hands” result is mostly driven by the one-year
+    momentum effect of Jegadeesh and Titman (1993), but individual funds do not
+    earn higher returns from following the momentum strategy in stocks. The only
+    significant persistence not explained is concentrated in strong
+    underperformance by the worst-return mutual funds. The results do not
+    support the existence of skilled or informed mutual fund portfolio managers.
+  accessed:
+    - year: 2025
+      month: 8
+      day: 24
+  author:
+    - family: Carhart
+      given: Mark M.
+  citation-key: carhartPersistenceMutual1997
+  container-title: The Journal of Finance
+  DOI: 10.1111/j.1540-6261.1997.tb03808.x
+  ISSN: 1540-6261
+  issue: '1'
+  issued:
+    - year: 1997
+  language: en
+  license: © 1997 the American Finance Association
+  page: 57-82
+  source: Wiley Online Library
+  title: On Persistence in Mutual Fund Performance
+  type: article-journal
+  URL: https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1540-6261.1997.tb03808.x
+  volume: '52'
 
 - id: chamberlainArbitrageFactor1983
   abstract: >-
@@ -535,6 +625,50 @@ references:
   title: What is wrapped crypto?
   type: webpage
   URL: https://www.coinbase.com/learn/your-crypto/what-is-wrapped-crypto
+
+- id: congValuePremium2022
+  abstract: >-
+    We document characteristics-based return anomalies in a large cross-section
+    (>4,000) of crypto assets. Cryptocurrency returns exhibit momentum in the
+    largest-cap group, reversals in other size groups, and strong crypto value
+    and network adoption premia, from which we derive two novel factors to add
+    to the cryptocurrency versions of market, size, and momentum factors. The
+    resulting C-5 model outperforms extant models in pricing the cross-section
+    of crypto assets and test portfolios in-sample and out-of-sample. We also
+    provide the first comprehensive classification of all major cryptocurrencies
+    based on their economic functionality. We then adopt methodologies from
+    international finance to demonstrate significant market segmentation across
+    token categories, underscoring the importance for considering token
+    categories in investment and regulatory policymaking.
+  accessed:
+    - year: 2025
+      month: 8
+      day: 24
+  author:
+    - family: Cong
+      given: Lin William
+    - family: Karolyi
+      given: George Andrew
+    - family: Tang
+      given: Ke
+    - family: Zhao
+      given: Weiyi
+  citation-key: congValuePremium2022
+  DOI: 10.2139/ssrn.3985631
+  event-place: Rochester, NY
+  genre: SSRN Scholarly Paper
+  issued:
+    - year: 2022
+      month: 4
+      day: 1
+  language: en
+  number: '3985631'
+  publisher: Social Science Research Network
+  publisher-place: Rochester, NY
+  source: papers.ssrn.com
+  title: Value Premium, Network Adoption, and Factor Pricing of Crypto Assets
+  type: article
+  URL: https://papers.ssrn.com/abstract=3985631
 
 - id: connorPerformanceMeasurement1986
   abstract: >-
@@ -971,6 +1105,42 @@ references:
   URL: https://doi.org/10.1093/rfs/hhi023
   volume: '18'
 
+- id: jungCommonFactors2024
+  abstract: >-
+    We find that the three risk factors of Liu et al. (2022) capture only
+    one-third of the variation in cryptocurrency excess returns. The remaining
+    variation is mostly driven by a single common component that lies outside
+    the three factor model framework. Although we cannot explain this fully
+    using a large set of 135 global macroeconomic and financial variables as
+    candidate proxies, the unknown common component seems to be associated with
+    the value of fiat money. The role of the common component in cryptocurrency
+    valuation becomes more dominant during monetary easing than during
+    tightening periods.
+  accessed:
+    - year: 2025
+      month: 8
+      day: 23
+  author:
+    - family: Jung
+      given: Woosung
+    - family: Park
+      given: Haerang
+  citation-key: jungCommonFactors2024
+  container-title: Finance Research Letters
+  container-title-short: Finance Research Letters
+  DOI: 10.1016/j.frl.2024.105485
+  ISSN: 1544-6123
+  issued:
+    - year: 2024
+      month: 7
+      day: 1
+  page: '105485'
+  source: ScienceDirect
+  title: Common factors in the returns on cryptocurrencies
+  type: article-journal
+  URL: https://www.sciencedirect.com/science/article/pii/S1544612324005154
+  volume: '65'
+
 - id: kellyCharacteristicsAre2019
   abstract: >-
     We propose a new modeling approach for the cross section of returns. Our
@@ -1060,6 +1230,81 @@ references:
   type: article
   URL: https://papers.ssrn.com/abstract=2983919
 
+- id: lanRiskFactors2025
+  abstract: >-
+    This paper investigates the cross-sectional return predictability in the
+    cryptocurrency market by systematically constructing and analyzing a
+    comprehensive set of risk factors. Building on traditional asset pricing
+    literature and the unique tokenomic characteristics of digital assets, we
+    examine eleven key factors, including market, size, momentum, supply
+    dynamics, network activity, computing power, technological attributes,
+    governance decentralization, liquidity, volatility, and behavioral
+    attention. Using quintile portfolio sorting, Fama-MacBeth regressions, and
+    principal component analysis, we evaluate the pricing power and significance
+    of each factor in explaining cryptocurrency returns. Our findings show that
+    several token-specific factors are significantly priced in the cross
+    section, indicating that crypto-assets reflect systematic risks and
+    behavioral influences despite their decentralized nature.
+  accessed:
+    - year: 2025
+      month: 8
+      day: 23
+  author:
+    - family: Lan
+      given: Tian
+    - family: Frömmel
+      given: Michael
+  citation-key: lanRiskFactors2025
+  container-title: International Review of Financial Analysis
+  container-title-short: International Review of Financial Analysis
+  DOI: 10.1016/j.irfa.2025.104389
+  ISSN: 1057-5219
+  issued:
+    - year: 2025
+      month: 9
+      day: 1
+  page: '104389'
+  source: ScienceDirect
+  title: Risk factors in cryptocurrency pricing
+  type: article-journal
+  URL: https://www.sciencedirect.com/science/article/pii/S1057521925004764
+  volume: '105'
+
+- id: leirvikCryptocurrencyReturns2022
+  abstract: >-
+    In this paper I document a positive relation between the volatility of
+    liquidity and expected returns. Specifically, I analyze the relationship
+    between the idiosyncratic volatility of market liquidity and the returns of
+    the five largest cryptocurrencies by market capitalization. I find that the
+    correlation between liquidity volatility and returns is overall
+    significantly positive, but highly time-varying. This implies that investors
+    demand a premium for a high variation in liquidity volatility. I furthermore
+    find that the correlation between returns and the level of liquidity is
+    mostly positive, thus, when liquidity is low, expected returns are high. The
+    results corroborates results from other financial markets.
+  accessed:
+    - year: 2025
+      month: 8
+      day: 23
+  author:
+    - family: Leirvik
+      given: Thomas
+  citation-key: leirvikCryptocurrencyReturns2022
+  container-title: Finance Research Letters
+  container-title-short: Finance Research Letters
+  DOI: 10.1016/j.frl.2021.102031
+  ISSN: 1544-6123
+  issued:
+    - year: 2022
+      month: 1
+      day: 1
+  page: '102031'
+  source: ScienceDirect
+  title: Cryptocurrency returns and the volatility of liquidity
+  type: article-journal
+  URL: https://www.sciencedirect.com/science/article/pii/S1544612321001124
+  volume: '44'
+
 - id: lewellenConditionalCAPM2006
   abstract: >-
     Recent studies suggest that the conditional CAPM holds, period by period,
@@ -1098,6 +1343,83 @@ references:
   URL: https://www.sciencedirect.com/science/article/pii/S0304405X06001371
   volume: '82'
 
+- id: liebiThereValue2020
+  abstract: >-
+    This paper identifies active addresses-to-network value as an additional
+    common risk factor in the returns on cryptoassets. Investigating 652
+    cryptoassets, I find anomalous returns that increase with active
+    addresses-to-network value ratio, a proxy for the value anomaly.
+    Cryptoassets with a high active address to network value ratio yield on
+    average 2.1 percentage points higher weekly returns than cryptoassets with
+    low active addresses to network value ratio, and comparable size. A
+    four-factor model directed at capturing the value pattern in average returns
+    performs better than a three-factor model, including the market, size, and
+    momentum factor.
+  accessed:
+    - year: 2025
+      month: 8
+      day: 24
+  author:
+    - family: Liebi
+      given: Luca
+  citation-key: liebiThereValue2020
+  DOI: 10.2139/ssrn.3718684
+  event-place: Rochester, NY
+  genre: SSRN Scholarly Paper
+  issued:
+    - year: 2020
+      month: 10
+      day: 25
+  language: en
+  number: '3718684'
+  publisher: Social Science Research Network
+  publisher-place: Rochester, NY
+  source: papers.ssrn.com
+  title: Is There a Value Premium in Cryptoasset Markets?
+  type: article
+  URL: https://papers.ssrn.com/abstract=3718684
+
+- id: liuCommonRisk2020
+  abstract: >-
+    This paper identifies three common risk factors in the returns on
+    cryptocurrencies, which are related to cryptocurrency market return, market
+    capitalization (size) and momentum of cryptocurrencies. Investigating a
+    collection of 78 cryptocurrencies, we find that there are anomalous returns
+    that decrease with size and increase with return momentum, and the momentum
+    effect is more significant in small cryptocurrencies. Moreover, Fama-Macbeth
+    regressions show the size and momentum combine to capture the
+    cross-sectional variation in average cryptocurrency returns. In the tests of
+    the three-factor model, we find most cryptocurrencies and their portfolios
+    have significant exposures to the proposed three factors with insignificant
+    intercepts, demonstrating that the three factors explain average
+    cryptocurrency returns very well.
+  accessed:
+    - year: 2025
+      month: 8
+      day: 23
+  author:
+    - family: Liu
+      given: Weiyi
+    - family: Liang
+      given: Xuan
+    - family: Cui
+      given: Guowei
+  citation-key: liuCommonRisk2020
+  container-title: Economic Modelling
+  container-title-short: Economic Modelling
+  DOI: 10.1016/j.econmod.2019.09.035
+  ISSN: 0264-9993
+  issued:
+    - year: 2020
+      month: 3
+      day: 1
+  page: 299-305
+  source: ScienceDirect
+  title: Common risk factors in the returns on cryptocurrencies
+  type: article-journal
+  URL: https://www.sciencedirect.com/science/article/pii/S026499931931020X
+  volume: '86'
+
 - id: liuCommonRisk2022
   abstract: >-
     We find that three factors—cryptocurrency market, size, and momentum—capture
@@ -1135,6 +1457,42 @@ references:
   type: article-journal
   URL: https://onlinelibrary.wiley.com/doi/abs/10.1111/jofi.13119
   volume: '77'
+
+- id: liuRisksReturns2021
+  abstract: >-
+    We establish that cryptocurrency returns are driven and can be predicted by
+    factors that are specific to cryptocurrency markets. Cryptocurrency returns
+    are exposed to cryptocurrency network factors but not cryptocurrency
+    production factors. We construct the network factors to capture the user
+    adoption of cryptocurrencies and the production factors to proxy for the
+    costs of cryptocurrency production. Moreover, there is a strong time-series
+    momentum effect, and proxies for investor attention strongly forecast future
+    cryptocurrency returns.
+  accessed:
+    - year: 2025
+      month: 8
+      day: 23
+  author:
+    - family: Liu
+      given: Yukun
+    - family: Tsyvinski
+      given: Aleh
+  citation-key: liuRisksReturns2021
+  container-title: The Review of Financial Studies
+  container-title-short: Rev Financ Stud
+  DOI: 10.1093/rfs/hhaa113
+  ISSN: 0893-9454
+  issue: '6'
+  issued:
+    - year: 2021
+      month: 6
+      day: 1
+  page: 2689-2727
+  source: Silverchair
+  title: Risks and Returns of Cryptocurrency
+  type: article-journal
+  URL: https://doi.org/10.1093/rfs/hhaa113
+  volume: '34'
 
 - id: liuSpotCryptocurrency2024
   abstract: >-

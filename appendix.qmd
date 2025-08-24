@@ -61,7 +61,7 @@ where $R_i$ is the return on asset $i$, $R_f$ is the risk-free rate, and $CMKT$,
 
 #### Trading activity
 
-**`volume`**. Last day's daily trading volume. The trading volume is the total amount of a cryptocurrency exchanged in a given day, measured in USD.
+**`volume`**. Last day's daily trading volume expressed in US dollars. The trading volume is the total amount of a cryptocurrency exchanged in a given day, measured in USD.
 
 **`volume_*d`**. The average trading volume over the past 7 and 30 days, denoted `volume_7d` and `volume_30d`, respectively. 
 
@@ -113,6 +113,18 @@ $$
 **`maxret_*d`**. The maximum daily return over the past 7 and 30 days, denoted `maxret_7d` and `maxret_30d`, respectively. 
 
 **`minret_*d`**. The minimum daily return over the past 7 and 30 days, denoted `minret_7d` and `minret_30d`, respectively.
+
+## Observable risk factors {#sec-obs_factors}
+
+
+Following @liuCommonRisk2022, I construct a daily cryptocurrency market return as the value-weighted average return of all the cryptocurrencies in the sample. For cryptocurrencies $i = 1, ..., N$, the daily market return at time $t$ is computed as: 
+
+$$
+r_t^M = \frac{\sum_{i=1}^N r_{it} \cdot marketcap_{it}}
+             {\sum_{i=1}^N marketcap_{it} }
+$$
+
+The cryptocurrency market excess return is constructed as the difference between the cryptocurrency market return and the risk-free rate. To proxy the risk-free rate, I used the (daily) 1-month Treasury bill rate from the FRED. 
 
 
 ## Software {#sec-software}

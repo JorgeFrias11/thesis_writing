@@ -103,69 +103,7 @@ The sample period spans several major market, economic, and political events, th
 
 ## Characteristic construction and description {#sec-characteristics}
 
-For the analysis, I construct 41 asset-specific characteristics from the cross-section of 973 cryptocurrencies using data on prices, volume, and market capitalization. Specifically, I follow the methodology of @bianchiMispricingRiskCompensation2021, @liuCommonRisk2022, and @mercikCrosssectionalInteractionsCryptocurrency2025 to replicate and classify a set of characteristics that serve as return predictors in the empirical analysis. Based on economic intuition, I group the characteristics into six categories: market and size, volatility and risk, trading activity, liquidity, past returns, and distribution. Table \ref{tbl-characteristics} summarizes the set of characteristics, while Appendix  [-@sec-app_characteristics] provides a detailed description and the construction procedure.   
-
-
-<!-- ```{=latex} -->
-<!-- \begingroup\fontsize{8.5}{10.5}\selectfont -->
-
-<!-- \begin{longtable}{l>{\raggedright\arraybackslash}p{10em}l>{\raggedright\arraybackslash}p{26em}} -->
-<!-- \caption[Short cap]{\label{tab:unnamed-chunk-1}\textbf{Cryptocurrency characteristics.} This caption is way too long and doesnt look good when formatted in the Table of Contents.  What you really need here is a much shorter caption so that your eyes dont go crazy trying to figure out what information the author is trying to convey.  Often there is too much information in the caption anyway so why not shorten it?. \label{tbl-characteristics}}\\ -->
-<!-- \toprule -->
-<!-- No. & Characteristic & Symbol & Definition\\ -->
-<!-- \midrule -->
-<!-- \addlinespace[0.3em] -->
-<!-- \multicolumn{4}{l}{\textbf{Panel A: Price and size}}\\ -->
-<!-- \hspace{1em}(1) & Market capitalization & mcap & Last day's market capitalization.\\ -->
-<!-- \hspace{1em}(2) & Price & prc & Last day's logged closing price.\\ -->
-<!-- \hspace{1em}(3) & Closeness to the 90-day high & dh90 & Last day's price over the maximum price in the previous 90 days.\\ -->
-<!-- \addlinespace[0.3em] -->
-<!-- \multicolumn{4}{l}{\textbf{Panel B: Volatility \& risk}}\\ -->
-<!-- \hspace{1em}(4) & Market beta & beta & CAPM market beta, estimated from 30 days of daily returns.\\ -->
-<!-- \hspace{1em}(5) & Idiosyncratic volatility & ivol & Volatility of CAPM residuals over 30 days of daily returns.\\ -->
-<!-- \hspace{1em}(6) & 7-day realized volatility & rvol\_7d & Realized volatility, calculated from 7 days of OHCL prices.\\ -->
-<!-- \hspace{1em}(7 & 30-day realized volatility & rvol\_30d & Realized volatility, calculated from 30 days of OHCL prices.\\ -->
-<!-- \hspace{1em}(8) & Return volatility & retvol & Standard deviation of daily returns over 7 days.\\ -->
-<!-- \hspace{1em}(9) & Value-at-Risk & var & The historical Value-at-Risk at 5\% level over 90 days.\\ -->
-<!-- \hspace{1em}(10) & Expected Shortfall & es\_5 & The expected shortfall at the 5\% level over 90 days.\\ -->
-<!-- \hspace{1em}(11) & Price delay & delay & Improvement in \(R^2\) after adding lagged one-and two-day market excecss return to the CAPM.\\ -->
-<!-- \addlinespace[0.3em] -->
-<!-- \multicolumn{4}{l}{\textbf{Panel C: Activity}}\\ -->
-<!-- \hspace{1em}(12) & Trading volume & volume & Last day's daily trading volume.\\ -->
-<!-- \hspace{1em}(13) & Average 7-day volume & volume\_7d & Mean volume over the past 7 days.\\ -->
-<!-- \hspace{1em}(14) & Average 30-day volume & volume\_30d & Mean volume over the past 30 days.\\ -->
-<!-- \hspace{1em}(15) & Turnover & turn & The last day's trading volume over current market capitalization.\\ -->
-<!-- \hspace{1em}(16) & Average 7-day turnover & turn\_7d & Mean turnover over the past 7 days.\\ -->
-<!-- \hspace{1em}(17) & Turnover volatility & std\_turn & Turnover volatility over the past 30 days.\\ -->
-<!-- \hspace{1em}(18) & Trading volume volatility & std\_vol & Volume's logged volatility over the past 30 days.\\ -->
-<!-- \hspace{1em}(19) & Volume's coefficient of variation & cv\_vol & Volume's volatility over its mean in the previous 30 days.\\ -->
-<!-- \addlinespace[0.3em] -->
-<!-- \multicolumn{4}{l}{\textbf{Panel D: Liquidity}}\\ -->
-<!-- \hspace{1em}(20) & Bid-ask spread & bidask & Mean estimated bid-ask spread calculated over the past 30 days.\\ -->
-<!-- \hspace{1em}(21) & Illiquidity & illiq & Mean absolute daily return over trading volume over the past 30 days.\\ -->
-<!-- \hspace{1em}(22) & Standardized abnormal turnover & sat & Last day's turnover minus its 30-day average, divided its volatility over 30 days.\\ -->
-<!-- \hspace{1em}(23) & De-trended turnover & dto & De-trended turnover minus the value-weighted daily market turnover.\\ -->
-<!-- \hspace{1em}(24) & Volume Shock 15-day & volsh\_15d & Log deviation of trading volume from its rolling 15-day average.\\ -->
-<!-- \hspace{1em}(25) & Voume Shock 30-day & volsh\_30d & Log deviation of trading volume from its rolling 30-day average.\\ -->
-<!-- \addlinespace[0.3em] -->
-<!-- \multicolumn{4}{l}{\textbf{Panel E: Past returns}}\\ -->
-<!-- \hspace{1em}(26) & Daily reversal & r2\_1 & Return on the previous trading day.\\ -->
-<!-- \hspace{1em}(27-30) & Momentum & r*\_1 & 7, 14, 21, and 30-day cumulative return ending 1 day before the prediction date.\\ -->
-<!-- \hspace{1em}(31) & Intermediate momentum & r30\_14 & Cumulative return from 30 to 14 days before the prediction date.\\ -->
-<!-- \hspace{1em}(32) & Long-term reversal & r180\_60 & Cumulative return from 180 to 60 days before the prediction date.\\ -->
-<!-- \hspace{1em}(33) & CAPM alpha & alpha & CAPM intercept, estimated from 30 days of daily returns.\\ -->
-<!-- \addlinespace[0.3em] -->
-<!-- \multicolumn{4}{l}{\textbf{Panel F: Distribution}}\\ -->
-<!-- \hspace{1em}(34-35) & Skewness & skew\_*d & Skewness of the daily return distribution over a 15 and 30-day period.\\ -->
-<!-- \hspace{1em}(36-37) & Kurtosis & kurt\_*d & Kurtosis of the daily return distribution over a 15 and 30-day period.\\ -->
-<!-- \hspace{1em}(38-39) & Maximum daily return & maxret\_*d & The maximum daily return in the past 7 and 30 days.\\ -->
-<!-- \hspace{1em}(40-41) & Minimum daily return & minret\_*d & The minimum daily return in the oast 7 and 30 days.\\ -->
-<!-- \bottomrule -->
-<!-- \end{longtable} -->
-<!-- \endgroup{} -->
-
-<!-- ``` -->
-
+For the analysis, I construct 41 asset-specific characteristics from the cross-section of 973 cryptocurrencies using data on prices, volume, and market capitalization. Specifically, I follow the methodology of @bianchiMispricingRiskCompensation2021, @liuCommonRisk2022, and @mercikCrosssectionalInteractionsCryptocurrency2025 to construct the set of characteristics widely used in the cryptocurrency and financial literature, which serve as return predictors in the empirical analysis. These characteristics are grouped into six categories: market and size, volatility and risk, trading activity, liquidity, past returns, and distribution. Table \ref{tbl-characteristics} summarizes the set of characteristics, while Appendix  [-@sec-app_characteristics] provides detailed definitions and construction procedures.   
 
 ```{r}
 #| echo: FALSE
@@ -216,7 +154,7 @@ definitions <- tribble(
   "(11)",   "delay",       "Price delay",                "Improvement in \\(R^2\\) after adding lagged one-and two-day market excecss return to the CAPM.",
 
   # ---- Trading activity ----
-  "(12)",   "volume",      "Trading volume",             "Last day's daily trading volume.",
+  "(12)",   "volume",      "Trading volume",             "Last day's daily trading volume in US dollars.",
   "(13)",   "volume_*d",   "Average volume",       "Mean volume over the past 7 and 30 days.",
   #"(14)",   "volume_30d",  "Average 30-day volume",      "Mean volume over the past 30 days.",
   "(15)",   "turn",        "Turnover",                   "The last day's trading volume over current market capitalization.",
@@ -296,27 +234,8 @@ k
 ```
 
 
+## Observable risk factors
 
+In addition to the set of characteristics described above, I construct a set of observable risk factors. In the asset pricing literature, the convention is to analyze the risk compensation of asset returns using factor-mimicking portfolio [e.g. @famaCommonRisk1993; @carhartPersistenceMutual1997; @famaFivefactorAsset2015]. This typically involves sorting assets cross-sectionally into quintiles based on a specific characteristic and forming a factor return, calculated as the difference in returns between the top and the bottom quintiles. This approach replicates a strategy that buys the portfolio of assets with high values of a particular characteristic (long), and sells the portfolio with the lowest values (short). 
 
-
-This is more related to factor construction. 
-
-Organize week in the following way: the first seven days of the year forms the first week, and the first 51 weeks of the year consists of 7 days each. The 52th week of the year consists of the last eight days and, in case of a leap year (as 2016, 2020, and 2024), of nine days. 
-
-Following @liuCommonRisk2022, I construct a daily cryptocurrency market return as the value-weighted average return of all the cryptocurrencies in the sample. For cryptocurrencies $i = 1, ..., N$, the daily market return at time $t$ is computed as: 
-
-$$
-r_t^M = \frac{\sum_{i=1}^N r_{it} \cdot marketcap_{it}}
-             {\sum_{i=1}^N marketcap_{it} }
-$$
-
-The cryptocurrency market excess return is constructed as the difference between the cryptocurrency market return and the risk-free rate. To proxy the risk-free rate, I used the (daily) 1-month Treasury bill rate from the FRED. 
-
-
-
-Write this in the following section of "Empirical application" or 
-This is for the model:
-7. (Still undecisive) Minimum cross-section. Following the criterion by Kelly, I 
-Convert variables in the -0.5 - 0.5 range
-    
-The sample period ranges from January 1st, 2014, to May 31st, 2025.  
+Building on this methodology, I construct a series of observable risk factors that prior literature have shown to explain the cross-section of cryptocurrency returns. Specifically, I include the market, size, momentum, liquidity, and volatility factors, following @liuCommonRisk2022, @bianchi2021factor, and @lanRiskFactors2025. Details on their construction are provided in [Appendix -@sec-obs_factors]. As described in [Section -@sec-methodology], the IPCA allows for the inclusion of pre-specified within the more general model specification. I make use of this feature and pre-specify the observable factors in the IPCA model, with and without using asset-characteristics to instrument for dynamic loadings. 

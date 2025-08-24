@@ -1,4 +1,4 @@
-# Methodology
+# Methodology {#sec-methodology}
 
 The Instrumented Principal Component Analysis (IPCA) model was introduced in the seminal work of @kellyCharacteristicsAre2019 [; @kellyInstrumentedPrincipal2020]. The main model used in this thesis is the IPCA with different $K$ number of factors
 

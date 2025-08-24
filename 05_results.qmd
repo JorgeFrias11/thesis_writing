@@ -1,5 +1,13 @@
 ## Results
 
+
+Write this in the following section of "Empirical application" or 
+This is for the model:
+7. (Still undecisive) Minimum cross-section. Following the criterion by Kelly, I 
+Convert variables in the -0.5 - 0.5 range
+    
+The sample period ranges from January 1st, 2014, to May 31st, 2025.  
+
 Implemented in python, based on the IPCA python code of Seth Pruitt ^[See https://sethpruitt.net/research/.] and the `ipca` python package of @ipca ^[See https://bkelly-lab.github.io/ipca/.].
 
 Following @kellyCharacteristicsAre2019, I cross-sectionally transform the instrument variables period-by-period in the following manner: first,  
