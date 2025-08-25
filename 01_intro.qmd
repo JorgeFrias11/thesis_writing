@@ -1,20 +1,12 @@
 # Introduction
 
-En alta volatilidad, quiza incluso mencionar los tweets de Elon Musk, por ejemplo, diciendo que Tesla no aceptaria pagos con bitcoin debido al alto costo energetico asociado con su mineria, causando una baja de los precios
+The first cryptocurrency, Bitcoin, was created in 2009 by Satoshi Nakamoto, who presented it as a peer-to-peer electronic coin with secured and verified transactions through an encrypted proof-of-work mechanism [@nakamoto2008bitcoin]. As originally proposed, Bitcoin was designed as an alternative, decentralized cash system offering low-cost and near-real-time transactions, while avoiding currency controls imposed by national governments or financial institutions^[Contrary to the common belief, Bitcoin is not anonymous. All Bitcoin transactions are publicly visible in the network and only the identity of the user behind a Bitcoin address is unknown, until their idendity is revealed through a pruchase or another action. See @meiklejohnFistfulBitcoins2013 and https://bitcoin.org/en/you-need-to-know.] [@dwyerEconomicsBitcoin2015]. These features quickly attracted widespread public attention. However, due to its high volatility, researchers have questioned its role as a purely digital currency and instead classified it as an investment or speculative asset [@baurBitcoinMedium2018; @glaserBitcoinAsset2014; @baurVolatilityBitcoin2021].
 
-Mirar Liu et al (y el otro paper similar) donde habla de las criptomonedas, e inspirarnos de ahi. Quiza la otra tesis en esto tambien.
+Since then, the cryptocurrency market has expanded rapidly, giving rise to thousands of new coins. In the second quarter of 2025, the total cryptocurrency market capitalization amounted to nearly 3.5 trillion USD, according to data from @coingecko2025Q2. Despite this rapid growth, perceptions of cryptocurrencies remain divided. Some view them as investments tied to the underlying technologies, such as blockchain and smart contracts, or simply as a form of speculation [@vasudevaCryptocurrencyInvestment2023; @baekBitcoinsInvestment2015]. Others, however, see them as bubbles, fraud schemes, or scams, often driven by internet and social media marketing—for example, rug pulls involving so-called “memecoins,” or, more recently, the LIBRA cryptocurrency scandal in February 2025, when the coin was promoted by Argentinian president Javier Milei, soared in value, and collapsed only a few hours later [@kalachevaDetectingRug2025; @nicasMilei$Melania2025; @yaffe-bellanyDigitalCoin2024].
 
-Empezar con una introduccion de criptomonedas, del mercado, de la gran volatilidad, grandes retornos. Mencionar coin Market cap, la capitalizacion del mercado total de criptomonedas.
+As mentioned earlier, a key characteristic of cryptocurrencies is their high volatility, which greatly exceeds that of other traditional assets such as equity indices, gold, silver, foreign exchange currencies, and commodities  [@conlonAreCryptocurrencies2020; @kleinBitcoinNot2018]. According to the standard asset pricing theory, investors should be compensated for bearing such risks. The principle that higher risk should be associated with higher expected returns is central in finance, beginning with the capital asset pricing model (CAPM) of @sharpeCapitalAsset1964 and @lintnerValuationRisk1965, and later extended by @mertonIntertemporalCapital1973 and @rossArbitrageTheory1976. This motivates the central question of this thesis: to what extent can the cross-section of cryptocurrency returns be explained by systematic risk factors, and how does this compare to the role of asset-specific characteristics in predicting returns?
 
-Mencionar articulos o reportes donde mencionen la importancia de este mercado, cuantas personas en promedio tienen criptos en su portafolio. Mencionar sucesos recientes importantes, como la introduccion de criptomonedas en algunos exchanges, de futuros en CME, de indices en XXX, del boom en la crisis de COVID (ver Mercik, donde menciona sucesos importantes).
-
-Exhaustive list of predictors for the cross-section of stock returns @fengTamingFactor2020 @chenOpenSource2021
-
-mencionar a Ross, que comprobo la estructura lineal de los factores: -- Esto quiza en introduccion
-
-
-
-## Research objective
+The purpose of this thesis is to ... study the research articles on the theme to identify the relevant bibliometric trends such as
 
 The main questions addressed in this thesis are: 
 
@@ -26,12 +18,24 @@ Replicate the work of @kellyCharacteristicsAre2019 and @bianchiMispricingRiskCom
 
 ## Literature review
 
+
+
+La alta volatilidad, quiza incluso mencionar los tweets de Elon Musk, por ejemplo, diciendo que Tesla no aceptaria pagos con bitcoin debido al alto costo energetico asociado con su mineria, causando una baja de los precios @huynhWhenElon2023
+
+
+
+mencionar a Ross, que comprobo la estructura lineal de los factores: -- Esto quiza en introduccion
+
+Exhaustive list of predictors for the cross-section of stock returns @fengTamingFactor2020 @chenOpenSource2021
+
 Hacerla similar a la descripciond e la hipoteca inversa. Mencionar las dos corrientes de litertura: por una parte, los modelos de factores construidos como managed-strategies. Mencionar los modelos de factores mas conocidos, y alguna de la literatura importante en este tema: fama french modelo de tres factores @famaCommonRisk1993, FF modelo de cinco factores @famaFivefactorAsset2015
 Citar la coleccion de Chen and ZImmerman @chenOpenSource2021 con la gran cantidad de predictores de retornos, no factores en su dataset. 
 
 Por otra, una corriente basada en la estadistica que construye los factores mediante modelos puramente estadisticos, y que asume que los factores son latentes. Mencionar los dos autores pioneros de PCA: @chamberlainArbitrageFactor1983 and @connorPerformanceMeasurement1986. 
 
 Mencionar modelos recientes con factores dinamicos. Describir brevemente estos modelos de PCA, y despues propuestas de modelacion de factores latentes dinamicos. Entre estos, hablar de @kellyCharacteristicsAre2019, que propuso el modelo dinamico de factores, y mas recientemente, RPCA @chenSemiparametricConditional2022 @chenCommonRisk2024, inspirado en regressiones de fama macbeth, que hace una combinacion de este modelo mas una implementacion de PCA. 
+
+@congValuePremium2022 5 factor model with aditional value and network factors, and highlight the importance of the value and network factors for the valuation of cryptocurrencies. 
 
 @bianchiMispricingRiskCompensation2021 aplicaron el modelo de Kelly en el mercado de criptos, mencionar otros papers que utilizaron el IPCA (hay otros de Kelly que lo uso para bonos y opciones, investigar)
 
@@ -52,8 +56,8 @@ Another factor model @bouriForecastingReturns2022
 
 ## Data concerns
 
-One of the main challenges in this thesis was obtaining a large panel of cryptocurrency data. I extracted market data from the free [CoinCodex](https://coincodex.com/) API,which provides access to the full historical data of the cryptocurrencies listed on its platform. In contrast, most crypto market data providers --also called coin-ranking sites, such as CoinMarketCap, CoinGecko, CryptoCompare (CoinDesk)-- offer limited access to historical data (usually one year) or none at all without a paid subscription. Some exchange platforms, such as Bybit, Binance, Coinbase, and Cex, allow users to extract market data for free through their public APIs. However, the number of cryptocurrencies (and thus, the cross-section) available from these sources was relatively small compared with CoinCoidex, and the time span was shorter ^[For example, bitcoin data started from late 2013 in CoinCodex, compared to November, 2022 in Bybit, January, 2019, in Binance, and June, 2021, in Coinbase. The available cryptocurrencies paired with Tether USD (USD) were 763 in Bybit, 623 in Binance, and 116 (USD) in Coinbase.]. 
+One of the main challenges in this thesis was obtaining a large panel of cryptocurrency data. I extracted market data from the free [CoinCodex](https://coincodex.com/) API, which provides access to the full historical data of the cryptocurrencies listed on its platform. In contrast, most crypto market data providers --also called coin-ranking sites, such as CoinMarketCap, CoinGecko, CryptoCompare (CoinDesk)-- offer limited access to historical data (usually one year) or none at all without a paid subscription. Some exchange platforms, such as Bybit, Binance, Coinbase, and Cex, allow users to extract market data for free through their public APIs. However, the number of cryptocurrencies (and thus, the cross-section) available from these sources was relatively small compared with CoinCoidex, and the time span was shorter ^[For example, Bitcoin data started from late 2013 in CoinCodex, compared to November, 2022 in Bybit, January, 2019, in Binance, and June, 2021, in Coinbase. The available cryptocurrencies paired with Tether USD (USD) were 763 in Bybit, 623 in Binance, and 116 (USD) in Coinbase.]. 
 
-The choice of which data source is appropriate for scientific research is subject to debate. For example, @alexanderCriticalInvestigation2020 examine different cryptocurrency data providers and find inconsistencies in regression estimates, suggesting that the source of cryptocurrency data can influence empirical results.  Moreover, they document distorted coin prices on coin-ranking sites, caused by inflated or artificial trading volumes^[Coin-ranking sites rank coins and exchanges by trading volume and market capitalization. As highlighted by @alexanderCriticalInvestigation2020, the prices quoted on some of these sites are calculated by aggregating the prices from hundreds of exchanges using a volume-weighted average. Because many exchanges artificially inflate their volume to boost their position in the rankings, the resulting aggregated prices are influenced by fake volumes and therefore inconsistent with traded prices.], emphasizing the importance of using traded data from crypto exchanges. By contrast, @vidal-tomasWhichCryptocurrency2022 argue that coin-ranking sites use the same underlying process as crypto exchanges and other platforms to compute a cryptocurrency price, and they report no significant differences in empirical results when using alternative data sources. To address these concerns, I apply a series of pre-processing filters, described in @sec-data, to mitigate the impact of potential inaccuracies in my dataset. 
+The choice of which data source is appropriate for scientific research is subject to debate. For example, @alexanderCriticalInvestigation2020 examine different cryptocurrency data providers and find inconsistencies in regression estimates, suggesting that the source of cryptocurrency data can influence empirical results.  Moreover, they document distorted coin prices on coin-ranking sites, caused by inflated or artificial trading volumes^[Coin-ranking sites rank coins and exchanges by trading volume and market capitalization. As highlighted by @alexanderCriticalInvestigation2020, the prices quoted on some of these sites are calculated by aggregating the prices from hundreds of exchanges using a volume-weighted average. Because many exchanges artificially inflate their volume to boost their position in the rankings, the resulting aggregated prices are influenced by fake volumes and therefore inconsistent with traded prices.], emphasizing the importance of using traded data from crypto exchanges. By contrast, @vidal-tomasWhichCryptocurrency2022 argue that coin-ranking sites use the same underlying process as crypto exchanges and other platforms to compute a cryptocurrency price, and they report no significant differences in empirical results when using alternative data sources. To address these concerns, I apply a series of pre-processing filters, described in [Section -@sec-data], to mitigate the impact of potential inaccuracies in my dataset. 
 
-
+The remainder of the thesis is structured as follows. Section 2 summarizes the IPCA model, the estimation strategy and the performance measures applied in the analysis. Section 3 describes the data extraction and the sample construction process. Section 4 presents the empirical findings, and Section 5 concludes. 

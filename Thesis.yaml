@@ -243,6 +243,83 @@ references:
   type: article
   URL: https://papers.ssrn.com/abstract=4291073
 
+- id: baekBitcoinsInvestment2015
+  abstract: >-
+    We use Bitcoin and S&P 500 Index daily return data to examine relative
+    volatility using detrended ratios. We then model Bitcoin market returns with
+    selected economic variables to study the drivers of Bitcoin market returns.
+    We report strong evidence to suggest that Bitcoin volatility is internally
+    (buyer and seller) driven leading to the conclusion that the Bitcoin market
+    is highly speculative at present.
+  accessed:
+    - year: 2025
+      month: 8
+      day: 25
+  author:
+    - family: Baek
+      given: C.
+    - family: Elbeck
+      given: M.
+  citation-key: baekBitcoinsInvestment2015
+  container-title: Applied Economics Letters
+  DOI: 10.1080/13504851.2014.916379
+  ISSN: 1350-4851
+  issue: '1'
+  issued:
+    - year: 2015
+      month: 1
+      day: 2
+  page: 30-34
+  publisher: Routledge
+  source: Taylor and Francis+NEJM
+  title: Bitcoins as an investment or speculative vehicle? A first look
+  title-short: Bitcoins as an investment or speculative vehicle?
+  type: article-journal
+  URL: https://doi.org/10.1080/13504851.2014.916379
+  volume: '22'
+
+- id: baurBitcoinMedium2018
+  abstract: >-
+    Bitcoin is defined as digital money within a decentralized peer-to-peer
+    payment network. It is a hybrid between fiat currency and commodity currency
+    without intrinsic value and independent of any government or monetary
+    authority. This paper analyses the question of whether Bitcoin is a medium
+    of exchange or an asset and more specifically, what is its current usage and
+    what usage will prevail in the future given its characteristics. We analyse
+    the statistical properties of Bitcoin and find that it is uncorrelated with
+    traditional asset classes such as stocks, bonds and commodities both in
+    normal times and in periods of financial turmoil. The analysis of
+    transaction data of Bitcoin accounts shows that Bitcoins are mainly used as
+    a speculative investment and not as an alternative currency and medium of
+    exchange.
+  accessed:
+    - year: 2025
+      month: 8
+      day: 25
+  author:
+    - family: Baur
+      given: Dirk G.
+    - family: Hong
+      given: KiHoon
+    - family: Lee
+      given: Adrian D.
+  citation-key: baurBitcoinMedium2018
+  container-title: Journal of International Financial Markets, Institutions and Money
+  container-title-short: Journal of International Financial Markets, Institutions and Money
+  DOI: 10.1016/j.intfin.2017.12.004
+  ISSN: 1042-4431
+  issued:
+    - year: 2018
+      month: 5
+      day: 1
+  page: 177-189
+  source: ScienceDirect
+  title: 'Bitcoin: Medium of exchange or speculative assets?'
+  title-short: Bitcoin
+  type: article-journal
+  URL: https://www.sciencedirect.com/science/article/pii/S1042443117300720
+  volume: '54'
+
 - id: baurCryptoSafe2021
   abstract: >-
     The design of Bitcoin is closely related to gold which has led to the idea
@@ -278,6 +355,46 @@ references:
   type: article-journal
   URL: https://www.sciencedirect.com/science/article/pii/S1544612319312632
   volume: '38'
+
+- id: baurVolatilityBitcoin2021
+  abstract: >-
+    Bitcoin is designed as a peer-to-peer cash system. To work as a currency, it
+    must be stable or be backed by a government. In this paper, we show that the
+    volatility of Bitcoin prices is extreme and almost 10 times higher than the
+    volatility of major exchange rates (US dollar against the euro and the yen).
+    The excess volatility even adversely affects its potential role in
+    portfolios. Our analysis implies that Bitcoin cannot function as a medium of
+    exchange and has only limited use as a risk-diversifier. In contrast, we use
+    the deflationary design of Bitcoin as a theoretical basis and demonstrate
+    that Bitcoin displays store of value characteristics over long horizons.
+  accessed:
+    - year: 2025
+      month: 8
+      day: 25
+  author:
+    - family: Baur
+      given: Dirk G.
+    - family: Dimpfl
+      given: Thomas
+  citation-key: baurVolatilityBitcoin2021
+  container-title: Empirical Economics
+  container-title-short: Empir Econ
+  DOI: 10.1007/s00181-020-01990-5
+  ISSN: 1435-8921
+  issue: '5'
+  issued:
+    - year: 2021
+      month: 11
+      day: 1
+  language: en
+  page: 2663-2683
+  source: Springer Link
+  title: >-
+    The volatility of Bitcoin and its role as a medium of exchange and a store
+    of value
+  type: article-journal
+  URL: https://doi.org/10.1007/s00181-020-01990-5
+  volume: '61'
 
 - id: bianchi2021factor
   author:
@@ -449,6 +566,41 @@ references:
   type: article-journal
   URL: https://www.jstor.org/stable/1912275
   volume: '51'
+
+- id: cheahSpeculativeBubbles2015
+  abstract: >-
+    Amid its rapidly increasing usage and immense public interest the subject of
+    Bitcoin has raised profound economic and societal issues. In this paper we
+    undertake economic and econometric modelling of Bitcoin prices. As with many
+    asset classes we show that Bitcoin exhibits speculative bubbles. Further, we
+    find empirical evidence that the fundamental price of Bitcoin is zero.
+  accessed:
+    - year: 2025
+      month: 8
+      day: 25
+  author:
+    - family: Cheah
+      given: Eng-Tuck
+    - family: Fry
+      given: John
+  citation-key: cheahSpeculativeBubbles2015
+  container-title: Economics Letters
+  container-title-short: Economics Letters
+  DOI: 10.1016/j.econlet.2015.02.029
+  ISSN: 0165-1765
+  issued:
+    - year: 2015
+      month: 5
+      day: 1
+  page: 32-36
+  source: ScienceDirect
+  title: >-
+    Speculative bubbles in Bitcoin markets? An empirical investigation into the
+    fundamental value of Bitcoin
+  title-short: Speculative bubbles in Bitcoin markets?
+  type: article-journal
+  URL: https://www.sciencedirect.com/science/article/pii/S0165176515000890
+  volume: '130'
 
 - id: chenCommonRisk2024
   abstract: >-
@@ -626,6 +778,21 @@ references:
   type: webpage
   URL: https://www.coinbase.com/learn/your-crypto/what-is-wrapped-crypto
 
+- id: coingecko2025Q2
+  abstract: Get all past crypto reports and industry research materials by CoinGecko
+  accessed:
+    - year: 2025
+      month: 7
+      day: 25
+  author:
+    - literal: CoinGecko
+  citation-key: coingecko2025Q2
+  container-title: CoinGecko Cryptocurrency Reports
+  language: en
+  title: 2025 Q2 Crypto Industry Report
+  type: webpage
+  URL: https://www.coingecko.com/en/publications/reports
+
 - id: congValuePremium2022
   abstract: >-
     We document characteristics-based return anomalies in a large cross-section
@@ -669,6 +836,51 @@ references:
   title: Value Premium, Network Adoption, and Factor Pricing of Crypto Assets
   type: article
   URL: https://papers.ssrn.com/abstract=3985631
+
+- id: conlonAreCryptocurrencies2020
+  abstract: >-
+    The COVID-19 pandemic provided the first widespread bear market conditions
+    since the inception of cryptocurrencies. We test the widely mooted safe
+    haven properties of Bitcoin, Ethereum and Tether from the perspective of
+    international equity index investors. Bitcoin and Ethereum are not a safe
+    haven for the majority of international equity markets examined, with their
+    inclusion adding to portfolio downside risk. Only investors in the Chinese
+    CSI 300 index realized modest downside risk benefits (contingent on very
+    limited allocations to Bitcoin or Ethereum). As Tether successfully
+    maintained its peg to the US dollar during the COVID-19 turmoil, it acted as
+    a safe haven investment for all of the international indices examined. We
+    caveat the latter findings with a warning that Tether's dollar peg has not
+    always been maintained, with evidence of impaired downside risk hedging
+    properties earlier in our sample.
+  accessed:
+    - year: 2025
+      month: 8
+      day: 25
+  author:
+    - family: Conlon
+      given: Thomas
+    - family: Corbet
+      given: Shaen
+    - family: McGee
+      given: Richard J.
+  citation-key: conlonAreCryptocurrencies2020
+  container-title: Research in International Business and Finance
+  container-title-short: Research in International Business and Finance
+  DOI: 10.1016/j.ribaf.2020.101248
+  ISSN: 0275-5319
+  issued:
+    - year: 2020
+      month: 12
+      day: 1
+  page: '101248'
+  source: ScienceDirect
+  title: >-
+    Are cryptocurrencies a safe haven for equity markets? An international
+    perspective from the COVID-19 pandemic
+  title-short: Are cryptocurrencies a safe haven for equity markets?
+  type: article-journal
+  URL: https://www.sciencedirect.com/science/article/pii/S0275531920304438
+  volume: '54'
 
 - id: connorPerformanceMeasurement1986
   abstract: >-
@@ -754,6 +966,48 @@ references:
   URL: https://www.sciencedirect.com/science/article/pii/S1386418197000049
   volume: '1'
 
+- id: dwyerEconomicsBitcoin2015
+  abstract: >-
+    Recent innovations have made it feasible to transfer private digital
+    currency without the intervention of an organization such as a bank. Any
+    currency must prevent users from spending their balances more than once,
+    which is easier said than done with purely digital currencies. Current
+    digital currencies such as Bitcoin use peer-to-peer networks and open source
+    software to stop double spending and create finality of transactions. This
+    paper explains how the use of these technologies and limitation of the
+    quantity produced can create an equilibrium in which a digital currency has
+    a positive value. This paper also summarizes the rise of 24/7 trading on
+    computerized markets in Bitcoin in which there are no brokers or other
+    agents. The average monthly volatility of returns on Bitcoin is higher than
+    for gold or a set of foreign currencies in dollars, but the lowest monthly
+    volatilities for Bitcoin are less than the highest monthly volatilities for
+    gold and the foreign currencies.
+  accessed:
+    - year: 2025
+      month: 8
+      day: 25
+  author:
+    - family: Dwyer
+      given: Gerald P.
+  citation-key: dwyerEconomicsBitcoin2015
+  collection-title: >-
+    Special Issue: Instead of the Fed: Past and Present Alternatives to the
+    Federal Reserve System
+  container-title: Journal of Financial Stability
+  container-title-short: Journal of Financial Stability
+  DOI: 10.1016/j.jfs.2014.11.006
+  ISSN: 1572-3089
+  issued:
+    - year: 2015
+      month: 4
+      day: 1
+  page: 81-91
+  source: ScienceDirect
+  title: The economics of Bitcoin and similar private digital currencies
+  type: article-journal
+  URL: https://www.sciencedirect.com/science/article/pii/S1572308914001259
+  volume: '17'
+
 - id: famaCommonRisk1993
   abstract: >-
     This paper identifies five common risk factors in the returns on stocks and
@@ -790,6 +1044,30 @@ references:
   type: article-journal
   URL: https://www.sciencedirect.com/science/article/pii/0304405X93900235
   volume: '33'
+
+- id: famaEfficientCapital1970
+  accessed:
+    - year: 2025
+      month: 8
+      day: 25
+  author:
+    - family: Fama
+      given: Eugene F.
+  citation-key: famaEfficientCapital1970
+  container-title: The Journal of Finance
+  DOI: 10.2307/2325486
+  ISSN: 0022-1082
+  issue: '2'
+  issued:
+    - year: 1970
+  page: 383-417
+  publisher: '[American Finance Association, Wiley]'
+  source: JSTOR
+  title: 'Efficient Capital Markets: A Review of Theory and Empirical Work'
+  title-short: Efficient Capital Markets
+  type: article-journal
+  URL: https://www.jstor.org/stable/2325486
+  volume: '25'
 
 - id: famaFivefactorAsset2015
   abstract: >-
@@ -1030,6 +1308,52 @@ references:
   URL: https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1540-6261.2004.00695.x
   volume: '59'
 
+- id: glaserBitcoinAsset2014
+  abstract: >-
+    Digital currencies are a globally spreading phenomenon that is frequently
+    and also prominently addressed by media, venture capitalists, financial and
+    governmental institutions alike. As exchange prices for Bitcoin have reached
+    multiple peaks within 2013, we pose a prevailing and yet academically
+    unaddressed question: What are users' intentions when changing their
+    domestic into a digital currency? In particular, this paper aims at giving
+    empirical insights on whether users’ interest regarding digital currencies
+    is driven by its appeal as an asset or as a currency. Based on our
+    evaluation, we find strong indications that especially uninformed users
+    approaching digital currencies are not primarily interested in an
+    alternative transaction system but seek to participate in an alternative
+    investment vehicle.
+  accessed:
+    - year: 2025
+      month: 8
+      day: 25
+  author:
+    - family: Glaser
+      given: Florian
+    - family: Zimmermann
+      given: Kai
+    - family: Haferkorn
+      given: Martin
+    - family: Weber
+      given: Moritz Christian
+    - family: Siering
+      given: Michael
+  citation-key: glaserBitcoinAsset2014
+  event-place: Rochester, NY
+  genre: SSRN Scholarly Paper
+  issued:
+    - year: 2014
+      month: 4
+      day: 15
+  language: en
+  number: '2425247'
+  publisher: Social Science Research Network
+  publisher-place: Rochester, NY
+  source: papers.ssrn.com
+  title: Bitcoin - Asset or Currency? Revealing Users' Hidden Intentions
+  title-short: Bitcoin - Asset or Currency?
+  type: article
+  URL: https://papers.ssrn.com/abstract=2425247
+
 - id: hoangHowStable2024
   abstract: >-
     This paper analyzes the stability of stablecoins and proposes a framework to
@@ -1105,6 +1429,95 @@ references:
   URL: https://doi.org/10.1093/rfs/hhi023
   volume: '18'
 
+- id: huynhWhenElon2023
+  abstract: >-
+    We present a textual analysis that explains how Elon Musk’s sentiments in
+    his Twitter content correlates with price and volatility in the Bitcoin
+    market using the dynamic conditional correlation-generalized autoregressive
+    conditional heteroscedasticity model, allowing less sensitive to window size
+    than traditional models. After examining 10,850 tweets containing 157,378
+    words posted from December 2017 to May 2021 and rigorously controlling other
+    determinants, we found that the tone of the world’s wealthiest person can
+    drive the Bitcoin market, having a Granger causal relation with returns. In
+    addition, Musk is likely to use positive words in his tweets, and reversal
+    effects exist in the relationship between Bitcoin prices and the optimism
+    presented by Tesla’s CEO. However, we did not find evidence to support
+    linkage between Musk’s sentiments and Bitcoin volatility. Our results are
+    also robust when using a different cryptocurrency, i.e., Ether this paper
+    extends the existing literature about the mechanisms of social media content
+    generated by influential accounts on the Bitcoin market.
+  accessed:
+    - year: 2025
+      month: 8
+      day: 25
+  author:
+    - family: Huynh
+      given: Toan Luu Duc
+  citation-key: huynhWhenElon2023
+  container-title: Computational Economics
+  container-title-short: Comput Econ
+  DOI: 10.1007/s10614-021-10230-6
+  ISSN: 1572-9974
+  issue: '2'
+  issued:
+    - year: 2023
+      month: 8
+      day: 1
+  language: en
+  page: 639-661
+  source: Springer Link
+  title: When Elon Musk Changes his Tone, Does Bitcoin Adjust Its Tune?
+  type: article-journal
+  URL: https://doi.org/10.1007/s10614-021-10230-6
+  volume: '62'
+
+- id: jiSearchingSafehaven2020
+  abstract: >-
+    The ongoing COVID-19 pandemic has shaken the global financial system and
+    caused great turmoil. Facing unprecedented risks in the markets, people have
+    increasing needs to find a safe haven for their investments. Given that the
+    nature of this crisis is a combination of multiple problems, it is
+    substantially different from all other financial crises known to us. It is
+    therefore urgent to re-evaluate the safe-haven role of some traditional
+    asset types, namely, gold, cryptocurrency, foreign exchange and commodities.
+    This paper introduces a sequential monitoring procedure to detect changes in
+    the left-quantiles of asset returns, and to assess whether a tail change in
+    the equity index can be offset by introducing a safe-haven asset into a
+    simple mean-variance portfolio. The sample studied covers a training period
+    between August–December 2019 and a testing period of December 2019–March
+    2020. Furthermore, we calculate the cross-quantilogram between pair-wise
+    asset returns and compare their directional predictability on left-quantiles
+    in both normal market conditions and the COVID-19 period. The main results
+    show that the role of safe haven becomes less effective for most of the
+    assets considered in this paper, while gold and soybean commodity futures
+    remain robust as safe-haven assets during this pandemic.
+  accessed:
+    - year: 2025
+      month: 8
+      day: 25
+  author:
+    - family: Ji
+      given: Qiang
+    - family: Zhang
+      given: Dayong
+    - family: Zhao
+      given: Yuqian
+  citation-key: jiSearchingSafehaven2020
+  container-title: International Review of Financial Analysis
+  container-title-short: International Review of Financial Analysis
+  DOI: 10.1016/j.irfa.2020.101526
+  ISSN: 1057-5219
+  issued:
+    - year: 2020
+      month: 10
+      day: 1
+  page: '101526'
+  source: ScienceDirect
+  title: Searching for safe-haven assets during the COVID-19 pandemic
+  type: article-journal
+  URL: https://www.sciencedirect.com/science/article/pii/S1057521920301708
+  volume: '71'
+
 - id: jungCommonFactors2024
   abstract: >-
     We find that the three risk factors of Liu et al. (2022) capture only
@@ -1140,6 +1553,58 @@ references:
   type: article-journal
   URL: https://www.sciencedirect.com/science/article/pii/S1544612324005154
   volume: '65'
+
+- id: kalachevaDetectingRug2025
+  abstract: >-
+    The rise in cryptoasset valuations and the ease of creating new tokens have
+    spurred an increase in illicit activities within the market. Decentralized
+    exchanges (DEX) facilitate the trading of a vast array of tokens, including
+    those with minimal liquidity, amplifying the risk of fraudulent schemes.
+    Fraudulent practices take various forms, including counterfeit tokens, rug
+    pulls, and pump-and-dump schemes, all lacking functional innovation and
+    relying heavily on aggressive social media marketing. This study contributes
+    to the identification and profiling of deceitful tokens on DEX platforms.
+    Our approach involved compiling on new tokens with an active trading start
+    and attracted competition to buy them in first blocks spanning multiple
+    years from the Ethereum blockchain, tracking all associated purchase and
+    sale transactions. Our analysis revealed that Uniswap V2 predominantly hosts
+    the trading of new tokens, with an alarming discovery that over 98% of
+    tokens minted daily exhibit fraudulent characteristics. Subsequently, a
+    machine learning model was developed to predict the likelihood of a rug pull
+    occurring shortly after trading commencement. Although the dataset labeling
+    methodology and detection problem statement are exploratory, we demonstrate
+    the economic significance of the proposed approach within trading pipeline.
+    The findings highlight the importance of identifying fraudulent activities
+    and emphasize the need for collaboration between decentralized exchanges and
+    regulatory bodies to mitigate financial losses for investors.
+  accessed:
+    - year: 2025
+      month: 8
+      day: 25
+  author:
+    - family: Kalacheva
+      given: Alisa
+    - family: Kuznetsov
+      given: Pavel
+    - family: Vodolazov
+      given: Igor
+    - family: Yanovich
+      given: Yury
+  citation-key: kalachevaDetectingRug2025
+  container-title: 'Blockchain: Research and Applications'
+  container-title-short: 'Blockchain: Research and Applications'
+  DOI: 10.1016/j.bcra.2025.100336
+  ISSN: 2096-7209
+  issued:
+    - year: 2025
+      month: 7
+      day: 12
+  page: '100336'
+  source: ScienceDirect
+  title: 'Detecting Rug Pulls in Decentralized Exchanges: The Rise of Meme Coins'
+  title-short: Detecting Rug Pulls in Decentralized Exchanges
+  type: article-journal
+  URL: https://www.sciencedirect.com/science/article/pii/S2096720925000636
 
 - id: kellyCharacteristicsAre2019
   abstract: >-
@@ -1229,6 +1694,98 @@ references:
   title: Instrumented Principal Component Analysis
   type: article
   URL: https://papers.ssrn.com/abstract=2983919
+
+- id: kleinBitcoinNot2018
+  abstract: >-
+    Cryptocurrencies such as Bitcoin are establishing themselves as an
+    investment asset and are often named the New Gold. This study, however,
+    shows that the two assets could barely be more different. Firstly, we
+    analyze and compare conditional variance properties of Bitcoin and Gold as
+    well as other assets and find differences in their structure. Secondly, we
+    implement a BEKK-GARCH model to estimate time-varying conditional
+    correlations. Gold plays an important role in financial markets with
+    flight-to-quality in times of market distress. Our results show that Bitcoin
+    behaves as the exact opposite and it positively correlates with downward
+    markets. Lastly, we analyze the properties of Bitcoin as portfolio component
+    and find no evidence for stable hedging capabilities. We conclude that
+    Bitcoin and Gold feature fundamentally different properties as assets and
+    linkages to equity markets. Our results hold for the broad cryptocurrency
+    index CRIX. As of now, Bitcoin does not reflect any distinctive properties
+    of Gold other than asymmetric response in variance.
+  accessed:
+    - year: 2025
+      month: 8
+      day: 25
+  author:
+    - family: Klein
+      given: Tony
+    - family: Pham Thu
+      given: Hien
+    - family: Walther
+      given: Thomas
+  citation-key: kleinBitcoinNot2018
+  container-title: International Review of Financial Analysis
+  container-title-short: International Review of Financial Analysis
+  DOI: 10.1016/j.irfa.2018.07.010
+  ISSN: 1057-5219
+  issued:
+    - year: 2018
+      month: 10
+      day: 1
+  page: 105-116
+  source: ScienceDirect
+  title: >-
+    Bitcoin is not the New Gold – A comparison of volatility, correlation, and
+    portfolio performance
+  type: article-journal
+  URL: https://www.sciencedirect.com/science/article/pii/S105752191830187X
+  volume: '59'
+
+- id: kleinBitcoinNot2018a
+  abstract: >-
+    Cryptocurrencies such as Bitcoin are establishing themselves as an
+    investment asset and are often named the New Gold. This study, however,
+    shows that the two assets could barely be more different. Firstly, we
+    analyze and compare conditional variance properties of Bitcoin and Gold as
+    well as other assets and find differences in their structure. Secondly, we
+    implement a BEKK-GARCH model to estimate time-varying conditional
+    correlations. Gold plays an important role in financial markets with
+    flight-to-quality in times of market distress. Our results show that Bitcoin
+    behaves as the exact opposite and it positively correlates with downward
+    markets. Lastly, we analyze the properties of Bitcoin as portfolio component
+    and find no evidence for stable hedging capabilities. We conclude that
+    Bitcoin and Gold feature fundamentally different properties as assets and
+    linkages to equity markets. Our results hold for the broad cryptocurrency
+    index CRIX. As of now, Bitcoin does not reflect any distinctive properties
+    of Gold other than asymmetric response in variance.
+  accessed:
+    - year: 2025
+      month: 8
+      day: 25
+  author:
+    - family: Klein
+      given: Tony
+    - family: Pham Thu
+      given: Hien
+    - family: Walther
+      given: Thomas
+  citation-key: kleinBitcoinNot2018a
+  container-title: International Review of Financial Analysis
+  container-title-short: International Review of Financial Analysis
+  DOI: 10.1016/j.irfa.2018.07.010
+  ISSN: 1057-5219
+  issued:
+    - year: 2018
+      month: 10
+      day: 1
+  page: 105-116
+  source: ScienceDirect
+  title: >-
+    Bitcoin is not the New Gold – A comparison of volatility, correlation, and
+    portfolio performance
+  type: article-journal
+  URL: https://www.sciencedirect.com/science/article/pii/S105752191830187X
+  volume: '59'
 
 - id: lanRiskFactors2025
   abstract: >-
@@ -1378,6 +1935,31 @@ references:
   title: Is There a Value Premium in Cryptoasset Markets?
   type: article
   URL: https://papers.ssrn.com/abstract=3718684
+
+- id: lintnerValuationRisk1965
+  accessed:
+    - year: 2025
+      month: 8
+      day: 25
+  author:
+    - family: Lintner
+      given: John
+  citation-key: lintnerValuationRisk1965
+  container-title: The Review of Economics and Statistics
+  DOI: 10.2307/1924119
+  ISSN: 0034-6535
+  issue: '1'
+  issued:
+    - year: 1965
+  page: 13-37
+  publisher: The MIT Press
+  source: JSTOR
+  title: >-
+    The Valuation of Risk Assets and the Selection of Risky Investments in Stock
+    Portfolios and Capital Budgets
+  type: article-journal
+  URL: https://www.jstor.org/stable/1924119
+  volume: '47'
 
 - id: liuCommonRisk2020
   abstract: >-
@@ -1572,6 +2154,59 @@ references:
   URL: https://doi.org/10.1093/rfs/15.4.1005
   volume: '15'
 
+- id: meiklejohnFistfulBitcoins2013
+  abstract: >-
+    Bitcoin is a purely online virtual currency, unbacked by either physical
+    commodities or sovereign obligation; instead, it relies on a combination of
+    cryptographic protection and a peer-to-peer protocol for witnessing
+    settlements. Consequently, Bitcoin has the unintuitive property that while
+    the ownership of money is implicitly anonymous, its flow is globally
+    visible. In this paper we explore this unique characteristic further, using
+    heuristic clustering to group Bitcoin wallets based on evidence of shared
+    authority, and then using re-identification attacks (i.e., empirical
+    purchasing of goods and services) to classify the operators of those
+    clusters. From this analysis, we characterize longitudinal changes in the
+    Bitcoin market, the stresses these changes are placing on the system, and
+    the challenges for those seeking to use Bitcoin for criminal or fraudulent
+    purposes at scale.
+  accessed:
+    - year: 2025
+      month: 8
+      day: 25
+  author:
+    - family: Meiklejohn
+      given: Sarah
+    - family: Pomarole
+      given: Marjori
+    - family: Jordan
+      given: Grant
+    - family: Levchenko
+      given: Kirill
+    - family: McCoy
+      given: Damon
+    - family: Voelker
+      given: Geoffrey M.
+    - family: Savage
+      given: Stefan
+  citation-key: meiklejohnFistfulBitcoins2013
+  collection-title: IMC '13
+  container-title: Proceedings of the 2013 conference on Internet measurement conference
+  DOI: 10.1145/2504730.2504747
+  event-place: New York, NY, USA
+  ISBN: 978-1-4503-1953-9
+  issued:
+    - year: 2013
+      month: 10
+      day: 23
+  page: 127–140
+  publisher: Association for Computing Machinery
+  publisher-place: New York, NY, USA
+  source: ACM Digital Library
+  title: 'A fistful of bitcoins: characterizing payments among men with no names'
+  title-short: A fistful of bitcoins
+  type: paper-conference
+  URL: https://dl.acm.org/doi/10.1145/2504730.2504747
+
 - id: mercikCrosssectionalInteractionsCryptocurrency2025
   abstract: >-
     We investigate interaction effects in cryptocurrency markets by constructing
@@ -1613,6 +2248,41 @@ references:
   URL: https://www.sciencedirect.com/science/article/pii/S1057521924007415
   volume: '97'
 
+- id: mertonIntertemporalCapital1973
+  abstract: >-
+    An intertemporal model for the capital market is deduced from the portfolio
+    selection behavior by an arbitrary number of investors who act so as to
+    maximize the expected utility of lifetime consumption and who can trade
+    continuously in time. Explicit demand functions for assets are derived, and
+    it is shown that, unlike the one-period model, current demands are affected
+    by the possibility of uncertain changes in future investment opportunities.
+    After aggregating demands and requiring market clearing, the equilibrium
+    relationships among expected returns are derived, and contrary to the
+    classical capital asset pricing model, expected returns on risky assets may
+    differ from the riskless rate even when they have no systematic or market
+    risk.
+  accessed:
+    - year: 2025
+      month: 8
+      day: 25
+  author:
+    - family: Merton
+      given: Robert C.
+  citation-key: mertonIntertemporalCapital1973
+  container-title: Econometrica
+  DOI: 10.2307/1913811
+  ISSN: 0012-9682
+  issue: '5'
+  issued:
+    - year: 1973
+  page: 867-887
+  publisher: '[Wiley, Econometric Society]'
+  source: JSTOR
+  title: An Intertemporal Capital Asset Pricing Model
+  type: article-journal
+  URL: https://www.jstor.org/stable/1913811
+  volume: '41'
+
 - id: moskowitzTimeSeriesMomentum2012
   abstract: >-
     We document significant “time series momentum” in equity index, currency,
@@ -1653,6 +2323,132 @@ references:
   type: article-journal
   URL: https://www.sciencedirect.com/science/article/pii/S0304405X11002613
   volume: '104'
+
+- id: nakamoto2008bitcoin
+  author:
+    - family: Nakamoto
+      given: Satoshi
+  citation-key: nakamoto2008bitcoin
+  issued:
+    - year: 2008
+  title: 'Bitcoin: A peer-to-peer electronic cash system'
+  type: article-journal
+
+- id: nicasMilei$Melania2025
+  abstract: >-
+    A new cryptocurrency called $Libra bilked investors out of $250 million. It
+    had been promoted by President Javier Milei.
+  accessed:
+    - year: 2025
+      month: 8
+      day: 25
+  author:
+    - family: Nicas
+      given: Jack
+    - family: Nicas
+      given: David Yaffe-Bellany Jack
+    - family: Argentina
+      given: who
+      dropping-particle: covers
+    - family: Yaffe-Bellany
+      given: reported from Rio de Janeiro David
+    - family: Industry
+      given: Who Covers the Crypto
+    - family: Francisco
+      given: reported from San
+  citation-key: nicasMilei$Melania2025
+  container-title: The New York Times
+  ISSN: 0362-4331
+  issued:
+    - year: 2025
+      month: 2
+      day: 28
+  language: en-US
+  section: World
+  source: NYTimes.com
+  title: 'Milei, $Melania and Memecoins: Unraveling Argentina’s Crypto Fiasco'
+  title-short: Milei, $Melania and Memecoins
+  type: article-newspaper
+  URL: >-
+    https://www.nytimes.com/2025/02/28/world/americas/argentina-crypto-scandal-president.html
+
+- id: rossArbitrageTheory1976
+  accessed:
+    - year: 2025
+      month: 8
+      day: 25
+  author:
+    - family: Ross
+      given: Stephen A
+  citation-key: rossArbitrageTheory1976
+  container-title: Journal of Economic Theory
+  container-title-short: Journal of Economic Theory
+  DOI: 10.1016/0022-0531(76)90046-6
+  ISSN: 0022-0531
+  issue: '3'
+  issued:
+    - year: 1976
+      month: 12
+      day: 1
+  page: 341-360
+  source: ScienceDirect
+  title: The arbitrage theory of capital asset pricing
+  type: article-journal
+  URL: https://www.sciencedirect.com/science/article/pii/0022053176900466
+  volume: '13'
+
+- id: sharpeCapitalAsset1964
+  accessed:
+    - year: 2025
+      month: 8
+      day: 25
+  author:
+    - family: Sharpe
+      given: William F.
+  citation-key: sharpeCapitalAsset1964
+  container-title: The Journal of Finance
+  DOI: 10.2307/2977928
+  ISSN: 0022-1082
+  issue: '3'
+  issued:
+    - year: 1964
+  page: 425-442
+  publisher: '[American Finance Association, Wiley]'
+  source: JSTOR
+  title: >-
+    Capital Asset Prices: A Theory of Market Equilibrium under Conditions of
+    Risk
+  title-short: Capital Asset Prices
+  type: article-journal
+  URL: https://www.jstor.org/stable/2977928
+  volume: '19'
+
+- id: vasudevaCryptocurrencyInvestment2023
+  abstract: "The study was done to review the existing literature available on the theme using a popular technique known as a bibliometric review. The purpose was to explore important bibliometric trends such as geographical distribution of research; the most relevant countries and institutions and important collaboration networks, frequently published authors, the most relevant topics/research domains and relationships among these, average citations or per year, the most relevant sources, top authors’ production, authors’ impact by H\_index and the progression of important keywords over a period of time.The study analyzed literature published in the English language from 2012 onwards that used the words “cryptocurrency”, “Ethereum” “Bitcoin” along with “investment/s” or “speculation/s” in the Title/ABS/KEY. A specialized approach was followed to retrieve and analyze focused research. The data for analysis was extracted from the Scopus database and was analyzed using Biblioshiny and VOSViewer.The study found that the countries such as the UK, Australia, China and the USA have special relevance in terms of the number of citations and collaboration networks. Cryptocurrency/Cryptocurrencies, bitcoin have been the base themes along with other crucial issues such as volatility, hedging, COVID-19 pandemic, Ethereum, blockchain, co-integration, portfolio diversification/optimization, spillover, safe haven, investor attention, gold, etc. There is a lot of interdisciplinary research on the theme.The current study used a concentrated approach to study the bibliometric literature about the financial implications of cryptocurrency as an asset class and not prominently its technological or legal aspects."
+  accessed:
+    - year: 2025
+      month: 8
+      day: 25
+  author:
+    - family: Vasudeva
+      given: Sakshi
+  citation-key: vasudevaCryptocurrencyInvestment2023
+  container-title: Business Analyst Journal
+  container-title-short: Business Analyst Journal
+  DOI: 10.1108/BAJ-07-2022-0008
+  ISSN: 0973-211X
+  issue: '1'
+  issued:
+    - year: 2023
+      month: 9
+      day: 26
+  page: 34-50
+  source: Silverchair
+  title: 'Cryptocurrency as an investment or speculation: a bibliometric review study'
+  title-short: Cryptocurrency as an investment or speculation
+  type: article-journal
+  URL: https://doi.org/10.1108/BAJ-07-2022-0008
+  volume: '44'
 
 - id: vidal-tomasWhichCryptocurrency2022
   abstract: >-
@@ -1747,6 +2543,32 @@ references:
   type: article-journal
   URL: https://www.sciencedirect.com/science/article/pii/S0275531919311146
   volume: '54'
+
+- id: yaffe-bellanyDigitalCoin2024
+  abstract: >-
+    One of the wildest, most scam-ridden corners of the cryptocurrency industry
+    — memecoins, which are rooted in internet memes — has roared back.
+  accessed:
+    - year: 2025
+      month: 8
+      day: 25
+  author:
+    - family: Yaffe-Bellany
+      given: David
+  citation-key: yaffe-bellanyDigitalCoin2024
+  container-title: The New York Times
+  ISSN: 0362-4331
+  issued:
+    - year: 2024
+      month: 7
+      day: 27
+  language: en-US
+  section: Technology
+  source: NYTimes.com
+  title: A Digital Coin Based on Baby Trump? Yup.
+  title-short: A Digital Coin Based on Baby Trump?
+  type: article-newspaper
+  URL: https://www.nytimes.com/2024/07/27/technology/memecoins-crypto-surge.html
 
 - id: zhouApplicationEvent2025
   abstract: >-

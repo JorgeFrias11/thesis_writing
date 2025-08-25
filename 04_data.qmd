@@ -1,8 +1,6 @@
 # Data {#sec-data}
 
-In this section, I introduce the cryptocurrency data used in this thesis, the series of filters applied to clean and prepare the dataset, and the summary statistics of the cryptocurrency excess returns. In addition, I show the set of asset-specific characteristics constructed from the cryptocurrency market data, which are used as instruments for latent factor exposures in the IPCA model. Appendix -@sec-app_characteristics provides a detailed description of the characteristics used in the empirical analysis. 
-
-**[++++ ADD SMALL INTRO ABOVE OF RIK FACTORS CREATED ++++]**
+In this section, I introduce the cryptocurrency data used in this thesis, and describe the series of filters applied to clean and prepare the dataset, and the summary statistics of the cryptocurrency excess returns. In addition, I present the set of asset-specific characteristics constructed from the cryptocurrency market data, which are used as instruments for latent factor exposures in the IPCA model. Finally, I construct a set of observable risk factors, or factor-mimicking portfolios, which are used as pre-specified factors in the analysis. [Appendix -@sec-app_characteristics] and -@sec-obs_factors provides a detailed description of the set of characteristics and factors, respectively.
 
 
 The data extraction and pre-processing are primarily conducted in R 4.5.1 [@base], using, among other packages^[See [Appendix -@sec-software] for the full list of software used in the empirical study.], the `tidyverse`  [v. 2.0.0\; @tidyverse]. Additional cleaning steps and visualizations are performed in Python 3.13.5 [@python]. The full reproducible code is available in Appendix -@sec-app_material.  
@@ -50,7 +48,6 @@ Table \ref{tbl-overview} summarizes the descriptive statistics for the cryptocur
 
 
 ![**Cryptocurrency market capitalization**. The figure compares the cryptocurrency market capitalization in the filtered sample (blue line) with the total market capitalization (yellow line) from June 1, 2018 to July 31, 2025. Source: total market capitalization from [CoinGecko](https://www.coingecko.com/).](pictures/sample_marketcap.png){#fig-samplemarketcap fig-scap="Cryptocurrency market capitalization" width=80%}
-
 
 
 ```{=latex}
@@ -236,6 +233,6 @@ k
 
 ## Observable risk factors
 
-In addition to the set of characteristics described above, I construct a set of observable risk factors. In the asset pricing literature, the convention is to analyze the risk compensation of asset returns using factor-mimicking portfolio [e.g. @famaCommonRisk1993; @carhartPersistenceMutual1997; @famaFivefactorAsset2015]. This typically involves sorting assets cross-sectionally into quintiles based on a specific characteristic and forming a factor return, calculated as the difference in returns between the top and the bottom quintiles. This approach replicates a strategy that buys the portfolio of assets with high values of a particular characteristic (long), and sells the portfolio with the lowest values (short). 
+In addition to the set of characteristics described above, I construct a set of observable risk factors. In the asset pricing literature, the convention is to analyze the risk compensation of asset returns using factor-mimicking portfolio [e.g. @carhartPersistenceMutual1997; @famaCommonRisk1993; @famaFivefactorAsset2015]. This typically involves sorting assets cross-sectionally into quintiles based on a specific characteristic and forming a factor return, calculated as the difference in returns between the top and the bottom quintiles. This approach replicates a strategy that buys the portfolio of assets with high values of a particular characteristic (long), and sells the portfolio with the lowest values (short). 
 
-Building on this methodology, I construct a series of observable risk factors that prior literature have shown to explain the cross-section of cryptocurrency returns. Specifically, I include the market, size, momentum, liquidity, and volatility factors, following @liuCommonRisk2022, @bianchi2021factor, and @lanRiskFactors2025. Details on their construction are provided in [Appendix -@sec-obs_factors]. As described in [Section -@sec-methodology], the IPCA allows for the inclusion of pre-specified within the more general model specification. I make use of this feature and pre-specify the observable factors in the IPCA model, with and without using asset-characteristics to instrument for dynamic loadings. 
+Building on this methodology, I construct a series of observable risk factors that prior literature have shown to explain the cross-section of cryptocurrency returns. Specifically, I include the market, size, momentum, liquidity, and volatility factors, following @liuCommonRisk2022, @bianchi2021factor, and @lanRiskFactors2025. Details on their construction are provided in [Appendix -@sec-obs_factors]. As described in [Section -@sec-methodology], the IPCA allows for the inclusion of pre-specified factors within the more general model specification. I make use of this feature and pre-specify the observable factors in the IPCA model, with and without using asset-characteristics to instrument for dynamic loadings. 
