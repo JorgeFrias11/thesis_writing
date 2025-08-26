@@ -4,21 +4,22 @@ The first cryptocurrency, Bitcoin, was created in 2009 by Satoshi Nakamoto, who 
 
 Since then, the cryptocurrency market has expanded rapidly, giving rise to thousands of new coins. In the second quarter of 2025, the total cryptocurrency market capitalization amounted to nearly 3.5 trillion USD, according to data from @coingecko2025Q2. Despite this rapid growth, perceptions of cryptocurrencies remain divided. Some view them as investments tied to the underlying technologies, such as blockchain and smart contracts, or simply as a form of speculation [@vasudevaCryptocurrencyInvestment2023; @baekBitcoinsInvestment2015]. Others, however, see them as bubbles, fraud schemes, or scams, often driven by internet and social media marketing—for example, rug pulls involving so-called “memecoins,” or, more recently, the LIBRA cryptocurrency scandal in February 2025, when the coin was promoted by Argentinian president Javier Milei, soared in value, and collapsed only a few hours later [@kalachevaDetectingRug2025; @nicasMilei$Melania2025; @yaffe-bellanyDigitalCoin2024].
 
-As mentioned earlier, a key characteristic of cryptocurrencies is their high volatility, which greatly exceeds that of other traditional assets such as equity indices, gold, silver, foreign exchange currencies, and commodities  [@conlonAreCryptocurrencies2020; @kleinBitcoinNot2018]. According to the standard asset pricing theory, investors should be compensated for bearing such risks. The principle that higher risk should be associated with higher expected returns is central in finance, beginning with the capital asset pricing model (CAPM) of @sharpeCapitalAsset1964 and @lintnerValuationRisk1965, and later extended by @mertonIntertemporalCapital1973 and @rossArbitrageTheory1976. This motivates the central question of this thesis: to what extent can the cross-section of cryptocurrency returns be explained by systematic risk factors, and how does this compare to the role of asset-specific characteristics in predicting returns?
+As mentioned earlier, a key characteristic of cryptocurrencies is their high volatility, which greatly exceeds that of other traditional assets such as equity indices, gold, silver, foreign exchange currencies, and commodities  [@conlonAreCryptocurrencies2020; @kleinBitcoinNot2018]. According to the standard asset pricing theory, investors should be compensated for bearing such risks. The principle that higher risk should be associated with higher expected returns is central in finance, beginning with the capital asset pricing model (CAPM) of @sharpeCapitalAsset1964 and @lintnerValuationRisk1965, and later extended by @mertonIntertemporalCapital1973, who introduced state variables to capture changes in investment and consumption decisions through the intertemporal CAPM,  and by @rossArbitrageTheory1976, who formalized multi-factor risk pricing through the arbitrage pricing theory (APT). In particular, the APT shows that, in the absence of arbitrage opportunities, asset returns can be represented by a linear factor model, where returns are explained by their exposures to systematic risk factors. In empirical applications, this relation is often estimated through time-series regressions [@cochrane2009asset]. Let $r_{i,t+1} \in \mathbb{R}$ denote the excess return on asset $i$ from period $t$ to $t+1$, and let $f_{t+1} \in \mathbb{R}^n$ be a vector of risk factors. The model can then be written as  
+$$
+r_{i,t+1} = \alpha_{i,t} + \beta_{i,t}' f_{t+1} + \epsilon_{i,t+1},
+$$
+where $\beta_{i,t} \in \mathbb{R}^n$ measures the exposure of asset $i$ to the risk factors, $\alpha_{i,t}$ represents a pricing error (equal to zero under correct specification), and $\epsilon_{i,t+1}$ is the idiosyncratic component of returns.  
 
-The purpose of this thesis is to ... study the research articles on the theme to identify the relevant bibliometric trends such as
+A major challenge of the framework described above is identifying the set of factors that best capture asset returns, as these factors are not directly observable. This raises the question of whether they truly explain the cross-section of excess returns or whether such returns should instead be attributed to asset mispricing. This motivates the main questions addressed in this thesis:
 
-The main questions addressed in this thesis are: 
+- Which factors account for the variation in cryptocurrency returns? 
+- To what extend can the return cross-section be explained by systematic risk factors?
+- Does allowing for dynamic factor loadings improve the prediction of cross-sectional excess returns? 
 
-- first research questions
-- second research questions
-
-Replicate the work of @kellyCharacteristicsAre2019 and @bianchiMispricingRiskCompensation2021 on the cryptocurrency market. 
+The main goal of this thesis is to apply established factor models from the financial literature to a large panel of cryptocurrency data and to compare their predictive performance under static and dynamic loadings. In particular, I replicate the approaches of @kellyCharacteristicsAre2019 and @bianchiMispricingRiskCompensation2021 for the  cryptocurrency market. The analysis relies on a model that allows factor loadings to vary over time through observable characteristics, using the Instrumented Principal Component Analysis (IPCA) methodology.
 
 
 ## Literature review
-
-
 
 La alta volatilidad, quiza incluso mencionar los tweets de Elon Musk, por ejemplo, diciendo que Tesla no aceptaria pagos con bitcoin debido al alto costo energetico asociado con su mineria, causando una baja de los precios @huynhWhenElon2023
 

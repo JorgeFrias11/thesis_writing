@@ -757,6 +757,17 @@ references:
   type: article
   URL: https://papers.ssrn.com/abstract=3984633
 
+- id: cochrane2009asset
+  author:
+    - family: Cochrane
+      given: John H
+  citation-key: cochrane2009asset
+  issued:
+    - year: 2005
+  publisher: Princeton University Press
+  title: 'Asset pricing: Revised edition'
+  type: book
+
 - id: coinbaseWhatWrapped
   abstract: >-
     Wrapped crypto tokens are digital assets that mirror the value of another
