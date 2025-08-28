@@ -768,6 +768,42 @@ references:
   title: 'Asset pricing: Revised edition'
   type: book
 
+- id: cochranePresidentialAddress2011
+  abstract: >-
+    Discount-rate variation is the central organizing question of current
+    asset-pricing research. I survey facts, theories, and applications.
+    Previously, we thought returns were unpredictable, with variation in
+    price-dividend ratios due to variation in expected cashflows. Now it seems
+    all price-dividend variation corresponds to discount-rate variation. We also
+    thought that the cross-section of expected returns came from the CAPM. Now
+    we have a zoo of new factors. I categorize discount-rate theories based on
+    central ingredients and data sources. Incorporating discount-rate variation
+    affects finance applications, including portfolio theory, accounting, cost
+    of capital, capital structure, compensation, and macroeconomics.
+  accessed:
+    - year: 2025
+      month: 8
+      day: 27
+  author:
+    - family: Cochrane
+      given: John H.
+  citation-key: cochranePresidentialAddress2011
+  container-title: The Journal of Finance
+  DOI: 10.1111/j.1540-6261.2011.01671.x
+  ISSN: 1540-6261
+  issue: '4'
+  issued:
+    - year: 2011
+  language: en
+  license: © 2011 the American Finance Association
+  page: 1047-1108
+  source: Wiley Online Library
+  title: 'Presidential Address: Discount Rates'
+  title-short: Presidential Address
+  type: article-journal
+  URL: https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1540-6261.2011.01671.x
+  volume: '66'
+
 - id: coinbaseWhatWrapped
   abstract: >-
     Wrapped crypto tokens are digital assets that mirror the value of another
@@ -1365,6 +1401,49 @@ references:
   type: article
   URL: https://papers.ssrn.com/abstract=2425247
 
+- id: harveyLuckyFactors2021
+  abstract: >-
+    Identifying the factors that drive the cross-section of expected returns is
+    challenging for at least three reasons. First, the choice of testing
+    approach (time series versus cross-sectional) will deliver different sets of
+    factors. Second, varying test portfolio sorts changes the importance of
+    candidate factors. Finally, given the hundreds of factors that have been
+    proposed, test multiplicity must be dealt with. We propose a new method that
+    makes measured progress in addressing these key challenges. We apply our
+    method in a panel regression setting and shed some light on the puzzling
+    empirical result that the market factor drives the bulk of the variance of
+    stock returns, but is often knocked out in cross-sectional tests. In our
+    setup, the market factor is not eliminated. Further, we bypass arbitrary
+    portfolio sorts and instead execute our tests on individual stocks with no
+    loss in power. Finally, our bootstrap implementation, which allows us to
+    impose the null hypothesis of no cross-sectional explanatory power,
+    naturally controls for the multiple testing problem.
+  accessed:
+    - year: 2025
+      month: 8
+      day: 27
+  author:
+    - family: Harvey
+      given: Campbell R.
+    - family: Liu
+      given: Yan
+  citation-key: harveyLuckyFactors2021
+  container-title: Journal of Financial Economics
+  container-title-short: Journal of Financial Economics
+  DOI: 10.1016/j.jfineco.2021.04.014
+  ISSN: 0304-405X
+  issue: '2'
+  issued:
+    - year: 2021
+      month: 8
+      day: 1
+  page: 413-435
+  source: ScienceDirect
+  title: Lucky factors
+  type: article-journal
+  URL: https://www.sciencedirect.com/science/article/pii/S0304405X21001410
+  volume: '141'
+
 - id: hoangHowStable2024
   abstract: >-
     This paper analyzes the stability of stablecoins and proposes a framework to
@@ -1439,6 +1518,48 @@ references:
   type: article-journal
   URL: https://doi.org/10.1093/rfs/hhi023
   volume: '18'
+
+- id: houReplicatingAnomalies2020
+  abstract: >-
+    Most anomalies fail to hold up to currently acceptable standards for
+    empirical finance. With microcaps mitigated via NYSE breakpoints and
+    value-weighted returns, 65% of the 452 anomalies in our extensive data
+    library, including 96% of the trading frictions category, cannot clear the
+    single test hurdle of the absolute $t$-value of 1.96. Imposing the higher
+    multiple test hurdle of 2.78 at the 5% significance level raises the failure
+    rate to 82%. Even for replicated anomalies, their economic magnitudes are
+    much smaller than originally reported. In all, capital markets are more
+    efficient than previously recognized.Received June 12, 2017; editorial
+    decision October 29, 2018 by Editor Stijn Van Nieuwerburgh. Authors have
+    furnished an Internet Appendix, which is available on the Oxford University
+    Press Web site next to the link to the final published paper online.
+  accessed:
+    - year: 2025
+      month: 8
+      day: 28
+  author:
+    - family: Hou
+      given: Kewei
+    - family: Xue
+      given: Chen
+    - family: Zhang
+      given: Lu
+  citation-key: houReplicatingAnomalies2020
+  container-title: The Review of Financial Studies
+  container-title-short: Rev Financ Stud
+  DOI: 10.1093/rfs/hhy131
+  ISSN: 0893-9454
+  issue: '5'
+  issued:
+    - year: 2020
+      month: 5
+      day: 1
+  page: 2019-2133
+  source: Silverchair
+  title: Replicating Anomalies
+  type: article-journal
+  URL: https://doi.org/10.1093/rfs/hhy131
+  volume: '33'
 
 - id: huynhWhenElon2023
   abstract: >-

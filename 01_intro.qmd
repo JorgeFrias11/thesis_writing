@@ -8,29 +8,34 @@ As mentioned earlier, a key characteristic of cryptocurrencies is their high vol
 $$
 r_{i,t+1} = \alpha_{i,t} + \beta_{i,t}' f_{t+1} + \epsilon_{i,t+1},
 $$
-where $\beta_{i,t} \in \mathbb{R}^n$ measures the exposure of asset $i$ to the risk factors, $\alpha_{i,t}$ represents a pricing error (equal to zero under correct specification), and $\epsilon_{i,t+1}$ is the idiosyncratic component of returns.  
+where $\beta_{i,t} \in \mathbb{R}^n$ measures the exposure of asset $i$ to the risk factors, $\alpha_{i,t}$ represents a pricing error (equal to zero under correct specification), and $\epsilon_{i,t+1}$ is the idiosyncratic component of returns.
 
 A major challenge of the framework described above is identifying the set of factors that best capture asset returns, as these factors are not directly observable. This raises the question of whether they truly explain the cross-section of excess returns or whether such returns should instead be attributed to asset mispricing. This motivates the main questions addressed in this thesis:
 
 - Which factors account for the variation in cryptocurrency returns? 
 - To what extend can the return cross-section be explained by systematic risk factors?
-- Does allowing for dynamic factor loadings improve the prediction of cross-sectional excess returns? 
+- Does allowing for dynamic factor loadings improve the prediction of cross-sectional excess returns?
 
 The main goal of this thesis is to apply established factor models from the financial literature to a large panel of cryptocurrency data and to compare their predictive performance under static and dynamic loadings. In particular, I replicate the approaches of @kellyCharacteristicsAre2019 and @bianchiMispricingRiskCompensation2021 for the  cryptocurrency market. The analysis relies on a model that allows factor loadings to vary over time through observable characteristics, using the Instrumented Principal Component Analysis (IPCA) methodology.
 
+\
+\
 
 ## Literature review
 
+Linear factor pricing models play a fundamental role in the field of finance. Building on the theoretical foundations of APT, a large body of academic research have worked to identify the sources of economic risks and the factors that explain the cross-section of asset returns. Broadly speaking, two main strands have emerged in the empirical literature [@kellyCharacteristicsAre2019]. 
+
+One strand of the literature pre-specifies the factors $f_{t+1}$ and represents them with long-short portfolios, often referred to as  factor-mimicking portfolios or sorted portfolios. These long-short portfolios are based on well-established knowledge of the empirical behaviour of assets returns and are therefore treated as fully observable [@kellyCharacteristicsAre2019]. Although the construction of each factor varies across studies, the process typically involves sorting assets into quintiles (or deciles) based on a given characteristic and forming the factor return as the difference between the top and bottom groups. 
+
+@famaCommonRisk1993 were the first to formalize this approach in the context of linear factor models, introducing a three-factor model (FF3) that included the market, size, and value factors to explain stocks and bond returns. @carhartPersistenceMutual1997 expanded the FF3 by adding a momentum factor, which captures the one-year asset momentum, forming in this way a 4-factor model. Later, @famaFivefactorAsset2015 extended the FF3 by incorporating profitability and investment factor, creating a 5-factor model to capture additional stock return variation beyond size and value.  
+
+The number of risk factors proposed in the literature is vast, with hundreds of them reported across different studies [@cochranePresidentialAddress2011; @harveyLuckyFactors2021]. @fengTamingFactor2020 developed a model selection framework to evaluate the contribution of newly proposed factors, finding that most are redundant relative to existing ones. @houReplicatingAnomalies2020 and @chenOpenSource2021 replicated 452 and 319 long-short strategies from the literature, respectively. Hou et al. failed to reproduce the results of more than half of predictors in their set, finding most of them statistically insignificant and concluding that many published return predictors are not reliable. By contrast, Chen and Zimmerman showed that nearly all of the literature results can be successfully replicated.  
+
+The second strand treat the factors as latent... 
+
+
 La alta volatilidad, quiza incluso mencionar los tweets de Elon Musk, por ejemplo, diciendo que Tesla no aceptaria pagos con bitcoin debido al alto costo energetico asociado con su mineria, causando una baja de los precios @huynhWhenElon2023
 
-
-
-mencionar a Ross, que comprobo la estructura lineal de los factores: -- Esto quiza en introduccion
-
-Exhaustive list of predictors for the cross-section of stock returns @fengTamingFactor2020 @chenOpenSource2021
-
-Hacerla similar a la descripciond e la hipoteca inversa. Mencionar las dos corrientes de litertura: por una parte, los modelos de factores construidos como managed-strategies. Mencionar los modelos de factores mas conocidos, y alguna de la literatura importante en este tema: fama french modelo de tres factores @famaCommonRisk1993, FF modelo de cinco factores @famaFivefactorAsset2015
-Citar la coleccion de Chen and ZImmerman @chenOpenSource2021 con la gran cantidad de predictores de retornos, no factores en su dataset. 
 
 Por otra, una corriente basada en la estadistica que construye los factores mediante modelos puramente estadisticos, y que asume que los factores son latentes. Mencionar los dos autores pioneros de PCA: @chamberlainArbitrageFactor1983 and @connorPerformanceMeasurement1986. 
 
