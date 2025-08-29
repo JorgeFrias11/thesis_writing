@@ -92,7 +92,7 @@ $$
 v_{i,t} = \log(\text{Volume}_{i,t}) - \log\left( \frac{1}{k} \sum_{s=1}^{k} \text{Volume}_{i,t-s} \right)
 $$
 
-### Past returns
+#### Past returns
 
 **`r2_1`**. Daily reversal, defined as the previous day's cryptocurrency return. 
 
@@ -104,7 +104,7 @@ $$
 
 **`alpha`**. The CAPM alpha, defined as the intercept from a 30-day rolling regression of cryptocurrency's excess returns on the market portfolio excess returns. The market portfolio is constructed as in `beta`.
 
-### Distribution
+#### Distribution
 
 **`skew_*d`**. Skewness of daily returns over the previous 7 and 30 days, denoted `skew_7d` and `skew_30d`, respectively. 
 

@@ -278,6 +278,46 @@ references:
   URL: https://doi.org/10.1080/13504851.2014.916379
   volume: '22'
 
+- id: baliJointFactor2023
+  abstract: >-
+    Motivated by structural credit risk models, we propose a parsimonious
+    reduced-form joint factor model for bonds, options, and stocks. By extending
+    instrumented principal component analysis to accommodate heterogeneity in
+    how firm characteristics instrument the sensitivity of bonds, options, and
+    stocks, we find that our model is able to jointly explain the risk-return
+    tradeoff for the three asset classes. Just five factors are sufficient to
+    explain 19% of the total return variation. We quantify the relative degree
+    of integration with the joint information set of 92% for bonds, 86% for
+    stocks, and 78% for options. Factors in the residuals of option returns add
+    incremental information for conditional alphas in the market.
+  accessed:
+    - year: 2025
+      month: 8
+      day: 28
+  author:
+    - family: Bali
+      given: Turan G.
+    - family: Beckmeyer
+      given: Heiner
+    - family: Goyal
+      given: Amit
+  citation-key: baliJointFactor2023
+  DOI: 10.2139/ssrn.4589282
+  event-place: Rochester, NY
+  genre: SSRN Scholarly Paper
+  issued:
+    - year: 2023
+      month: 11
+      day: 8
+  language: en
+  number: '4589282'
+  publisher: Social Science Research Network
+  publisher-place: Rochester, NY
+  source: papers.ssrn.com
+  title: A Joint Factor Model for Bonds, Stocks, and Options
+  type: article
+  URL: https://papers.ssrn.com/abstract=4589282
+
 - id: baurBitcoinMedium2018
   abstract: >-
     Bitcoin is defined as digital money within a decentralized peer-to-peer
@@ -1152,6 +1192,42 @@ references:
   type: article-journal
   URL: https://www.sciencedirect.com/science/article/pii/S0304405X14002323
   volume: '116'
+
+- id: famaRiskReturn1973
+  abstract: >-
+    This paper tests the relationship between average return and risk for New
+    York Stock Exchange common stocks. The theoretical basis of the tests is the
+    "two-parameter" portfolio model and models of market equilibrium derived
+    from the two-parameter portfolio model. We cannot reject the hypothesis of
+    these models that the pricing of common stocks reflects the attempts of
+    risk-averse investors to hold portfolios that are "efficient" in terms of
+    expected value and dispersion of return. Moreover, the observed "fair game"
+    properties of the coefficients and residuals of the risk-return regressions
+    are consistent with an "efficient capital market"--that is, a market where
+    prices of securities
+  accessed:
+    - year: 2025
+      month: 8
+      day: 28
+  author:
+    - family: Fama
+      given: Eugene F.
+    - family: MacBeth
+      given: James D.
+  citation-key: famaRiskReturn1973
+  container-title: Journal of Political Economy
+  ISSN: 0022-3808
+  issue: '3'
+  issued:
+    - year: 1973
+  page: 607-636
+  publisher: The University of Chicago Press
+  source: JSTOR
+  title: 'Risk, Return, and Equilibrium: Empirical Tests'
+  title-short: Risk, Return, and Equilibrium
+  type: article-journal
+  URL: https://www.jstor.org/stable/1831028
+  volume: '81'
 
 - id: fengTamingFactor2020
   abstract: >-

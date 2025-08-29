@@ -1,13 +1,18 @@
-# Acknowledgements {.unnumbered .unlisted}
+#    {.unnumbered .unlisted}
 
-Here write acknowledgements.
+To all my family, who always support me no matter the time and distance, and to Pedro Torres, my great-grand father, who sadly passed away during the course of my studies (...-2024). Gracias por el amor y los momentos que compartimos. Tu recuerdo estará siempre en mi corazón. Que Dios ilumine tu alma y la llene de paz. Q.E.P.D. 
+
+\
+\
+
+Special thanks to my supervisor, Prof. David Preinerstorfer, for all his guidance during the writing of this thesis, and to all my friends, who made my life in Vienna easier and more enjoyable.  
+
 
 
 # Abstract {.unnumbered .unlisted}
 
 Here goes my abstract text. Here goes my abstract text. Here goes my abstract text.
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu dolor luctus, rhoncus leo in, commodo turpis. Aenean sed enim in sem euismod porta. Vivamus tempor lorem nec eros rhoncus, eu hendrerit libero tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque dapibus turpis quis nibh molestie dapibus. Aliquam erat volutpat. Integer et odio nec mauris sollicitudin mattis.
-
 
 
 ```{=latex}
