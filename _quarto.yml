@@ -9,7 +9,7 @@ book:
         family: "Frías Navarrete"
       affiliations:
         - name: "Vienna University of Economics and Business"
-  date: last-modified
+  date: "04 September 2025"  #last-modified
   date-format: "MMMM DD, YYYY"
   chapters:
     #- abstract.qmd
@@ -43,7 +43,7 @@ format:
     #documentclass: article  # For two-sided. Single-side: scrreprt
     #top-level-division: section # for scrartcl
     toc: true
-    toc-depth: 2
+    toc-depth: 0
     toc-title: "Table of contents"
     lof: true
     lot: true

@@ -1,8 +1,8 @@
 # Methodology {#sec-methodology}
 
-In this section, I present the main method used in this thesis: Instrumented Principal Component Analysis (IPCA), introduced by @kellyCharacteristicsAre2019. IPCA estimates latent factors and dynamic factor loadings by linking them to observable asset-specific characteristics. Unlike standard PCA, which assumes static loadings and relies uniquely on return data, IPCA allows factors loadings to vary with asset characteristics, such as size, volatility, volume, or momentum, which act as instruments for the conditional loadings. Moreover, it enables the estimation of $K$ factor loadings directly from the panel of asset characteristics.
+In this section, I present the main method used in this thesis: Instrumented Principal Component Analysis (IPCA), introduced by @kellyCharacteristicsAre2019. IPCA estimates latent factors and dynamic factor loadings by linking them to observable asset-specific characteristics. Unlike standard PCA, which assumes static loadings and relies uniquely on return data, IPCA allows factors loadings to vary with asset characteristics, such as size, volatility, volume, or momentum, which act as instruments for the conditional loadings. Moreover, it enables the estimation of $K$ factor loadings directly from the panel of asset characteristics. Another advantage is that IPCA can be applied to unbalanced panels, which is particularly useful in the cryptocurrency market where new coins are regularly introduced and others become inactive or unavailable, making missing data in the cross-section very common.
 
-## IPCA model
+## IPCA model and estimation
 
 Consider a linear factor model. Let $r_{i,t+1} \in \mathbb{R}$ denote the excess return on cryptocurrency $i$ from period $t$ to $t+1$, for $i = 1, \dots, N$ and $t = 1, \dots, T$. The general IPCA model specification is defined as
 $$
@@ -19,11 +19,11 @@ where $f_{t+1} \in \mathbb{R}^K$ is the $K \times 1$ vector of latent factors. T
 
 In IPCA, two specifications can be considered. As discussed earlier, characteristics are used as instruments for the time-variation in conditional loadings, so that the mapping $z_{i,t} \mapsto \beta_{i,t}$ is determined by the low-dimensional matrix $\Gamma_\beta$. A distinction is then made between a restricted and an unrestricted specification. The restricted model imposes $\Gamma_\alpha = \mathbf{0}$ and assumes that characteristics affect expected returns only through risk exposures, which means there are no “anomaly” intercepts. In contrast, the unrestricted model sets $\Gamma_\alpha \neq \mathbf{0}$, with $\alpha_{i,t}$ capturing mean returns from characteristics that are not determined by risk exposures alone.
 
-For the restricted model, @eq-ipca can be rewritten in vector form as
+For the restricted model ($\Gamma_\alpha = \mathbf{0}$), @eq-ipca can be rewritten in vector form as
 
 $$
 r_{t+1} = Z_t\Gamma_{\beta}f_{t+1} + \epsilon^*_{t+1},
-$$
+$${#eq-restricted}
 
 where $r_{t+1}$ is an $N \times 1$ vector of individual cryptocurrency returns, $Z_t$ is the $N \times L$ matrix of stacked characteristics, and $\epsilon^*_{t+1} = \epsilon_{t+1} + \nu_{\alpha,t} + \nu_{\beta,t}f_{t+1}$ is a composite error vector stacking individual residuals. The estimation problem is to minimize the sum of squared composite model errors: 
 
@@ -53,6 +53,142 @@ $${#eq-condition2}
 
 In this sense, ALS alternates between estimating factor realizations via cross-sectional regressions on latent loadings (@eq-condition1) and updating $\Gamma_\beta$ through regressions on factors interacted with characteristics (@eq-condition2).
 
+Similarly, the unrestricted model ($\Gamma_\alpha \neq \mathbf{0}$) can be rewritten in vector form as
+
+$$
+r_{t+1} = Z_t\tilde{\Gamma}\tilde{f}_{t+1} + \epsilon^*_{t+1},
+$${#eq-unrestricted}
+
+where $\tilde\Gamma = [\Gamma_\alpha, \Gamma_\beta]$ and $\tilde{f}_{t+1} = [1, f'_{t+1}]'$. Note that the unrestricted model simply augments the factor specification to include a constant. The first-order conditions slightly change to 
 
 
+$$
+f_{t+1} = \left(\Gamma_\beta^{\prime} Z_t^{\prime} Z_t \Gamma_\beta \right)^{-1} \Gamma_\beta^{\prime} Z_t^{\prime} \left(r_{t+1} - Z_t \Gamma_\alpha \right), \quad \forall t, 
+$${#eq-condition3}
 
+
+$$
+\operatorname{vec}(\tilde{\Gamma}) =
+\left(
+\sum_{t=1}^{T-1} Z_t^{\prime} Z_t \otimes \tilde{f}_{t+1} \tilde{f}_{t+1}^{\prime}
+\right)^{-1}
+\left(
+\sum_{t=1}^{T-1} \left[ Z_t \otimes \tilde{f}_{t+1} \right]^{\prime} r_{t+1}
+\right)
+$${#eq-condition4}
+
+In the unrestricted model, the intercept captures only the part of mean returns that is not already explained by factor loadings. In other words, it accounts for the residual variation in expected returns that characteristics cannot map into risk exposures.
+
+### Interpretation as a managed portfolio
+
+As discussed in @kellyCharacteristicsAre2019, the asset pricing literature traditionally evaluates pricing factor performance using test portfolios, such as the value-sorted portfolios in the Fama-French data library ^[see https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html], rather than individual assets. These portfolios reduce idiosyncratic variation by averaging across many securities. @kellyCharacteristicsAre2019 show that the IPCA framework provides an analogous representation through characteristic-managed portfolios. Each managed portfolio is constructed by a weighted average of asset returns, where the weights are given by their observable characteristics. For $L$ asset-specific characteristics, the $L \times 1$ vector of managed portfolio returns is  
+
+$$
+x_{t+1} = \frac{1}{N_{t+1}} Z_t'r_{t+1},
+$$  
+
+where $Z_t$ is the $N \times L$ matrix of characteristics at time $t$, $r_{t+1}$ is the $N \times 1$ vector of realized asset returns, and $N_{t+1}$ is the number of available assets.
+
+Although the main focus of this thesis is on explaining the relationship between cryptocurrency returns and common risk factors using the panel of individual cryptocurrencies, I also report results for models estimated with characteristic-managed portfolios.
+
+## Performance measures
+
+@kellyCharacteristicsAre2019 propose two metrics to evaluate and compare the asset pricing performance of the IPCA model across different choices of $K$ factors and between restricted and unrestricted specifications. These measures are referred to as the total $R^2$ and the predictive $R^2$. However, since both statistics can take negative values ---although “$R^2$” suggests non-negative values---I refer to them here as the "total score" and the "predictive score". 
+
+The total score measures the overall fit of the IPCA model by quantifying how much of the variation in realized returns can be explained by the estimated factors and conditional loadings. It is defined as 
+
+$$
+\text{Total Score} = 1 - 
+\frac{\sum_{i,t} \left(r_{i,t+1} - z_{i,t}'(\hat{\Gamma}_\alpha + \hat{\Gamma}_\beta \hat{f}_{t+1})\right)^2}
+{\sum_{i,t} r_{i,t+1}^2}.
+$$  
+The predictive score measures how much of the variation in realized returns is explained by the model’s conditional expected returns, obtained by replacing realized factors with the estimated risk prices $\hat \lambda$. It is defined as  
+
+$$
+\text{Predictive Score} = 1 - 
+\frac{\sum_{i,t} \left(r_{i,t+1} - z_{i,t}'(\hat{\Gamma}_\alpha + \hat{\Gamma}_\beta \hat{\lambda})\right)^2}
+{\sum_{i,t} r_{i,t+1}^2},
+$$  
+In the restricted specification ($\Gamma_\alpha = 0$), the predictive score describes how well characteristics explain expected returns only through their effect on factor loadings, that is, through systematic risk exposures. In the unrestricted specification, the predictive score measures how well characteristics explain expected returns both through factor loadings and through anomaly intercepts.
+
+## Hypothesis tests 
+
+@kellyCharacteristicsAre2019 develop three hypothesis tests that help determine the whether one specification significantly improves the model description of asset returns. 
+
+#### Asset pricing test $\Gamma_\alpha = \mathbf{0}$
+
+The first hypothesis test evaluates whether anomaly intercepts capture variation in returns beyond systematic risk exposures. In the unrestricted specification in @eq-unrestricted, expected returns are modeled as a linear function of both factor loadings and anomaly intercepts. The null hypothesis is
+$$
+H_0 = \Gamma_\alpha = \mathbf{0}_{L \times 1}
+$$
+against the alternative
+$$
+H_1 = \Gamma_\alpha \neq \mathbf{0}_{L \times 1}
+$$
+If the null is not rejected, characteristics influence expected returns only through factor loadings, and alphas are not associated with the characteristics in $z_{i,t}$. Rejecting the null indicates that characteristics help explain average returns directly through anomaly intercepts, in addition to their role in determining exposures to risk.
+
+Following @kellyCharacteristicsAre2019, the null hypothesis is tested using a Wald-type statistic, which evaluates the distance between the restricted and unrestricted models as the sum of squared elements of the estimated $\Gamma_\alpha$ vector:
+$$W_\alpha = \hat\Gamma^{\prime}_\alpha\hat\Gamma_\alpha$$
+Inference is carried out using a bootstrap procedure. After estimating the unrestricted model and retaining $\hat\Gamma_\alpha$, $\hat\Gamma_\beta$, and ${\{\hat f_t}\}_{t=1}^T$, the managed portfolio residuals are constructed as $d_{t+1} = Z_t^\prime \epsilon^*_{t+1}$ from the managed portfolio definition 
+$$
+x_{t+1} = Z_t^\prime r_{t+1} = (Z_t^\prime Z_t)\Gamma_\alpha + (Z_t^\prime Z_t)\Gamma_\beta f_{t+1} + Z_t^\prime \epsilon^*_{t+1}
+$$
+
+These residuals are resampled and the fitted values ${\{\hat d_t}\}_{t=1}^T$ stored. Then, for each bootstrap replication $b=1, \dots, 1000$, a new sample of portfolio returns is generated as
+$$
+\tilde x_{t+1}^b = (Z_t^\prime Z_t)\hat \Gamma_\beta \hat{f}_{t+1} + \tilde d^b_{t+1}, \quad
+\tilde d^b_{t+1} = q_{1,t+1}^b \hat{d}_{q^b_{2,t+1}}
+$$
+Here, $q_{2,t+1}^b$ is a random time index drawn uniformly from the set of all possible dates, and $q_{1,t+1}^b$ is a Student-$t$ random variable with unit variance and five degrees of freedom. Using these bootstrap samples, the unrestricted model is re-estimated and the statistic recomputed as
+$$
+\tilde{W}^b_\alpha = \tilde\Gamma^{b\prime}_\alpha\tilde\Gamma^b_\alpha
+$$
+Finally, the empirical $p$-value is obtained as the fraction of bootstrap statistics $\tilde W_\alpha^b$ that exceed the observed value $W_\alpha$ from the actual data.
+
+#### Testing instruments significance
+
+This test evaluates whether a specific characteristic significantly contributes to factor loadings after controlling for all other characteristics. The analysis is based on the restricted model with $\Gamma_\alpha = 0$, where the goal is to assess whether the $l^{th}$ characteristic helps explain the conditional loadings $\beta_{i,t}$. For this, first, the loading matrix is written as
+$$
+\Gamma_\beta = [\gamma_{\beta, 1}, \dots,\gamma_{\beta,L}]^\prime,
+$$
+with $\gamma_{\beta,l}$ denoting the $K \times 1$ vector of coefficients linking characteristic $l$ to the $K$ latent factors. Under the null hypothesis, the $l^{th}$ characteristic plays no role in determining exposures, so its entire row is set to zero:
+$$
+H_0 : \Gamma_\beta = [\gamma_{\beta, 1}, \dots, \gamma_{\beta, l-1}, \mathbf{0}_{K \times 1}, \gamma_{\beta, l+1}, \dots, \gamma_{\beta, L}]
+$$
+against the alternative allowing for a non-zero contribution from characteristic $l$. 
+$$
+H_1 : \Gamma_\beta = [\gamma_{\beta, 1}, \dots,\gamma_{\beta,L}]^\prime,
+$$
+The Wald-type statistic used to evaluate this hypothesis is
+$$
+W_{\beta,l} = \hat\gamma^\prime_{\beta,l}\hat\gamma_{\beta,l}
+$$
+Inference is based on the same residual bootstrap procedure as in the alpha test. One thousand bootstrap samples are generated under the null hypothesis that the $l^{th}$ characteristic has no effect on factor loadings, the portfolio returns is re-estimated for each sample, and the corresponding statistics $\tilde W_{\beta,l}^b$ are computed. The $p$-value is obtained as the fraction of bootstrap statistics that exceed the observed $W_{\beta,l}$.
+
+#### Testing pre-specified factors
+
+In addition to estimating latent factors, the IPCA can nest pre-specified, common observable factors, to compare against a the general IPCA specification. Following @kellyCharacteristicsAre2019, the models can be implemented as (i) the traditional time-series approach with static loadings estimated asset-by-asset on the observable factors, and (ii) an instrumented version that keeps the factor returns fixed but parameterizes loadings as functions of characteristics. Therefore, the second specification is a combination between pre-specifying observable factors in the IPCA model, and estimating its loadings dynamically, for each period $t$, or even generate latent factors additional to the pre-specified ones. The model is written as
+
+In addition to estimating latent factors, IPCA can also incorporate pre-specified observable factors, allowing direct comparison with the general specification. Following @kellyCharacteristicsAre2019, two versions can be implemented: (i) the traditional time-series approach with static loadings estimated asset-by-asset on the observable factors, and (ii) an instrumented version that fixes the factor returns but models loadings as functions of characteristics. The latter combines pre-specified observable factors with the IPCA structure, since loadings are estimated dynamically each period $t$, while additional latent factors may also be generated alongside the pre-specified ones. The model takes the form
+$$
+r_{i,t+1} = \beta_{i,t}f_{t+1} + \delta_{i,t}g_{t+1} + \epsilon_{i,t+1},
+$$
+with
+$$
+\delta_{i,t} = z^{\prime}_{i,t}\Gamma_\delta + \nu_{\delta,i,t},
+$$
+where the term $\delta_{i,t} g_{t+1}$ captures the contribution of the $M \times 1$ vector of observable factors $g_{t+1}$, and $\Gamma_\delta$ is the $L \times M$ mapping from characteristics to their loadings. Estimation proceeds as in the unrestricted case, but now with $\tilde\Gamma = [\Gamma_\beta, \Gamma_\delta]$ and $\tilde{f}{t+1} = [f^{\prime}{t+1}, g^{\prime}_{t+1}]^\prime$. The first-order condition in @eq-condition4 remains the same, while @eq-condition3 becomes
+$$
+f_{t+1} = \left(\Gamma_\beta^{\prime} Z_t^{\prime} Z_t \Gamma_\beta \right)^{-1} \Gamma_\beta^{\prime} Z_t^{\prime} \left(r_{t+1} - Z_t \Gamma_\delta g_{t+1} \right), \quad \forall t. 
+$${#eq-condition5}
+@kellyCharacteristicsAre2019 propose a test to assess the explanatory power of observable factors after controlling for the baseline IPCA specification. The null hypothesis states that observable factors add no additional explanatory power
+$$
+H_0:\Gamma_\delta = \mathbf{0}_{L \times M}, 
+$$
+against the alternative
+$$H_1:\Gamma_\delta \neq \mathbf{0}_{L \times M}$$
+The Wald-type statistic used to evaluate this hypothesis is
+$$
+W_{\delta} = vec(\hat\Gamma_{\delta})^\prime vec(\hat\Gamma_{\delta})\
+$$
+which measures the distance between the specification that includes observable factors and the restricted model that excludes them. A large $W_\delta$ suggests that observable factors provide incremental explanatory power for asset returns after accounting for the latent IPCA factors. Inference is based on the same residual bootstrap procedure as in the previous tests, using $b=1,\dots,1000$ bootstrap samples.
