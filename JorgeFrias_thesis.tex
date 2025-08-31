@@ -268,7 +268,7 @@
 
 \title{Edit: Master Thesis Title}
 \author{Jorge Eduardo Frías Navarrete}
-\date{August 29, 2025}
+\date{August 31, 2025}
 \begin{document}
 \frontmatter
 
@@ -307,7 +307,7 @@
         Degree programme: & Quantitative Finance \\
         %University: & Vienna University of Economics and Business \\
         Supervisor: & Univ.Prof. David \textsc{Preinerstorfer}, Ph.D. \\
-        Date of Submission: & August 29, 2025
+        Date of Submission: & August 31, 2025
     \end{tabular}
     \vspace{2cm}
     
@@ -485,14 +485,15 @@ factors. In empirical applications, this relation is often estimated
 through time-series regressions
 (\citeproc{ref-cochrane2009asset}{Cochrane, 2005}). Let
 \(r_{i,t+1} \in \mathbb{R}\) denote the excess return on asset \(i\)
-from period \(t\) to \(t+1\), and let \(f_{t+1} \in \mathbb{R}^n\) be a
+from period \(t-1\) to \(t\), for \(i = 1, ..., N\) and
+\(t = 1, ..., T\). Let \(f_{t+1} \in \mathbb{R}^K\) be a \(K \times 1\)
 vector of risk factors. The model can then be written as\\
 \[
-r_{i,t+1} = \alpha_{i,t} + \beta_{i,t}' f_{t+1} + \epsilon_{i,t+1},
-\] where \(\beta_{i,t} \in \mathbb{R}^n\) measures the exposure of asset
-\(i\) to the risk factors, \(\alpha_{i,t}\) represents a pricing error
-(equal to zero under correct specification), and \(\epsilon_{i,t+1}\) is
-the idiosyncratic component of returns.
+r_{i,t} = \alpha_{i,t-1} + \beta_{i,t-1}' f_{t} + \epsilon_{i,t},
+\] where \(\beta_{i,t-1} \in \mathbb{R}^K\) measures the exposure of
+asset \(i\) to the risk factors, \(\alpha_{i,t-1}\) represents a pricing
+error (equal to zero under correct specification), and
+\(\epsilon_{i,t}\) is the idiosyncratic component of returns.
 
 A major challenge of the framework described above is identifying the
 set of factors that best capture asset returns, as these factors are not
@@ -723,25 +724,109 @@ empirical findings, and Section 5 concludes.
 
 \chapter{Methodology}\label{sec-methodology}
 
-The Instrumented Principal Component Analysis (IPCA) model was
-introduced in the seminal work of Kelly et al.
-(\citeproc{ref-kellyCharacteristicsAre2019}{2019},
-\citeproc{ref-kellyInstrumentedPrincipal2020}{2020}). The main model
-used in this thesis is the IPCA with different \(K\) number of factors
+In this section, I present the main method used in this thesis:
+Instrumented Principal Component Analysis (IPCA), introduced by Kelly et
+al. (\citeproc{ref-kellyCharacteristicsAre2019}{2019}). IPCA estimates
+latent factors and dynamic factor loadings by linking them to observable
+asset-specific characteristics. Unlike standard PCA, which assumes
+static loadings and relies uniquely on return data, IPCA allows factors
+loadings to vary with asset characteristics, such as size, volatility,
+volume, or momentum, which act as instruments for the conditional
+loadings. Moreover, it enables the estimation of \(K\) factor loadings
+directly from the panel of asset characteristics.
 
-Explicar la metodologia de IPCA. Si hay tiempo, entonces explicar
-tambien como funciona el RPCA de Chen and Roussanov. Explicar las R2 (en
-lugra de R2, entonces poner Total score y predictive score), mencionar
-como pie de pagina que son las medidas definidas por Kelly et al.
-(\citeproc{ref-kellyCharacteristicsAre2019}{2019}).
+\section{IPCA model}\label{ipca-model}
 
-Explicar los bootstrap para medir la significancia cada caracteristica,
-y quiza mencionar tambi'en brevemente los characteristic managed
-portfolios, en que consisten y como se emplean (quiza tomar inspiracion
-de Kelly, Bianchi, o creo que puede ser mejor en Liu et al.)
+Consider a linear factor model. Let \(r_{i,t+1} \in \mathbb{R}\) denote
+the excess return on cryptocurrency \(i\) from period \(t\) to \(t+1\),
+for \(i = 1, \dots, N\) and \(t = 1, \dots, T\). The general IPCA model
+specification is defined as
+\begin{equation}\phantomsection\label{eq-ipca}{
+r_{i,t+1} = \alpha_{i,t} + \beta_{i,t}' f_{t+1} + \epsilon_{i,t+1},
+}\end{equation}
 
-\section{Instrumented Principal Component
-Analysis}\label{instrumented-principal-component-analysis}
+with \[
+\alpha_{i,t} = z'_{i,t}\Gamma_\alpha + \nu_{\alpha,i,t}, \quad 
+\beta_{i,t} = z'_{i,t}\Gamma_\beta + \nu_{\beta,i,t},
+\]
+
+where \(f_{t+1} \in \mathbb{R}^K\) is the \(K \times 1\) vector of
+latent factors. The \(K \times 1\) vector \(\beta_{i,t}\) captures the
+dynamic factor loadings, which may depend on observable cryptocurrency
+characteristics contained in the \(L \times 1\) vector of instruments
+\(z_{i,t}\). The main idea is that linking model parameters to
+observable characteristics allows expected returns to adjust more
+quickly to new information than when using parameter estimates from
+rolling window time-series regressions
+(\citeproc{ref-bianchiMispricingRiskCompensation2021}{Bianchi \& Babiak,
+2021b}). This link is captured through the \(L \times K\) matrix
+\(\Gamma_\beta\), which maps a potentially large number of
+cryptocurrency characteristics \(L\) into a small number \(K\) of latent
+factor loadings. Similarly, the \(L \times 1\) vector \(\Gamma_\alpha\)
+maps characteristics to anomaly intercepts. Finally, the terms
+\(\nu_{\alpha, i, t}\) and \(\nu_{\beta, i, t}\) are residuals that
+capture variation in loadings orthogonal to the observable instruments.
+
+In IPCA, two specifications can be considered. As discussed earlier,
+characteristics are used as instruments for the time-variation in
+conditional loadings, so that the mapping
+\(z_{i,t} \mapsto \beta_{i,t}\) is determined by the low-dimensional
+matrix \(\Gamma_\beta\). A distinction is then made between a restricted
+and an unrestricted specification. The restricted model imposes
+\(\Gamma_\alpha = \mathbf{0}\) and assumes that characteristics affect
+expected returns only through risk exposures, which means there are no
+``anomaly'' intercepts. In contrast, the unrestricted model sets
+\(\Gamma_\alpha \neq \mathbf{0}\), with \(\alpha_{i,t}\) capturing mean
+returns from characteristics that are not determined by risk exposures
+alone.
+
+For the restricted model, Equation~\ref{eq-ipca} can be rewritten in
+vector form as
+
+\[
+r_{t+1} = Z_t\Gamma_{\beta}f_{t+1} + \epsilon^*_{t+1},
+\]
+
+where \(r_{t+1}\) is an \(N \times 1\) vector of individual
+cryptocurrency returns, \(Z_t\) is the \(N \times L\) matrix of stacked
+characteristics, and
+\(\epsilon^*_{t+1} = \epsilon_{t+1} + \nu_{\alpha,t} + \nu_{\beta,t}f_{t+1}\)
+is a composite error vector stacking individual residuals. The
+estimation problem is to minimize the sum of squared composite model
+errors:
+
+\[
+\min_{\Gamma_\beta, F} \sum_{t=1}^{T-1} 
+\left(r_{t+1} - Z_t \Gamma_\beta f_{t+1}\right)^{\prime}
+\left(r_{t+1} - Z_t \Gamma_\beta f_{t+1}\right)
+\]
+
+The solution is obtained by alternating least squares, iterating the
+first-order conditions of \(f_{t+1}\) and \(\Gamma_\beta\)
+(\citeproc{ref-bianchiMispricingRiskCompensation2021}{Bianchi \& Babiak,
+2021b}):
+
+\begin{equation}\phantomsection\label{eq-condition1}{
+\hat{f}_{t+1} = \left(\hat{\Gamma}_\beta^{\prime} Z_t^{\prime} Z_t \hat{\Gamma}_\beta \right)^{-1}
+\hat{\Gamma}_\beta^{\prime} Z_t^{\prime} r_{t+1}, 
+\quad \forall t
+}\end{equation}
+
+\begin{equation}\phantomsection\label{eq-condition2}{
+\operatorname{vec}(\hat{\Gamma}_\beta) =
+\left(
+\sum_{t=1}^{T-1} Z_t^{\prime} Z_t \otimes \hat{f}_{t+1} \hat{f}_{t+1}^{\prime}
+\right)^{-1}
+\left(
+\sum_{t=1}^{T-1} \left[ Z_t \otimes \hat{f}_{t+1} \right]^{\prime} r_{t+1}
+\right)
+}\end{equation}
+
+In this sense, ALS alternates between estimating factor realizations via
+cross-sectional regressions on latent loadings (equation
+\ref{eq-condition1}) and updating \(\Gamma_\beta\) through regressions
+on factors interacted with characteristics (equation
+\ref{eq-condition2}).
 
 \bookmarksetup{startatroot}
 
@@ -1468,11 +1553,6 @@ Kelly, B. T., Pruitt, S., \& Su, Y. (2019). Characteristics are
 covariances: A unified model of risk and return. \emph{Journal of
 Financial Economics}, \emph{134}(3), 501--524.
 \url{https://doi.org/10.1016/j.jfineco.2019.05.001}
-
-\bibitem[\citeproctext]{ref-kellyInstrumentedPrincipal2020}
-Kelly, B. T., Pruitt, S., \& Su, Y. (2020). \emph{Instrumented Principal
-Component Analysis} (SSRN Scholarly Paper 2983919). Social Science
-Research Network. \url{https://doi.org/10.2139/ssrn.2983919}
 
 \bibitem[\citeproctext]{ref-kleinBitcoinNot2018}
 Klein, T., Pham Thu, H., \& Walther, T. (2018). Bitcoin is not the New
