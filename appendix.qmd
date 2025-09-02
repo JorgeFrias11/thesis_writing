@@ -116,19 +116,28 @@ $$
 
 ## Observable risk factors {#sec-obs_factors}
 
+I construct the first three factors, market (CMKT), momentum (MOM), and size (SMB) following the paper of @liuCommonRisk2022, which construct a 3-factor model for the cryptocurrency market analogue to the FF3 model (@famaCommonRisk1993) in the equity market. Additionally, I construct a liquidity and a volatility factor based on @bianchi2021factor and @lanRiskFactors2025.
 
-Following @liuCommonRisk2022, I construct a daily cryptocurrency market return as the value-weighted average return of all the cryptocurrencies in the sample. For cryptocurrencies $i = 1, ..., N$, the daily market return at time $t$ is computed as: 
+The cryptocurrency market factor (CMKT) as the daily excess return on the aggregate cryptocurrency market. First, I compute the daily cryptocurrency market return as the value-weighted average return of all cryptocurrencies in the sample. For cryptocurrencies $i = 1, ..., N$, the daily market return at time $t$ is  
 
 $$
 r_t^M = \frac{\sum_{i=1}^N r_{it} \cdot marketcap_{it}}
              {\sum_{i=1}^N marketcap_{it} }
 $$
+where $r_{it}$ denotes the return of cryptocurrency $i$ from day $t-1$ to $t$ . 
 
-The cryptocurrency market excess return is constructed as the difference between the cryptocurrency market return and the risk-free rate. To proxy the risk-free rate, I used the (daily) 1-month Treasury bill rate from the FRED. 
+The cryptocurrency market excess return (CMKT) is then constructed as the difference between the cryptocurrency market return and the risk-free rate, proxied by the 1-month Treasury bill rate from the FRED. Since the treasury bill yield is annualized, I convert it to a daily rate assuming 252 trading days per year. 
 
+Then, I construct the cryptocurrency momentum factor (MOM) based on three week momentum. The construction proceeds in two steps. First, for each cryptocurrency $i$, I construct the past three-week momentum from day $t-22$ to $t-1$. Using characteristics up to $t-1$ avoid including today's price information and thereby avoid look-ahead bias. Second, on each day $t$, I sort cryptocurrencies into two portfolio groups. First, coins are split into two size groups, small and big, using the cross-sectikonal median market capitalization. Then, within each size group, cryptocurrencies are divided into three groups based on their three-week momentum as follows: the bottom 30% cryptocurrencies (Low), the middle 40% (Med), and the top 30% (High). Then, I compute value-weighted portfolio returns within each size-momentum group. 
 
+Finally, the momentum factor (MOM) is constructed as the difference between the average return return of the high-momentum portfolios and the average return of the low-momentum portfolios
 
-**XXXXXXXXXXX MISSING XXXXXXXXXXXXXX** Add construction
+$$
+MOM_t = \frac{1}{2}\big(\text{Small High} + \text{Big High}\big) 
+       - \frac{1}{2}\big(\text{Small Low} + \text{Big Low}\big)
+$$
+
+The next three factors are constructed as sorted portfolios using simple quantiles. For the size factor (SMB) I sort assets cross-sectionally into quintiles based on their market capitalization and compute the value-weighted return for each group. Then, I calculated the factor as the difference in returns between the top and the bottom quintiles. The liquidity and volatility factors are constructed analogously, but sorting characteristics but the amihud ratio or liquidity (where the least (most) liquid cryptocurrencies are on the top (bottom) quintiles), and by their 30-day realized volatility, respectively. Both characteristics are described in @sec-app_characteristics, and as with CMKT, they are calculated until time $t-1$ to avoid look-ahead bias.
 
 
 ## Software {#sec-software}

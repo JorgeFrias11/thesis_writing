@@ -237,10 +237,10 @@ Test assets & Statistic & \multicolumn{6}{c}{K} \\
 \midrule
 \multicolumn{8}{l}{Panel A: IPCA} \\
 \midrule
-$r_t$ & $R_{\text{total}}$ & 2.58 & 3.42 & 4.77 & 5.38 & 5.82 & 6.19 \\
-      & $R_{\text{pred}}$  & 0.42 & 0.37 &-0.06 &-0.03 &-0.01 &-0.02 \\
-$x_t$ & $R_{\text{total}}$ & 31.44 & 35.82 & 57.81 & 58.95 & 60.49 & 62.70 \\
-      & $R_{\text{pred}}$  & -1.93 & -3.29 & -10.53 & -9.72 & -9.38 & -9.62 \\
+$r_t$ & $R_{\text{total}}$ & 2.70 & 3.60 & 4.95 & 5.38 & 5.82 & 6.19 \\
+      & $R_{\text{pred}}$  & 0.52 & 0.48 & 0.06 &-0.03 &-0.01 &-0.02 \\
+$x_t$ & $R_{\text{total}}$ & 30.50 & 35.07 & 57.41 & 58.95 & 60.49 & 62.70 \\
+      & $R_{\text{pred}}$  & -1.86 & -3.14 & -10.34 & -9.72 & -9.38 & -9.62 \\
 \\[1pt]
 \midrule
 \multicolumn{8}{l}{Panel B: Observable factors: static loadings} \\
