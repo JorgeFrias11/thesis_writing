@@ -2,7 +2,7 @@
 
 ## Supplementary Material {#sec-app_material}
 
-
+**XXXXXXXXXXX MISSING XXXXXXXXXXXXXX** Add Github repo
 
 
 ## Cryptocurrency Characteristics {#sec-app_characteristics}
@@ -125,6 +125,10 @@ r_t^M = \frac{\sum_{i=1}^N r_{it} \cdot marketcap_{it}}
 $$
 
 The cryptocurrency market excess return is constructed as the difference between the cryptocurrency market return and the risk-free rate. To proxy the risk-free rate, I used the (daily) 1-month Treasury bill rate from the FRED. 
+
+
+
+**XXXXXXXXXXX MISSING XXXXXXXXXXXXXX** Add construction
 
 
 ## Software {#sec-software}

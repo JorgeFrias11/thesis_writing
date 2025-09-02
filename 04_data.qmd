@@ -56,6 +56,7 @@ Table \ref{tbl-overview} summarizes the descriptive statistics for the cryptocur
 \centering
 \caption[Cross-section size of the sample]{\textbf{Cross-section size of the sample.} The table repots the number of unique coins per year, as well as the minimum daily cross-section size in the filtered sample.}
 \label{tbl-cross_section}
+\vspace{5pt} % extra space between caption and tabular
 \begin{tabular}{ccccccccc}
 \toprule
 Year & 2018 & 2019 & 2020 & 2021 & 2022 & 2023 & 2024 & 2025 \\
@@ -73,6 +74,7 @@ Min. daily cross-section & 121 & 239 & 207 & 381 & 699 & 793 & 710 & 578 \\
 \centering
 \caption[Summary statistics of daily returns]{\textbf{Summary statistics of daily returns.} The table reports summary statistics of daily returns for the filtered sample, the top 100 and top 10 cryptocurrencies ranked by market capitalization, and for Bitcoin, Ethereum, and Ripple individually. Reported statistics include the number of daily observations, the number of unique coins over the sample period, the mean and standard deviation of returns, and the 10th percentile, lower quartile, median, upper quartile, and 90th percentile of the distribution of the returns. The sample period is from June 1, 2018, to July 31, 2025.}
 \label{tbl-overview}
+\vspace{5pt} 
 \begin{adjustbox}{max width=\textwidth}
 \begin{threeparttable}
 \begin{tabular}{lccccccccc}
