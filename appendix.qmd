@@ -116,28 +116,21 @@ $$
 
 ## Observable risk factors {#sec-obs_factors}
 
-I construct the first three factors, market (CMKT), momentum (MOM), and size (SMB) following the paper of @liuCommonRisk2022, which construct a 3-factor model for the cryptocurrency market analogue to the FF3 model (@famaCommonRisk1993) in the equity market. Additionally, I construct a liquidity and a volatility factor based on @bianchi2021factor and @lanRiskFactors2025.
+I construct five cryptocurrency factors: market (CMKT), momentum (MOM), and size (SMB), following @liuCommonRisk2022, who develop a 3-factor model for the cryptocurrency market analogous to the Fama–French three-factor model in equities @famaCommonRisk1993. In addition, I include a liquidity and a volatility factor, based on @bianchi2021factor and @lanRiskFactors2025.
 
-The cryptocurrency market factor (CMKT) as the daily excess return on the aggregate cryptocurrency market. First, I compute the daily cryptocurrency market return as the value-weighted average return of all cryptocurrencies in the sample. For cryptocurrencies $i = 1, ..., N$, the daily market return at time $t$ is  
-
+The cryptocurrency market factor (CMKT) is defined as the daily excess return on the aggregate market. The daily market return is calculated as the value-weighted average return of all cryptocurrencies in the sample
 $$
 r_t^M = \frac{\sum_{i=1}^N r_{it} \cdot marketcap_{it}}
              {\sum_{i=1}^N marketcap_{it} }
 $$
-where $r_{it}$ denotes the return of cryptocurrency $i$ from day $t-1$ to $t$ . 
+where $r_{it}$ is the return of cryptocurrency $i$ from day $t-1$ to $t$. The market excess return (CMKT) is then obtained by subtracting the risk-free rate, proxied by the 1-month Treasury bill yield from FRED, converted to a daily rate using 252 trading days per year.
 
-The cryptocurrency market excess return (CMKT) is then constructed as the difference between the cryptocurrency market return and the risk-free rate, proxied by the 1-month Treasury bill rate from the FRED. Since the treasury bill yield is annualized, I convert it to a daily rate assuming 252 trading days per year. 
-
-Then, I construct the cryptocurrency momentum factor (MOM) based on three week momentum. The construction proceeds in two steps. First, for each cryptocurrency $i$, I construct the past three-week momentum from day $t-22$ to $t-1$. Using characteristics up to $t-1$ avoid including today's price information and thereby avoid look-ahead bias. Second, on each day $t$, I sort cryptocurrencies into two portfolio groups. First, coins are split into two size groups, small and big, using the cross-sectikonal median market capitalization. Then, within each size group, cryptocurrencies are divided into three groups based on their three-week momentum as follows: the bottom 30% cryptocurrencies (Low), the middle 40% (Med), and the top 30% (High). Then, I compute value-weighted portfolio returns within each size-momentum group. 
-
-Finally, the momentum factor (MOM) is constructed as the difference between the average return return of the high-momentum portfolios and the average return of the low-momentum portfolios
-
+The momentum factor (MOM) is based on past three-week momentum. For each cryptocurrency $i$, cumulative returns from day $t-22$ to $t-1$ are computed, using only information available at $t-1$ to avoid look-ahead bias. Each day, cryptocurrencies are first split into small and big groups by the median market capitalization. Within each size group, they are further divided into terciles based on momentum (Low: bottom 30%, Medium: middle 40%, High: top 30%). Value-weighted portfolio returns are then calculated for each size–momentum group. The momentum factor is the average return on the High portfolios minus the average return on the Low portfolios:
 $$
 MOM_t = \frac{1}{2}\big(\text{Small High} + \text{Big High}\big) 
        - \frac{1}{2}\big(\text{Small Low} + \text{Big Low}\big)
 $$
-
-The next three factors are constructed as sorted portfolios using simple quantiles. For the size factor (SMB) I sort assets cross-sectionally into quintiles based on their market capitalization and compute the value-weighted return for each group. Then, I calculated the factor as the difference in returns between the top and the bottom quintiles. The liquidity and volatility factors are constructed analogously, but sorting characteristics but the amihud ratio or liquidity (where the least (most) liquid cryptocurrencies are on the top (bottom) quintiles), and by their 30-day realized volatility, respectively. Both characteristics are described in @sec-app_characteristics, and as with CMKT, they are calculated until time $t-1$ to avoid look-ahead bias.
+The remaining factors are constructed from quantile-sorted portfolios. For the size factor (SMB), assets are sorted into quintiles based on market capitalization, and the factor is defined as the return difference between the smallest and largest quintiles. Liquidity and volatility factors are built in the same way, sorting assets by the Amihud illiquidity measure and by 30-day realized volatility, respectively. As with CMKT and MOM, all characteristics are measured at $t-1$ to avoid look-ahead bias, and their construction follows the definitions provided in @sec-app_characteristics.
 
 
 ## Software {#sec-software}
@@ -146,6 +139,6 @@ The next three factors are constructed as sorted portfolios using simple quantil
 
 This thesis was fully written using [Quarto](https://quarto.org/) [@Quarto_2025], running in RStudio [v. 2025.5.1.513\; @rstudio]  on Fedora Linux 42 (Workstation Edition). 
 
-I used R 4.5.1 [@base] and the following R packages: bidask v. 2.1.4 [@bidask], moments v. 0.14.1 [@moments], pcaMethods v. 2.0.0 [@pcaMethods], PerformanceAnalytics v. 2.0.8 [@PerformanceAnalytics], quantmod v. 0.4.28 [@quantmod], slider v. 0.3.2 [@slider], tidyverse v. 2.0.0 [@tidyverse], and zoo v. 1.8.14 [@zoo]. 
+I used R 4.5.1 [@base] and the following R packages: bidask [v. 2.1.4\; @bidask], moments [v. 0.14.1\; @moments], PerformanceAnalytics [v. 2.0.8\; @PerformanceAnalytics], quantmod [v. 0.4.28\; @quantmod], slider [v. 0.3.2\; @slider], tidyverse [v. 2.0.0\; @tidyverse], and zoo [v. 1.8.14\; @zoo]. 
 
-Additionally, I used Python 3.15.3 [@python] and the following packages: numpy [@harris2020array], pandas [@reback2020pandas], matplotlib [@Hunter:2007], and scipy [@2020SciPy-NMeth].
+Additionally, I used Python [v. 3.15.3\; @python] and the following packages: numpy [v. 2.2.6\; @harris2020array], pandas [v. 2.3.1\; @reback2020pandas], matplotlib [v. 3.10.3\; @Hunter:2007], and scipy [v. 1.15.3\; @2020SciPy-NMeth].

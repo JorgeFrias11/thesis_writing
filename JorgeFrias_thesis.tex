@@ -884,33 +884,32 @@ IPCA model across different choices of \(K\) factors and between
 restricted and unrestricted specifications. These measures are referred
 to as the total \(R^2\) and the predictive \(R^2\). However, since both
 statistics can take negative values ---although ``\(R^2\)'' suggests
-non-negative values---I refer to them here as the ``total score'' and
-the ``predictive score''.
+non-negative values---I refer to them here as simply the ``total R'' and
+the ``predictive R''.
 
-The total score measures the overall fit of the IPCA model by
-quantifying how much of the variation in realized returns can be
-explained by the estimated factors and conditional loadings. It is
-defined as
+The total R measures the overall fit of the IPCA model by quantifying
+how much of the variation in realized returns can be explained by the
+estimated factors and conditional loadings. It is defined as
 
 \[
-\text{Total Score} = 1 - 
+R_\text{total} = 1 - 
 \frac{\sum_{i,t} \left(r_{i,t+1} - z_{i,t}'(\hat{\Gamma}_\alpha + \hat{\Gamma}_\beta \hat{f}_{t+1})\right)^2}
 {\sum_{i,t} r_{i,t+1}^2}.
 \]\\
-The predictive score measures how much of the variation in realized
-returns is explained by the model's conditional expected returns,
-obtained by replacing realized factors with the estimated risk prices
+The predictive R measures how much of the variation in realized returns
+is explained by the model's conditional expected returns, obtained by
+replacing realized factors with the estimated risk prices
 \(\hat \lambda\). It is defined as
 
 \[
-\text{Predictive Score} = 1 - 
+R_\text{pred} = 1 - 
 \frac{\sum_{i,t} \left(r_{i,t+1} - z_{i,t}'(\hat{\Gamma}_\alpha + \hat{\Gamma}_\beta \hat{\lambda})\right)^2}
 {\sum_{i,t} r_{i,t+1}^2},
 \]\\
 In the restricted specification (\(\Gamma_\alpha = 0\)), the predictive
-score describes how well characteristics explain expected returns only
+R describes how well characteristics explain expected returns only
 through their effect on factor loadings, that is, through systematic
-risk exposures. In the unrestricted specification, the predictive score
+risk exposures. In the unrestricted specification, the predictive R
 measures how well characteristics explain expected returns both through
 factor loadings and through anomaly intercepts.
 
@@ -1348,7 +1347,7 @@ No. & Characteristic & Symbol & Definition\\
 \midrule
 \addlinespace[0.3em]
 \multicolumn{4}{l}{\textbf{Panel A: Price \& size}}\\
-\hspace{1em}(1) & Market capitalization & mcap & Last day's market capitalization.\\
+\hspace{1em}NA & NA & mcap & NA\\
 \hspace{1em}(2) & Price & prc & Last day's logged closing price.\\
 \hspace{1em}(3) & Closeness to the 90-day high & dh90 & Last day's price over the maximum price in the previous 90 days.\\
 \addlinespace[0.3em]
@@ -1426,7 +1425,36 @@ for dynamic loadings.
 
 \bookmarksetup{startatroot}
 
-\chapter{Results}\label{results}
+\chapter{Empirical results}\label{empirical-results}
+
+In this section, I present the main empirical findings of the thesis.
+The objective is to compare different factor models in the context of
+the cryptocurrency market in order to study the dynamics of
+cryptocurrency returns. This is carried out within the IPCA framework by
+estimating models under several specifications: the general IPCA with
+purely latent factors, models with observable factors and static
+loadings, and models with observable factors and dynamic loadings (with
+characteristics instrumenting loadings). Results are reported for
+different choices of \(K\) factors. In addition, I evaluate model
+performance using the total and predictive scores, both in-sample and
+out-of-sample. Finally, I examine which cryptocurrency characteristics
+from the panel data make a significant individual contribution to the
+overall model fit.
+
+The models and tests described in this section are implemented in Python
+3.13.5, using the code provided by Seth Pruitt \footnote{See
+  https://sethpruitt.net/research/.}. I adapted this code by adding the
+Wald-type tests with bootstrap procedures, following the implementation
+in the \texttt{ipca} python package of Buechner \& Bybee
+(\citeproc{ref-ipca}{2019}) \footnote{See
+  https://bkelly-lab.github.io/ipca/.}. All figures are generated using
+the Matplotlib package (v. 3.10.3; \citeproc{ref-Hunter:2007}{Hunter,
+2007}).
+
+Following Kelly et al.
+(\citeproc{ref-kellyCharacteristicsAre2019}{2019}), I cross-sectionally
+transform the instrument variables period-by-period in the following
+manner: first,
 
 Write this in the following section of ``Empirical application'' or This
 is for the model: 7. (Still undecisive) Minimum cross-section. Following
@@ -1434,15 +1462,7 @@ the criterion by Kelly, I Convert variables in the -0.5 - 0.5 range
 
 The sample period ranges from January 1st, 2014, to May 31st, 2025.
 
-Implemented in python, based on the IPCA python code of Seth Pruitt
-\footnote{See https://sethpruitt.net/research/.} and the \texttt{ipca}
-python package of Buechner \& Bybee (\citeproc{ref-ipca}{2019})
-\footnote{See https://bkelly-lab.github.io/ipca/.}.
-
-Following Kelly et al.
-(\citeproc{ref-kellyCharacteristicsAre2019}{2019}), I cross-sectionally
-transform the instrument variables period-by-period in the following
-manner: first,
+Implemented in python, based on the IPCA python code
 
 \textbf{Important}: mention the shift of characteristics: the
 conditional APT of Kelly, Pruitt, Su (JFE 2019) says that the
@@ -1651,57 +1671,32 @@ Test assets & Statistic & \multicolumn{6}{c}{K} \\
 \midrule
 \multicolumn{8}{l}{Panel A: IPCA} \\
 \midrule
-$r_t$ & $R_{\text{total}}$ & 2.58 & 3.42 & 4.77 & 5.38 & 5.82 & 6.19 \\
-      & $R_{\text{pred}}$  & 0.42 & 0.37 &-0.06 &-0.03 &-0.01 &-0.02 \\
-$x_t$ & $R_{\text{total}}$ & 31.44 & 35.82 & 57.81 & 58.95 & 60.49 & 62.70 \\
-      & $R_{\text{pred}}$  & -1.93 & -3.29 & -10.53 & -9.72 & -9.38 & -9.62 \\
+$r_t$ & $R_{\text{total}}$ & 2.70  & 3.60  & 4.95   & 5.60  & 6.08  & 6.19 \\
+      & $R_{\text{pred}}$  & 0.52  & 0.48  & 0.06   & 0.11  & 0.12  & -0.02 \\
+$x_t$ & $R_{\text{total}}$ & 30.50 & 35.07 & 57.41  & 58.31 & 60.00 & 62.70 \\
+      & $R_{\text{pred}}$  & -1.86 & -3.14 & -10.34 & -9.43 & -9.07 & -9.62 \\
 \\[1pt]
 \midrule
 \multicolumn{8}{l}{Panel B: Observable factors: static loadings} \\
 \midrule
-$r_t$ & $R_{\text{total}}$ & 0.56 & 0.85 & 1.12 & 1.17 & 1.18 & \\
-      & $R_{\text{pred}}$  & 0.00 & 0.00 & 0.01 & 0.02 & 0.02 & \\
-$x_t$ & $R_{\text{total}}$ & 18.22 & 24.10 & 28.16 & 29.47 & 30.62 & \\
-      & $R_{\text{pred}}$  & 0.00 & 0.01 & 0.01 & 0.01 & 0.03 & \\
+$r_t$ & $R_{\text{total}}$ & 0.53  & 0.78  & 1.08  & 1.12  & 1.15 & \\
+      & $R_{\text{pred}}$  & 0.02  & 0.01  & 0.01  & 0.01  & 0.01 & \\
+$x_t$ & $R_{\text{total}}$ & 16.71 & 21.43 & 25.72 & 27.26 & 28.29 & \\
+      & $R_{\text{pred}}$  & 0.02  & 0.07  & 0.09  & 0.10  & 0.10 & \\
 \\[1pt]
 \midrule
 \multicolumn{8}{l}{Panel C: Observable factors: dynamic loadings} \\
 \midrule
-$r_t$ & $R_{\text{total}}$ & 2.99 & 3.82 & 4.80 & 5.40 & 5.82 & \\
-      & $R_{\text{pred}}$  & 0.41 & 0.40 &-0.03 &-0.00 & 0.01 & \\
-$x_t$ & $R_{\text{total}}$ & 44.23 & 49.11 & 59.26 & 60.25 & 61.41 & \\
-      & $R_{\text{pred}}$  & -2.02 & -2.67 & -9.84 & -9.06 & -8.81 & \\
+$r_t$ & $R_{\text{total}}$ & 3.11  & 4.01  & 5.00  & 5.65  & 6.13 & \\
+      & $R_{\text{pred}}$  & 0.51  & 0.51  & 0.80  & 0.12  & 0.13 & \\
+$x_t$ & $R_{\text{total}}$ & 43.40 & 48.54 & 58.96 & 59.97 & 61.55 & \\
+      & $R_{\text{pred}}$  & -2.02 & -2.57 & -9.69 & -8.84 & -8.56 & \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \section{Which characteristics
 matter?}\label{which-characteristics-matter}
-
-The figure shows which cryptocurrency characteristics are statistically
-significant predictors of factor loadings across IPCA models with
-\(K=1,\dots,6\) latent factors. The null hypothesis is that the
-coefficients linked to a characteristic, \(\Gamma_{\beta,l}\), are equal
-to zero, meaning it has no effect on factor loadings. Significance is
-tested while controlling for all other characteristics. Colors indicate
-significance at the 1\%, 5\%, and 10\% levels based on Wald-type tests.
-
-The figure shows which cryptocurrency characteristics are significant in
-explaining factor loadings across IPCA models with \(K=1,\dots,6\)
-latent factors in the restricted model (\(\Gamma_\alpha = \mathbf{0}\)).
-The null hypothesis is that the coefficients for a characteristic,
-\(\Gamma_{\beta,l}\), are zero, meaning it has no effect once the other
-characteristics are controlled for. Colors indicate significance at the
-1\%, 5\%, and 10\% levels based on Wald-type tests.
-
-The figure shows which cryptocurrency characteristics are significant in
-explaining factor loadings across IPCA models with \(K=1,\dots,6\)
-latent factors in the restricted specification
-\(\Gamma_\_alpha = \mathbf{0}\). The null hypothesis is that the
-coefficients for a characteristic, \(\Gamma_{\beta,l}\), are zero,
-meaning it has no effect after controlling for the other
-characteristics. Colors indicate significance at the 1\%, 5\%, and 10\%
-levels based on Wald-type tests.
 
 Here reference Figure~\ref{fig-charsheatmap}
 
@@ -1734,6 +1729,9 @@ Here we see the summary statistics in Table \ref{tbl-letters}.
 \bookmarksetup{startatroot}
 
 \chapter{Conclusion}\label{conclusion}
+
+My findings are mostly consistent with the literature. Overall, the
+specifications with dynamic loadings perform better
 
 \bookmarksetup{startatroot}
 
@@ -2108,11 +2106,6 @@ Sharpe, W. F. (1964). Capital Asset Prices: A Theory of Market
 Equilibrium under Conditions of Risk. \emph{The Journal of Finance},
 \emph{19}(3), 425--442. \url{https://doi.org/10.2307/2977928}
 
-\bibitem[\citeproctext]{ref-pcaMethods}
-Stacklies, W., Redestig, H., Scholz, M., Walther, D., \& Selbig, J.
-(2007). pcaMethods -- a bioconductor package providing PCA methods for
-incomplete data. \emph{Bioinformatics}, \emph{23}, 1164--1167.
-
 \bibitem[\citeproctext]{ref-reback2020pandas}
 The pandas development team. (2020). \emph{Pandas-dev/pandas: pandas}
 {[}Computer software{]}. Zenodo.
@@ -2368,23 +2361,49 @@ respectively.
 
 \section{Observable risk factors}\label{sec-obs_factors}
 
-Following Y. Liu et al. (\citeproc{ref-liuCommonRisk2022}{2022}), I
-construct a daily cryptocurrency market return as the value-weighted
-average return of all the cryptocurrencies in the sample. For
-cryptocurrencies \(i = 1, ..., N\), the daily market return at time
-\(t\) is computed as:
+I construct five cryptocurrency factors: market (CMKT), momentum (MOM),
+and size (SMB), following Y. Liu et al.
+(\citeproc{ref-liuCommonRisk2022}{2022}), who develop a 3-factor model
+for the cryptocurrency market analogous to the Fama--French three-factor
+model in equities Fama \& French
+(\citeproc{ref-famaCommonRisk1993}{1993}). In addition, I include a
+liquidity and a volatility factor, based on Bianchi \& Babiak
+(\citeproc{ref-bianchi2021factor}{2021a}) and Lan \& Frömmel
+(\citeproc{ref-lanRiskFactors2025}{2025}).
 
+The cryptocurrency market factor (CMKT) is defined as the daily excess
+return on the aggregate market. The daily market return is calculated as
+the value-weighted average return of all cryptocurrencies in the sample
 \[
 r_t^M = \frac{\sum_{i=1}^N r_{it} \cdot marketcap_{it}}
              {\sum_{i=1}^N marketcap_{it} }
-\]
+\] where \(r_{it}\) is the return of cryptocurrency \(i\) from day
+\(t-1\) to \(t\). The market excess return (CMKT) is then obtained by
+subtracting the risk-free rate, proxied by the 1-month Treasury bill
+yield from FRED, converted to a daily rate using 252 trading days per
+year.
 
-The cryptocurrency market excess return is constructed as the difference
-between the cryptocurrency market return and the risk-free rate. To
-proxy the risk-free rate, I used the (daily) 1-month Treasury bill rate
-from the FRED.
-
-\textbf{XXXXXXXXXXX MISSING XXXXXXXXXXXXXX} Add construction
+The momentum factor (MOM) is based on past three-week momentum. For each
+cryptocurrency \(i\), cumulative returns from day \(t-22\) to \(t-1\)
+are computed, using only information available at \(t-1\) to avoid
+look-ahead bias. Each day, cryptocurrencies are first split into small
+and big groups by the median market capitalization. Within each size
+group, they are further divided into terciles based on momentum (Low:
+bottom 30\%, Medium: middle 40\%, High: top 30\%). Value-weighted
+portfolio returns are then calculated for each size--momentum group. The
+momentum factor is the average return on the High portfolios minus the
+average return on the Low portfolios: \[
+MOM_t = \frac{1}{2}\big(\text{Small High} + \text{Big High}\big) 
+       - \frac{1}{2}\big(\text{Small Low} + \text{Big Low}\big)
+\] The remaining factors are constructed from quantile-sorted
+portfolios. For the size factor (SMB), assets are sorted into quintiles
+based on market capitalization, and the factor is defined as the return
+difference between the smallest and largest quintiles. Liquidity and
+volatility factors are built in the same way, sorting assets by the
+Amihud illiquidity measure and by 30-day realized volatility,
+respectively. As with CMKT and MOM, all characteristics are measured at
+\(t-1\) to avoid look-ahead bias, and their construction follows the
+definitions provided in Section~\ref{sec-app_characteristics}.
 
 \section{Software}\label{sec-software}
 
@@ -2394,23 +2413,22 @@ This thesis was fully written using \href{https://quarto.org/}{Quarto}
 Linux 42 (Workstation Edition).
 
 I used R 4.5.1 (\citeproc{ref-base}{R Core Team, 2025}) and the
-following R packages: bidask v. 2.1.4 (\citeproc{ref-bidask}{Ardia et
-al., 2024}), moments v. 0.14.1 (\citeproc{ref-moments}{Komsta \&
-Novomestky, 2022}), pcaMethods v. 2.0.0
-(\citeproc{ref-pcaMethods}{Stacklies et al., 2007}),
-PerformanceAnalytics v. 2.0.8
-(\citeproc{ref-PerformanceAnalytics}{Peterson \& Carl, 2024}), quantmod
-v. 0.4.28 (\citeproc{ref-quantmod}{Ryan \& Ulrich, 2025}), slider v.
-0.3.2 (\citeproc{ref-slider}{Vaughan, 2024}), tidyverse v. 2.0.0
-(\citeproc{ref-tidyverse}{Wickham et al., 2019}), and zoo v. 1.8.14
-(\citeproc{ref-zoo}{Zeileis \& Grothendieck, 2005}).
+following R packages: bidask (v. 2.1.4; \citeproc{ref-bidask}{Ardia et
+al., 2024}), moments (v. 0.14.1; \citeproc{ref-moments}{Komsta \&
+Novomestky, 2022}), PerformanceAnalytics (v. 2.0.8;
+\citeproc{ref-PerformanceAnalytics}{Peterson \& Carl, 2024}), quantmod
+(v. 0.4.28; \citeproc{ref-quantmod}{Ryan \& Ulrich, 2025}), slider (v.
+0.3.2; \citeproc{ref-slider}{Vaughan, 2024}), tidyverse (v. 2.0.0;
+\citeproc{ref-tidyverse}{Wickham et al., 2019}), and zoo (v. 1.8.14;
+\citeproc{ref-zoo}{Zeileis \& Grothendieck, 2005}).
 
-Additionally, I used Python 3.15.3 (\citeproc{ref-python}{Python
-Software Foundation, 2025}) and the following packages: numpy
-(\citeproc{ref-harris2020array}{Harris et al., 2020}), pandas
-(\citeproc{ref-reback2020pandas}{The pandas development team, 2020}),
-matplotlib (\citeproc{ref-Hunter:2007}{Hunter, 2007}), and scipy
-(\citeproc{ref-2020SciPy-NMeth}{Virtanen et al., 2020}).
+Additionally, I used Python (v. 3.15.3; \citeproc{ref-python}{Python
+Software Foundation, 2025}) and the following packages: numpy (v. 2.2.6;
+\citeproc{ref-harris2020array}{Harris et al., 2020}), pandas (v. 2.3.1;
+\citeproc{ref-reback2020pandas}{The pandas development team, 2020}),
+matplotlib (v. 3.10.3; \citeproc{ref-Hunter:2007}{Hunter, 2007}), and
+scipy (v. 1.15.3; \citeproc{ref-2020SciPy-NMeth}{Virtanen et al.,
+2020}).
 
 
 \backmatter

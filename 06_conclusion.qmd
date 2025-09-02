@@ -1,2 +1,3 @@
 # Conclusion
 
+My findings are mostly consistent with the literature. Overall, the specifications with dynamic loadings perform better 

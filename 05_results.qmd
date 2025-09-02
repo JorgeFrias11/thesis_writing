@@ -1,5 +1,10 @@
-## Results
+## Empirical results
 
+In this section, I present the main empirical findings of the thesis. The objective is to compare different factor models in the context of the cryptocurrency market in order to study the dynamics of cryptocurrency returns. This is carried out within the IPCA framework by estimating models under several specifications: the general IPCA with purely latent factors, models with observable factors and static loadings, and models with observable factors and dynamic loadings (with characteristics instrumenting loadings). Results are reported for different choices of $K$ factors. In addition, I evaluate model performance using the total and predictive scores, both in-sample and out-of-sample. Finally, I examine which cryptocurrency characteristics from the panel data make a significant individual contribution to the overall model fit.
+
+The models and tests described in this section are implemented in Python 3.13.5, using the code provided by Seth Pruitt ^[See https://sethpruitt.net/research/.]. I adapted this code by adding the Wald-type tests with bootstrap procedures, following the implementation in the `ipca` python package of @ipca ^[See https://bkelly-lab.github.io/ipca/.]. All figures are generated using the Matplotlib package [v. 3.10.3\; @Hunter:2007]. 
+
+Following @kellyCharacteristicsAre2019, I cross-sectionally transform the instrument variables period-by-period in the following manner: first,  
 
 Write this in the following section of "Empirical application" or 
 This is for the model:
@@ -8,9 +13,9 @@ Convert variables in the -0.5 - 0.5 range
     
 The sample period ranges from January 1st, 2014, to May 31st, 2025.  
 
-Implemented in python, based on the IPCA python code of Seth Pruitt ^[See https://sethpruitt.net/research/.] and the `ipca` python package of @ipca ^[See https://bkelly-lab.github.io/ipca/.].
+Implemented in python, based on the IPCA python code 
 
-Following @kellyCharacteristicsAre2019, I cross-sectionally transform the instrument variables period-by-period in the following manner: first,  
+
 
 **Important**: mention the shift of characteristics:  the conditional APT of
         Kelly, Pruitt, Su (JFE 2019) says that the characteristics known at Date=d-1 determine the exposures associated
@@ -237,26 +242,26 @@ Test assets & Statistic & \multicolumn{6}{c}{K} \\
 \midrule
 \multicolumn{8}{l}{Panel A: IPCA} \\
 \midrule
-$r_t$ & $R_{\text{total}}$ & 2.70 & 3.60 & 4.95 & 5.38 & 5.82 & 6.19 \\
-      & $R_{\text{pred}}$  & 0.52 & 0.48 & 0.06 &-0.03 &-0.01 &-0.02 \\
-$x_t$ & $R_{\text{total}}$ & 30.50 & 35.07 & 57.41 & 58.95 & 60.49 & 62.70 \\
-      & $R_{\text{pred}}$  & -1.86 & -3.14 & -10.34 & -9.72 & -9.38 & -9.62 \\
+$r_t$ & $R_{\text{total}}$ & 2.70  & 3.60  & 4.95   & 5.60  & 6.08  & 6.19 \\
+      & $R_{\text{pred}}$  & 0.52  & 0.48  & 0.06   & 0.11  & 0.12  & -0.02 \\
+$x_t$ & $R_{\text{total}}$ & 30.50 & 35.07 & 57.41  & 58.31 & 60.00 & 62.70 \\
+      & $R_{\text{pred}}$  & -1.86 & -3.14 & -10.34 & -9.43 & -9.07 & -9.62 \\
 \\[1pt]
 \midrule
 \multicolumn{8}{l}{Panel B: Observable factors: static loadings} \\
 \midrule
-$r_t$ & $R_{\text{total}}$ & 0.56 & 0.85 & 1.12 & 1.17 & 1.18 & \\
-      & $R_{\text{pred}}$  & 0.00 & 0.00 & 0.01 & 0.02 & 0.02 & \\
-$x_t$ & $R_{\text{total}}$ & 18.22 & 24.10 & 28.16 & 29.47 & 30.62 & \\
-      & $R_{\text{pred}}$  & 0.00 & 0.01 & 0.01 & 0.01 & 0.03 & \\
+$r_t$ & $R_{\text{total}}$ & 0.53  & 0.78  & 1.08  & 1.12  & 1.15 & \\
+      & $R_{\text{pred}}$  & 0.02  & 0.01  & 0.01  & 0.01  & 0.01 & \\
+$x_t$ & $R_{\text{total}}$ & 16.71 & 21.43 & 25.72 & 27.26 & 28.29 & \\
+      & $R_{\text{pred}}$  & 0.02  & 0.07  & 0.09  & 0.10  & 0.10 & \\
 \\[1pt]
 \midrule
 \multicolumn{8}{l}{Panel C: Observable factors: dynamic loadings} \\
 \midrule
-$r_t$ & $R_{\text{total}}$ & 2.99 & 3.82 & 4.80 & 5.40 & 5.82 & \\
-      & $R_{\text{pred}}$  & 0.41 & 0.40 &-0.03 &-0.00 & 0.01 & \\
-$x_t$ & $R_{\text{total}}$ & 44.23 & 49.11 & 59.26 & 60.25 & 61.41 & \\
-      & $R_{\text{pred}}$  & -2.02 & -2.67 & -9.84 & -9.06 & -8.81 & \\
+$r_t$ & $R_{\text{total}}$ & 3.11  & 4.01  & 5.00  & 5.65  & 6.13 & \\
+      & $R_{\text{pred}}$  & 0.51  & 0.51  & 0.80  & 0.12  & 0.13 & \\
+$x_t$ & $R_{\text{total}}$ & 43.40 & 48.54 & 58.96 & 59.97 & 61.55 & \\
+      & $R_{\text{pred}}$  & -2.02 & -2.57 & -9.69 & -8.84 & -8.56 & \\
 \bottomrule
 \end{tabular}
 \end{table}

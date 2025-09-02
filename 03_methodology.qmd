@@ -93,23 +93,23 @@ Although the main focus of this thesis is on explaining the relationship between
 
 ## Performance measures
 
-@kellyCharacteristicsAre2019 propose two metrics to evaluate and compare the asset pricing performance of the IPCA model across different choices of $K$ factors and between restricted and unrestricted specifications. These measures are referred to as the total $R^2$ and the predictive $R^2$. However, since both statistics can take negative values ---although “$R^2$” suggests non-negative values---I refer to them here as the "total score" and the "predictive score". 
+@kellyCharacteristicsAre2019 propose two metrics to evaluate and compare the asset pricing performance of the IPCA model across different choices of $K$ factors and between restricted and unrestricted specifications. These measures are referred to as the total $R^2$ and the predictive $R^2$. However, since both statistics can take negative values ---although “$R^2$” suggests non-negative values---I refer to them here as simply the "total R" and the "predictive R". 
 
-The total score measures the overall fit of the IPCA model by quantifying how much of the variation in realized returns can be explained by the estimated factors and conditional loadings. It is defined as 
+The total R measures the overall fit of the IPCA model by quantifying how much of the variation in realized returns can be explained by the estimated factors and conditional loadings. It is defined as 
 
 $$
-\text{Total Score} = 1 - 
+R_\text{total} = 1 - 
 \frac{\sum_{i,t} \left(r_{i,t+1} - z_{i,t}'(\hat{\Gamma}_\alpha + \hat{\Gamma}_\beta \hat{f}_{t+1})\right)^2}
 {\sum_{i,t} r_{i,t+1}^2}.
 $$  
-The predictive score measures how much of the variation in realized returns is explained by the model’s conditional expected returns, obtained by replacing realized factors with the estimated risk prices $\hat \lambda$. It is defined as  
+The predictive R measures how much of the variation in realized returns is explained by the model’s conditional expected returns, obtained by replacing realized factors with the estimated risk prices $\hat \lambda$. It is defined as  
 
 $$
-\text{Predictive Score} = 1 - 
+R_\text{pred} = 1 - 
 \frac{\sum_{i,t} \left(r_{i,t+1} - z_{i,t}'(\hat{\Gamma}_\alpha + \hat{\Gamma}_\beta \hat{\lambda})\right)^2}
 {\sum_{i,t} r_{i,t+1}^2},
 $$  
-In the restricted specification ($\Gamma_\alpha = 0$), the predictive score describes how well characteristics explain expected returns only through their effect on factor loadings, that is, through systematic risk exposures. In the unrestricted specification, the predictive score measures how well characteristics explain expected returns both through factor loadings and through anomaly intercepts.
+In the restricted specification ($\Gamma_\alpha = 0$), the predictive R describes how well characteristics explain expected returns only through their effect on factor loadings, that is, through systematic risk exposures. In the unrestricted specification, the predictive R measures how well characteristics explain expected returns both through factor loadings and through anomaly intercepts.
 
 ## Hypothesis tests 
 
