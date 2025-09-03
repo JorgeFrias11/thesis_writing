@@ -111,6 +111,8 @@ R_\text{pred} = 1 -
 $$  
 In the restricted specification ($\Gamma_\alpha = 0$), the predictive R describes how well characteristics explain expected returns only through their effect on factor loadings, that is, through systematic risk exposures. In the unrestricted specification, the predictive R measures how well characteristics explain expected returns both through factor loadings and through anomaly intercepts.
 
+As noted by @kellyCharacteristicsAre2019, since the IPCA model is estimated using a least squares criterion, it directly targets the total R. As a result, the factors that IPCA identifies are optimized to capture systematic risk variation across assets, but they are not specifically designed to maximize the predictive R. This means that while the model can provide a strong description of risk exposures, its performance may weaker when explaining average returns.
+
 ## Hypothesis tests 
 
 @kellyCharacteristicsAre2019 develop three hypothesis tests that help determine the whether one specification significantly improves the model description of asset returns. 
