@@ -260,6 +260,14 @@ Table \ref{tbl-oos-comparison} report the out-of-sample total and predictive $R$
 
 ## Characteristic contribution and significance
 
+**ADD TEXT OF CONTRIBUTION TO EACH FACTOR**
+
+![**Characteristic contribution in 2-factor model.** The figure shows the $\Gamma_\beta$ coefficient estimates from the model with $K=2$ factors. Characteristics are grouped by category, with each category shown in a different color. The model is estimated without an intercept and at the individual cryptocurrency level.](pictures/gammas_K2.png){#fig-gammasK2 fig-scap="Characteristic contribution in 2-factor model"}
+
+
+![**Characteristic contribution in 4-factor model.** The figure shows the $\Gamma_\beta$ coefficient estimates from the model with $K=4$ factors. Characteristics are grouped by category, with each category shown in a different color. The model is estimated without an intercept and at the individual cryptocurrency level.](pictures/gammas_K4.png){#fig-gammasK4 fig-scap="Characteristic contribution in 4-factor model"}
+
+
 In this thesis, I include 41 observable cryptocurrency characteristics to instrument for the factor loadings in the IPCA model. Of course, many more potential characteristics exist (see @liuCommonRisk2022; @mercikCrosssectionalInteractionsCryptocurrency2025; @bianchiMispricingRiskCompensation2021). @kellyCharacteristicsAre2019 introduce a statistical test in the IPCA framework to analyze the marginal contribution of each individual characteristic to the overall model fit (see @sec-char-test), while controlling for all others. As before, the Beta bootstrap test is computed using $b=1, \dots, 1000$ bootstrap simulations. This test helps to examine whether a certain characteristic is redundant or irrelevant for the asset-pricing model.
 
 @fig-charsheatmap shows which characteristics are statistically significant contributing to the model fit across different $K$ factor specifications. In total, 10 characteristics are significant at the 1% level in at least one specification (beta, retvol, r7_1, r14_1, r30_1, r30_14, alpha, skew_7d, maxret_7d, and miret_7d), and 16 at the 5% level. Most of these belong to the past returns category (6) and the distribution category (4). My findings are consistent with @bianchiMispricingRiskCompensation2021, who also report characteristics such as the CAPM beta, maximum return, and momentum to be statistically significant.  Following @kellyCharacteristicsAre2019, I test whether restricting the model to only the set of significant characteristics produces similar explanatory power as the full model with all 41 characteristics instrumenting the latent factor loadings. As shown in Table \ref{tbl-ipca_signchars}, the restricted model performs nearly the same as the full specification. This result is consistent with @kellyCharacteristicsAre2019, who demonstrate that the IPCA can successfully extract systematic risk exposures from a relatively small number of characteristics, while many others are largely redundant to the model fit.
@@ -296,9 +304,6 @@ $R_{\text{pred}}$       & $\Gamma_{\alpha} = 0$     & 0.99 & 0.80 & 0.94 & 0.97 
 ![**Significant characteristics**. The figure shows which cryptocurrency characteristics are significant in explaining factor loadings across IPCA models with $K=1,\dots,6$ latent factors in the restricted specification $\Gamma_\alpha = \mathbf{0}$. The null hypothesis is that the coefficients for a characteristic, $\Gamma_{\beta,l}$, are zero, meaning it has no effect after controlling for the other characteristics. Colors indicate significance at the 1%, 5%, and 10% levels based on Wald-type tests.](pictures/chars_heatmap.png){#fig-charsheatmap fig-scap="Significant characteristics"}
 
 
-![**Characteristic contribution in 2-factor model.** The figure shows the $\Gamma_\beta$ coefficient estimates from the model with $K=2$ factors. Characteristics are grouped by category, with each category shown in a different color. The model is estimated without an intercept and at the individual cryptocurrency level.](pictures/gammas_K2.png){#fig-gammasK2 fig-scap="Characteristic contribution in 2-factor model$"}
 
-
-![**Characteristic contribution in 4-factor model.** The figure shows the $\Gamma_\beta$ coefficient estimates from the model with $K=4$ factors. Characteristics are grouped by category, with each category shown in a different color. The model is estimated without an intercept and at the individual cryptocurrency level.](pictures/gammas_K4.png){#fig-gammasK4 fig-scap="Characteristic contribution in 4-factor model"}
 
 
