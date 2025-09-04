@@ -2,10 +2,9 @@
 
 In this section, I present the main empirical findings of the thesis. The objective is to compare different factor models in the context of the cryptocurrency market in order to study the dynamics of cryptocurrency returns. This is carried out within the IPCA framework by estimating models under several specifications: the general IPCA with purely latent factors, models with observable factors and static loadings, and models with observable factors and dynamic loadings (with characteristics instrumenting loadings). Results are reported for different choices of $K$ factors. In addition, I evaluate model performance using the total and predictive scores, both in-sample and out-of-sample. Finally, I examine which cryptocurrency characteristics from the panel data make a significant individual contribution to the overall model fit.
 
-The models and tests described in this section are implemented in Python 3.13.5, using the code provided by Seth Pruitt ^[See https://sethpruitt.net/research/.]. I adapted this code by adding the Wald-type tests with bootstrap procedures, following the implementation in the `ipca` python package of @ipca ^[See https://bkelly-lab.github.io/ipca/.]. All figures are generated using the Matplotlib package [v. 3.10.3\; @Hunter:2007]. 
+The models and tests described in this section are implemented in Python 3.13.5, using the code provided by Seth Pruitt ^[See https://sethpruitt.net/research/.]. I adapted this code by adding the Wald-type tests with bootstrap procedures, following the implementation in the `ipca` python package of @ipca ^[See https://bkelly-lab.github.io/ipca/.]. All figures are generated using the Matplotlib package [v. 3.10.3\; @Hunter:2007].
 
 Following @kellyCharacteristicsAre2019, I cross-sectionally standardize the instrument characteristics to mitigate their sensitivity to outliers. Period-by-period, I rank the cryptocurrencies according to each characteristic. Then, I standardize these ranks by dividing them by the number of non-missing observations and subtract 0.5. This transformation maps each characteristic to the interval $[-0.5, 0.5]$, reducing the influence of extreme values while preserving the relative ordering across assets. In addition, all characteristics are lagged and computed up to time $t-1$, i.e., one day prior to the return prediction, and are calculated on a rolling-window basis when necessary. Consequently, the characteristics observed at date $d-1$ determine the exposures associated with the returns realized at date $d$. 
-
 
 ## IPCA asset pricing performance
 
@@ -53,9 +52,6 @@ Panel B shows the results of the model implemented at the portfolio level. The r
 
 Panel B reports the results at the portfolio level ($x_t$). For $K>2$, the IPCA already explains more than 50% of the variation in portfolio returns, reaching a maximum of 63.19% with the six-factor model. Allowing for $\Gamma_\alpha \neq 0$ increases the total $R$ significantly. However, the predictive $R$ is much lower in this case: while including anomaly intercepts improves the fit in terms of return variation, it reduces the model’s predictive power for returns.
 
-
-
-
 ```{=latex}
 \begin{table}
 \centering
@@ -79,7 +75,6 @@ $W_\alpha$ $p$-value  & 0.84 & 0.82 & 0.23 & 0.31 & 0.34 & 0.03 \\
 \end{table}
 ```
 
-
 ## Comparison with other factor models
 
 Next, I compare the performance of the general IPCA models with IPCA models that pre-specify observable factors commonly used in the financial literature. Specifically, I consider models with $K=1,\dots,5$ observable factors. The $K=1$ case corresponds to the CAPM using the market factor (CMKT), $K=2$ adds momentum (MOM), and $K=3$ adds the size factor (SMB) following the cryptocurrency three-factor model of @liuCommonRisk2022, an analogue of the Fama-French three-factor model [@famaCommonRisk1993]. The fourth and fifth model add liquidity (LIQ) and volatility (VOL), respectively.
@@ -95,8 +90,7 @@ Table \ref{tbl-model_comparison} reports the results. Panel A reproduces the IPC
 \caption[IPCA performance compared with observable factor models]%
 {%
 \textbf{IPCA performance compared with observable factor models.}
-The table reports total and predictive $R$ (in percent) for the IPCA model in Panel A, observable factor models with static loadings (no instruments) in Panel B, and observable factor models with dynamic loadings (with instruments) in Panel C. Results are shown for $K=1,\dots,5$ factors using both individual cryptocurrency returns ($r_t$) and characteristic-managed portfolios ($x_t$). Observable models start with the CAPM using the market factor ($K=1$) and sequentially add momentum, size, liquidity, and volatility, yielding $K$-factor models for $K=1,\dots,5$. 
-
+The table reports total and predictive $R$ (in percent) for the IPCA model in Panel A, observable factor models with static loadings (no instruments) in Panel B, and observable factor models with dynamic loadings (with instruments) in Panel C. Results are shown for $K=1,\dots,5$ factors using both individual cryptocurrency returns ($r_t$) and characteristic-managed portfolios ($x_t$). Observable models start with the CAPM using the market factor ($K=1$) and sequentially add momentum, size, liquidity, and volatility, yielding $K$-factor models for $K=1,\dots,5$.
 }
 \label{tbl-model_comparison}
 \vspace{5pt} % extra space between caption and tabular
@@ -260,13 +254,19 @@ Table \ref{tbl-oos-comparison} report the out-of-sample total and predictive $R$
 
 ## Characteristic contribution and significance
 
-**ADD TEXT OF CONTRIBUTION TO EACH FACTOR**
+#### Interpreting the role of characteristics on factor loadings
 
-![**Characteristic contribution in 2-factor model.** The figure shows the $\Gamma_\beta$ coefficient estimates from the model with $K=2$ factors. Characteristics are grouped by category, with each category shown in a different color. The model is estimated without an intercept and at the individual cryptocurrency level.](pictures/gammas_K2.png){#fig-gammasK2 fig-scap="Characteristic contribution in 2-factor model"}
+In order to interpret the latent IPCA factors, it is necessary to examine how observable characteristics map into factor exposures. This can be done through the estimated $\Gamma_\beta$ coefficients: each column of the $\Gamma_\beta$ matrix reflects the contribution of individual characteristics to the loadings on a given factor $K$. In addition, grouping characteristics by category helps to understand which type of instruments--such as trading activity, volatility, or liquidity--contribute most to the risk exposures.
 
+I focus on the $K=2$ and $K=4$ IPCA models, as these provided the best overall fit in both the in-sample and out-of-sample analyses. @fig-gammasK2 reports the estimated $\Gamma_\beta$ coefficients for the $K=2$ model (restricted to $\Gamma_\alpha = \mathbf{0}$). The first factor is mainly driven by trading activity and volatility-related characteristics. In particular, its strong loadings on short-term volume and turnover indicate that it captures variation in market activity and liquidity, while additional contributions from volatility and distributional characteristics suggest a broader risk component. By contrast, the second factor loads heavily CAPM alpha, pointing to systematic variation in returns not explained by the standard market risk. This suggests that factor 2 may reflect omitted risks or mispricing. Smaller contributions also come from distribution, trading activity, and volatility characteristics.
 
-![**Characteristic contribution in 4-factor model.** The figure shows the $\Gamma_\beta$ coefficient estimates from the model with $K=4$ factors. Characteristics are grouped by category, with each category shown in a different color. The model is estimated without an intercept and at the individual cryptocurrency level.](pictures/gammas_K4.png){#fig-gammasK4 fig-scap="Characteristic contribution in 4-factor model"}
+![**Characteristic contribution in the 2-factor IPCA model.** The figure shows the $\Gamma_\beta$ coefficient estimates from the model with $K=2$ factors. Characteristics are grouped by category, with each category shown in a different color. The model is estimated without an intercept and at the individual cryptocurrency level.](pictures/gammas_K2.png){#fig-gammasK2 fig-scap="Characteristic contribution in 2-factor model"}
 
+@fig-gammasK4 reports the $\Gamma_\beta$ coefficient estimates for the $K=4$ model. Factor 1 again loads strongly on the CAPM alpha, similar to the second factor in the two-factor model. Factor 2 and 3 share common contributions from volatility, trading activity, and distribution-related characteristics. Factor 4 loads heavily on CAPM beta, giving it the interpretation of a market factor. Across both specifications, the contribution of price-size and liquidity characteristics is very limited, playing only a minor role in determining the risk factor loadings.   
+
+![**Characteristic contribution in the 4-factor IPCA model.** The figure shows the $\Gamma_\beta$ coefficient estimates from the model with $K=4$ factors. Characteristics are grouped by category, with each category shown in a different color. The model is estimated without an intercept and at the individual cryptocurrency level.](pictures/gammas_K4.png){#fig-gammasK4 fig-scap="Characteristic contribution in 4-factor model"}
+
+#### Significant characteristics. Which ones matter?  
 
 In this thesis, I include 41 observable cryptocurrency characteristics to instrument for the factor loadings in the IPCA model. Of course, many more potential characteristics exist (see @liuCommonRisk2022; @mercikCrosssectionalInteractionsCryptocurrency2025; @bianchiMispricingRiskCompensation2021). @kellyCharacteristicsAre2019 introduce a statistical test in the IPCA framework to analyze the marginal contribution of each individual characteristic to the overall model fit (see @sec-char-test), while controlling for all others. As before, the Beta bootstrap test is computed using $b=1, \dots, 1000$ bootstrap simulations. This test helps to examine whether a certain characteristic is redundant or irrelevant for the asset-pricing model.
 
@@ -299,7 +299,6 @@ $R_{\text{pred}}$       & $\Gamma_{\alpha} = 0$     & 0.99 & 0.80 & 0.94 & 0.97 
 \end{table}
 
 ```
-
 
 ![**Significant characteristics**. The figure shows which cryptocurrency characteristics are significant in explaining factor loadings across IPCA models with $K=1,\dots,6$ latent factors in the restricted specification $\Gamma_\alpha = \mathbf{0}$. The null hypothesis is that the coefficients for a characteristic, $\Gamma_{\beta,l}$, are zero, meaning it has no effect after controlling for the other characteristics. Colors indicate significance at the 1%, 5%, and 10% levels based on Wald-type tests.](pictures/chars_heatmap.png){#fig-charsheatmap fig-scap="Significant characteristics"}
 

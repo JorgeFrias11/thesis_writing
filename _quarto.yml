@@ -2,7 +2,9 @@ project:
   type: book
 
 book:
-  title: "Edit: Master Thesis Title"
+  title: |
+      | Describing Cryptocurrency Returns:
+      | a Dynamic Factor Model Approach
   author:
     - name: 
         given: "Jorge Eduardo"

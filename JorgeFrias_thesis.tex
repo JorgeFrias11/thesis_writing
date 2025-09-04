@@ -1,5 +1,4 @@
 % Options for packages loaded elsewhere
-% Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
 \PassOptionsToPackage{hyphens}{url}
 \PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
@@ -8,23 +7,21 @@
   12pt,
   a4paper,
   openany]{scrbook}
-\usepackage{xcolor}
-\usepackage[left=3cm,right=2.5cm,top=3cm,bottom=3cm]{geometry}
+
 \usepackage{amsmath,amssymb}
-\setcounter{secnumdepth}{2}
 \usepackage{iftex}
 \ifPDFTeX
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
 \else % if luatex or xetex
-  \usepackage{unicode-math} % this also loads fontspec
+  \usepackage{unicode-math}
   \defaultfontfeatures{Scale=MatchLowercase}
   \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
 \fi
 \usepackage{lmodern}
-\ifPDFTeX\else
-  % xetex/luatex font selection
+\ifPDFTeX\else  
+    % xetex/luatex font selection
 \fi
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -42,6 +39,10 @@
 }{% if KOMA class
   \KOMAoptions{parskip=half}}
 \makeatother
+\usepackage{xcolor}
+\usepackage[left=3cm,right=2.5cm,top=3cm,bottom=3cm]{geometry}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{2}
 % Make \paragraph and \subparagraph free-standing
 \makeatletter
 \ifx\paragraph\undefined\else
@@ -67,7 +68,8 @@
 \makeatother
 
 
-\usepackage{longtable,booktabs,array}
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
 \usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
 \usepackage{etoolbox}
@@ -79,21 +81,17 @@
 \makesavenoteenv{longtable}
 \usepackage{graphicx}
 \makeatletter
-\newsavebox\pandoc@box
-\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
-  \sbox\pandoc@box{#1}%
-  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
-  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
-  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
-  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
-  \else\usebox{\pandoc@box}%
-  \fi%
-}
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 % Set default figure placement to htbp
+\makeatletter
 \def\fps@figure{htbp}
 \makeatother
-
-
 % definitions for citeproc citations
 \NewDocumentCommand\citeproctext{}{}
 \NewDocumentCommand\citeproc{mm}{%
@@ -127,18 +125,6 @@
 \newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
 \newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
 \newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
-
-
-
-\setlength{\emergencystretch}{3em} % prevent overfull lines
-
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-
-
-
- 
-
 
 \usepackage{booktabs}
 \usepackage{longtable}
@@ -252,11 +238,15 @@
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
 \@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
 \makeatother
+
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
 \usepackage{bookmark}
+
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\urlstyle{same}
+\urlstyle{same} % disable monospaced font for URLs
 \hypersetup{
-  pdftitle={Edit: Master Thesis Title},
   pdfauthor={Jorge Eduardo Frías Navarrete},
   colorlinks=true,
   linkcolor={blue},
@@ -266,9 +256,11 @@
   pdfcreator={LaTeX via pandoc}}
 
 
-\title{Edit: Master Thesis Title}
+\title{Describing Cryptocurrency Returns:\\
+a Dynamic Factor Model Approach}
 \author{Jorge Eduardo Frías Navarrete}
 \date{September 04, 2025}
+
 \begin{document}
 \frontmatter
 
@@ -289,7 +281,8 @@
     \large Master Thesis \\
     \vspace{1cm}
 
-    \textbf{\huge Edit: Master Thesis Title} \\
+    \textbf{\huge Describing Cryptocurrency Returns:\\
+a Dynamic Factor Model Approach} \\
     \vspace{0.5cm}
 
         \LARGE Jorge Eduardo \textsc{Frías Navarrete} \\
@@ -1087,7 +1080,7 @@ packages\footnote{See Appendix~\ref{sec-software} for the full list of
 2.0.0; \citeproc{ref-tidyverse}{Wickham et al., 2019}). Additional
 cleaning steps and visualizations are performed in Python 3.13.5
 (\citeproc{ref-python}{Python Software Foundation, 2025}). The full
-reproducible code is available in Appendix \ref{sec-app_material}.
+reproducible code is available in Appendix~\ref{sec-app_material}.
 
 \section{Data extraction and sample
 construction}\label{data-extraction-and-sample-construction}
@@ -1191,7 +1184,7 @@ possible innacuracies in the dataset:
 
 \centering{
 
-\includegraphics[width=0.8\linewidth,height=\textheight,keepaspectratio]{pictures/timeseries_daily_coins.png}
+\includegraphics[width=0.8\textwidth,height=\textheight]{pictures/timeseries_daily_coins.png}
 
 }
 
@@ -1199,7 +1192,7 @@ possible innacuracies in the dataset:
 
 \centering{
 
-\includegraphics[width=0.8\linewidth,height=\textheight,keepaspectratio]{pictures/coins_per_year.png}
+\includegraphics[width=0.8\textwidth,height=\textheight]{pictures/coins_per_year.png}
 
 }
 
@@ -1251,7 +1244,7 @@ cryptocurrency subsamples.
 
 \centering{
 
-\includegraphics[width=0.8\linewidth,height=\textheight,keepaspectratio]{pictures/sample_marketcap.png}
+\includegraphics[width=0.8\textwidth,height=\textheight]{pictures/sample_marketcap.png}
 
 }
 
@@ -1625,8 +1618,7 @@ level.
 \caption[IPCA performance compared with observable factor models]%
 {%
 \textbf{IPCA performance compared with observable factor models.}
-The table reports total and predictive $R$ (in percent) for the IPCA model in Panel A, observable factor models with static loadings (no instruments) in Panel B, and observable factor models with dynamic loadings (with instruments) in Panel C. Results are shown for $K=1,\dots,5$ factors using both individual cryptocurrency returns ($r_t$) and characteristic-managed portfolios ($x_t$). Observable models start with the CAPM using the market factor ($K=1$) and sequentially add momentum, size, liquidity, and volatility, yielding $K$-factor models for $K=1,\dots,5$. 
-
+The table reports total and predictive $R$ (in percent) for the IPCA model in Panel A, observable factor models with static loadings (no instruments) in Panel B, and observable factor models with dynamic loadings (with instruments) in Panel C. Results are shown for $K=1,\dots,5$ factors using both individual cryptocurrency returns ($r_t$) and characteristic-managed portfolios ($x_t$). Observable models start with the CAPM using the market factor ($K=1$) and sequentially add momentum, size, liquidity, and volatility, yielding $K$-factor models for $K=1,\dots,5$.
 }
 \label{tbl-model_comparison}
 \vspace{5pt} % extra space between caption and tabular
@@ -1839,7 +1831,84 @@ perform poorly, as their predictive \(R\) values are negative. This
 suggests that they fail to capture portfolio returns and that simple
 mean-based forecasts would provide more better predictions.
 
-\section{Significant characteristics}\label{significant-characteristics}
+\section{Characteristic contribution and
+significance}\label{characteristic-contribution-and-significance}
+
+\subsubsection{Interpreting the role of characteristics on factor
+loadings}\label{interpreting-the-role-of-characteristics-on-factor-loadings}
+
+In order to interpret the latent IPCA factors, it is necessary to
+examine how observable characteristics map into factor exposures. This
+can be done through the estimated \(\Gamma_\beta\) coefficients: each
+column of the \(\Gamma_\beta\) matrix reflects the contribution of
+individual characteristics to the loadings on a given factor \(K\). In
+addition, grouping characteristics by category helps to understand which
+type of instruments--such as trading activity, volatility, or
+liquidity--contribute most to the risk exposures.
+
+I focus on the \(K=2\) and \(K=4\) IPCA models, as these provided the
+best overall fit in both the in-sample and out-of-sample analyses.
+Figure~\ref{fig-gammasK2} reports the estimated \(\Gamma_\beta\)
+coefficients for the \(K=2\) model (restricted to
+\(\Gamma_\alpha = \mathbf{0}\)). The first factor is mainly driven by
+trading activity and volatility-related characteristics. In particular,
+its strong loadings on short-term volume and turnover indicate that it
+captures variation in market activity and liquidity, while additional
+contributions from volatility and distributional characteristics suggest
+a broader risk component. By contrast, the second factor loads heavily
+CAPM alpha, pointing to systematic variation in returns not explained by
+the standard market risk. This suggests that factor 2 may reflect
+omitted risks or mispricing. Smaller contributions also come from
+distribution, trading activity, and volatility characteristics.
+
+\begin{figure}[h]
+
+\centering{
+
+\includegraphics{pictures/gammas_K2.png}
+
+}
+
+\caption[Characteristic contribution in 2-factor
+model]{\label{fig-gammasK2}\textbf{Characteristic contribution in the
+2-factor IPCA model.} The figure shows the \(\Gamma_\beta\) coefficient
+estimates from the model with \(K=2\) factors. Characteristics are
+grouped by category, with each category shown in a different color. The
+model is estimated without an intercept and at the individual
+cryptocurrency level.}
+
+\end{figure}%
+
+Figure~\ref{fig-gammasK4} reports the \(\Gamma_\beta\) coefficient
+estimates for the \(K=4\) model. Factor 1 again loads strongly on the
+CAPM alpha, similar to the second factor in the two-factor model. Factor
+2 and 3 share common contributions from volatility, trading activity,
+and distribution-related characteristics. Factor 4 loads heavily on CAPM
+beta, giving it the interpretation of a market factor. Across both
+specifications, the contribution of price-size and liquidity
+characteristics is very limited, playing only a minor role in
+determining the risk factor loadings.
+
+\begin{figure}[h]
+
+\centering{
+
+\includegraphics{pictures/gammas_K4.png}
+
+}
+
+\caption[Characteristic contribution in 4-factor
+model]{\label{fig-gammasK4}\textbf{Characteristic contribution in the
+4-factor IPCA model.} The figure shows the \(\Gamma_\beta\) coefficient
+estimates from the model with \(K=4\) factors. Characteristics are
+grouped by category, with each category shown in a different color. The
+model is estimated without an intercept and at the individual
+cryptocurrency level.}
+
+\end{figure}%
+
+\subsubsection{Significant characteristics. Which ones
+matter?}\label{significant-characteristics.-which-ones-matter}
 
 In this thesis, I include 41 observable cryptocurrency characteristics
 to instrument for the factor loadings in the IPCA model. Of course, many
@@ -1906,7 +1975,7 @@ $R_{\text{pred}}$       & $\Gamma_{\alpha} = 0$     & 0.99 & 0.80 & 0.94 & 0.97 
 
 \centering{
 
-\pandocbounded{\includegraphics[keepaspectratio]{pictures/chars_heatmap.png}}
+\includegraphics{pictures/chars_heatmap.png}
 
 }
 
@@ -1923,48 +1992,58 @@ levels based on Wald-type tests.}
 
 \end{figure}%
 
-\begin{figure}[h]
-
-\centering{
-
-\pandocbounded{\includegraphics[keepaspectratio]{pictures/gammas_K2.png}}
-
-}
-
-\caption[Characteristic contribution in 2-factor
-model\$]{\label{fig-gammasK2}\textbf{Characteristic contribution in
-2-factor model.} The figure shows the \(\Gamma_\beta\) coefficient
-estimates from the model with \(K=2\) factors. Characteristics are
-grouped by category, with each category shown in a different color. The
-model is estimated without an intercept and at the individual
-cryptocurrency level.}
-
-\end{figure}%
-
-\begin{figure}[h]
-
-\centering{
-
-\pandocbounded{\includegraphics[keepaspectratio]{pictures/gammas_K4.png}}
-
-}
-
-\caption[Characteristic contribution in 4-factor
-model]{\label{fig-gammasK4}\textbf{Characteristic contribution in
-4-factor model.} The figure shows the \(\Gamma_\beta\) coefficient
-estimates from the model with \(K=4\) factors. Characteristics are
-grouped by category, with each category shown in a different color. The
-model is estimated without an intercept and at the individual
-cryptocurrency level.}
-
-\end{figure}%
-
 \bookmarksetup{startatroot}
 
 \chapter{Conclusion}\label{conclusion}
 
-My findings are mostly consistent with the literature. Overall, the
-specifications with dynamic loadings perform better
+The main research question in this thesis is whether cryptocurrency
+returns can be explained and predicted by a set of systematic risk
+factors. The question is examined from both a static and a dynamic
+perspective, where factor loadings are either fixed or allowed to vary
+over time. The aim is to construct, within a high-dimensional framework,
+a small set of latent factors that could potentially outperform
+classical factor models, which are typically based on sorted portfolio
+strategies.
+
+The IPCA approach of Kelly et al.
+(\citeproc{ref-kellyCharacteristicsAre2019}{2019}) has been widely used
+to study the cross-section of returns across different asset classes. By
+modelling factor loadings as linear functions of asset-specific
+characteristics, IPCA allows a large set of characteristics to serve as
+instruments for the factor loadings, enabling them to evolve dynamically
+over time and to accommodate unbalanced panels of data. This feature is
+particularly important in the context of cryptocurrencies, where the
+sample include coins that are introduced or disappear at different
+points in time. Standard PCA or dynamic PCA would not have been feasible
+without substantially reducing the cross-section or the sample period.
+
+My results show that a small number of latent factors, extracted with
+IPCA, capture a meaningful share of the variation in cryptocurrency
+returns when compared to a traditional static model. These factors are
+mainly linked to short-term trading activity, volatility, and return
+distribution, while two are associated with a mispricing factor (CAPM
+alpha) and a market factor (CAPM beta). Allowing for anomaly intercepts
+improves the in-sample fit but adds no predictive power, as confirmed by
+the asset-pricing tests: characteristics explain realized returns only
+through their exposure to systematic risk. Moreover, the IPCA
+performance remains strong in out-of-sample predictions. Both dynamic
+models, pure latent or including observable factors, provide a better
+explanatory and predictive power than static models at the individual
+cryptocurrency level.
+
+Consistent with Bianchi \& Babiak
+(\citeproc{ref-bianchiMispricingRiskCompensation2021}{2021b}), I find
+that characteristics related to past returns and return distribution are
+the most significant for explaining the variation in factor exposures,
+with most of this characteristics being statistically significant at the
+1\% level. Finally, in line with Kelly et al.
+(\citeproc{ref-kellyCharacteristicsAre2019}{2019}), my results show that
+fitting the model with only a small subset of significant
+characteristics (corresponding to 25\% of the total) produces similar
+results compared to those of the full specification. This indicates that
+IPCA effectively filters out irrelevant information and retains the key
+characteristics that capture systematic risk exposures, thereby
+explaining the cross-section of returns.
 
 \bookmarksetup{startatroot}
 
@@ -2306,6 +2385,10 @@ reported from S. (2025, February 28). Milei, \$Melania and Memecoins:
 Unraveling Argentina's Crypto Fiasco. \emph{The New York Times}.
 \url{https://www.nytimes.com/2025/02/28/world/americas/argentina-crypto-scandal-president.html}
 
+\bibitem[\citeproctext]{ref-openai2025chatgpt}
+OpenAI. (2025). \emph{ChatGPT {[}large language model{]}}.
+\url{https://chat.openai.com}.
+
 \bibitem[\citeproctext]{ref-PerformanceAnalytics}
 Peterson, B. G., \& Carl, P. (2024). \emph{{PerformanceAnalytics}:
 Econometric tools for performance and risk analysis}.
@@ -2403,7 +2486,11 @@ of Cryptocurrency Returns. \emph{Emerging Markets Finance and Trade},
 
 \section{Supplementary Material}\label{sec-app_material}
 
-\textbf{XXXXXXXXXXX MISSING XXXXXXXXXXXXXX} Add Github repo
+The R, Python, and Bash code used to extract and produce the results
+presented in this master thesis is available in my GitHub repository
+\href{https://github.com/JorgeFrias11/thesis_code.git}{here}\footnote{https://github.com/JorgeFrias11/thesis\_code.git}.
+The simulations were performed using the computer cluster of the Vienna
+University of Economics and Business (WU).
 
 \section{Cryptocurrency Characteristics}\label{sec-app_characteristics}
 
@@ -2661,7 +2748,12 @@ Software Foundation, 2025}) and the following packages: numpy (v. 2.2.6;
 \citeproc{ref-reback2020pandas}{The pandas development team, 2020}),
 matplotlib (v. 3.10.3; \citeproc{ref-Hunter:2007}{Hunter, 2007}), and
 scipy (v. 1.15.3; \citeproc{ref-2020SciPy-NMeth}{Virtanen et al.,
-2020}).
+2020}), ipca (\citeproc{ref-ipca}{Buechner \& Bybee, 2019}), and Seth
+Pruitt's code available at https://sethpruitt.net/research/.
+
+ChatGPT (\citeproc{ref-openai2025chatgpt}{2025}) was used in the thesis
+to stylistically improve individual passages limited to linguistic
+editing.
 
 
 \backmatter

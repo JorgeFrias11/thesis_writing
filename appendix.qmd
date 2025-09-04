@@ -2,8 +2,7 @@
 
 ## Supplementary Material {#sec-app_material}
 
-**XXXXXXXXXXX MISSING XXXXXXXXXXXXXX** Add Github repo
-
+The R, Python, and Bash code used to extract and produce the results presented in this master thesis is available in my GitHub repository [here](https://github.com/JorgeFrias11/thesis_code.git)^[https://github.com/JorgeFrias11/thesis_code.git]. The simulations were performed using the computer cluster of the Vienna University of Economics and Business (WU). 
 
 ## Cryptocurrency Characteristics {#sec-app_characteristics}
 
@@ -141,4 +140,6 @@ This thesis was fully written using [Quarto](https://quarto.org/) [@Quarto_2025]
 
 I used R 4.5.1 [@base] and the following R packages: bidask [v. 2.1.4\; @bidask], moments [v. 0.14.1\; @moments], PerformanceAnalytics [v. 2.0.8\; @PerformanceAnalytics], quantmod [v. 0.4.28\; @quantmod], slider [v. 0.3.2\; @slider], tidyverse [v. 2.0.0\; @tidyverse], and zoo [v. 1.8.14\; @zoo]. 
 
-Additionally, I used Python [v. 3.15.3\; @python] and the following packages: numpy [v. 2.2.6\; @harris2020array], pandas [v. 2.3.1\; @reback2020pandas], matplotlib [v. 3.10.3\; @Hunter:2007], and scipy [v. 1.15.3\; @2020SciPy-NMeth].
+Additionally, I used Python [v. 3.15.3\; @python] and the following packages: numpy [v. 2.2.6\; @harris2020array], pandas [v. 2.3.1\; @reback2020pandas], matplotlib [v. 3.10.3\; @Hunter:2007], and scipy [v. 1.15.3\; @2020SciPy-NMeth], ipca [@ipca], and Seth Pruitt's code available at https://sethpruitt.net/research/.
+
+ChatGPT [-@openai2025chatgpt] was used in the thesis to stylistically improve grammar, clarity, and phrasing for individual passages. Its use was limited to linguistic editing without influencing the analysis.

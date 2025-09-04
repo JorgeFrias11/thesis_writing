@@ -1,9 +1,9 @@
 # Data {#sec-data}
 
-In this section, I introduce the cryptocurrency data used in this thesis, and describe the series of filters applied to clean and prepare the dataset, and the summary statistics of the cryptocurrency excess returns. In addition, I present the set of asset-specific characteristics constructed from the cryptocurrency market data, which are used as instruments for latent factor exposures in the IPCA model. Finally, I construct a set of observable risk factors, or factor-mimicking portfolios, which are used as pre-specified factors in the analysis. [Appendix -@sec-app_characteristics] and -@sec-obs_factors provides a detailed description of the set of characteristics and factors, respectively.
+In this section, I introduce the cryptocurrency data used in this thesis, and describe the series of filters applied to clean and prepare the dataset, and the summary statistics of the cryptocurrency excess returns. In addition, I present the set of asset-specific characteristics constructed from the cryptocurrency market data, which are used as instruments for latent factor exposures in the IPCA model. Finally, I construct a set of observable risk factors, or factor-mimicking portfolios, which are used as pre-specified factors in the analysis. [Appendix -@sec-app_characteristics] and [-@sec-obs_factors] provides a detailed description of the set of characteristics and factors, respectively.
 
 
-The data extraction and pre-processing are primarily conducted in R 4.5.1 [@base], using, among other packages^[See [Appendix -@sec-software] for the full list of software used in the empirical study.], the `tidyverse`  [v. 2.0.0\; @tidyverse]. Additional cleaning steps and visualizations are performed in Python 3.13.5 [@python]. The full reproducible code is available in Appendix -@sec-app_material.  
+The data extraction and pre-processing are primarily conducted in R 4.5.1 [@base], using, among other packages^[See [Appendix -@sec-software] for the full list of software used in the empirical study.], the `tidyverse`  [v. 2.0.0\; @tidyverse]. Additional cleaning steps and visualizations are performed in Python 3.13.5 [@python]. The full reproducible code is available in [Appendix -@sec-app_material].  
 
 ## Data extraction and sample construction
 
