@@ -104,6 +104,8 @@ The sample period spans several major market, economic, and political events, th
 
 For the analysis, I construct 41 asset-specific characteristics from the cross-section of 973 cryptocurrencies using data on prices, volume, and market capitalization. Specifically, I follow the methodology of @bianchiMispricingRiskCompensation2021, @liuCommonRisk2022, and @mercikCrosssectionalInteractionsCryptocurrency2025 to construct the set of characteristics widely used in the cryptocurrency and financial literature, which serve as return predictors in the empirical analysis. These characteristics are grouped into six categories: market and size, volatility and risk, trading activity, liquidity, past returns, and distribution. Table \ref{tbl-characteristics} summarizes the set of characteristics, while Appendix  [-@sec-app_characteristics] provides detailed definitions and construction procedures.   
 
+\
+
 ```{r}
 #| echo: FALSE
 #| warning: FALSE

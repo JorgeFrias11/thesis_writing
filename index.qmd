@@ -1,11 +1,15 @@
-<!-- #    {.unnumbered .unlisted} -->
+#   {.unnumbered .unlisted}
 
-To all my family, who always support me no matter the time and distance, and to Pedro Torres, my great-grand father, who sadly passed away last year (15.07.1935-01.05.2024).
+\
+
+*To all my family, who have always supported me no matter the time and distance, and to Pedro Torres, my great-grand father, in loving memory (15.07.1935 - 01.05.2024).*
+
 
 
 # Abstract {.unnumbered .unlisted}
 
-In this thesis, I study whether a set of risk factors explain the variation of cryptocurrency returns and their compensation to risk exposure. Using the Instrumented Principal Component Analisys model of @kellyCharacteristicsAre2019, I estimate latent factor models from a large panel of cryptocurrency characteristics that instrument for the unobservable time-varying loadings. I show that the IPCA performs better in-and out-of-sample compared to a traditional static model with observable risk factors. I show that a two latent factor model suffices to estimate a considerable amount of risk compensation, but the returns dynamics are better explained with additional latent factors. Moreover, 
+In this thesis, I study whether a set of risk factors explain the variation in cryptocurrency returns and their compensation for risk exposure. Using the Instrumented Principal Component Analysis (IPCA) model of @kellyCharacteristicsAre2019, I estimate latent factor models from a large panel of cryptocurrency characteristics that instrument the unobservable, time-varying loadings. I show that the IPCA performs better both in-sample and out-of-sample compared to traditional static models with observable risk factors. The results indicate that a two-factor IPCA model captures a substantial share of risk compensation, while models with additional latent factors provide a more complete description of return dynamics. The estimated factors are mainly linked to short-term trading activity, volatility, and return distribution, while others are associated with a mispricing component and market exposure. Allowing for anomaly intercepts improves the in-sample fit but adds no predictive power, as confirmed by asset-pricing tests. Overall, the findings suggest that IPCA can effectively filter out irrelevant information, extract systematic sources of risk from a large set of characteristics, and provide a robust framework for modeling cryptocurrency returns.
+
 
 ```{=latex}
 % make toc black (for some reason, toccolor does not work)

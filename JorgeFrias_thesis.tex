@@ -1,4 +1,5 @@
 % Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
 \PassOptionsToPackage{unicode}{hyperref}
 \PassOptionsToPackage{hyphens}{url}
 \PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
@@ -7,21 +8,23 @@
   12pt,
   a4paper,
   openany]{scrbook}
-
+\usepackage{xcolor}
+\usepackage[left=3cm,right=2.5cm,top=3cm,bottom=3cm]{geometry}
 \usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{2}
 \usepackage{iftex}
 \ifPDFTeX
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
 \else % if luatex or xetex
-  \usepackage{unicode-math}
+  \usepackage{unicode-math} % this also loads fontspec
   \defaultfontfeatures{Scale=MatchLowercase}
   \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
 \fi
 \usepackage{lmodern}
-\ifPDFTeX\else  
-    % xetex/luatex font selection
+\ifPDFTeX\else
+  % xetex/luatex font selection
 \fi
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -39,10 +42,6 @@
 }{% if KOMA class
   \KOMAoptions{parskip=half}}
 \makeatother
-\usepackage{xcolor}
-\usepackage[left=3cm,right=2.5cm,top=3cm,bottom=3cm]{geometry}
-\setlength{\emergencystretch}{3em} % prevent overfull lines
-\setcounter{secnumdepth}{2}
 % Make \paragraph and \subparagraph free-standing
 \makeatletter
 \ifx\paragraph\undefined\else
@@ -68,8 +67,7 @@
 \makeatother
 
 
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{longtable,booktabs,array}
 \usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
 \usepackage{etoolbox}
@@ -81,17 +79,21 @@
 \makesavenoteenv{longtable}
 \usepackage{graphicx}
 \makeatletter
-\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
-\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
-\makeatother
-% Scale images if necessary, so that they will not overflow the page
-% margins by default, and it is still possible to overwrite the defaults
-% using explicit options in \includegraphics[width, height, ...]{}
-\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
 % Set default figure placement to htbp
-\makeatletter
 \def\fps@figure{htbp}
 \makeatother
+
+
 % definitions for citeproc citations
 \NewDocumentCommand\citeproctext{}{}
 \NewDocumentCommand\citeproc{mm}{%
@@ -125,6 +127,18 @@
 \newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
 \newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
 \newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
 
 \usepackage{booktabs}
 \usepackage{longtable}
@@ -238,14 +252,9 @@
 \@ifpackageloaded{caption}{}{\usepackage{caption}}
 \@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
 \makeatother
-
-\ifLuaTeX
-  \usepackage{selnolig}  % disable illegal ligatures
-\fi
 \usepackage{bookmark}
-
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\urlstyle{same} % disable monospaced font for URLs
+\urlstyle{same}
 \hypersetup{
   pdfauthor={Jorge Eduardo Frías Navarrete},
   colorlinks=true,
@@ -260,7 +269,6 @@
 a Dynamic Factor Model Approach}
 \author{Jorge Eduardo Frías Navarrete}
 \date{September 04, 2025}
-
 \begin{document}
 \frontmatter
 
@@ -279,11 +287,11 @@ a Dynamic Factor Model Approach}
 
 \begin{center}
     \large Master Thesis \\
-    \vspace{1cm}
+    \vspace{0.5cm}
 
     \textbf{\huge Describing Cryptocurrency Returns:\\
 a Dynamic Factor Model Approach} \\
-    \vspace{0.5cm}
+    \vspace{1cm}
 
         \LARGE Jorge Eduardo \textsc{Frías Navarrete} \\
     \vspace{0.5cm}
@@ -356,20 +364,42 @@ a Dynamic Factor Model Approach} \\
 \mainmatter
 \bookmarksetup{startatroot}
 
+\chapter*{}\label{section}
+
+\markboth{}{}
+
+\hfill\break
+
+\emph{To all my family, who have always supported me no matter the time
+and distance, and to Pedro Torres, my great-grand father, in loving
+memory (15.07.1935 - 01.05.2024).}
+
+\bookmarksetup{startatroot}
+
 \chapter*{Abstract}\label{abstract}
 
 \markboth{Abstract}{Abstract}
 
-Here goes my abstract text. Here goes my abstract text. Here goes my
-abstract text. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Suspendisse eu dolor luctus, rhoncus leo in, commodo turpis. Aenean sed
-enim in sem euismod porta. Vivamus tempor lorem nec eros rhoncus, eu
-hendrerit libero tincidunt. Class aptent taciti sociosqu ad litora
-torquent per conubia nostra, per inceptos himenaeos. Pellentesque
-habitant morbi tristique senectus et netus et malesuada fames ac turpis
-egestas. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Quisque dapibus turpis quis nibh molestie dapibus. Aliquam erat
-volutpat. Integer et odio nec mauris sollicitudin mattis.
+In this thesis, I study whether a set of risk factors explain the
+variation in cryptocurrency returns and their compensation for risk
+exposure. Using the Instrumented Principal Component Analysis (IPCA)
+model of Kelly et al.
+(\citeproc{ref-kellyCharacteristicsAre2019}{2019}), I estimate latent
+factor models from a large panel of cryptocurrency characteristics that
+instrument the unobservable, time-varying loadings. I show that the IPCA
+performs better both in-sample and out-of-sample compared to traditional
+static models with observable risk factors. The results indicate that a
+two-factor IPCA model captures a substantial share of risk compensation,
+while models with additional latent factors provide a more complete
+description of return dynamics. The estimated factors are mainly linked
+to short-term trading activity, volatility, and return distribution,
+while others are associated with a mispricing component and market
+exposure. Allowing for anomaly intercepts improves the in-sample fit but
+adds no predictive power, as confirmed by asset-pricing tests. Overall,
+the findings suggest that IPCA can effectively filter out irrelevant
+information, extract systematic sources of risk from a large set of
+characteristics, and provide a robust framework for modeling
+cryptocurrency returns.
 
 % make toc black (for some reason, toccolor does not work)
 {\hypersetup{linkcolor=black}
@@ -1184,7 +1214,7 @@ possible innacuracies in the dataset:
 
 \centering{
 
-\includegraphics[width=0.8\textwidth,height=\textheight]{pictures/timeseries_daily_coins.png}
+\includegraphics[width=0.8\linewidth,height=\textheight,keepaspectratio]{pictures/timeseries_daily_coins.png}
 
 }
 
@@ -1192,7 +1222,7 @@ possible innacuracies in the dataset:
 
 \centering{
 
-\includegraphics[width=0.8\textwidth,height=\textheight]{pictures/coins_per_year.png}
+\includegraphics[width=0.8\linewidth,height=\textheight,keepaspectratio]{pictures/coins_per_year.png}
 
 }
 
@@ -1244,7 +1274,7 @@ cryptocurrency subsamples.
 
 \centering{
 
-\includegraphics[width=0.8\textwidth,height=\textheight]{pictures/sample_marketcap.png}
+\includegraphics[width=0.8\linewidth,height=\textheight,keepaspectratio]{pictures/sample_marketcap.png}
 
 }
 
@@ -1339,6 +1369,8 @@ activity, liquidity, past returns, and distribution. Table
 \ref{tbl-characteristics} summarizes the set of characteristics, while
 Appendix \ref{sec-app_characteristics} provides detailed definitions and
 construction procedures.
+
+\hfill\break
 
 \begin{table}
 \centering
@@ -1452,8 +1484,8 @@ Wald-type tests with bootstrap procedures, following the implementation
 in the \texttt{ipca} python package of Buechner \& Bybee
 (\citeproc{ref-ipca}{2019}) \footnote{See
   https://bkelly-lab.github.io/ipca/.}. All figures are generated using
-the Matplotlib package (v. 3.10.3; \citeproc{ref-Hunter:2007}{Hunter,
-2007}).
+the \texttt{matplotlib} package (v. 3.10.3;
+\citeproc{ref-Hunter:2007}{Hunter, 2007}).
 
 Following Kelly et al.
 (\citeproc{ref-kellyCharacteristicsAre2019}{2019}), I cross-sectionally
@@ -1865,7 +1897,7 @@ distribution, trading activity, and volatility characteristics.
 
 \centering{
 
-\includegraphics{pictures/gammas_K2.png}
+\pandocbounded{\includegraphics[keepaspectratio]{pictures/gammas_K2.png}}
 
 }
 
@@ -1893,7 +1925,7 @@ determining the risk factor loadings.
 
 \centering{
 
-\includegraphics{pictures/gammas_K4.png}
+\pandocbounded{\includegraphics[keepaspectratio]{pictures/gammas_K4.png}}
 
 }
 
@@ -1912,12 +1944,12 @@ matter?}\label{significant-characteristics.-which-ones-matter}
 
 In this thesis, I include 41 observable cryptocurrency characteristics
 to instrument for the factor loadings in the IPCA model. Of course, many
-more potential characteristics exist (see Y. Liu et al.
-(\citeproc{ref-liuCommonRisk2022}{2022}); Mercik et al.
-(\citeproc{ref-mercikCrosssectionalInteractionsCryptocurrency2025}{2025});
-Bianchi \& Babiak
-(\citeproc{ref-bianchiMispricingRiskCompensation2021}{2021b})). Kelly et
-al. (\citeproc{ref-kellyCharacteristicsAre2019}{2019}) introduce a
+more potential characteristics exist (see
+\citeproc{ref-bianchiMispricingRiskCompensation2021}{Bianchi \& Babiak,
+2021b}; \citeproc{ref-liuCommonRisk2022}{Y. Liu et al., 2022};
+\citeproc{ref-mercikCrosssectionalInteractionsCryptocurrency2025}{Mercik
+et al., 2025}). Kelly et al.
+(\citeproc{ref-kellyCharacteristicsAre2019}{2019}) introduce a
 statistical test in the IPCA framework to analyze the marginal
 contribution of each individual characteristic to the overall model fit
 (see Section~\ref{sec-char-test}), while controlling for all others. As
@@ -1975,7 +2007,7 @@ $R_{\text{pred}}$       & $\Gamma_{\alpha} = 0$     & 0.99 & 0.80 & 0.94 & 0.97 
 
 \centering{
 
-\includegraphics{pictures/chars_heatmap.png}
+\pandocbounded{\includegraphics[keepaspectratio]{pictures/chars_heatmap.png}}
 
 }
 
@@ -2025,11 +2057,15 @@ distribution, while two are associated with a mispricing factor (CAPM
 alpha) and a market factor (CAPM beta). Allowing for anomaly intercepts
 improves the in-sample fit but adds no predictive power, as confirmed by
 the asset-pricing tests: characteristics explain realized returns only
-through their exposure to systematic risk. Moreover, the IPCA
-performance remains strong in out-of-sample predictions. Both dynamic
-models, pure latent or including observable factors, provide a better
+through their exposure to systematic risk.
+
+The IPCA also performs strongly in out-of-sample forecasts. Both dynamic
+models, pure latent or including observable factors, provide a greater
 explanatory and predictive power than static models at the individual
-cryptocurrency level.
+cryptocurrency level. Including observable factors to the latent IPCA
+specification slightly improves the ability to improve return variation,
+but does not enhance predictive performance in terms of risk
+compensation.
 
 Consistent with Bianchi \& Babiak
 (\citeproc{ref-bianchiMispricingRiskCompensation2021}{2021b}), I find
@@ -2752,8 +2788,9 @@ scipy (v. 1.15.3; \citeproc{ref-2020SciPy-NMeth}{Virtanen et al.,
 Pruitt's code available at https://sethpruitt.net/research/.
 
 ChatGPT (\citeproc{ref-openai2025chatgpt}{2025}) was used in the thesis
-to stylistically improve individual passages limited to linguistic
-editing.
+to stylistically improve grammar, clarity, and phrasing for individual
+passages. Its use was limited to linguistic editing without influencing
+the analysis.
 
 
 \backmatter
