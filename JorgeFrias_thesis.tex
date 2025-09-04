@@ -191,7 +191,7 @@
 \usepackage{geometry}
 \usepackage[T1]{fontenc} 
 \usepackage[utf8]{inputenc}
-\usepackage[ngerman,english]{babel}
+\usepackage[english]{babel}
 \usepackage{setspace}
 \usepackage{titling}
 \usepackage{parskip}
@@ -888,8 +888,8 @@ non-negative values---I refer to them here as simply the ``total R'' and
 the ``predictive R''.
 
 The total R measures the overall fit of the IPCA model by quantifying
-how much of the variation in realized returns can be explained by the
-estimated factors and conditional loadings. It is defined as
+how much of the variance in returns can be explained by the estimated
+factor realizations and dynamic conditional loadings. It is defined as
 
 \[
 R_\text{total} = 1 - 
@@ -897,8 +897,8 @@ R_\text{total} = 1 -
 {\sum_{i,t} r_{i,t+1}^2}.
 \]\\
 The predictive R measures how much of the variation in realized returns
-is explained by the model's conditional expected returns, obtained by
-replacing realized factors with the estimated risk prices
+is explained by the model's description of conditional expected returns,
+obtained by replacing realized factors with the estimated risk prices
 \(\hat \lambda\). It is defined as
 
 \[
@@ -912,6 +912,15 @@ through their effect on factor loadings, that is, through systematic
 risk exposures. In the unrestricted specification, the predictive R
 measures how well characteristics explain expected returns both through
 factor loadings and through anomaly intercepts.
+
+As noted by Kelly et al.
+(\citeproc{ref-kellyCharacteristicsAre2019}{2019}), since the IPCA model
+is estimated using a least squares criterion, it directly targets the
+total R. As a result, the factors that IPCA identifies are optimized to
+capture systematic risk variation across assets, but they are not
+specifically designed to maximize the predictive R. This means that
+while the model can provide a strong description of risk exposures, its
+performance may be weaker when explaining average returns.
 
 \section{Hypothesis tests}\label{hypothesis-tests}
 
@@ -967,8 +976,7 @@ statistic recomputed as \[
 bootstrap statistics \(\tilde W_\alpha^b\) that exceed the observed
 value \(W_\alpha\) from the actual data.
 
-\subsubsection{Testing instruments
-significance}\label{testing-instruments-significance}
+\subsubsection{Testing instruments significance}\label{sec-char-test}
 
 This test evaluates whether a specific characteristic significantly
 contributes to factor loadings after controlling for all other
@@ -994,6 +1002,9 @@ loadings, the portfolio returns is re-estimated for each sample, and the
 corresponding statistics \(\tilde W_{\beta,l}^b\) are computed. The
 \(p\)-value is obtained as the fraction of bootstrap statistics that
 exceed the observed \(W_{\beta,l}\).
+
+\hfill\break
+\hfill\break
 
 \subsubsection{Testing pre-specified
 factors}\label{testing-pre-specified-factors}
@@ -1453,34 +1464,57 @@ the Matplotlib package (v. 3.10.3; \citeproc{ref-Hunter:2007}{Hunter,
 
 Following Kelly et al.
 (\citeproc{ref-kellyCharacteristicsAre2019}{2019}), I cross-sectionally
-transform the instrument variables period-by-period in the following
-manner: first,
+standardize the instrument characteristics to mitigate their sensitivity
+to outliers. Period-by-period, I rank the cryptocurrencies according to
+each characteristic. Then, I standardize these ranks by dividing them by
+the number of non-missing observations and subtract 0.5. This
+transformation maps each characteristic to the interval \([-0.5, 0.5]\),
+reducing the influence of extreme values while preserving the relative
+ordering across assets. In addition, all characteristics are lagged and
+computed up to time \(t-1\), i.e., one day prior to the return
+prediction, and are calculated on a rolling-window basis when necessary.
+Consequently, the characteristics observed at date \(d-1\) determine the
+exposures associated with the returns realized at date \(d\).
 
-Write this in the following section of ``Empirical application'' or This
-is for the model: 7. (Still undecisive) Minimum cross-section. Following
-the criterion by Kelly, I Convert variables in the -0.5 - 0.5 range
+\section{IPCA asset pricing
+performance}\label{ipca-asset-pricing-performance}
 
-The sample period ranges from January 1st, 2014, to May 31st, 2025.
+I estimate the IPCA model with \(K = 1, \dots, 6\) factors, considering
+the restricted (\(\Gamma_\alpha = \mathbf{0}\)) and the unrestricted
+specification \(\Gamma_\alpha \neq \mathbf{0}\)). Panel A in Table
+\ref{tbl-ipca_results} reports the in-sample performance of the IPCA
+models estimated at the individual cryptocurrency level (\(r_t\)). As
+noted in Chapter~\ref{sec-methodology}, because the IPCA is estimated
+from a least squares criterion, it targets the total \(R\) and the
+latent factors are optimized to capture systematic risk across assets.
+Consequently, increasing the number of factors raises the total \(R\),
+as shown in the table: it starts at 3.87\% for the one-factor model and
+reaches 9.07\% for the six-factor model, with each extra factor
+contributing less to the increase. Allowing for \(\Gamma_\alpha \neq 0\)
+further increases the total \(R\), nearly doubling the values relative
+to the restricted model, although the gap narrows as \(K\) grows.
 
-Implemented in python, based on the IPCA python code
+Turning to the predictive \(R\), the restricted one-factor model shows a
+notably higher value compared to the unrestricted model, but results are
+relatively similar across the other specifications. The total \(R\)
+results indicates that anomaly intercepts help explain return variation.
+However, the minimal increment in predictive \(R\) suggests that
+characteristics, through anomaly intercepts, add little to predicting
+cryptocurrency returns. We confirm this when looking at Table
+\ref{tbl-alphatest}, which reports the \(p\)-values from the
+asset-pricing test of the null hypothesis
+\(\Gamma_\alpha = \mathbf{0}\). Across all values of \(K\), except for
+the 6-factor model, the null cannot be rejected, indicating that anomaly
+intercepts are not statistically significant in explaining returns
+beyond systematic risk exposures.
 
-\textbf{Important}: mention the shift of characteristics: the
-conditional APT of Kelly, Pruitt, Su (JFE 2019) says that the
-characteristics known at Date=d-1 determine the exposures associated
-with the returns realized at Date=d; hence, here we should have shifted
-the characteristics in Z relative to the returns in R
-
-This is a template of the table of the results of the IPCA model. I need
-to add a caption to the table. Here I reference Table
-\ref{tbl-ipca_results}.
-
-\begin{table}
+\begin{table}[h]
 \centering
 \small
 \caption[IPCA in-sample performance.]%
 {%
 \textbf{IPCA in-sample performance.}
-Panels A and B report total and predictive $R^2$ (in percent) for the restricted model ($\Gamma_\alpha = 0$) and the unrestricted model ($\Gamma_\alpha \neq 0$) across different values of $K$ using daily data. Results are based on individual stocks in Panel A and on characteristic-managed portfolios in Panel B. 
+Panels A and B report total and predictive $R$ (in percent) for the restricted model ($\Gamma_\alpha = 0$) and the unrestricted model ($\Gamma_\alpha \neq 0$) across different values of $K$ using daily data. Results are based on individual cryptocurrencies in Panel A and on characteristic-managed portfolios in Panel B. 
 }
 \label{tbl-ipca_results}
 \vspace{5pt} % extra space between caption and tabular
@@ -1490,7 +1524,7 @@ Panels A and B report total and predictive $R^2$ (in percent) for the restricted
 \cmidrule(lr){3-8}
  &  & 1 & 2 & 3 & 4 & 5 & 6 \\
 \midrule\addlinespace[2.5pt]
-\multicolumn{8}{l}{Panel A: Individual stocks ($r_t$)} \\[2.5pt]
+\multicolumn{8}{l}{Panel A: Individual cryptocurrencies ($r_t$)} \\[2.5pt]
 \midrule\addlinespace[2.5pt]
 $R_{\text{total}}$      & $\Gamma_{\alpha} = 0$     & 3.87 & 5.45 & 6.94 & 7.79 & 8.50 & 9.07 \\
                             & $\Gamma_{\alpha} \neq 0$  & 8.11 & 11.72 & 13.27 & 14.45 & 15.30 & 16.00 \\
@@ -1507,13 +1541,91 @@ $R_{\text{pred}}$ & $\Gamma_{\alpha} = 0$     & 14.01 & 14.16 & 12.16 & 12.59 & 
 \end{tabular}
 \end{table}
 
+Panel B shows the results of the model implemented at the portfolio
+level. The results shows that for \(K>2\), the IPCA already explains
+more than \(50%
+\) of the portfolio return variation, reaching a maximum of \(63.19%
+\) for the 6-factor model. In this case, allowing for \(\Gamma_\alpha\)
+also increments significantly the total \(R\); nevertheless, the
+predictive \(R\) is much lower. Accounting for an anomaly intercept
+improves the description of the return variation, but decreases the
+predicting power of returns.
+
+Panel B reports the results at the portfolio level (\(x_t\)). For
+\(K>2\), the IPCA already explains more than 50\% of the variation in
+portfolio returns, reaching a maximum of 63.19\% with the six-factor
+model. Allowing for \(\Gamma_\alpha \neq 0\) increases the total \(R\)
+significantly. However, the predictive \(R\) is much lower in this case:
+while including anomaly intercepts improves the fit in terms of return
+variation, it reduces the model's predictive power for returns.
+
+\begin{table}
+\centering
+\small
+\caption[Asset-pricing test]%
+{%
+\textbf{Asset-pricing test.}
+The table reports bootstrapped $p$-values for testing whether anomaly intercepts explain returns beyond systematic risk exposures. Specifically, the null hypothesis $H_{0}: \Gamma_{\alpha} = \mathbf{0}$ is tested against the alternative $H_{1}: \Gamma_{\alpha} \neq \mathbf{0}$, using $b = 1, \dots, 1000$ bootstrap simulations. Rejecting the null indicates that characteristics contribute to expected returns through anomaly intercepts, in addition to their role in determining exposures to risk.
+}
+\label{tbl-alphatest}
+\vspace{5pt} % extra space between caption and tabular
+\begin{tabular}{lcccccc}
+\toprule
+ & \multicolumn{6}{c}{K} \\
+\cmidrule(lr){2-7}
+ &  1 & 2 & 3 & 4 & 5 & 6 \\
+\midrule\addlinespace[2.5pt]
+$W_\alpha$ $p$-value  & 0.84 & 0.82 & 0.23 & 0.31 & 0.34 & 0.03 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Comparison with other factor
+models}\label{comparison-with-other-factor-models}
+
+Next, I compare the performance of the general IPCA models with IPCA
+models that pre-specify observable factors commonly used in the
+financial literature. Specifically, I consider models with
+\(K=1,\dots,5\) observable factors. The \(K=1\) case corresponds to the
+CAPM using the market factor (CMKT), \(K=2\) adds momentum (MOM), and
+\(K=3\) adds the size factor (SMB) following the cryptocurrency
+three-factor model of Y. Liu et al.
+(\citeproc{ref-liuCommonRisk2022}{2022}), an analogue of the Fama-French
+three-factor model (\citeproc{ref-famaCommonRisk1993}{Fama \& French,
+1993}). The fourth and fifth model add liquidity (LIQ) and volatility
+(VOL), respectively.
+
+Following Kelly et al.
+(\citeproc{ref-kellyCharacteristicsAre2019}{2019}), I estimate two
+versions of these observable factor models. The first is a standard
+time-series regression with static loadings estimated asset by asset.
+The second incorporates cryptocurrency characteristics as instruments
+for the factor loadings, allowing them to vary over time. To ensure
+comparability in terms of risk compensation, all models are estimated
+without an intercept (\(\Gamma_\alpha = \mathbf{0}\)).
+
+Table \ref{tbl-model_comparison} reports the results. Panel A reproduces
+the IPCA fits from earlier, Panel B shows results for the observable
+factor models with static loadings, and Panel C reports results for the
+models with dynamic loadings. Overall, Panel B shows that static
+observable factor models explain much less variation in returns compared
+with IPCA, both for individual cryptocurrencies and for managed
+portfolios. The dynamic version in Panel C performs better, with
+explanatory power close to that of the general IPCA. Total \(R\) is
+slightly higher when observable factors are pre-specified, but
+predictive \(R\) is nearly identical. For example, with \(K=2\), the
+dynamic observable model already explains more than 50\% of portfolio
+return variation. However, as with IPCA, predictive \(R\) declines as
+additional factors are added, both at the individual and portfolio
+level.
+
 \begin{table}
 \centering
 \small
 \caption[IPCA performance compared with observable factor models]%
 {%
 \textbf{IPCA performance compared with observable factor models.}
-The table reports total and predictive $R^2$ (in percent) for the IPCA model in Panel A, observable factor models with static loadings (no instruments) in Panel B, and observable factor models with dynamic loadings (with instruments) in Panel C. Results are shown for $K=1,\dots,5$ factors using both individual stock returns ($r_t$) and characteristic-managed portfolios ($x_t$). Observable specifications include the CAPM with the market factor, followed by models that sequentially add momentum, size, liquidity, and volatility, corresponding to FF2, FF3, FF4, and FF5 for $K=1,\dots,5$. 
+The table reports total and predictive $R$ (in percent) for the IPCA model in Panel A, observable factor models with static loadings (no instruments) in Panel B, and observable factor models with dynamic loadings (with instruments) in Panel C. Results are shown for $K=1,\dots,5$ factors using both individual cryptocurrency returns ($r_t$) and characteristic-managed portfolios ($x_t$). Observable models start with the CAPM using the market factor ($K=1$) and sequentially add momentum, size, liquidity, and volatility, yielding $K$-factor models for $K=1,\dots,5$. 
 
 }
 \label{tbl-model_comparison}
@@ -1530,7 +1642,7 @@ $r_t$ & $R_{\text{total}}$ & 3.87 & 5.45 & 6.94 & 7.79 & 8.50 \\
       & $R_{\text{pred}}$  & 1.33 & 1.35 & 1.19 & 1.24 & 1.25 \\
 $x_t$ & $R_{\text{total}}$ & 41.98 & 46.18 & 57.62 & 59.05 & 60.68 \\
       & $R_{\text{pred}}$  & 14.01 & 14.16 & 12.16 & 12.59 & 12.65 \\
-\\[1pt]
+%\\[1pt]
 \midrule
 \multicolumn{7}{l}{Panel B: Observable factors: static loadings} \\
 \midrule
@@ -1538,10 +1650,10 @@ $r_t$ & $R_{\text{total}}$ & 0.41 & 1.18 & 1.68 & 1.90 & 1.96 \\
       & $R_{\text{pred}}$  & 0.02 & 0.51 & 0.72 & 0.80 & 0.81 \\
 $x_t$ & $R_{\text{total}}$ & 5.31 & 16.75 & 25.04 & 28.59 & 30.10 \\
       & $R_{\text{pred}}$  & 0.03 & 5.62 & 8.44 & 9.50 & 9.60 \\
-\\[1pt]
+%\\[1pt]
 \midrule
 \multicolumn{7}{l}{Panel C: Observable factors: dynamic loadings} \\
-\midrule\\[1pt]
+\midrule
 $r_t$ & $R_{\text{total}}$ & 4.17 & 5.85 & 7.20 & 8.12 & 8.84 \\
       & $R_{\text{pred}}$  & 1.33 & 1.36 & 1.19 & 1.25 & 1.25 \\
 $x_t$ & $R_{\text{total}}$ & 44.90 & 50.71 & 59.98 & 61.83 & 63.66 \\
@@ -1550,56 +1662,36 @@ $x_t$ & $R_{\text{total}}$ & 44.90 & 50.71 & 59.98 & 61.83 & 63.66 \\
 \end{tabular}
 \end{table}
 
-\begin{table}
-\centering
-\small
-\caption[EDIT]%
-{%
-\textbf{EDIT.}
-Change description
-}
-\label{tbl-model_comparison}
-\vspace{5pt} % extra space between caption and tabular
-\begin{tabular}{lcccccc}
-\toprule
-\multicolumn{1}{c}{Observ.} & \multicolumn{6}{c}{$K$} \\
-\cmidrule(lr){2-7}
-factors & 1 & 2 & 3 & 4 & 5 & 6 \\
-\midrule
-\multicolumn{7}{l}{Panel A: Total $R$} \\
-\midrule
-0 & 3.87 & 5.45 & 6.94 & 7.79 & 8.50 & 9.07 \\ 
-1 & 4.17 & 5.73 & 7.01 & 7.86 & 8.56 & 9.12 \\
-3 & 4.50 & 5.97 & 7.20 & 8.05 & 8.75 & 9.28 \\
-5 & 4.63 & 6.09 & 7.31 & 8.15 & 8.84 & 9.37 \\
-\midrule
-\multicolumn{7}{l}{Panel B: Predictive $R$} \\
-\midrule
-0 & 1.33 & 1.35 & 1.19 & 1.24 & 1.25 & 1.24 \\
-1 & 1.33 & 1.36 & 1.19 & 1.24 & 1.25 & 1.24 \\
-3 & 1.31 & 1.36 & 1.19 & 1.24 & 1.25 & 1.25 \\
-5 & 1.30 & 1.36 & 1.19 & 1.25 & 1.25 & 1.25 \\
-\midrule
-\multicolumn{7}{l}{Panel C: Dummy results} \\
-\midrule
-CMKT & 0.093 & 0.036 & 0.365 & 0.127 & 0.108 & 0.045 \\
-MOM & 0.937 & 0.998 & 0.976 & 0.789 & 0.316 & 0.131 \\
-SIZE & 0.907 & 0.803 & 0.341 & 0.068 & 0.007 & 0.015 \\
-LIQ & 0.008 & 0.01 & 0.004 & 0.003 & 0.00 & 0.00 \\
-VOL & 0.033 & 0.018 & 0.012 & 0.011 & 0.005 & 0.003 \\
-\bottomrule
-\end{tabular}
-\end{table}
+Table \ref{tbl-dynamic-models} analyzes the contribution of including
+observable factors in the general IPCA specification. In addition to
+pre-specifying observable factors, the IPCA can extract additional
+latent factors from the panel of cryptocurrency characteristics, with
+both latent and observable factors instrumented by these characteristics
+at the individual level. For example, the model with one observable
+factor and \(K=1\) uses the market factor as observable but instruments
+its loading with asset characteristics, while the model with \(K=3\)
+incorporates two additional latent factors. The row labeled 0
+corresponds to the general IPCA, while rows 1, 3, and 5 correspond to
+models with the 1-, 3-, and 5-factor specifications described earlier.
+Panel A shows that adding observable factors improves the total \(R\),
+rising from 3.87\% to 4.50\% when the market factor is added at \(K=1\).
+For larger \(K\), more than one observable factor is needed for a
+noticeable gain in model fit, but the improvements fades beyond three
+pre-specified factors, suggesting that additional ones are redundant. By
+contrast, Panel B shows that observable factors have little impact on
+predictive performance, as results are nearly identical across
+specifications, indicating that the general IPCA already captures most
+of the predictive power for cryptocurrency returns.
 
 \begin{table}
 \centering
 \small
-\caption[EDIT]%
+\caption[IPCA with observable factors]%
 {%
-\textbf{EDIT}
-EDIT. 
+\textbf{IPCA with observable factors.}
+The table reports total and predictive $R$ (in percent) for different IPCA specifications with varying numbers of latent factors $K$. The row labeled 0 corresponds to the general IPCA, with all $K$ factors latent. Rows labeled 1, 3, and 5 correspond to the CAPM, the cryptocurrency 3-factor model, and the 5-factor model, respectively, while still allowing for $K$ latent factors. All models are estimated without an intercept ($\Gamma_\alpha = \mathbf{0}$) at the individual cryptocurrency level.
 }
-\label{tbl-model_comparison_AB}
+\label{tbl-dynamic-models}
 \vspace{5pt} % extra space between caption and tabular
 \begin{tabular}{lcccccc}
 \toprule
@@ -1624,17 +1716,30 @@ factors & 1 & 2 & 3 & 4 & 5 & 6 \\
 \end{tabular}
 \end{table}
 
-Delta test
+Table \ref{tbl-delta-test} reports hypothesis tests of the incremental
+explanatory power of including observable factors in the IPCA
+specification. Specifically, it tests the null
+\(H_0:\Gamma_\delta = \mathbf{0}_{L \times M}\), which tests whether a
+pre-specified factor \(g\) does not improve the overall model fit after
+controlling for the latent factors. The results show that, at the 5\%
+level, the LIQ and VOL factors consistently provide statistically
+significant improvements across all \(K\) models. SMB becomes
+significant only in the 5- and 6-factor models, while CMKT is
+significant for \(K=2\) and \(K=6\). In contrast to previous findings in
+the literature (\citeproc{ref-liuCommonRisk2020}{W. Liu et al., 2020};
+\citeproc{ref-liuCommonRisk2022}{Y. Liu et al., 2022}), the momentum
+factor (MOM) does not show statistical significance in any of the
+models.
 
 \begin{table}
 \centering
 \small
-\caption[Individual significance test]%
+\caption[Individual significance tests for observable factors]%
 {%
-\textbf{EDIT}
-EDIT
+\textbf{Individual significance tests for observable factors.}
+The table reports $p$-values from Wald-type tests of the incremental explanatory power of pre-specified observable factors, after controlling for the latent IPCA factors. Results are shown for $K=1,\dots,6$ latent factors. Reported $p$-values test the null hypothesis $H_0:\Gamma_\delta = \mathbf{0}_{L \times M}$, i.e., that the observable factor does not improve model fit once latent IPCA factors are included. Both latent and observable loadings are instrumented with characteristics. Green shading indicates statistical significance at the 5\% level. Tests are based on $b = 1, \dots, 1000$ bootstrap simulations.
 }
-\label{tbl-model_comparison_C}
+\label{tbl-delta-test}
 \vspace{5pt} % extra space between caption and tabular
 \begin{tabular}{lcccccc}
 \toprule
@@ -1644,16 +1749,42 @@ factor & 1 & 2 & 3 & 4 & 5 & 6 \\
 \midrule
 CMKT & 0.093 & \cellcolor{green!20}0.036 & 0.365 & 0.127 & 0.108 & \cellcolor{green!20}0.045 \\
 MOM  & 0.937 & 0.998 & 0.976 & 0.789 & 0.316 & 0.131 \\
-SIZE & 0.907 & 0.803 & 0.341 & 0.068 & \cellcolor{green!20}0.007 & \cellcolor{green!20}0.015 \\
+SMB & 0.907 & 0.803 & 0.341 & 0.068 & \cellcolor{green!20}0.007 & \cellcolor{green!20}0.015 \\
 LIQ  & \cellcolor{green!20}0.008 & \cellcolor{green!20}0.010 & \cellcolor{green!20}0.004 & \cellcolor{green!20}0.003 & \cellcolor{green!20}0.000 & \cellcolor{green!20}0.000 \\
 VOL  & \cellcolor{green!20}0.033 & \cellcolor{green!20}0.018 & \cellcolor{green!20}0.012 & \cellcolor{green!20}0.011 & \cellcolor{green!20}0.005 & \cellcolor{green!20}0.003 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-OOS predictions
+\section{Out-of-sample performance}\label{out-of-sample-performance}
 
-\begin{table}
+The previous analysis has been based on in-sample estimates, where IPCA
+factors and loadings are obtained from the full panel of cryptocurrency
+returns and evaluated on the same data. However, since good in-sample
+fits does not generally imply good forecasting ability. For that reason,
+I analyze the out-of-sample performance of the model specifications
+discussed earlier.
+
+Following the methodology of Kelly et al.~(2019), I implement recursive
+forecasts to evaluate the out-of-sample performance of the model. At
+each step, the model is estimated using data available up to time \(t\)
+and then used to predict returns at \(t+1\). In this setting, the IPCA
+model provides \(\hat{\Gamma}_{\beta,t}\), which maps characteristics
+into factor loadings based only on information up to time \(t\). Using
+this estimate, the realized factor return is obtained as \[
+\hat{f}_{t+1,t} = \left( \hat{\Gamma}_\beta' Z_t' Z_t \hat{\Gamma}_\beta \right)^{-1} \hat{\Gamma}_\beta' Z_t' r_{t+1}
+\] which, combined with \(\hat{\Gamma}_{\beta,t}\), generate the
+predicted return: \[
+\hat r_{t+1} = Z_t \hat{\Gamma}_{\beta,t} \hat{f}_{t+1,t}.
+\] The sample is then expanded to include \(t+1\), the model is
+re-estimated, and returns at \(t+2\) are predicted, and so on. The first
+prediction is made on June 1, 2023, using data from June 1, 2018 to May
+31, 2023 as the training sample. This starting point corresponds to
+about 70\% of the available data (1826 days). The recursive procedure
+continues until July 31, 2025, producing one-step-ahead forecasts for
+each day.
+
+\begin{table}[h]
 \centering
 \small
 \caption[Out-of-sample asset pricing performance]%
@@ -1661,7 +1792,7 @@ OOS predictions
 \textbf{Out-of-sample asset pricing performance.}
 The table reports out-of-sample total and predictive $R^2$ (in percent) for the IPCA model in Panel A, observable factor models with static loadings in Panel B, and with dynamic loadings in Panel C. Results are shown for $K=1,\dots,6$ factors using both individual cryptocurrency returns ($r_t$) and characteristic-managed portfolios ($x_t$). Observable models start with a CAPM using the market factor ($K=1$) and sequentially add momentum, size, liquidity, and volatility ($K=2,\dots,5$). Out-of-sample performance is based on a recursive scheme with an initial training sample from June 1, 2018 to May 31, 2023, and day-by-day forecasts for the remaining period (about 30\%) until July 31, 2025. All values are reported in percent.
 }
-\label{tbl-model_comparison}
+\label{tbl-oos-comparison}
 \vspace{5pt} % extra space between caption and tabular
 \begin{tabular}{llcccccc}
 \toprule
@@ -1671,11 +1802,10 @@ Test assets & Statistic & \multicolumn{6}{c}{K} \\
 \midrule
 \multicolumn{8}{l}{Panel A: IPCA} \\
 \midrule
-$r_t$ & $R_{\text{total}}$ & 2.70  & 3.60  & 4.95   & 5.60  & 6.08  & 6.19 \\
-      & $R_{\text{pred}}$  & 0.52  & 0.48  & 0.06   & 0.11  & 0.12  & -0.02 \\
-$x_t$ & $R_{\text{total}}$ & 30.50 & 35.07 & 57.41  & 58.31 & 60.00 & 62.70 \\
-      & $R_{\text{pred}}$  & -1.86 & -3.14 & -10.34 & -9.43 & -9.07 & -9.62 \\
-\\[1pt]
+$r_t$ & $R_{\text{total}}$ & 2.70  & 3.60  & 4.95   & 5.60  & 6.08  & 6.46 \\
+      & $R_{\text{pred}}$  & 0.52  & 0.48  & 0.06   & 0.11  & 0.12  & 0.11 \\
+$x_t$ & $R_{\text{total}}$ & 30.50 & 35.07 & 57.41  & 58.31 & 60.00 & 62.34 \\
+      & $R_{\text{pred}}$  & -1.86 & -3.14 & -10.34 & -9.43 & -9.07 & -9.24 \\
 \midrule
 \multicolumn{8}{l}{Panel B: Observable factors: static loadings} \\
 \midrule
@@ -1683,7 +1813,6 @@ $r_t$ & $R_{\text{total}}$ & 0.53  & 0.78  & 1.08  & 1.12  & 1.15 & \\
       & $R_{\text{pred}}$  & 0.02  & 0.01  & 0.01  & 0.01  & 0.01 & \\
 $x_t$ & $R_{\text{total}}$ & 16.71 & 21.43 & 25.72 & 27.26 & 28.29 & \\
       & $R_{\text{pred}}$  & 0.02  & 0.07  & 0.09  & 0.10  & 0.10 & \\
-\\[1pt]
 \midrule
 \multicolumn{8}{l}{Panel C: Observable factors: dynamic loadings} \\
 \midrule
@@ -1695,10 +1824,83 @@ $x_t$ & $R_{\text{total}}$ & 43.40 & 48.54 & 58.96 & 59.97 & 61.55 & \\
 \end{tabular}
 \end{table}
 
-\section{Which characteristics
-matter?}\label{which-characteristics-matter}
+Table \ref{tbl-oos-comparison} report the out-of-sample total and
+predictive \(R\). Overall, although the values are lower, the results
+are relatively similar to the in-sample fits when looking at the
+individual cryptocurrency level. The total and predictive \(R\) are
+considerably larger in the dynamic models, both IPCA and with observable
+factors, compared to the static one, whose predictive \(R\) are nearly
+0. For IPCA, the total \(R\) declines when \(K > 2\), while for the
+dynamic observable factor model this decline occurs when \(K > 3\). The
+two dynamic models perform similarly overall, except for the observable
+factor model with \(K=3\), which produces a relatively high predictive
+\(R\) of 0.80. At the portfolio level, however, both dynamic models
+perform poorly, as their predictive \(R\) values are negative. This
+suggests that they fail to capture portfolio returns and that simple
+mean-based forecasts would provide more better predictions.
 
-Here reference Figure~\ref{fig-charsheatmap}
+\section{Significant characteristics}\label{significant-characteristics}
+
+In this thesis, I include 41 observable cryptocurrency characteristics
+to instrument for the factor loadings in the IPCA model. Of course, many
+more potential characteristics exist (see Y. Liu et al.
+(\citeproc{ref-liuCommonRisk2022}{2022}); Mercik et al.
+(\citeproc{ref-mercikCrosssectionalInteractionsCryptocurrency2025}{2025});
+Bianchi \& Babiak
+(\citeproc{ref-bianchiMispricingRiskCompensation2021}{2021b})). Kelly et
+al. (\citeproc{ref-kellyCharacteristicsAre2019}{2019}) introduce a
+statistical test in the IPCA framework to analyze the marginal
+contribution of each individual characteristic to the overall model fit
+(see Section~\ref{sec-char-test}), while controlling for all others. As
+before, the Beta bootstrap test is computed using \(b=1, \dots, 1000\)
+bootstrap simulations. This test helps to examine whether a certain
+characteristic is redundant or irrelevant for the asset-pricing model.
+
+Figure~\ref{fig-charsheatmap} shows which characteristics are
+statistically significant contributing to the model fit across different
+\(K\) factor specifications. In total, 10 characteristics are
+significant at the 1\% level in at least one specification (beta,
+retvol, r7\_1, r14\_1, r30\_1, r30\_14, alpha, skew\_7d, maxret\_7d, and
+miret\_7d), and 16 at the 5\% level. Most of these belong to the past
+returns category (6) and the distribution category (4). My findings are
+consistent with Bianchi \& Babiak
+(\citeproc{ref-bianchiMispricingRiskCompensation2021}{2021b}), who also
+report characteristics such as the CAPM beta, maximum return, and
+momentum to be statistically significant. Following Kelly et al.
+(\citeproc{ref-kellyCharacteristicsAre2019}{2019}), I test whether
+restricting the model to only the set of significant characteristics
+produces similar explanatory power as the full model with all 41
+characteristics instrumenting the latent factor loadings. As shown in
+Table \ref{tbl-ipca_signchars}, the restricted model performs nearly the
+same as the full specification. This result is consistent with Kelly et
+al. (\citeproc{ref-kellyCharacteristicsAre2019}{2019}), who demonstrate
+that the IPCA can successfully extract systematic risk exposures from a
+relatively small number of characteristics, while many others are
+largely redundant to the model fit.
+
+\begin{table}[h]
+\centering
+\small
+\caption[IPCA fits using significant instruments]%
+{%
+\textbf{IPCA fits using significant instruments.}
+The table reports total and predictive $R$ (in percent) for the restricted model ($\Gamma_\alpha = 0$) and the unrestricted model ($\Gamma_\alpha \neq 0$) across different values of $K$. Only the ten characteristics found significant at the 1\% level are used as instruments. Results are based on individual cryptocurrency returns.
+}
+\label{tbl-ipca_signchars}
+\vspace{5pt} % extra space between caption and tabular
+\begin{tabular}{lccccccc}
+\toprule
+ &  & \multicolumn{6}{c}{K} \\
+\cmidrule(lr){3-8}
+ &  & 1 & 2 & 3 & 4 & 5 & 6 \\
+\midrule\addlinespace[2.5pt]
+$R_{\text{total}}$      & $\Gamma_{\alpha} = 0$     & 3.36 & 4.70 & 5.79 & 6.59 & 7.28 & 7.65 \\
+                        & $\Gamma_{\alpha} \neq 0$  & 7.96 & 11.07 & 12.20 & 13.20 & 13.99 & 14.68 \\
+$R_{\text{pred}}$       & $\Gamma_{\alpha} = 0$     & 0.99 & 0.80 & 0.94 & 0.97 & 0.97 & 0.96 \\
+                        & $\Gamma_{\alpha} \neq 0$  & 0.23 & 1.05 & 0.96 & 1.02 & 1.05 & 1.05 \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \begin{figure}[h]
 
@@ -1713,7 +1915,7 @@ characteristics]{\label{fig-charsheatmap}\textbf{Significant
 characteristics}. The figure shows which cryptocurrency characteristics
 are significant in explaining factor loadings across IPCA models with
 \(K=1,\dots,6\) latent factors in the restricted specification
-\(\Gamma_\_alpha = \mathbf{0}\). The null hypothesis is that the
+\(\Gamma_\alpha = \mathbf{0}\). The null hypothesis is that the
 coefficients for a characteristic, \(\Gamma_{\beta,l}\), are zero,
 meaning it has no effect after controlling for the other
 characteristics. Colors indicate significance at the 1\%, 5\%, and 10\%
@@ -1721,10 +1923,41 @@ levels based on Wald-type tests.}
 
 \end{figure}%
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+\begin{figure}[h]
 
-\textbf{Inline LaTeX way inside Quarto}\\
-Here we see the summary statistics in Table \ref{tbl-letters}.
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{pictures/gammas_K2.png}}
+
+}
+
+\caption[Characteristic contribution in 2-factor
+model\$]{\label{fig-gammasK2}\textbf{Characteristic contribution in
+2-factor model.} The figure shows the \(\Gamma_\beta\) coefficient
+estimates from the model with \(K=2\) factors. Characteristics are
+grouped by category, with each category shown in a different color. The
+model is estimated without an intercept and at the individual
+cryptocurrency level.}
+
+\end{figure}%
+
+\begin{figure}[h]
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{pictures/gammas_K4.png}}
+
+}
+
+\caption[Characteristic contribution in 4-factor
+model]{\label{fig-gammasK4}\textbf{Characteristic contribution in
+4-factor model.} The figure shows the \(\Gamma_\beta\) coefficient
+estimates from the model with \(K=4\) factors. Characteristics are
+grouped by category, with each category shown in a different color. The
+model is estimated without an intercept and at the individual
+cryptocurrency level.}
+
+\end{figure}%
 
 \bookmarksetup{startatroot}
 

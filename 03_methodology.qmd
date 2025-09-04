@@ -95,14 +95,14 @@ Although the main focus of this thesis is on explaining the relationship between
 
 @kellyCharacteristicsAre2019 propose two metrics to evaluate and compare the asset pricing performance of the IPCA model across different choices of $K$ factors and between restricted and unrestricted specifications. These measures are referred to as the total $R^2$ and the predictive $R^2$. However, since both statistics can take negative values ---although “$R^2$” suggests non-negative values---I refer to them here as simply the "total R" and the "predictive R". 
 
-The total R measures the overall fit of the IPCA model by quantifying how much of the variation in realized returns can be explained by the estimated factors and conditional loadings. It is defined as 
+The total R measures the overall fit of the IPCA model by quantifying how much of the variance in returns can be explained by the estimated factor realizations and dynamic conditional loadings. It is defined as 
 
 $$
 R_\text{total} = 1 - 
 \frac{\sum_{i,t} \left(r_{i,t+1} - z_{i,t}'(\hat{\Gamma}_\alpha + \hat{\Gamma}_\beta \hat{f}_{t+1})\right)^2}
 {\sum_{i,t} r_{i,t+1}^2}.
 $$  
-The predictive R measures how much of the variation in realized returns is explained by the model’s conditional expected returns, obtained by replacing realized factors with the estimated risk prices $\hat \lambda$. It is defined as  
+The predictive R measures how much of the variation in realized returns is explained by the model’s description of conditional expected returns, obtained by replacing realized factors with the estimated risk prices $\hat \lambda$. It is defined as  
 
 $$
 R_\text{pred} = 1 - 
@@ -111,7 +111,7 @@ R_\text{pred} = 1 -
 $$  
 In the restricted specification ($\Gamma_\alpha = 0$), the predictive R describes how well characteristics explain expected returns only through their effect on factor loadings, that is, through systematic risk exposures. In the unrestricted specification, the predictive R measures how well characteristics explain expected returns both through factor loadings and through anomaly intercepts.
 
-As noted by @kellyCharacteristicsAre2019, since the IPCA model is estimated using a least squares criterion, it directly targets the total R. As a result, the factors that IPCA identifies are optimized to capture systematic risk variation across assets, but they are not specifically designed to maximize the predictive R. This means that while the model can provide a strong description of risk exposures, its performance may weaker when explaining average returns.
+As noted by @kellyCharacteristicsAre2019, since the IPCA model is estimated using a least squares criterion, it directly targets the total R. As a result, the factors that IPCA identifies are optimized to capture systematic risk variation across assets, but they are not specifically designed to maximize the predictive R. This means that while the model can provide a strong description of risk exposures, its performance may be weaker when explaining average returns.
 
 ## Hypothesis tests 
 
@@ -147,7 +147,7 @@ $$
 $$
 Finally, the empirical $p$-value is obtained as the fraction of bootstrap statistics $\tilde W_\alpha^b$ that exceed the observed value $W_\alpha$ from the actual data.
 
-#### Testing instruments significance
+#### Testing instruments significance {#sec-char-test}
 
 This test evaluates whether a specific characteristic significantly contributes to factor loadings after controlling for all other characteristics. The analysis is based on the restricted model with $\Gamma_\alpha = 0$, where the goal is to assess whether the $l^{th}$ characteristic helps explain the conditional loadings $\beta_{i,t}$. For this, first, the loading matrix is written as
 $$
@@ -166,6 +166,9 @@ $$
 W_{\beta,l} = \hat\gamma^\prime_{\beta,l}\hat\gamma_{\beta,l}
 $$
 Inference is based on the same residual bootstrap procedure as in the alpha test. One thousand bootstrap samples are generated under the null hypothesis that the $l^{th}$ characteristic has no effect on factor loadings, the portfolio returns is re-estimated for each sample, and the corresponding statistics $\tilde W_{\beta,l}^b$ are computed. The $p$-value is obtained as the fraction of bootstrap statistics that exceed the observed $W_{\beta,l}$.
+
+\
+\
 
 #### Testing pre-specified factors
 
